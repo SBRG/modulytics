@@ -1,202 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title> ModulomeVis </title>
-    <!-- Metadata -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <!-- Personal Style Preferences -->
-    <style>
-      h6 {
-        text-align: center;
-      }    
-      td {
-        font-size: 10px;
-      }
-      th {
-        font-size: 12px;
-      }
-    </style>
-    
+    <head>
+        <title> ModulomeVis | Plot Development Home </title>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
   
-  <body>
-    <!-- Nav Bar -->
-    <nav class="navbar sticky-top navbar-expand-md bg-light">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">ModulomeVis</a>
+    <body>
+        <!-- Main div -->
+        <!-- Lists each development page as links -->
+        <div id="main" class="container-fluid">
+            
+            <h2 style="text-align:center;">Modulome Vis: Plot Development Home</h2>
+            <hr />
+            
+            <a href="plot_dev/1_glpR_example/glpR_example.html" role="button" class="btn btn-primary btn-block">
+                Example I-modulon Page </a>
+            <hr />
+            
+            <a href="plot_dev/gene_table/gene_table.html" role="button" class="btn btn-info btn-block">
+                Gene Tables </a>
+            <a href="plot_dev/gene_histogram/gene_histogram.html" role="button" class="btn btn-info btn-block">
+                Gene Histograms </a>
+            <a href="plot_dev/gene_scatter/gene_scatter.html" role="button" class="btn btn-info btn-block">
+                Gene Scatter Plots </a>
+            <a href="plot_dev/activity_bar/activity_bar.html" role="button" class="btn btn-info btn-block">
+                Activity Plots </a>
+            <a href="plot_dev/activity_table/activity_table.html" role="button" class="btn btn-info btn-block">
+                Activity Tables </a>  
+            <a href="plot_dev/regulon_venn/regulon_venn.html" role="button" class="btn btn-info btn-block">
+                Regulon Venns </a>   
+            <a href="plot_dev/regulon_scatter/regulon_scatter.html" role="button" class="btn btn-info btn-block">
+                Regulon Scatter Plots </a>         
+            <a href="plot_dev/regulon_meme/regulon_meme.html" role="button" class="btn btn-info btn-block">
+                MEME Motifs </a>
+            
+            <hr />
         </div>
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarOrganism" data-toggle="dropdown">
-            E. coli </a>
-            <div class="dropdown-menu" aria-labelledby="navbarOrganism">
-              <a class="dropdown-item" href="#">E. coli Home</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">B. subtilis</a>
-              <a class="dropdown-item" href="#">S. aureus</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#"id="navbarData" data-toggle="dropdown">
-            I-modulons</a>
-            <div class="dropdown-menu" aria-labelledby="navbarData">
-              <a class="dropdown-item" href="#">About</a>
-              <a class="dropdown-item" href="#">Organism Metadata</a>
-              <a class="dropdown-item" href="#">Genes</a>
-            </div>
-          </li>
-          <li class="nav-item active"><a class="nav-link active">GlpR</a></li>
-        </ul>
         
-      </div>
-    </nav>
-  
-  
-    <!-- Main Body -->
-    
-    <div class="container-fluid">
-      <h3> GlpR I-modulon <small> E. coli </small> </h3>
-      <p> <b> Regulated by:</b> <a href="#">GlpR</a></p>
-      <p> <b> Function:</b> Glycerol catabolism </p>
-  
-      <hr />
-        
-      <!-- Gene information row -->
-      <h4 align="center"> 
-        Genes
-      </h4>
-        
-      <div class="row">
-        <div class="col-md-5" id="GeneTable">
-          <h6>Gene Table </h6>
-          <!-- https://mdbootstrap.com/docs/jquery/tables/scroll/ -->
-          <table class="table table-hover table-sm" id="CsvParse"> </table>
-        </div>
-        <div class="col-md-3">
-          <h6>Gene Weight Histogram </h6>
-        </div>
-        <div class="col-md-4">
-          <h6>Expression/Weight Scatterplot </h6>
-        </div>
-      </div>
-      
-      <hr />
-        
-      <!-- Activity profile row -->
-      <h4 align="center"> 
-        Activity
-      </h4>
-        
-      <div class="row">
-        <div class="col-md-1"> </div>
-        <div class="col-md-10">
-          <h6> Activity Profile </h6>
-        </div>
-        <div class="col-md-1"> </div>
-      </div>
-        
-      <hr />
-        
-      <!-- Regulation row --> 
-      <!-- Note that these will need to resize/disappear if parts are unavailable -->
-      <h4 align="center"> 
-        Regulation
-      </h4>
-        
-      <div class="row">
-        <div class="col-md-4">
-          <h6>Venn Diagram </h6>
-        </div>
-        <div class="col-md-4">
-          <h6>Regulator Expression/Activity Scatterplot</h6>
-        </div>
-        <div class="col-md-4" id="MEME">
-          <h6>MEME Motif </h6>
-        </div>
-      </div>
-        
-      <hr />
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <p class="copyright text-muted small">
-              ModulomeVis is maintained by the Systems Biology Research Group at the University of California, San Diego. <br/>
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
-    
-    <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-    <!-- My scripts -->
-    <script src="MyCsvToTable.js"></script>
-    <script>
-      getCSVtext("glpR_genes.csv", "CsvParse");
-    </script>
-    
-
-  </body>
-  
-    
+        <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
 </html>
-
-<!-- 
-Footer from BiGG
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-5">
-            <a href="http://systemsbiology.ucsd.edu/">
-              <img class="img-responsive footer-image"
-                style="max-width: 100%;"
-                src="sbrg-logo.png">
-            </a>
-          </div>
-          <div class="col-md-2">
-            <a href="http://www.biosustain.dtu.dk/">
-              <img class="img-responsive footer-image"
-                style="max-width: 100%;"
-                src="cfb-logo.png">
-            </a>
-          </div>
-          <div class="col-md-5">
-            <a href="http://www.ucsd.edu/">
-              <img class="img-responsive footer-image"
-                style="max-width: 100%;"
-                src="ucsd-logo.png">
-            </a>
-          </div>
-        </div>
-        <div class="text-center">
-          <a href="https://novonordiskfonden.dk/en/">
-            <img class="img-responsive footer-image"
-              style="max-width: 65%;"
-              src="nnf-logo.jpg"
-            >
-          </a>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <p class="copyright text-muted small">
-              ModulomeVis is maintained by the Systems Biology Research Group at the University of California, San Diego. <br/>
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
--->
