@@ -2,6 +2,9 @@
     Generates .csv files to be read by regulon_venn.js for ModulomeVis site
 """
 
+#import
+import pandas as pd
+
 def gene_hist_df(ica_data, k):
     tf = enrich.TF[k]
 
