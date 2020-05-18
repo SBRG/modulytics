@@ -6,8 +6,8 @@
 import pandas as pd
 
 
-def regulon_venn_df(ica_data, k):
-    tf = enrich.TF[k]
+def regulon_venn_df(ica_data, k, row):
+    tf = row['TF']
 
     # Take care of and/or enrichments
     if '+' in tf:
