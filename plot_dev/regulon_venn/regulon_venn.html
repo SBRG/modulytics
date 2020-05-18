@@ -30,33 +30,42 @@
         <script src="https://code.highcharts.com/highcharts.src.js"></script>
         <script src="https://code.highcharts.com/modules/data.src.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+        <script src="https://code.highcharts.com/modules/venn.src.js"></script>
         
         
         <!-- REPLACE: JS file -->
-        <script src="gene_table.js"></script> 
+        <script src="regulon_venn.js"></script>
         
         <!-- Make plots -->
         <script>
+
+            // recursively make all plots
+            async function get_and_plot(k) {
+
+                // REPLACE: csv file suffix
+                await $.get('data/'+k+'_regulon_venn.csv', function(data) {
+
+                // REPLACE: function name
+                generateVenn(data, 'fig'+k)
+                })
+            };
+
             // generate all divs
             for (k = 0; k < 92; k++) {
                 $('#main_div').append('<h4>'+k+'</h4>')
-                $('#main_div').append($('<div/>', {id: 'fig'+k, 'style': 'width: 400px;height: 300px;'}));
+                $('#main_div').append($('<div/>', {id: 'fig'+k, 'style': 'width: 400px;height: 300px;'}))
+                get_and_plot(k);
             }
-            // recursively make all plots
-            function get_and_plot(k) {
-            
-                // REPLACE: csv file suffix
-                $.get('data/'+k+'_regulon_venn.csv', function(data) {
-                
-                    // REPLACE: function name
-                    generateVenn(data, 'fig'+k)
-                    if (k < 91) {
-                        k++;
-                        get_and_plot(k);
-                    }
-                })
-            };
-            get_and_plot(0);
+            // // recursively make all plots
+            // async function get_and_plot(k) {
+            //
+            //     // REPLACE: csv file suffix
+            //     await $.get('data/'+k+'_regulon_venn.csv', function(data) {
+            //
+            //     // REPLACE: function name
+            //     generateVenn(data, 'fig'+k)
+            //     })
+            // };
         </script>
     </body>
 </html>

@@ -8,7 +8,7 @@
 
     // See if csvContent is null
     if (! csvContent){
-        return;
+        return ('No Data');
     }
 
     // get the data
@@ -37,17 +37,17 @@
          type: 'venn',
          name: 'Regulon Venn Diagram',
          data: [{
-           sets: ['Regulon Genes'],
-           color: '#15c70c',
-           opacity: 0.6,
-           index: 2,
-           value: regulon
-         }, {
            sets: ['i-Modulon Genes'],
            color: '#2085e3',
            opacity: 0.6,
            index: 1,
            value: imodulon
+         }, {
+           sets: ['Regulon Genes'],
+           color: '#15c70c',
+           opacity: 0.6,
+           index: 2,
+           value: regulon
          }, {
            sets: ['Regulon Genes', 'i-Modulon Genes'],
            value: overlap,
