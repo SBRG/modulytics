@@ -46,10 +46,10 @@
             function get_and_plot(k) {
             
                 // REPLACE: csv file suffix
-                $.get('data/'+k+'_gene_table.csv', function(data) {
+                $.get('data/'+k+'_regulon_venn.csv', function(data) {
                 
                     // REPLACE: function name
-                    generateGeneTable(data, 'fig'+k)
+                    generateVenn(data, 'fig'+k)
                     if (k < 91) {
                         k++;
                         get_and_plot(k);

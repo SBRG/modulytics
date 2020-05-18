@@ -5,26 +5,22 @@
  */
 
  function generateVenn(csvContent, container) {
+
+    // See if csvContent is null
+    if (! csvContent){
+        return;
+    }
+
     // get the data
     var data = Papa.parse(csvContent).data;
 
-    // bins
-    var bins = data[0].slice(1).map(x=>parseFloat(x).toFixed(3));
-    var binsize = parseFloat(bins[1]) - parseFloat(bins[0]);
-
-    //thresholds and number of series
-    var thresh1 = parseFloat(data[1][1]);
-    var thresh2 = parseFloat(data[1][2]);
-    var num_series = parseInt(data[1][3]);
-
-    // get bar height data
-    var bar_heights = [[null].concat(bins)]
-    for (i = 0; i < num_series; i++) {
-        bar_heights[i+1] = [data[i+2][0]].concat(data[i+2].slice(1).map(x=>+x));
-    }
+    // gene counts (leaving out operons for now)
+    var regulon = parseFloat(data[1][1]);
+    var imodulon = parseFloat(data[2][1]);
+    var overlap = parseFloat(data[3][1]);
 
     // set up plot
-    var myChart = Highcharts.chart('container', {
+    var myChart = Highcharts.chart(container, {
        accessibility: {
          point: {
            descriptionFormatter: function (point) {
@@ -45,16 +41,16 @@
            color: '#15c70c',
            opacity: 0.6,
            index: 2,
-           value: 3
+           value: regulon
          }, {
            sets: ['i-Modulon Genes'],
            color: '#2085e3',
            opacity: 0.6,
            index: 1,
-           value: 3
+           value: imodulon
          }, {
            sets: ['Regulon Genes', 'i-Modulon Genes'],
-           value: 2,
+           value: overlap,
            index: 3,
            color: '#3de3e0',
            opacity: 0.6,
