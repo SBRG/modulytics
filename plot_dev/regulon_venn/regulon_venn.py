@@ -6,7 +6,7 @@
 import pandas as pd
 
 
-def gene_venn_df(ica_data, k):
+def regulon_venn_df(ica_data, k):
     tf = enrich.TF[k]
 
     # Take care of and/or enrichments
