@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- REPLACE: title -->
-        <title> ModulomeVis | Gene Tables </title>
+        <!-- title -->
+        <title> ModulomeVis | Regulon Venn Diagrams </title>
         <!-- Metadata -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
@@ -15,9 +15,9 @@
     
         <div id="main_div" class="container-fluid">
     
-            <!-- REPLACE (if desired): Header -->
-            <h1>All Gene Tables in PRECISE 1.0</h1>
-            <p>Ensures generalizability of the gene table function for ModulomeVis.</p>
+            <!-- Header -->
+            <h1>All Regulon Venn Diagrams in PRECISE 1.0</h1>
+            <p>Ensures generalizability of the regulon_venn function for ModulomeVis.</p>
             
         </div>
   
@@ -38,24 +38,32 @@
         
         <!-- Make plots -->
         <script>
+            // CONSTANTS
+            const figContainer = 'figContainer';
 
-            // recursively make all plots
+            // plotting function
             async function get_and_plot(k) {
-
-                // REPLACE: csv file suffix
                 await $.get('data/'+k+'_regulon_venn.csv', function(data) {
-
-                // REPLACE: function name
                 generateVenn(data, 'fig'+k)
                 })
             };
 
-            // generate all divs
+            // generate all divs + plots
             for (k = 0; k < 92; k++) {
                 $('#main_div').append('<h4>'+k+'</h4>')
-                $('#main_div').append($('<div/>', {id: 'fig'+k, 'style': 'width: 400px;height: 300px;'}))
+                $('#main_div').append($('<div/>', {id: 'fig'+k, style: 'width: 400px;height: 300px;', class: figContainer}))
                 get_and_plot(k);
             }
+
+            // Fill in empty i-modulons with text
+            let elements = document.getElementsByClassName(figContainer)
+            for (i = 0; i < elements.length; i++){
+                let elem = elements[i]
+                if (! elem.innerHTML){
+                    elem.innerHTML = "No regulon associated with i-modulon " + i
+                }
+            }
+
             // // recursively make all plots
             // async function get_and_plot(k) {
             //
