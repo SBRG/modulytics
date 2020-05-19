@@ -123,6 +123,9 @@ function generateHist(csvContent, container) {
                 return tooltip;
             }
         },
+        exporting: {
+            enabled: false
+        },
         credits: {
             enabled: false
         }
