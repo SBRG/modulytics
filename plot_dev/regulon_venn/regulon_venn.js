@@ -6,11 +6,6 @@
 
  function generateVenn(csvContent, container) {
 
-    // See if csvContent is null
-    if (! csvContent){
-        return ('No Data');
-    }
-
     // get the data
     var data = Papa.parse(csvContent).data;
 
@@ -32,6 +27,9 @@
                (point.sets.length > 1 ? name + '. ' : '') + 'Value ' + val + '.';
            }
          }
+       },
+       credits: {
+           enabled: false
        },
        series: [{
          type: 'venn',

@@ -20,15 +20,33 @@ def regulon_venn_df(ica_data, k, row):
     else:
         reg_genes = set(ica_data.trn[ica_data.trn.TF == tf].gene_id.unique())
 
-    # Get component genes and operons
+    # Get component genes
     comp_genes = set(ica_data.show_enriched(k).index)
     both_genes = set(reg_genes & comp_genes)
-
-    reg_operons = len(ica_data.genes2operons(reg_genes))
-    comp_operons = len(ica_data.genes2operons(comp_genes))
-    both_operons = len(ica_data.genes2operons(reg_genes & comp_genes))
-
-    return (pd.DataFrame([len(reg_genes), len(comp_genes), len(both_genes),
-                          reg_operons, comp_operons, both_operons], columns=['Number'],
-                         index=['reg_genes', 'comp_genes', 'both_genes',
+    
+    # Get gene and operon counts
+    reg_gene_count = len(reg_genes)
+    comp_gene_count = len(comp_genes)
+    both_gene_count = len(both_genes)
+    reg_operon_count = len(ica_data.genes2operons(reg_genes))
+    comp_operon_count = len(ica_data.genes2operons(comp_genes))
+    both_operon_count = len(ica_data.genes2operons(reg_genes & comp_genes))
+    
+    # Add adjustments for venn plotting (add '2' for alternates)
+    reg_gene_count2 = 0; comp_gene_count2 = 0; both_gene_count2 = 0
+    if reg_genes == comp_genes:
+        reg_gene_count = 0; comp_gene_count = 0; both_gene_count = 0
+        reg_gene_count2 = 0; comp_gene_count2 = 0; both_gene_count2 = len(reg_genes)
+    elif all(item in comp_genes for item in reg_genes):
+        reg_gene_count = 0; both_gene_count = 0
+        reg_gene_count2 = len(reg_genes); comp_gene_count2 = 0; both_gene_count2 = len(reg_genes)
+    elif all(item in reg_genes for item in comp_genes):
+        comp_gene_count = 0; both_gene_count = 0
+        reg_gene_count2 = 0; comp_gene_count2 = len(comp_genes); both_gene_count2 = len(comp_genes)
+        
+    return (pd.DataFrame([tf, reg_gene_count, comp_gene_count, both_gene_count,
+                          reg_gene_count2, comp_gene_count2, both_gene_count2,
+                          reg_operon_count, comp_operon_count, both_operon_count], columns=['Value'],
+                         index=['TF', 'reg_genes', 'comp_genes', 'both_genes',
+                                'reg_genes2', 'comp_genes2', 'both_genes2',
                                 'reg_ops', 'comp_ops', 'both_ops']))
