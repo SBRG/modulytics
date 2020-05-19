@@ -103,6 +103,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <h6>Venn Diagram </h6>
+                    <div id="venn" style="max-width: 400px;height: 300px;"></div>
                 </div>
                 <div class="col-md-4">
                     <h6>Regulator Expression/Activity Scatterplot</h6>
@@ -141,13 +142,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
         <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet"/>
         <script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
+        <script src="https://code.highcharts.com/modules/venn.src.js"></script>
 
     
         <!-- Custom scripts -->
         <script src="../gene_histogram/gene_histogram.js"></script>
         <script src="../gene_table/gene_table.js"></script>
         <script src="../activity_bar/activity_bar.js"></script>
-        
+        <script src="../regulon_venn/regulon_venn.js"></script>
+    
         <!-- Script that populates HTML page -->
         <script>
             $.get('../gene_histogram/data/1_hist.csv', function(data) {
@@ -161,6 +164,9 @@
                     generateActivityBar(metadata, data, 'bar');
                 });
             });
+            $.get('../regulon_venn/data/1_regulon_venn.csv', function(data) {
+                generateVenn(data, "venn");
+                });
         </script>
     </body>
 </html>
