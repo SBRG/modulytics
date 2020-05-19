@@ -39,10 +39,10 @@ def regulon_venn_df(ica_data, k, row):
         reg_gene_count2 = 0; comp_gene_count2 = 0; both_gene_count2 = len(reg_genes)
     elif all(item in comp_genes for item in reg_genes):
         reg_gene_count = 0; both_gene_count = 0
-        reg_gene_count2 = len(reg_genes); comp_gene_count2 = 0; both_gene_count2 = len(reg_genes)
+        reg_gene_count2 = len(reg_genes); comp_gene_count2 = 0; both_gene_count2 = 0
     elif all(item in reg_genes for item in comp_genes):
         comp_gene_count = 0; both_gene_count = 0
-        reg_gene_count2 = 0; comp_gene_count2 = len(comp_genes); both_gene_count2 = len(comp_genes)
+        reg_gene_count2 = 0; comp_gene_count2 = len(comp_genes); both_gene_count2 = 0
         
     return (pd.DataFrame([tf, reg_gene_count, comp_gene_count, both_gene_count,
                           reg_gene_count2, comp_gene_count2, both_gene_count2,
