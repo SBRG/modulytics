@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <!-- REPLACE: title -->
-        <title> ModulomeVis | Gene Tables </title>
+        <title> ModulomeVis | Scatter Plots </title>
         <!-- Metadata -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
@@ -16,8 +16,10 @@
         <div id="main_div" class="container-fluid">
     
             <!-- REPLACE (if desired): Header -->
-            <h1>All Gene Tables in PRECISE 1.0</h1>
+            <h1>All Regulon Scatter Plots in PRECISE 1.0</h1>
             <p>Ensures generalizability of the gene table function for ModulomeVis.</p>
+            
+            <!--<div id="scatter" style="width: 400px;height: 300px;">-->
             
         </div>
   
@@ -32,31 +34,46 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
         
         
-        <!-- REPLACE: JS file -->
-        <script src="gene_table.js"></script> 
+        <script src="regulon_scatter.js"></script> 
+        
+        <!--
+        <script>
+            $.get('data/7_regulon_scatter.csv', function(data) {
+                generateRegulonScatter(data, "scatter");
+            });
+        </script>
+        -->
         
         <!-- Make plots -->
         <script>
             // generate all divs
             for (k = 0; k < 92; k++) {
                 $('#main_div').append('<h4>'+k+'</h4>')
-                $('#main_div').append($('<div/>', {id: 'fig'+k, 'style': 'width: 400px;height: 300px;'}));
+                $('#main_div').append($('<div/>', {id: 'fig'+k, 'style': 'width: 1200px;height: 300px;'}));
             }
             // recursively make all plots
             function get_and_plot(k) {
             
-                // REPLACE: csv file suffix
-                $.get('data/'+k+'_gene_table.csv', function(data) {
-                
-                    // REPLACE: function name
-                    generateGeneTable(data, 'fig'+k)
-                    if (k < 91) {
-                        k++;
-                        get_and_plot(k);
+                $.ajax({
+                    url: 'data/'+k+'_regulon_scatter.csv',
+                    type: 'GET',
+                    success: function(data) {
+                        generateRegulonScatter(data, 'fig'+k)
+                        if (k < 91) {
+                            k++;
+                            get_and_plot(k);
+                        }
+                    }, 
+                    error: function() {
+                        if (k < 91) {
+                            k++;
+                            get_and_plot(k);
+                        }
                     }
-                })
-            };
+                });
+            }
             get_and_plot(0);
         </script>
+        
     </body>
 </html>

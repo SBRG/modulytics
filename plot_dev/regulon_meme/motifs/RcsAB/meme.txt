@@ -1,0 +1,74 @@
+********************************************************************************
+MEME - Motif discovery tool
+********************************************************************************
+MEME version 5.0.5 (Release date: Mon Mar 18 20:12:19 2019 -0700)
+
+For further information on how to interpret please access http://meme-suite.org/.
+To get a copy of the MEME software please access http://meme-suite.org.
+
+********************************************************************************
+
+
+********************************************************************************
+REFERENCE
+********************************************************************************
+If you use this program in your research, please cite:
+
+Timothy L. Bailey and Charles Elkan,
+"Fitting a mixture model by expectation maximization to discover
+motifs in biopolymers", Proceedings of the Second International
+Conference on Intelligent Systems for Molecular Biology, pp. 28-36,
+AAAI Press, Menlo Park, California, 1994.
+********************************************************************************
+
+
+********************************************************************************
+TRAINING SET
+********************************************************************************
+PRIMARY SEQUENCES= motifs/RcsAB.fasta
+CONTROL SEQUENCES= --none--
+ALPHABET= ACGT
+Sequence name            Weight Length  Sequence name            Weight Length  
+-------------            ------ ------  -------------            ------ ------  
+clpPX-lon                1.0000    700  crp                      1.0000    700  
+rcsA                     1.0000    700  ugd                      1.0000    700  
+wcaCDEF-gmd-fcl-gmm-wcaI 1.0000    700  wcaKLM                   1.0000    700  
+wza-wzb-wzc-wcaAB        1.0000    700  yiaB                     1.0000    700  
+yjbEFGH                  1.0000    700  
+********************************************************************************
+
+********************************************************************************
+COMMAND LINE SUMMARY
+********************************************************************************
+This information can also be useful in the event you wish to report a
+problem with the MEME software.
+
+command: meme motifs/RcsAB.fasta -oc motifs/RcsAB -dna -mod zoops -nmotifs 1 -evt 0.001 -minw 6 -maxw 30 -allw -minsites 3 -mpi 
+
+model:  mod=         zoops    nmotifs=         1    evt=         0.001
+objective function:           em=       E-value of product of p-values
+                              starts=   E-value of product of p-values
+strands: +
+width:  minw=            6    maxw=           30
+nsites: minsites=        3    maxsites=        9    wnsites=       0.8
+theta:  spmap=         uni    spfuzz=        0.5
+em:     prior=   dirichlet    b=            0.01    maxiter=        50
+        distance=    1e-05
+trim:   wg=             11    ws=              1    endgaps=       yes
+data:   n=            6300    N=               9
+sample: seed=            0    hsfrac=          0
+        searchsize=   6300    norand=         no    csites=       1000
+Letter frequencies in dataset:
+A 0.271 C 0.239 G 0.225 T 0.265 
+Background letter frequencies (from file dataset with add-one prior applied):
+A 0.271 C 0.239 G 0.225 T 0.265 
+Background model order: 0
+********************************************************************************
+
+********************************************************************************
+Stopped because motif E-value > 1.00e-03.
+********************************************************************************
+
+CPU: sbrg-sastry
+
+********************************************************************************
