@@ -44,9 +44,19 @@ def regulon_venn_df(ica_data, k, row):
         comp_gene_count = 0; both_gene_count = 0
         reg_gene_count2 = 0; comp_gene_count2 = len(comp_genes); both_gene_count2 = 0
         
-    return (pd.DataFrame([tf, reg_gene_count, comp_gene_count, both_gene_count,
-                          reg_gene_count2, comp_gene_count2, both_gene_count2,
-                          reg_operon_count, comp_operon_count, both_operon_count], columns=['Value'],
-                         index=['TF', 'reg_genes', 'comp_genes', 'both_genes',
+    res = pd.DataFrame([tf, reg_gene_count, comp_gene_count, both_gene_count,
+                        reg_gene_count2, comp_gene_count2, both_gene_count2,
+                        reg_operon_count, comp_operon_count, both_operon_count], columns=['Value'],
+                       index=['TF', 'reg_genes', 'comp_genes', 'both_genes',
                                 'reg_genes2', 'comp_genes2', 'both_genes2',
-                                'reg_ops', 'comp_ops', 'both_ops']))
+                                'reg_ops', 'comp_ops', 'both_ops'])
+    
+    # Kevin adding here: gene lists
+    just_reg = reg_genes - both_genes
+    just_comp = comp_genes - both_genes
+    for i, l in zip(['reg_genes', 'comp_genes', 'both_genes'],[just_reg, just_comp, both_genes]):
+        gene_list = np.array([ica_data.num2name[g] for g in l])
+        gene_list = np.array2string(gene_list, separator = ' ')
+        res.loc[i, 'list'] = gene_list
+    
+    return res
