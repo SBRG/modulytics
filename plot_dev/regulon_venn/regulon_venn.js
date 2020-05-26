@@ -87,6 +87,9 @@
        }],
        title: {
          text: ''
+       },
+       exporting: {
+         enabled: false
        }
      });
 

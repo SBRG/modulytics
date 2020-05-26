@@ -48,7 +48,7 @@
                             <a class="dropdown-item" href="#">Genes</a>
                         </div>
                     </li>
-                    <li class="nav-item active"><a class="nav-link active">GlpR</a></li>
+                    <li class="nav-item active"><a class="nav-link active">CysB</a></li>
                 </ul>
             </div>
         </nav>
@@ -57,9 +57,9 @@
         <!-- Main Body -->
     
         <div class="container-fluid">
-            <h3> GlpR I-modulon <small> E. coli </small> </h3>
-            <p> <b> Regulated by:</b> <a href="http://regulondb.ccg.unam.mx/regulon?term=ECK120012730&organism=ECK12&format=jsp&type=regulon">GlpR</a></p>
-            <p> <b> Function:</b> Glycerol catabolism </p>
+            <h3> CysB I-modulon <small> E. coli </small> </h3>
+            <p> <b> Regulated by:</b> <a href="http://regulondb.ccg.unam.mx/regulon?term=ECK120011312&organism=ECK12&format=jsp&type=regulon">CysB</a></p>
+            <p> <b> Function:</b> Inorganic sulfate assimilation </p>
       
             <hr />
         
@@ -102,15 +102,17 @@
             <h4 align="center">Regulation</h4>
         
             <div class="row">
+                <div class="col-md-2">
+                </div>
                 <div class="col-md-4">
                     <h6>Venn Diagram </h6>
                     <div id="venn" style="max-width: 400px;height: 300px;"></div>
                 </div>
                 <div class="col-md-4">
                     <h6>Regulator Expression/Activity Scatterplot</h6>
+                    <div id="r_scatter" style="width: 400px;height: 300px;"></div>
                 </div>
-                <div class="col-md-4" id="MEME">
-                    <h6>MEME Motif </h6>
+                <div class="col-md-2">
                 </div>
             </div>
             
@@ -152,25 +154,29 @@
         <script src="../gene_scatter/gene_scatter.js"></script>
         <script src="../activity_bar/activity_bar.js"></script>
         <script src="../regulon_venn/regulon_venn.js"></script>
+        <script src="../regulon_scatter/regulon_scatter.js"></script>
     
         <!-- Script that populates HTML page -->
         <script>
-            $.get('../gene_histogram/data/1_hist.csv', function(data) {
+            $.get('../gene_histogram/data/54_hist.csv', function(data) {
                 generateHist(data, "hist");
                 });  
-            $.get('../gene_table/data/1_gene_table.csv', function(data) {
+            $.get('../gene_table/data/54_gene_table.csv', function(data) {
                 generateGeneTable(data, "gene_table");
                 });
-            $.get('../gene_scatter/data/1_gene_scatter.csv', function(data) {
+            $.get('../gene_scatter/data/54_gene_scatter.csv', function(data) {
                 generateGeneScatter(data, "g_scatter");
                 });
             $.get('../activity_bar/data/sample_metadata.csv', function(metadata) {
-                $.get('../activity_bar/data/1_activity_bar.csv', function(data) {
+                $.get('../activity_bar/data/54_activity_bar.csv', function(data) {
                     generateActivityBar(metadata, data, 'bar');
                 });
             });
-            $.get('../regulon_venn/data/1_regulon_venn.csv', function(data) {
+            $.get('../regulon_venn/data/54_regulon_venn.csv', function(data) {
                 generateVenn(data, "venn");
+                });
+            $.get('../regulon_scatter/data/54_regulon_scatter.csv', function(data) {
+                generateRegulonScatter(data, 'r_scatter');
                 });
         </script>
     </body>

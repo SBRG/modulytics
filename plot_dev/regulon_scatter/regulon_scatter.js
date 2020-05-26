@@ -7,8 +7,6 @@
  // Write Highcharts plot to container 
  function plotRegulon(data, tf_idx, container) {
     
-    console.log('plot',tf_idx);
-    
     // basics
     var reg_name = data[0][tf_idx]
     reg_name = reg_name.charAt(0).toUpperCase() + reg_name.slice(1);
@@ -82,6 +80,9 @@
         },
         credits: {
             enabled: false
+        },
+        exporting: {
+            enabled: false
         }
     };
 
@@ -100,9 +101,10 @@ function generateRegulonScatter(csvContent, container){
     
     // single regulon case
     if (n_tfs == 1) {
-        $('#'+container).append($('<div/>', {id: new_id, 'float': 'left', 'display':'inline-block', 'style': 'width: '+300+'px;height: 300px;'}));
-        plotRegulon(data, 2, new_id);
-    } else { // multiple
+        //$('#'+container).append($('<div/>', {id: new_id, 'float': 'left', 'display':'inline-block', 'style': 'width: '+300+'px;height: 300px;'}));
+        plotRegulon(data, 2, container);
+    
+    } else { // multiple; not working currently
         
         // compute new width
         var full_width = document.getElementById(container).offsetWidth;
