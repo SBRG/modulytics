@@ -4,7 +4,7 @@
 
 # import
 import pandas as pd
-
+import numpy as np
 
 def regulon_venn_df(ica_data, k, row):
     tf = row['TF']
