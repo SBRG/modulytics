@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title> ModulomeVis | Plot Development Home </title>
+        <title> Modulytics | Template Dev Home </title>
         <!-- Metadata -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
@@ -15,38 +15,24 @@
         <!-- Lists each development page as links -->
         <div id="main" class="container-fluid">
             
-            <h2 style="text-align:center;">Modulome Vis: Plot Development Home</h2>
+            <h2 style="text-align:center;">Modulome Vis: Template Development Home</h2>
             <hr />
             
-            <a href="plot_dev/1_glpR_example/glpR_example.html" role="button" class="btn btn-primary btn-block">
-                Example I-modulon Page: GlpR </a>
-            <a href="plot_dev/54_cysB_example/cysB_example.html" role="button" class="btn btn-primary btn-block">
-                Example I-modulon Page: CysB </a>
-            <hr />
-            
-            <a href="plot_dev/gene_table/gene_table.html" role="button" class="btn btn-info btn-block">
-                Gene Tables </a>
-            <a href="plot_dev/gene_histogram/gene_histogram.html" role="button" class="btn btn-info btn-block">
-                Gene Histograms </a>
-            <a href="plot_dev/gene_scatter/gene_scatter.html" role="button" class="btn btn-info btn-block">
-                Gene Scatter Plots </a>
-            <a href="plot_dev/activity_bar/activity_bar.html" role="button" class="btn btn-info btn-block">
-                Activity Plots </a>
-            <a href="plot_dev/activity_table/activity_table.html" role="button" class="btn btn-info btn-block">
-                Activity Tables </a>  
-            <a href="plot_dev/regulon_venn/regulon_venn.html" role="button" class="btn btn-info btn-block">
-                Regulon Venns </a>   
-            <a href="plot_dev/regulon_scatter/regulon_scatter.html" role="button" class="btn btn-info btn-block">
-                Regulon Scatter Plots </a>         
-            <a href="plot_dev/regulon_meme/regulon_meme.html" role="button" class="btn btn-info btn-block">
-                MEME Motifs </a>
-            
-            <hr />
         </div>
         
         <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+        <script>
+            // generate all divs
+            for (k = 0; k < 92; k++) {
+                $('#main').append('<a href="iM_template.html?k='+k+'" role="button" class="btn btn-info btn-block">'+k+'</a>');
+            }
+            $('#main').append('<hr />');
+        </script>
+    
+    
     </body>
 </html>
