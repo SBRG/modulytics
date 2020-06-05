@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Modulytics </title>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        
+        <!-- FontAwesome Icons -->
+        <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
+    
+    </head>
+    
+    <body>
+        
+        <!-- Page Content -->
+        <div class="container-fluid">   
+        <div class = "row">
+        
+            <!-- Navbar -->
+            <div class="col-md-2 bg-primary navbar-dark navbar-expand-md align-content-center">
+            
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Modulytics</a>
+                </div>
+            
+                <ul class="navbar-nav flex-column bg-primary navbar-dark">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">iModulon List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id = "next_iM" class="nav-link" href="index.html">Next iModulon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id = "prev_iM" class="nav-link" href="index.html">Previous iModulon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Other Datasets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Contact Us</a>
+                    </li>
+                
+                </ul>
+                
+            </div>
+            
+            <!-- Main body --> 
+            <div class="col-md-10 p-3" style="max-width: 1200px">
+            
+                <!-- iModulon header & gene table --> 
+                <div class="row">
+                    <div class="col-md-4 m-auto">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 id="im_name" class="bd-title"></h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p id="im_head_text" class="bd-lead"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="gene_table" style="width: 100%;height:275px;"></div> <!-- width = 500px -->
+                    </div>
+                </div>
+                
+                <!-- Gene-related plots -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="hist" style="width: 100%;height: 300px;"></div> <!-- width = 400px -->
+                    </div>
+                    <div class="col-md-6">
+                        <div id="g_scatter" style="width: 100%;height: 300px;" class="justify-content-center"></div> <!-- width = 400px -->
+                    </div>
+                </div>
+                
+                <hr />
+                
+                <!-- Activity-related plots -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="bar" style="width: 100%;height: 250px;"></div> <!-- width = 900px -->
+                    </div>
+                </div>
+                
+                </hr>
+            
+            
+                <!-- Footer -->
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="copyright text-muted small">
+                                    ModulomeVis is maintained by the Systems Biology Research Group at the University of California, San Diego. <br/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        </div>
+        
+        <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>        
+        
+        <!-- Required CDNs: Querystring, Highcharts, Papa Parse, Tabulator -->
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/modules/data.src.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.src.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+        <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet"/>
+        <script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
+        <script src="https://code.highcharts.com/modules/venn.src.js"></script>
+        
+        <!-- Custom scripts -->
+        <script src="js/gene_histogram.js"></script>
+        <script src="js/gene_table.js"></script>
+        <script src="js/gene_scatter.js"></script>
+        <script src="js/activity_bar.js"></script>
+        <script src="js/regulon_venn.js"></script>
+        <script src="js/regulon_scatter.js"></script>
+        
+        
+        <!-- Populate the HTML page -->
+        <script>
+        
+            // Determine which i-modulon this is
+            // In the future, we will pass more variables (e.g. organism) and use a robust querystring pkg
+            var k = parent.document.URL.substring(parent.document.URL.indexOf('?k=')+3, parent.document.URL.length);
+            var org_folder = "e_coli/precise1/";
+            var data_prefix = org_folder + "iModulon_files/" + k + "/" + k + "_";
+            
+            // read in the iModulon metadata
+            $.get(data_prefix + "meta.csv", function(im_metaCSV) {
+                var im_meta = Papa.parse(im_metaCSV, {dynamicTyping: true}).data;
+                
+                // add header
+                $('#im_name').append(im_meta[0][1] + " iModulon");
+                $('#im_head_text').append('Biological function: ' + im_meta[3][1])
+                $('#im_head_text').append('<br>Category: ' + im_meta[4][1])
+                var regulator_name = im_meta[2][1]
+                if (regulator_name != null) {
+                    $('#im_head_text').append('<br>Regulated by: ' + regulator_name)
+                }
+                
+                // change page title
+                document.title = 'Modulytics: ' + im_meta[0][1] + ' iModulon';
+            });
+            
+            // generate gene plots
+            $.get(data_prefix + 'gene_table.csv', function(gene_table_data) {
+                generateGeneTable(gene_table_data, "gene_table");
+                });
+            $.get(data_prefix + 'gene_hist.csv', function(gene_hist_data) {
+                generateHist(gene_hist_data, "hist");
+                });  
+            $.get(data_prefix + 'gene_scatter.csv', function(gene_scatter_data) {
+                generateGeneScatter(gene_scatter_data, "g_scatter");
+                });
+            // generate activity plot
+            $.get(org_folder + 'sample_metadata.csv', function(metadata) {
+                $.get(data_prefix + 'activity_bar.csv', function(activity_bar_data) {
+                    generateActivityBar(metadata, activity_bar_data, 'bar');
+                });
+            });
+            
+            // add navbar links
+            if (k==91) { //future datasets need to know max k
+                document.getElementById('next_iM').setAttribute('href', 'iModulon.html?k=91')
+            } else {
+                document.getElementById('next_iM').setAttribute('href', 'iModulon.html?k='+(parseInt(k)+1))
+            }
+            if (k==0) { 
+                document.getElementById('prev_iM').setAttribute('href', 'iModulon.html?k=0')
+            } else {
+                document.getElementById('prev_iM').setAttribute('href', 'iModulon.html?k='+(parseInt(k)-1))
+            }
+            
+        </script>
+    </body>
+</html>
