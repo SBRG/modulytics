@@ -72,11 +72,19 @@
                         </div>
                     </div>
                     <div class="col-md-8">
+                        <div class="row mx-auto justify-content-center">
+                            <h5>Gene Table</h5>
+                        </div>
                         <div id="gene_table" style="width: 100%;height:275px;"></div> <!-- width = 500px -->
                     </div>
                 </div>
                 
+                <hr />
+                
                 <!-- Gene-related plots -->
+                <div class="row mx-auto justify-content-center">
+                    <h5>Genes</h5>
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div id="hist" style="width: 100%;height: 300px;"></div> <!-- width = 400px -->
@@ -89,14 +97,45 @@
                 <hr />
                 
                 <!-- Activity-related plots -->
+                <div class="row mx-auto justify-content-center">
+                    <h5>Activity</h5>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div id="bar" style="width: 100%;height: 250px;"></div> <!-- width = 900px -->
                     </div>
                 </div>
                 
-                </hr>
-            
+                <hr />
+                
+                <!-- Regulator-related plots -->
+                <div id="reg_header" class="row mx-auto justify-content-center d-none">
+                    <h5 class="text-center">Regulation</h5>
+                </div>
+                <div id="reg_row1" class="row d-none">
+                    <div class="col-md-4">
+                        <div id="reg_div1" style="width: 100%;height: 300px;"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="reg_div2" style="width:100%;height: 300px;"></div> 
+                    </div>
+                    <div class="col-md-4">
+                        <div id="reg_div3" style="width:100%;height: 300px;"></div> 
+                    </div>
+                </div>
+                <div id="reg_row2" class="row d-none">
+                    <div class="col-md-4">
+                        <div id="reg_div4" style="width: 100%;height: 300px;"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="reg_div5" style="width:100%;height: 300px;"></div> 
+                    </div>
+                    <div class="col-md-6">
+                        <div id="reg_div2" style="width:100%;height: 300px;"></div> 
+                    </div>
+                </div>
+                
+                <hr id="reg_hr" class="d-none" />
             
                 <!-- Footer -->
                 <footer>
@@ -161,6 +200,48 @@
                 
                 // change page title
                 document.title = 'Modulytics: ' + im_meta[0][1] + ' iModulon';
+                
+                // handle regulation
+                var venn_bool = (im_meta[5][1] == 'True')
+                var num_r_scatter = im_meta[6][1];
+                
+                var total_r_plots = venn_bool + num_r_scatter;
+                var where_to_plot = {};
+                if (total_r_plots > 0) {
+                    // unhide divs
+                    $('#reg_header').removeClass('d-none');
+                    $('#reg_hr').removeClass('d-none');
+                    $('#reg_row1').removeClass('d-none');
+                    
+                    if (total_r_plots > 3) {
+                        $('#reg_row2').removeClass('d-none');
+                    }
+                    
+                    // assign plots
+                    var curr_plot = 1;
+                    if (venn_bool) {
+                        where_to_plot['venn'] = curr_plot;
+                        curr_plot = curr_plot + 1;
+                    }
+                    if (num_r_scatter > 0) {
+                        where_to_plot['scatter'] = curr_plot;
+                        curr_plot = curr_plot + num_r_scatter;
+                    }
+                
+                    // show plots
+                    if (venn_bool) {
+                        $.get(data_prefix + 'reg_venn.csv', function(venn_data) {
+                            generateVenn(venn_data, "reg_div" + where_to_plot['venn']);
+                        });
+                    }
+                    if (num_r_scatter > 0) {
+                        $.get(data_prefix + 'reg_scatter.csv', function(r_scatter_data) {
+                            for (reg_it = 0; reg_it < num_r_scatter; reg_it++) {
+                                generateRegulonScatter(r_scatter_data, "reg_div" + (where_to_plot['scatter'] + reg_it), reg_it);
+                            }
+                        });
+                    }
+                }
             });
             
             // generate gene plots

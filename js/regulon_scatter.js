@@ -4,8 +4,10 @@
  * requires Papa parse, Highcharts
  */
  
- // Write Highcharts plot to container 
- function plotRegulon(data, tf_idx, container) {
+function generateRegulonScatter(csvContent, container, tf_i){
+    
+    var data = Papa.parse(csvContent, {dynamicTyping: true}).data;
+    var tf_idx = 2 + tf_i;
     
     // basics
     var reg_name = data[0][tf_idx]
@@ -88,36 +90,4 @@
 
     // make the chart
     var chart = Highcharts.chart(container, chartOptions);
-    return;
- };
- 
-
-function generateRegulonScatter(csvContent, container){
-    // get the data
-    var data = Papa.parse(csvContent, {dynamicTyping: true}).data;
-    var n_tfs = data[0].length - 2;
-    // ids can't conflict with others, so use the data 
-    var new_id = data[0][2];
-    
-    // single regulon case
-    if (n_tfs == 1) {
-        //$('#'+container).append($('<div/>', {id: new_id, 'float': 'left', 'display':'inline-block', 'style': 'width: '+300+'px;height: 300px;'}));
-        plotRegulon(data, 2, container);
-    
-    } else { // multiple; not working currently
-        
-        // compute new width
-        var full_width = document.getElementById(container).offsetWidth;
-        var new_width = full_width/n_tfs - 10;
-        
-        // iterate through all the tfs
-        // ERROR TO FIX: This for loop only goes around once when I call these functions.
-        //               Comment out the functions, and it logs all correct iterations. wtf.
-        for (i=0; i < n_tfs; i++) {
-            console.log(i)
-            $('#'+container).append($('<div/>', {id: new_id+i, 'float': 'left', 'display':'inline-block', 'style': 'width: '+300+'px;height: 300px;'}));
-            plotRegulon(data, 2+i, new_id+i);
-        }        
-        console.log('done');
-    }
-};
+}
