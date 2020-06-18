@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modulytics: About</title>
+    <style>
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10%;
+      height: 100%;
+      /*width: 100%;*/
+      opacity: 0;
+      text-align: center;
+      transition: .3s ease;
+      background-color: white;
+    }
+
+    .container:hover .overlay {
+      opacity: 0.8;
+    }
+
+    .icon {
+      color: white;
+      font-size: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .fa-user:hover {
+      color: #eee;
+    }
+    </style>
+</head>
+<body>
+<h1>About Modulytics</h1>
+<p>The Modulytics website provides interactive visualizations of “iModulons”
+    (independently modulated gene sets) that describe an organism’s transcriptional regulatory
+    network (TRN).</p>
+<p>Currently, Modulytics solely focuses on the iModulons from the pioneering paper on Escherichia coli
+    (read more here - https://www.nature.com/articles/s41467-019-13483-w). In the future, Modulytics
+    will expand its scope to other organisms – stay tuned! </p>
+<p>For a description of each of the figures shown on the iModulon dashboards mouse over the various
+    components of the example “MalT” iModulon below: </p>
+</body>
+</html>
