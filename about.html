@@ -5,6 +5,7 @@
     <title>Modulytics: About</title>
      <!-- Bootstrap CDN -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://raw.github.com/ftlabs/ftellipsis/master/build/ftellipsis.min.js"></script>
     <style>
     .desc-container {
       position: relative;
@@ -29,7 +30,7 @@
       opacity: 0;
       text-align: center;
       transition: .3s ease;
-      background-color: blue;
+      background-color: #004FA3;
       border-radius: 8px;
       color: white;
     }
@@ -39,13 +40,15 @@
     }
 
     .header{
-        background-color: #0f5f60;
+        background-color: #007bff;
         color: white;
         margin-bottom: 2rem;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
     }
 
     .subheader{
-        background-color: gray;
+        background-color: lightgray;
         color: black;
         margin-top: 2rem;
         margin-bottom: 1rem;
@@ -60,7 +63,8 @@
     }
 
     .dashboard-container{
-        border: gray 1px solid;
+        border: #15C70C 0.3rem solid;
+        border-radius: 8px;
     }
 
     .title-container {
@@ -86,14 +90,23 @@
     <div class="row">
         <p>
             The Modulytics website provides interactive visualizations of “iModulons”
-            (independently modulated gene sets) that describe an organism’s transcriptional regulatory
+            (<u><b>i</b></u>ndependently <u><b>mod</b></u>ulated gene sets) that describe an organism’s transcriptional regulatory
             network (TRN).
         </p>
         <p>
-            Currently, Modulytics solely focuses on the iModulons from the pioneering paper on Escherichia coli
+            Currently, Modulytics solely focuses on the iModulons from the pioneering paper on <i>Escherichia coli</i>
             (read more <a href="https://www.nature.com/articles/s41467-019-13483-w">here</a>). In the future, Modulytics
             will expand its scope to other organisms – stay tuned!
         </p>
+    </div>
+    <div class="row subheader">
+        <div class="col-xs-6 title-container">
+            <div id="dashboard">
+                <h3 class="text-center">iModulon Dashboard Overview</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <p>
             For a description of each of the figures shown on the iModulon dashboards mouse over the various
             components of the example “MalT” iModulon below:
@@ -130,7 +143,7 @@
                 <div class="desc-container base-image">
                     <img src="images/mod_hist.png" class="desc-image">
                     <div class="desc-overlay">
-                        Test
+                        <p> Test </p>
                     </div>
                 </div>
             </div>
@@ -149,7 +162,7 @@
                 <h4 class="text-center">Activity</h4>
             </div>
         </div>
-        <div class="row">
+        <div>
             <div class="col-xs-12">
                 <div class="desc-container base-image">
                     <img src="images/mod_activity.png" class="desc-image">
@@ -194,7 +207,7 @@
     </div>
     <div class="row">
         <p>
-            For use of the Escherichia coli iModulons, please cite:
+            For use of the <i>Escherichia coli</i> iModulons, please cite:
         </p>
         <p>
             Sastry, A.V., Gao, Y., Szubin, R. et al. The Escherichia coli transcriptome
@@ -209,7 +222,32 @@
             </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <p>
+            For questions on Modulytics, please get send an email to Kevin Rychel (krychel-AT-ucsd-DOT-edu).
+        </p>
+        <p>
+            For more information on the Systems Biology Research Group (SBRG) at the University of California,
+            San Diego, please see our website <a href="http://systemsbiology.ucsd.edu/">here</a>.
+        </p>
+        <p>
 
+        </p>
+    </div>
+</div>
+<script>
+    // var element = document.getElementById('my-element');
+    // var ellipsis = new Ellipsis(element);
+    //
+    // ellipsis.calc();
+    // ellipsis.set();
+
+    var elems = document.getElementsByClassName('desc-overlay');
+    for(elem in elems) {
+        var ellipsis = new Ellipsis(elem);
+        ellipsis.calc();
+        ellipsis.set();
+    }
+</script>
 </body>
 </html>
