@@ -33,26 +33,62 @@
       background-color: #004FA3;
       border-radius: 8px;
       color: white;
-      font-size: 14px;
-      line-height: 1.2; /* a */
-      max-height: 100%; /* a x number of line to show (ex : 2 line)  */
+      font-size: 16px;
+      line-height: 1.2;
+      max-height: 100%;
+      overflow: hidden;
     }
 
     .desc-overlay h6{
-        font-size: 16px;
+        font-size: 18px;
         text-decoration: underline #007bff;
     }
 
+    @media only screen and (max-width: 1200px) {
+        .desc-overlay{
+            font-size: 14px;
+        }
+        .desc-overlay h6{
+            font-size: 16px;
+        }
+    }
     @media only screen and (max-width: 992px) {
         .desc-overlay{
             font-size: 11px;
             line-height: 1.1;
         }
+        .desc-overlay h6{
+            font-size: 12px;
+        }
+        .base-image{
+            height: 110%;
+        }
     }
     @media only screen and (max-width: 768px) {
-        .desc-overlay{
-            font-size: 12px;
+        .desc-overlay {
+            font-size: 13px;
             line-height: 1.1;
+        }
+
+        .desc-overlay h6 {
+            font-size: 16px;
+        }
+
+        .base-image {
+            height: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .desc-overlay{
+            font-size: 10px;
+            line-height: 1.1;
+        }
+        .desc-overlay h6{
+            font-size: 11px;
+        }
+        .base-image{
+            height: 100%;
         }
     }
 
