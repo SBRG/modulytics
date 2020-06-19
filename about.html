@@ -6,6 +6,8 @@
      <!-- Bootstrap CDN -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://raw.github.com/ftlabs/ftellipsis/master/build/ftellipsis.min.js"></script>
+
+    <!-- CSS -->
     <style>
     .desc-container {
       position: relative;
@@ -69,11 +71,9 @@
             font-size: 13px;
             line-height: 1.1;
         }
-
         .desc-overlay h6 {
             font-size: 16px;
         }
-
         .base-image {
             height: 100%;
         }
@@ -91,7 +91,6 @@
             height: 100%;
         }
     }
-
 
     .desc-container:hover .desc-overlay {
       opacity: 0.9;
@@ -113,6 +112,11 @@
         margin-top: 2rem;
         margin-bottom: 1rem;
         border-radius: 8px;
+        padding-top: 8px;
+    }
+
+    .top-banner{
+        background-color: #15C70C;
     }
 
     .base-image{
@@ -127,31 +131,46 @@
     }
 
     h2{
-        padding: 0.5rem;
+        font-size: 36px;
+        padding: 1rem;
+    }
+
+    h3{
+        color: #4F5451;
+        font-size: 24px;
     }
 
     .dashboard-container{
         border: #15C70C 0.3rem solid;
         border-radius: 8px;
+        padding: 6px;
     }
 
     .title-container {
         width: 100%;
     }
 
-    .super{
-        vertical-align: super;
     }
     .sub{
         vertical-align: sub;
+    }
+    .small-text{
+        font-size: 3px;
+        color: #15C70C;
     }
 
     </style>
 </head>
 <body>
 
-<!-- Start page -->
+<!-- Begin HTML -->
 <div class="container">
+    <div class="top-banner row">
+        <div class="col-xs-12 small-text">
+            _
+        </div>
+    </div>
+    <ht></ht>
     <div class="header row">
         <div class="col-xs-12 title-container">
             <h2 class="text-center">About Modulytics</h2>
@@ -172,7 +191,7 @@
         <p>
             The Modulytics website provides interactive visualizations of “iModulons”
             (<u><b>i</b></u>ndependently <u><b>mod</b></u>ulated gene sets) that describe sets of coregulated genes
-            that contribute to an organism’s transcriptional regulatory network (TRN). The iModulons were determined
+            in an organism’s transcriptional regulatory network (TRN). The iModulons were determined
             using independent component analysis (ICA), a signal deconvolution unsupervised learning algorithm,
             which identified unique signals from transcriptomics data.
         </p>
@@ -183,6 +202,7 @@
             In the future, Modulytics will expand its scope to other prokaryotes – stay tuned!
         </p>
     </div>
+    <!-- Dashboard Overview -->
     <div class="row subheader">
         <div class="col-xs-6 title-container">
             <div id="dashboard">
@@ -329,7 +349,7 @@
                 <div class="desc-container base-image">
                     <img src="images/mod_corr.png" class="desc-image">
                     <div class="desc-overlay">
-                        <h6>Correlation to Regulator Expression</h6>
+                        <h6>Correlation to Regulator</h6>
                         <p>
                             In addition to the venn diagram, the correlation scatter plot appears if the iModulon can be
                             mapped to a regulator. The plot shows the relationship between the iModulon activity level
@@ -343,6 +363,7 @@
         </div>
         <hr>
     </div>
+    <!-- Citation -->
     <div class="row subheader">
         <div class="col-xs-6 title-container">
             <div id="citation">
@@ -360,6 +381,7 @@
             https://doi.org/10.1038/s41467-019-13483-w
         </p>
     </div>
+    <!-- Contact -->
     <div class="row subheader">
         <div class="col-xs-6 title-container">
             <div id="contact">
@@ -379,20 +401,19 @@
 
         </p>
     </div>
+    <!-- Footer -->
+    <hr>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="copyright text-muted small">
+                        Modulytics is maintained by the Systems Biology Research Group at the University of California, San Diego. <br/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
-<script>
-    // var element = document.getElementById('my-element');
-    // var ellipsis = new Ellipsis(element);
-    //
-    // ellipsis.calc();
-    // ellipsis.set();
-
-    var elems = document.getElementsByClassName('desc-overlay');
-    for(elem in elems) {
-        var ellipsis = new Ellipsis(elem);
-        ellipsis.calc();
-        ellipsis.set();
-    }
-</script>
 </body>
 </html>
