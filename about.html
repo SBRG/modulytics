@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modulytics: About</title>
+     <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://raw.github.com/ftlabs/ftellipsis/master/build/ftellipsis.min.js"></script>
+
+    <!-- CSS -->
+    <style>
+    .desc-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .desc-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .desc-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.5rem;
+      height: 100%;
+      /*width: 100%;*/
+      opacity: 0;
+      text-align: center;
+      transition: .3s ease;
+      background-color: #004FA3;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      line-height: 1.2;
+      max-height: 100%;
+      overflow: hidden;
+    }
+
+    .desc-overlay h6{
+        font-size: 18px;
+        text-decoration: underline #007bff;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .desc-overlay{
+            font-size: 14px;
+        }
+        .desc-overlay h6{
+            font-size: 16px;
+        }
+    }
+    @media only screen and (max-width: 992px) {
+        .desc-overlay{
+            font-size: 11px;
+            line-height: 1.1;
+        }
+        .desc-overlay h6{
+            font-size: 12px;
+        }
+        .base-image{
+            height: 110%;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        .desc-overlay {
+            font-size: 13px;
+            line-height: 1.1;
+        }
+        .desc-overlay h6 {
+            font-size: 16px;
+        }
+        .base-image {
+            height: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .desc-overlay{
+            font-size: 10px;
+            line-height: 1.1;
+        }
+        .desc-overlay h6{
+            font-size: 11px;
+        }
+        .base-image{
+            height: 100%;
+        }
+    }
+
+    .desc-container:hover .desc-overlay {
+      opacity: 0.9;
+    }
+
+    .header{
+        background-color: #007bff;
+        color: white;
+        margin-bottom: 2rem;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding-top: 1rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .subheader{
+        background-color: lightgray;
+        color: black;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        padding-top: 8px;
+    }
+
+    .top-banner{
+        background-color: #15C70C;
+    }
+
+    .base-image{
+        width: 100%;
+    }
+    a{
+        color: #007bff;
+    }
+
+    .header a{
+        color: #91F88B;
+    }
+
+    h2{
+        font-size: 36px;
+        padding: 1rem;
+    }
+
+    h3{
+        color: #4F5451;
+        font-size: 24px;
+    }
+
+    .dashboard-container{
+        border: #15C70C 0.3rem solid;
+        border-radius: 8px;
+        padding: 6px;
+    }
+
+    .title-container {
+        width: 100%;
+    }
+
+    }
+    .sub{
+        vertical-align: sub;
+    }
+    .small-text{
+        font-size: 3px;
+        color: #15C70C;
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- Begin HTML -->
+<div class="container">
+    <div class="top-banner row">
+        <div class="col-xs-12 small-text">
+            _
+        </div>
+    </div>
+    <ht></ht>
+    <div class="header row">
+        <div class="col-xs-12 title-container">
+            <h2 class="text-center">About Modulytics</h2>
+        </div>
+        <div class="col-sm-9 col-xs-12">
+            <div class="text-left">
+                Jump to: <a href="#dashboard">iModulon Dashboard Overview</a>  | <a href="#citation">Citation</a>  |
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+            <div class="text-right">
+                <a href="/modulytics/">Go back to Home</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p>
+            The Modulytics website provides interactive visualizations of “iModulons”
+            (<u><b>i</b></u>ndependently <u><b>mod</b></u>ulated gene sets) that describe sets of coregulated genes
+            in an organism’s transcriptional regulatory network (TRN). The iModulons were determined
+            using independent component analysis (ICA), a signal deconvolution unsupervised learning algorithm,
+            which identified unique signals from transcriptomics data.
+        </p>
+        <p>
+            Currently, Modulytics solely focuses on the iModulons from the pioneering
+            <a href="https://www.nature.com/articles/s41467-019-13483-w">paper</a> on <i>Escherichia coli</i>
+            that uses data from PRECISE (a Precision RNA-seq Expression Compendium for Independent Signal Exploration).
+            In the future, Modulytics will expand its scope to other prokaryotes – stay tuned!
+        </p>
+    </div>
+    <!-- Dashboard Overview -->
+    <div class="row subheader">
+        <div class="col-xs-6 title-container">
+            <div id="dashboard">
+                <h3 class="text-center">iModulon Dashboard Overview</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p>
+            For a description of each of the figures shown on the iModulon dashboards <b>hover over</b> the various
+            components of the example “MalT” iModulon below:
+        </p>
+    </div>
+    <div class="dashboard-container">
+        <hr>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="desc-container base-image">
+                    <img src="images/mod_name.png" class="desc-image">
+                    <div class="desc-overlay" >
+                        <h6>Name and Description</h6>
+                        <p>
+                            Here, the iModulon name is given in large font. Below, several descriptors are given, including
+                            the biological function and category of iModulon. If the iModulon is found to map to a known
+                            regulator, then the "Regulated by" descriptor will be followed by the regulator name.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-xs-12">
+                <div class="desc-container base-image">
+                    <img src="images/mod_table.png" class="desc-image">
+                    <div class="desc-overlay">
+                        <h6>Gene Table</h6>
+                        <p>
+                            The gene table lists the genes that are included in the iModulon. Working from left to right,
+                            the <b>first column</b> gives the gene number (b-numbers for <i>E. coli</i>), the second column
+                            (<b>"M<span class="sub">i</span>"</b>) gives the ICA-determined weight of the gene in the iModulon,
+                            the third column (<b>"Name"</b>) gives the gene names, and the <b>next column</b> will be a checklist of whether the
+                            iModulon gene is in the regulon for regulatory iModulons only. After
+                            the first 3-4 columns, the <b>"Product"</b> column gives the expected product of the gene, the
+                            <b>"Operon"</b> column gives any other genes in the same operon as iModulon gene (where applicable),
+                            and the <b>"TF"</b> column (not shown here - need to scroll right) gives the known transcription
+                            factors associated with the iModulon gene. Clicking on a row will take you to a page with
+                            more information on the iModulon gene, such as EcoCyc for <i>E. coli</i>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12 title-container">
+                <h4 class="text-center">Genes</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="desc-container base-image">
+                    <img src="images/mod_hist.png" class="desc-image">
+                    <div class="desc-overlay">
+                        <h6>Gene Weight Histogram</h6>
+                        <p>
+                            For the statistically-determined signal, each gene has a "weight" that represents its importance towards the signal.
+                            Genes with weights that occur above a determined threshold are considered to be a part of the iModulon.
+                            The histogram shows the distribution of gene weights for the particular signal that is associated with the iModulon.
+                            Genes that fall to the left or right of the region between vertical bars are in the iModulon.
+                            On the dashboard page, you can hover over the iModulon gene weight bars to see the associated genes. If the iModulon has
+                            a regulator enrichment, the genes in the regulon (per RegulonDB for <i>E. coli</i>) will be shown in blue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="desc-container base-image">
+                    <img src="images/mod_scatter.png" class="desc-image">
+                    <div class="desc-overlay">
+                        <h6>Gene Weight Scatter Plot</h6>
+                        <p>
+                            Similar to the gene histogram, the gene scatter plot shows the weight of each gene towards
+                            the signal. In this figure, the gene weights are plotted against the corresponding mean gene
+                            expression at the control conditions. The iModulon genes are those that fall above or below
+                            the horizontal threshold line(s). On the dashboard page, the gene name and values can be
+                            displayed by hovering over each point.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12 title-container">
+                <h4 class="text-center">Activity</h4>
+            </div>
+        </div>
+        <div>
+            <div class="col-xs-12">
+                <div class="desc-container base-image">
+                    <img src="images/mod_activity.png" class="desc-image">
+                    <div class="desc-overlay">
+                        <h6>Activity Bar Graph</h6>
+                        <p>
+                            The activity bar graph shows the relative activity level of the iModulon across all the
+                            experimental samples included in the dataset. The breakdown of the different studies
+                            contributing to the activity profile are included below the x-axis, where the vertical lines
+                            indicate the split of different studies that the various samples fall into. The black points
+                            represent each biological replicate for the sample, and the blue bars represent the averaged
+                            activity from the biological replicates. Hovering over the data shows the sample name,
+                            the activity value, and the associated carbon source of the sample (if known). Clicking on
+                            the blue data bars will take you to the paper describing the associated study.
+                        </p>
+                        <p>
+                            The hamburger menu in the top right of the figure includes additional options, such as
+                            the ability to view the figure in full screen or download the figure as either a pdf or png
+                            file. The menu also includes csv file downloads for the metadata that describes the various
+                            samples, and the underlying activity data for the iModulon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12 title-container">
+                <h4 class="text-center">Regulation</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="desc-container base-image">
+                    <img src="images/mod_venn.png" class="desc-image">
+                    <div class="desc-overlay">
+                        <h6>iModulon and Regulon Venn Diagram</h6>
+                        <p>
+                            If the iModulon is mapped to a regulator, the venn diagram appears to show the overlap
+                            between the genes in the iModulon and the regulon (per RegulonDB for <i>E. coli</i>).
+                            On the dashboard page, you can hover over each part of the venn diagram to see the number
+                            of genes and gene names associated with each group in the diagram.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="desc-container base-image">
+                    <img src="images/mod_corr.png" class="desc-image">
+                    <div class="desc-overlay">
+                        <h6>Correlation to Regulator</h6>
+                        <p>
+                            In addition to the venn diagram, the correlation scatter plot appears if the iModulon can be
+                            mapped to a regulator. The plot shows the relationship between the iModulon activity level
+                            and the expression of the regulator gene across the various conditions. If the iModulon is
+                            correctly attributed to the regulator, a linear relationship is expected between activity
+                            and expression.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- Citation -->
+    <div class="row subheader">
+        <div class="col-xs-6 title-container">
+            <div id="citation">
+                <h3 class="text-center">Citation</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p>
+            For the <i>Escherichia coli</i> iModulons, please cite:
+        </p>
+        <p>
+            Sastry, A.V., Gao, Y., Szubin, R. et al. The Escherichia coli transcriptome
+            mostly consists of independently regulated modules. Nat Commun 10, 5536 (2019).
+            https://doi.org/10.1038/s41467-019-13483-w
+        </p>
+    </div>
+    <!-- Contact -->
+    <div class="row subheader">
+        <div class="col-xs-6 title-container">
+            <div id="contact">
+                <h3 class="text-center">Contact Us</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p>
+            For questions on Modulytics, please get send an email to Kevin Rychel (krychel-AT-ucsd-DOT-edu).
+        </p>
+        <p>
+            For more information on the Systems Biology Research Group (SBRG) at the University of California,
+            San Diego, please see our website <a href="http://systemsbiology.ucsd.edu/">here</a>.
+        </p>
+        <p>
+
+        </p>
+    </div>
+    <!-- Footer -->
+    <hr>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="copyright text-muted small">
+                        Modulytics is maintained by the Systems Biology Research Group at the University of California, San Diego. <br/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
