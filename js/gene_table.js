@@ -71,7 +71,7 @@ function generateGeneTable(csvContent, container) {
             if (link==null){ // All absent links are for psuedogenes.
                 alert(row.getData().gene_name+' is a pseudogene. No link available at this time.');
             } else {
-                window.location.href = link;
+                window.open(link);
             }
         },
         
