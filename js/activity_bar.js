@@ -174,9 +174,9 @@
                             link = link_str[link_str.length -1]
                             
                             if (link[0] == 'h') {
-                                window.location.href = link;
+                                window.open(link);
                             } else {
-                                window.location.href = 'http://' + link
+                                window.open('http://' + link);
                             }
                         }
                     }
