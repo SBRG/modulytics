@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Modulytics Home </title>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <!-- CSS -->
+        <style>
+        .header{
+            background-color: #007bff;
+            color: white;
+            margin-bottom: 1rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 0.4rem;
+        }
+
+        .top-banner{
+            background-color: #15C70C;
+        }
+
+        .small-text{
+            font-size: 3px;
+            color: #15C70C;
+        }
+        
+        .header a{
+            color: #91F88B;
+        }
+        
+        .header a:hover{
+            color: white;
+        }
+        
+        .dropdown-menu{
+            background-color: #007bff;
+        }
+        
+        .dropdown-item{
+            color: #91F88B;
+        }
+        
+        .dropdown-item:hover{
+            background-color: #007bff;
+            color: white;
+        }
+        </style>
+    
+    </head>
+  
+    <body>
+        <!-- Page Content -->
+        <div class="container" style="min-width: 600px">  
+            
+            <!-- Navbar -->
+            <div class="top-banner row">
+                <div class="col-xs-12 small-text">_</div>
+            </div>
+            
+            <div class="header row navbar-dark">
+                
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Modulytics</a>
+                </div>
+                
+                <ul class="nav navbar-dark">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Download</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
+                            <a class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
+                            <a class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        <div class = "row">
+            
+            <!-- Main body --> 
+            <div class="col-md-12 p-3" style="max-width: 1200px">
+                
+                <!-- Header: Dataset Info -->
+                <div class="row mx-auto justify-content-center">
+                    <h1 class="bd-title"><i>E. Coli</i> PRECISE 1.0</h1>
+                </div>
+                <div class="row mx-auto justify-content-center">
+                    <p class="bd-lead">
+                        <b>Organism:</b> <i>Escherichia Coli</i> K-12 <br />
+                        <b>Strain:</b> MG1655 and BW25113 <br />
+                        <b>Publication:</b> <a href="https://www.nature.com/articles/s41467-019-13483-w">Sastry, et al., 2019</a><br />
+                    </p>
+                </div>
+                
+                <!-- iModulon Table -->
+                <div id="iM_table" style="width: 100%;height:350px;"></div>
+                
+            </div>
+            
+        </div>
+        </div>
+        
+        <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+        <!-- Required CDNs: Papa Parse, Tabulator -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+        <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet"/>
+        <script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
+        
+        <!-- Generate the table -->
+        <script>
+            $.get('e_coli/precise1/iM_table.csv', function(table_data) {
+                
+                // get the data, convert to objects
+                var data=Papa.parse(table_data,{dynamicTyping: true}).data;
+                var tabledata = []
+                for (i = 1; i < data.length -1; i++) { //rows, excluding header
+                    var obj = {};
+                    for (j = 0; j < data[0].length; j++) { //cols
+                        obj[data[0][j]] = data[i][j];
+                    }
+                    tabledata.push(obj);
+                }
+                
+                // columns object
+                var columns = [
+                    {title: "iModulon Name", field:"Name", frozen:true},
+                    {title: "Regulator", field: "Regulator", 
+                        width:150, sorterParams:{alignEmptyValues:"bottom"}
+                    },
+                    {title: "Function", field: "Function"},
+                    {title: "Category", field: "Category",
+                        sorter:function(a, b, aRow, bRow, column, dir, sorterParams){
+                            return aRow.getData().category_num - bRow.getData().category_num;
+                        }
+                    }
+                ]
+                
+                // generate the table
+                var table = new Tabulator('#iM_table', {
+                    
+                    maxHeight:"100%",
+                    layout:"fitDataStretch",
+                    data:tabledata,
+                    columns:columns,
+                    initialSort:[
+                        {column:"Regulator", dir:"asc"},
+                        {column:"Category", dir:"asc"}
+                    ],
+                    rowClick:function(e, row){ //link to the page in a database
+                        var link='iModulon.html?k='+row.getData().k;
+                        window.location.href = link;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
