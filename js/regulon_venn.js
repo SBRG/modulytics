@@ -110,7 +110,7 @@
                var tooltip = this.point.name + ": <b>" + this.point.value + "</b>";
                if (this.point.name=="Regulon Genes" | this.point.name=="iModulon Genes") {
                    tooltip += "<br>Genes in "+this.point.name.substring(0, this.point.name.length-6);
-                   tooltip += " only: <b>" + (this.point.value - overlap) + "</b>";
+                   tooltip += " only: <b>" + (this.point.gene_list.split(', ').length) + "</b>";
                }
                tooltip += "<br>" + this.point.gene_list
                
