@@ -8,17 +8,126 @@
         
         <!-- Bootstrap CDN -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+        <!-- CSS -->
+        <style>
+        .header{
+            background-color: #007bff;
+            color: white;
+            margin-bottom: 1rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 3rem;
+            padding-bottom: 2rem
+        }
+
+        .top-banner{
+            background-color: #15C70C;
+        }
+
+        .small-text{
+            font-size: 3px;
+            color: #15C70C;
+        }
+        </style>
     </head>
   
     <body>
         <!-- Main div -->
-        <!-- Lists each development page as links -->
-        <div id="main" class="container-fluid">
+        <div id="main" class="container">
+            <div class="top-banner row">
+                <div class="col-xs-12 small-text">_</div>
+            </div>
             
-            <h2 style="text-align:center;">Modulytics Home</h2>
+            <!-- Header -->
+            <div class="header row">
+                <div class="col-md-12">
+                    <!-- Title -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="display-2 text-center">Modulytics</h1>
+                            <h1 class="text-center"><small><i>
+                                Independent Component Analysis of Bacterial Transcriptomes
+                            </i></small></h1>
+                        </div>
+                    </div>
+                    <!-- About -->
+                    <div class="row pt-5">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            <a href="about.html" role="button" class="btn btn-light btn-block">
+                                <span style="font-size:larger;">Learn About iModulons
+                            </span></a>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <!-- "Choose a Dataset" Text -->
+                    <div class="row pt-3">
+                        <div class="col-sm-12">
+                            <h4 class="text-center"><small> or </small></h4>
+                            <h3 class="text-center"><small> Choose a Dataset Below </small></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Datasets -->
+            <div class="row">
+				<div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title text-center"><i>E. coli</i></h2>
+                            <hr>
+                            <p class="card-text text-center">Precision RNA-seq Expression Compendium for 
+                            Independent Signal Exploration (PRECISE 1.0)</p>
+                            <p class="card-text text-center"><i>Sastry, et al., 2019</i></p>
+                            <a href="dataset.html" class="btn btn-primary btn-block stretched-link">View</a>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title text-center"><i>S. aureus</i></h2>
+                            <hr>
+                            <p class="card-text text-center"><i>Staph</i>PRECISE</p>
+                            <p class="card-text text-center"><i>Poudel, et al., 2020</i></p>
+                            <a href="dataset.html" class="btn btn-primary btn-block stretched-link">View</a>
+                        </div>
+                    </div>
+				</div>
+				
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title text-center"><i>B. subtilis</i></h2>
+                            <hr>
+                            <p class="card-text text-center"><i>Nicolas, et al., 2012</i> Microarray Dataset</p>
+                            <p class="card-text text-center"><i>Rychel, et al., 2020</i></p>
+                            <a href="dataset.html" class="btn btn-primary btn-block stretched-link">View</a>
+                        </div>
+                    </div>
+				</div>
+            </div>
+            
+            <!-- Footer -->
             <hr />
-            <a href="dataset.html" role="button" class="btn btn-info btn-block">E coli PRECISE 1.0</a>
-            
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="http://systemsbiology.ucsd.edu/">
+                                <img class="img-fluid" src="images/sbrg-logo.png">
+                            </a>
+                        </div>
+                        <div class="col-sm-9 m-auto">
+                            <p class="copyright text-muted small">
+                                Modulytics is maintained by the Systems Biology Research Group at the University of California, San Diego. <br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
         
         <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
