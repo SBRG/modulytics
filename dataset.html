@@ -49,6 +49,12 @@
             background-color: #007bff;
             color: white;
         }
+        .tabulator-frozen-left{
+            color: #007bff;
+        }
+        .tabulator-header{
+            color: black;
+        }
         </style>
     
     </head>
@@ -100,8 +106,26 @@
                 </div>
                 
                 <!-- iModulon Table -->
-                <div id="iM_table" style="width: 100%;height:350px;"></div>
+                <div id="iM_table" style="width: 100%"></div>
                 
+                <hr />
+                <!-- Footer -->
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <a href="http://systemsbiology.ucsd.edu/">
+                                    <img class="img-fluid" src="images/sbrg-logo.png">
+                                </a>
+                            </div>
+                            <div class="col-sm-9 m-auto">
+                                <p class="copyright text-muted small">
+                                    Modulytics is maintained by the Systems Biology Research Group at the University of California, San Diego. <br/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
             
         </div>
@@ -129,6 +153,7 @@
                     for (j = 0; j < data[0].length; j++) { //cols
                         obj[data[0][j]] = data[i][j];
                     }
+                    
                     tabledata.push(obj);
                 }
                 
@@ -143,13 +168,15 @@
                         sorter:function(a, b, aRow, bRow, column, dir, sorterParams){
                             return aRow.getData().category_num - bRow.getData().category_num;
                         }
-                    }
+                    }, 
+                    {title: "N", field: "n_genes"},
+                    {title: "Precision", field: "precision", formatter:"money", formatterParams:{precision:3}},
+                    {title: "Recall", field: "recall", formatter:"money", formatterParams:{precision:3}}
                 ]
                 
                 // generate the table
                 var table = new Tabulator('#iM_table', {
-                    
-                    maxHeight:"100%",
+
                     layout:"fitDataStretch",
                     data:tabledata,
                     columns:columns,
@@ -160,6 +187,9 @@
                     rowClick:function(e, row){ //link to the page in a database
                         var link='iModulon.html?k='+row.getData().k;
                         window.location.href = link;
+                    },
+                    tooltips:function(cell){
+                        return "Click to view iModulon dashboard";
                     }
                 });
             });
