@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Modulytics</title>
+    <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+        <!-- FontAwesome Icons -->
+        <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
+
+        <!-- CSS -->
+        <style>
+
+        .header{
+            background-color: #007bff;
+            color: white;
+            margin-bottom: 1rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 0.4rem;
+        }
+
+        .top-banner{
+            background-color: #15C70C;
+        }
+
+        .small-text{
+            font-size: 3px;
+            color: #15C70C;
+        }
+
+        .header a{
+            color: #91F88B;
+        }
+
+        .header a:hover{
+            color: white;
+        }
+
+        .dropdown-menu{
+            background-color: #007bff;
+        }
+
+        .dropdown-item{
+            color: #91F88B;
+        }
+
+        .dropdown-item:hover{
+            background-color: #007bff;
+            color: white;
+        }
+
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Page Content -->
+        <div class="container" style="min-width: 600px">
+
+            <!-- Navbar -->
+            <div class="top-banner row">
+                <div class="col-xs-12 small-text">_</div>
+            </div>
+
+            <div class="header row navbar-dark">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Modulytics</a>
+                </div>
+
+                <ul class="nav navbar-dark">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id = "next_iM" class="nav-link navbar-dark" href="index.html">Next</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id = "prev_iM" class="nav-link navbar-dark" href="index.html">Previous</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Download</a>
+                        <div class="dropdown-menu">
+                            <a id="gene_weights_download" class="dropdown-item" href="#">Gene Weights</a>
+                            <a id="gene_table_download" class="dropdown-item" href="#">Gene Table</a>
+                            <a id="activity_download" class="dropdown-item" href="#">iModulon Activity</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
+                            <a class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
+                            <a class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+</head>
+<body>
+
+</body>
+</html>
