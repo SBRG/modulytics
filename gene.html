@@ -3,19 +3,20 @@
 <head>
     <title>Modulytics</title>
     <!-- Metadata -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CDN -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-        <!-- FontAwesome Icons -->
-        <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
 
-        <!-- CSS -->
-        <style>
+    <!-- CSS -->
+    <style>
 
-        .header{
+        .header {
             background-color: #007bff;
             color: white;
             margin-bottom: 1rem;
@@ -24,84 +25,144 @@
             padding: 0.4rem;
         }
 
-        .top-banner{
+        .top-banner {
             background-color: #15C70C;
         }
 
-        .small-text{
+        .small-text {
             font-size: 3px;
             color: #15C70C;
         }
 
-        .header a{
+        .header a {
             color: #91F88B;
         }
 
-        .header a:hover{
+        .header a:hover {
             color: white;
         }
 
-        .dropdown-menu{
+        .dropdown-menu {
             background-color: #007bff;
         }
 
-        .dropdown-item{
+        .dropdown-item {
             color: #91F88B;
         }
 
-        .dropdown-item:hover{
+        .dropdown-item:hover {
             background-color: #007bff;
             color: white;
         }
 
-        </style>
-    </head>
-
-    <body>
-
-        <!-- Page Content -->
-        <div class="container" style="min-width: 600px">
-
-            <!-- Navbar -->
-            <div class="top-banner row">
-                <div class="col-xs-12 small-text">_</div>
-            </div>
-
-            <div class="header row navbar-dark">
-
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Modulytics</a>
-                </div>
-
-                <ul class="nav navbar-dark">
-                    <li class="nav-item">
-                        <a class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id = "next_iM" class="nav-link navbar-dark" href="index.html">Next</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id = "prev_iM" class="nav-link navbar-dark" href="index.html">Previous</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Download</a>
-                        <div class="dropdown-menu">
-                            <a id="gene_weights_download" class="dropdown-item" href="#">Gene Weights</a>
-                            <a id="gene_table_download" class="dropdown-item" href="#">Gene Table</a>
-                            <a id="activity_download" class="dropdown-item" href="#">iModulon Activity</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
-                            <a class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
-                            <a class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                </ul>
-            </div>
+    </style>
 </head>
 <body>
 
+<!-- Page Content -->
+<div class="container" style="min-width: 600px">
+
+    <!-- Navbar -->
+    <div class="top-banner row">
+        <div class="col-xs-12 small-text">_</div>
+    </div>
+
+    <div class="header row navbar-dark">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Modulytics</a>
+        </div>
+
+        <ul class="nav navbar-dark">
+            <li class="nav-item">
+                <a class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
+            </li>
+            <li class="nav-item">
+                <a id="next_iM" class="nav-link navbar-dark" href="index.html">Next</a>
+            </li>
+            <li class="nav-item">
+                <a id="prev_iM" class="nav-link navbar-dark" href="index.html">Previous</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">Download</a>
+                <div class="dropdown-menu">
+                    <a id="gene_weights_download" class="dropdown-item" href="#">Gene Weights</a>
+                    <a id="gene_table_download" class="dropdown-item" href="#">Gene Table</a>
+                    <a id="activity_download" class="dropdown-item" href="#">iModulon Activity</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
+                    <a class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
+                    <a class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+
+        <!-- Main body -->
+        <div class="col-md-12 p-3" style="max-width: 1200px">
+
+            <!-- iModulon header & gene table -->
+            <div class="row">
+                <div class="col-md-4 m-auto">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 id="im_name" class="bd-title"></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="im_head_text" class="bd-lead"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row mx-auto justify-content-center">
+                        <h5>Gene Table</h5>
+                    </div>
+                    <div id="gene_table" style="width: 100%;height:275px;"></div> <!-- width = 500px -->
+                </div>
+            </div>
+
+            <hr/>
+
+            <!-- Activity-related plots -->
+            <div class="row mx-auto justify-content-center">
+                <h5>Activity</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="bar" style="width: 100%;height: 250px;"></div> <!-- width = 900px -->
+                </div>
+            </div>
+
+            <hr id="reg_hr" class="d-none"/>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="http://systemsbiology.ucsd.edu/">
+                                <img class="img-fluid" src="images/sbrg-logo.png">
+                            </a>
+                        </div>
+                        <div class="col-sm-9 m-auto">
+                            <p class="copyright text-muted small">
+                                Modulytics is maintained by the Systems Biology Research Group at the University of
+                                California, San Diego. <br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
 </body>
 </html>
