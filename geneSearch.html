@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Modulytics: Search Genes</title>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
+
+    <style>
+        .result {
+            list-style-type: none;
+            border: 1px solid #BBBBBB;
+            border-radius: 8px;
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            margin-right: 70px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <input type="text" id="searchText">
+    <button id="searchBtn" onclick="search()">
+        Run!!
+    </button>
+</div>
+<div>
+    <ul id="results"></ul>
+</div>
+
+<!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="http://systemsbiology.ucsd.edu/">
+                                <img class="img-fluid" src="images/sbrg-logo.png">
+                            </a>
+                        </div>
+                        <div class="col-sm-9 m-auto">
+                            <p class="copyright text-muted small">
+                                Modulytics is maintained by the Systems Biology Research Group at the University of
+                                California, San Diego. <br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+<script>
+    // { gene_name: "thrL", bNum: "b0001" }
+    let gene_list = {};
+
+    async function run(){
+       const response = await fetch("./e_coli/precise1/gene_page_files/gene_list.json");
+       gene_list = await response.json();
+    }
+
+    run();
+
+    // Search functionality below
+    const resultItem = ({ gene_name, bNum }) => {
+        return `<li class="result"><a href="gene.html?bNum=${bNum}"><b>${gene_name}</b> : ${bNum}</a></li>`
+    }
+
+    async function search() {
+        // clear previous results
+        $('#results').empty();
+
+        const searchTerm = $('#searchText').val();
+        const results = gene_list.filter(gene => gene.gene_name.includes(searchTerm) ||
+            gene.bNum.includes(searchTerm));
+
+        results.forEach((result) => {
+            $('#results').append(resultItem(result));
+        })
+    }
+</script>
+</body>
+</html>
