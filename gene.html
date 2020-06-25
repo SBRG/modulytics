@@ -112,12 +112,12 @@
                 <div class="col-md-4 m-auto">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 id="im_name" class="bd-title"></h1>
+                            <h1 id="gene_name" class="bd-title"></h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <p id="im_head_text" class="bd-lead"></p>
+                            <p id="gene_head_text" class="bd-lead"></p>
                         </div>
                     </div>
                 </div>
@@ -164,5 +164,60 @@
         </div>
     </div>
 </div>
+
+<!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+<!-- Required CDNs: Highcharts, Papa Parse, Tabulator -->
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/modules/data.src.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.src.js"></script>
+<script src="https://code.highcharts.com/modules/venn.src.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+<link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
+
+<!-- Custom scripts -->
+<script src="js/gene_histogram.js"></script>
+<script src="js/gene_table.js"></script>
+<script src="js/gene_scatter.js"></script>
+<script src="js/activity_bar.js"></script>
+<script src="js/regulon_venn.js"></script>
+<script src="js/regulon_scatter.js"></script>
+
+
+<!-- Populate the HTML page -->
+
+<script>
+    // Determine which gene this is
+    var gene_id = 'b0002' // parent.document.URL.substring(parent.document.URL.indexOf('?k=') + 3, parent.document.URL.length);
+    var org_folder = "e_coli/precise1/";
+    var data_prefix = org_folder + "gene_page_files/" + gene_id + "/" + gene_id + "_";
+
+    // read in the gene metadata
+    $.get(data_prefix + "meta.csv", function (gene_metaCSV) {
+        var gene_meta = Papa.parse(gene_metaCSV, {dynamicTyping: true}).data;
+
+        // add header
+        $('#gene_name').append("Gene: " + gene_meta[2][1]);
+        $('#gene_head_text').append('<b>Gene b-number: </b>' + gene_meta[1][1])
+        $('#gene_head_text').append('<br><b>Operon: </b>' + gene_meta[3][1])
+        $('#gene_head_text').append('<br><b>Gene Product: </b>' + gene_meta[4][1])
+        $('#gene_head_text').append('<br><b>COG: </b>' + gene_meta[5][1])
+        var regulator_name = gene_meta[6][1]
+        if (regulator_name != null) {
+            $('#gene_head_text').append('<br><b>Regulated by: </b>' + regulator_name)
+        }
+
+        // change page title
+        document.title = 'Modulytics: ' + gene_meta[2][1] + ' gene';
+    });
+</script>
 </body>
 </html>
