@@ -193,10 +193,17 @@
 
 
 <!-- Populate the HTML page -->
-
+<script>
+    //helper for querystring params
+    function qs(key) {
+        key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+        var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+        return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+    }
+</script>
 <script>
     // Determine which gene this is
-    var gene_id = 'b0002' // parent.document.URL.substring(parent.document.URL.indexOf('?k=') + 3, parent.document.URL.length);
+    var gene_id = qs('bNum');
     var org_folder = "e_coli/precise1/";
     var data_prefix = org_folder + "gene_page_files/" + gene_id + "/" + gene_id + "_";
 
