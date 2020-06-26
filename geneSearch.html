@@ -14,9 +14,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 
-    <!-- FontAwesome Icons -->
-    <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
-
     <style>
         .result {
             list-style-type: none;
@@ -52,6 +49,10 @@
 
         .header a:hover {
             color: white;
+        }
+
+        .tall-row {
+            min-height: 100px;
         }
 
         .dropdown-menu {
@@ -102,7 +103,7 @@
 
                 <!-- Header: Dataset Info -->
                 <div class="row mx-auto justify-content-center">
-                    <h3 class="bd-title"><i>E. Coli</i> PRECISE: Search for Available Data by Gene</h3>
+                    <h3 class="bd-title"><i>E. Coli</i> PRECISE: Search by Gene for Available Data</h3>
                 </div>
                 <div class="row mx-auto justify-content-center">
                     <p class="bd-lead">
@@ -111,20 +112,27 @@
                         <b>Publication:</b> <a href="https://www.nature.com/articles/s41467-019-13483-w">Sastry, et al., 2019</a><br />
                     </p>
                 </div>
+                <div class="row mx-auto justify-content-center">
+                    To find information on the Modulytics data of a particular gene, enter the gene name or ID
+                    (b-number) and click 'Search'. Click the desired result link to view the gene data.
+
+                </div>
             </div>
+    </div>
 
     <!-- Search -->
     <div class="row mx-auto justify-content-center">
+        <div>
         <input type="text" id="searchText">
         <button id="searchBtn" onclick="search()">
-            Run!!
+            Search
         </button>
+        </div>
     </div>
     <div>
         <ul id="results"></ul>
     </div>
-    </div>
-
+    <div class="tall-row"> </div>
     <hr>
     <!-- Footer -->
     <footer>
