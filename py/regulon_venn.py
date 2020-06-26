@@ -6,6 +6,50 @@
 import pandas as pd
 import numpy as np
 
+# This function handles the bacillus regulon string format
+def parse_regulon_string(s, ica_data):
+    res = set()
+    if not(isinstance(s, str)):
+        return res
+    if '/' in s:
+        union = s.split('] / [')
+        union[0] = union[0][1:]
+        union[-1] = union[-1][:-1]
+    else:
+        union = [s]
+    for r in union:
+        if '+' in r:
+            intersection = r.split(' + ')
+            genes = set(ica_data.trn.gene_id[ica_data.trn.TF == intersection[0]])
+            for i in intersection[1:]:
+                genes = genes.intersection(set(ica_data.trn.gene_id[ica_data.trn.TF == i]))
+        else:
+            genes = set(ica_data.trn.gene_id[ica_data.trn.TF == r])
+        res = res.union(genes)
+    return res
+
+# this function either parses a simple regulon string or calls parse_regulon_string in the bacillus case
+def get_reg_genes(tf, ica_data):
+    # the Bacillus tf strings use '[]' to make complicated boolean combinations
+    if '[' in tf:
+        reg_genes = parse_regulon_string(tf, ica_data)
+    
+    # other datasets can use this simpler code
+    else:
+        tf = tf.replace(' ', '')
+        if '+' in tf:
+            reg_list = []
+            for tfx in tf.split('+'):
+                reg_list.append(set(ica_data.trn[ica_data.trn.TF == tfx].gene_id.unique()))
+            reg_genes = set.intersection(*reg_list)
+        elif '/' in tf:
+            reg_genes = set(ica_data.trn[ica_data.trn.TF.isin(tf.split('/'))].gene_id.unique())
+        else:
+            reg_genes = set(ica_data.trn[ica_data.trn.TF == tf].gene_id.unique())
+    
+    # retrun result
+    return reg_genes
+
 def regulon_venn_df(ica_data, k, row):
     tf = row['TF']
     
@@ -13,15 +57,7 @@ def regulon_venn_df(ica_data, k, row):
         return None
     
     # Take care of and/or enrichments
-    if '+' in tf:
-        reg_list = []
-        for tfx in tf.split('+'):
-            reg_list.append(set(ica_data.trn[ica_data.trn.TF == tfx].gene_id.unique()))
-        reg_genes = set.intersection(*reg_list)
-    elif '/' in tf:
-        reg_genes = set(ica_data.trn[ica_data.trn.TF.isin(tf.split('/'))].gene_id.unique())
-    else:
-        reg_genes = set(ica_data.trn[ica_data.trn.TF == tf].gene_id.unique())
+    reg_genes = get_reg_genes(tf, ica_data)
 
     # Get component genes
     comp_genes = set(ica_data.show_enriched(k).index)

@@ -4,6 +4,7 @@
 
 import numpy as np
 import pandas as pd
+import re
 
 # Helper functions
 def parse_tf_string(ica_data, tf_str):
@@ -12,24 +13,16 @@ def parse_tf_string(ica_data, tf_str):
     output: list of relevant TFs
     Ignores TFs that are not in the trn file
     '''
-    if pd.isnull(tf_str):
-        enrich_type = None
-        tfs = []
-    elif '+' in tf_str:
-        enrich_type = lambda x,y: x and y
-        tfs = tf_str.split('+')
-    elif '/' in tf_str:
-        enrich_type = lambda x,y: x or y
-        tfs = tf_str.split('/')
-    else:
-        enrich_type = None
-        tfs = [tf_str]
+    if not(type(tf_str) == str):
+        return []
+    tf_str = tf_str.replace(' ', '').replace('[', '').replace(']', '')
+    tfs = re.split('\+|\/', tf_str)
 
     # Check if there is an issue, just remove the issues for now.
     bad_tfs = []
     for tf in tfs:
         if (tf not in ica_data.trn.TF.unique()):
-            #print('MISSING TF:', tf)
+            print('MISSING TF:', tf)
             bad_tfs += [tf]
     tfs = list(set(tfs) - set(bad_tfs))
     
@@ -89,8 +82,11 @@ def gene_hist_df(ica_data, k, row, bins = 20, tol = 0.001):
     output: a dataframe for producing the histogram in javascript
     '''
     # get TFs
-    tfs = parse_tf_string(ica_data, row.TF)
-    
+    if not(type(row.TF) == str):
+        tfs = []
+    else:
+        tfs = parse_tf_string(ica_data, row.TF)
+        
     # get genes
     DF_gene = ica_data.component_DF(k,tfs=tfs)
     

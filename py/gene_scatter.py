@@ -32,10 +32,11 @@ def get_db_link(gene, locus_to_db):
         return np.nan
 
 # edit function name, inputs, doc string, etc...
-def gene_scatter_df(ica_data, k, links):
+def gene_scatter_df(ica_data, k, base_conds, links):
     '''
     input: ica_data, from github.com/SBRG/ICA
            k, the i-modulon's index
+           base_conds, a list of the indices of the baseline conditions
            links, a pandas series or dict connecting b_nums and ecocyc links
     output: a dataframe for producing the table (in this case, just the table)
     '''
@@ -46,7 +47,7 @@ def gene_scatter_df(ica_data, k, links):
     cutoff = ica_data.thresholds[k]
 
     # x&y scatterplot points
-    res.x = ica_data.X[['control__wt_glc__1','control__wt_glc__2']].mean(axis=1)
+    res.x = ica_data.X[base_conds].mean(axis=1)
     res.y = ica_data.S[k]
 
     # add other data
