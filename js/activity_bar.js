@@ -26,14 +26,59 @@
     document.body.removeChild(a);
  }
  
+ // finds an element in a list
+ function get_index(meta_head, elt_name) {
+    var is_thing = (elt) => elt==elt_name;
+    return meta_head.findIndex(is_thing);
+ }
+ 
+ // picks columns of interest based on what is in the metadata header
+ function pick_cols_of_interest(meta_head) {
+    cols_of_interest = []
+    
+    // bacillus
+    var exp_desc_idx = get_index(meta_head, 'experiment_description')
+    if (exp_desc_idx != -1) {
+        return [exp_desc_idx]
+    }
+    
+    // ecoli
+    var media_idx = get_index(meta_head, 'Base Media');
+    if (media_idx != -1) {
+        var carbon_idx = get_index(meta_head, 'Carbon Source');
+        var supp_idx = get_index(meta_head, 'Supplement');
+        var strain_idx = get_index(meta_head, 'Strain Description');
+        
+        return [strain_idx, media_idx, carbon_idx, supp_idx];
+    }
+    
+    // staph
+    var strain2 = get_index(meta_head, 'strain');
+    if (strain2 != -1) {
+        var time = get_index(meta_head, 'sample-time');
+        var media2 = get_index(meta_head, 'base-media');
+        var antibiotic = get_index(meta_head, 'antibiotic');
+        
+        return [strain2, media2, antibiotic, time];
+    }
+    
+    return cols_of_interest
+ }
+ 
  // Write Highcharts plot to container
  function generateActivityBar(metaCSV, dataCSV, container) {
     // get the data
     var metadata = Papa.parse(metaCSV, {dynamicTyping: true}).data;
     var data = Papa.parse(dataCSV, {dynamicTyping: true}).data;
     
+    // parse the metadata header to find the important columns
+    var sample_idx = get_index(metadata[0], 'sample_id');
+    var project_idx = get_index(metadata[0], 'project_id');
+    var link_idx = get_index(metadata[0], 'DOI');
+    
     // cols of interest: tooltip will show these metadata
-    var cols_of_interest = [9]
+    // These will be updated by a button in the future
+    var cols_of_interest = pick_cols_of_interest(metadata[0]);
     
     // zoom thresh: number of columns at which less data is displayed
     var zoom_thresh = 40
@@ -52,7 +97,8 @@
         
         // look at projects to determine vertical lines & plot bands
         var meta_idx = data[i][5] + 1;
-        var project = metadata[meta_idx][3];
+        var project = metadata[meta_idx][project_idx];
+        
         if (project != curr_proj) {
             
             // first project
@@ -160,12 +206,16 @@
                 color: '#2085e3',
                 events: {
                     click: function(e) {
-                        // go to the DOI of this sample on click
+                        // do nothing if the metadata doesn't contain links
+                        if (link_idx == -1) {
+                            return
+                        }
                         
+                        // go to the DOI of this sample on click
                         // find DOI
                         var index = e.point.index + 1;
                         var meta_index = data[index][5] + 1;
-                        var link = metadata[meta_index][metadata[0].length-2];
+                        var link = metadata[meta_index][link_idx];
                         
                         // check if it exists
                         if (link != null) {
@@ -217,7 +267,7 @@
                     meta_index = this.point.index + 1;
                     
                     // header: sample name
-                    tooltip += '<span style="font-size: 10px">' + metadata[meta_index][1] + '</span><br>';
+                    tooltip += '<span style="font-size: 10px">' + metadata[meta_index][sample_idx] + '</span><br>';
                     
                     // activity
                     tooltip += 'A: '+ this.point.y.toFixed(2);
