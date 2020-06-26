@@ -27,66 +27,160 @@
             margin-bottom: 8px;
             margin-right: 70px;
         }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            margin-bottom: 1rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 0.4rem;
+        }
+
+        .top-banner {
+            background-color: #15C70C;
+        }
+
+        .small-text {
+            font-size: 3px;
+            color: #15C70C;
+        }
+
+        .header a {
+            color: #91F88B;
+        }
+
+        .header a:hover {
+            color: white;
+        }
+
+        .dropdown-menu {
+            background-color: #007bff;
+        }
+
+        .dropdown-item {
+            color: #91F88B;
+        }
+
+        .dropdown-item:hover {
+            background-color: #007bff;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-<div>
-    <input type="text" id="searchText">
-    <button id="searchBtn" onclick="search()">
-        Run!!
-    </button>
-</div>
-<div>
-    <ul id="results"></ul>
-</div>
+<!-- Page Content -->
+<div class="container" style="min-width: 600px">
 
-<!-- Footer -->
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <a href="http://systemsbiology.ucsd.edu/">
-                                <img class="img-fluid" src="images/sbrg-logo.png">
-                            </a>
-                        </div>
-                        <div class="col-sm-9 m-auto">
-                            <p class="copyright text-muted small">
-                                Modulytics is maintained by the Systems Biology Research Group at the University of
-                                California, San Diego. <br/>
-                            </p>
-                        </div>
-                    </div>
+    <!-- Navbar -->
+    <div class="top-banner row">
+        <div class="col-xs-12 small-text">_</div>
+    </div>
+
+    <div class="header row navbar-dark">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Modulytics</a>
+        </div>
+
+        <ul class="nav navbar-dark">
+            <li class="nav-item">
+                <a class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Heading Info -->
+    <div class = "row">
+
+            <!-- Main body -->
+            <div class="col-md-12 p-3" style="max-width: 1200px">
+
+                <!-- Header: Dataset Info -->
+                <div class="row mx-auto justify-content-center">
+                    <h3 class="bd-title"><i>E. Coli</i> PRECISE: Search for Available Data by Gene</h3>
                 </div>
-            </footer>
-<script>
-    // { gene_name: "thrL", bNum: "b0001" }
-    let gene_list = {};
+                <div class="row mx-auto justify-content-center">
+                    <p class="bd-lead">
+                        <b>Organism:</b> <i>Escherichia Coli</i> K-12 <br />
+                        <b>Strain:</b> MG1655 and BW25113 <br />
+                        <b>Publication:</b> <a href="https://www.nature.com/articles/s41467-019-13483-w">Sastry, et al., 2019</a><br />
+                    </p>
+                </div>
+            </div>
 
-    async function run(){
-       const response = await fetch("./e_coli/precise1/gene_page_files/gene_list.json");
-       gene_list = await response.json();
-    }
+    <!-- Search -->
+    <div class="row mx-auto justify-content-center">
+        <input type="text" id="searchText">
+        <button id="searchBtn" onclick="search()">
+            Run!!
+        </button>
+    </div>
+    <div>
+        <ul id="results"></ul>
+    </div>
+    </div>
 
-    run();
+    <hr>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="http://systemsbiology.ucsd.edu/">
+                        <img class="img-fluid" src="images/sbrg-logo.png">
+                    </a>
+                </div>
+                <div class="col-sm-9 m-auto">
+                    <p class="copyright text-muted small">
+                        Modulytics is maintained by the Systems Biology Research Group at the University of
+                        California, San Diego. <br/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // { gene_name: "thrL", bNum: "b0001" }
+        let gene_list = {};
 
-    // Search functionality below
-    const resultItem = ({ gene_name, bNum }) => {
-        return `<li class="result"><a href="gene.html?bNum=${bNum}"><b>${gene_name}</b> : ${bNum}</a></li>`
-    }
+        async function run() {
+            const response = await fetch("./e_coli/precise1/gene_page_files/gene_list.json");
+            gene_list = await response.json();
+        }
 
-    async function search() {
-        // clear previous results
-        $('#results').empty();
+        run();
 
-        const searchTerm = $('#searchText').val();
-        const results = gene_list.filter(gene => gene.gene_name.includes(searchTerm) ||
-            gene.bNum.includes(searchTerm));
+        // Search functionality below
+        const resultItem = ({gene_name, bNum}) => {
+            return `<li class="result"><a href="gene.html?bNum=${bNum}"><b>${gene_name}</b> : ${bNum}</a></li>`
+        }
 
-        results.forEach((result) => {
-            $('#results').append(resultItem(result));
-        })
-    }
-</script>
+        async function search() {
+            // clear previous results
+            $('#results').empty();
+
+            const searchTerm = $('#searchText').val();
+            const results = gene_list.filter(gene => gene.gene_name.includes(searchTerm) ||
+                gene.bNum.includes(searchTerm));
+
+            results.forEach((result) => {
+                $('#results').append(resultItem(result));
+            })
+        }
+
+        search.addEventListener(
+            "keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("searchBtn").click();
+                }
+            }
+        )
+    </script>
 </body>
 </html>
