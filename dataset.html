@@ -78,10 +78,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Download</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
-                            <a class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
-                            <a class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
-                            <a class="dropdown-item" href="e_coli/precise1/iM_table.csv">iModulon Table</a>
+                            <a id="data_dl" class="dropdown-item">Full Dataset</a>
+                            <a id="gene_dl" class="dropdown-item">Gene Annotations & TRN</a>
+                            <a id="meta_dl" class="dropdown-item">Experimental Conditions</a>
+                            <a id="imtb_dl" class="dropdown-item" href="e_coli/precise1/iM_table.csv">iModulon Table</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -96,14 +96,10 @@
                 
                 <!-- Header: Dataset Info -->
                 <div class="row mx-auto justify-content-center">
-                    <h1 class="bd-title"><i>E. Coli</i> PRECISE 1.0</h1>
+                    <h1 id="title" class="bd-title"></h1>
                 </div>
                 <div class="row mx-auto justify-content-center">
-                    <p class="bd-lead">
-                        <b>Organism:</b> <i>Escherichia Coli</i> K-12 <br />
-                        <b>Strain:</b> MG1655 and BW25113 <br />
-                        <b>Publication:</b> <a href="https://www.nature.com/articles/s41467-019-13483-w">Sastry, et al., 2019</a><br />
-                    </p>
+                    <p id="header" class="bd-lead"></p>
                 </div>
                 
                 <!-- iModulon Table -->
@@ -137,14 +133,42 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         
-        <!-- Required CDNs: Papa Parse, Tabulator -->
+        <!-- Required CDNs: URLSearchParams, Papa Parse, Tabulator -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
         <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet"/>
         <script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
         
-        <!-- Generate the table -->
+        <!-- Populate the page -->
         <script>
-            $.get('e_coli/precise1/iM_table.csv', function(table_data) {
+            // get the URL search params to know which dataset to generate
+            var params = new URLSearchParams(window.location.search);
+            var prefix = 'organisms/'+params.get('organism')+'/'+params.get('dataset')+'/';
+            
+            // update the download links
+            document.getElementById('data_dl').setAttribute('href', prefix + 'data_files.zip');
+            document.getElementById('gene_dl').setAttribute('href', 'organisms/'+params.get('organism')+'/annotation/gene_files.zip');
+            document.getElementById('meta_dl').setAttribute('href', prefix + 'sample_metadata.csv');
+            document.getElementById('imtb_dl').setAttribute('href', prefix + 'iM_table.csv');
+            
+            // populate the dataset info 
+            $.get(prefix + 'dataset_meta.csv', function(meta) {
+                var metadata = Papa.parse(meta).data;
+                
+                // dataset title
+                var title = metadata[0][1]
+                document.title = 'Modulytics: ' + title.replace( /(<([^>]+)>)/ig, '');
+                $('#title').append(title);
+                
+                // header text
+                for (i = 1; i < metadata.length-1; i++) {
+                    $('#header').append('<b>'+metadata[i][0]+':</b> '+metadata[i][1]+'<br>');
+                }
+            });
+            
+            
+            // populate the table
+            $.get(prefix+'iM_table.csv', function(table_data) {
                 
                 // get the data, convert to objects
                 var data=Papa.parse(table_data,{dynamicTyping: true}).data;
@@ -186,7 +210,10 @@
                         {column:"Category", dir:"asc"}
                     ],
                     rowClick:function(e, row){ //link to the page in a database
-                        var link='iModulon.html?k='+row.getData().k;
+                        var link='iModulon.html?';
+                        link += 'organism='+params.get('organism')+'&';
+                        link += 'dataset='+params.get('dataset')+'&';
+                        link += 'k='+row.getData().k;
                         window.location.href = link;
                     },
                     tooltips:function(cell){

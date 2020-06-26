@@ -75,7 +75,7 @@
                 
                 <ul class="nav navbar-dark">
                     <li class="nav-item">
-                        <a class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
+                        <a id="im_list" class="nav-link navbar-dark">iModulon List</a>
                     </li>
                     <li class="nav-item">
                         <a id = "next_iM" class="nav-link navbar-dark" href="index.html">Next</a>
@@ -90,9 +90,9 @@
                             <a id="gene_table_download" class="dropdown-item" href="#">Gene Table</a>
                             <a id="activity_download" class="dropdown-item" href="#">iModulon Activity</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
-                            <a class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
-                            <a class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
+                            <a id="data_download" class="dropdown-item">Full Dataset</a>
+                            <a id="gene_download" class="dropdown-item">Gene Annotations & TRN</a>
+                            <a id="meta_download" class="dropdown-item">Experimental Conditions</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -213,7 +213,8 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>        
         
-        <!-- Required CDNs: Highcharts, Papa Parse, Tabulator -->
+        <!-- Required CDNs: URLSearchParams, Highcharts, Papa Parse, Tabulator -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script>
         <script src="https://code.highcharts.com/stock/highstock.js"></script>
         <script src="https://code.highcharts.com/modules/data.src.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.src.js"></script>
@@ -235,10 +236,16 @@
         <script>
         
             // Determine which i-modulon this is
-            // In the future, we will pass more variables (e.g. organism) and use a robust querystring pkg
-            var k = parent.document.URL.substring(parent.document.URL.indexOf('?k=')+3, parent.document.URL.length);
-            var org_folder = "e_coli/precise1/";
-            var data_prefix = org_folder + "iModulon_files/" + k + "/" + k + "_";
+            var params = new URLSearchParams(window.location.search);
+            var org_folder = 'organisms/'+params.get('organism')+'/'+params.get('dataset')+'/';
+            var data_prefix = org_folder+'iModulon_files/'+params.get('k')+'/'+params.get('k')+'_';
+            var link_suffix = "?organism="+params.get('organism')+"&dataset="+params.get('dataset')
+            
+            // add links specific to this dataset
+            document.getElementById("im_list").setAttribute('href', "dataset.html"+link_suffix);
+            document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
+            document.getElementById('gene_download').setAttribute('href', 'organisms/'+params.get('organism')+'/annotation/gene_files.zip');
+            document.getElementById('meta_download').setAttribute('href', org_folder + 'sample_metadata.csv');
             
             // read in the iModulon metadata
             $.get(data_prefix + "meta.csv", function(im_metaCSV) {
@@ -256,7 +263,7 @@
                 // change page title
                 document.title = 'Modulytics: ' + im_meta[0][1] + ' iModulon';
                 
-                // add download links
+                // add download links specific to this imodulon
                 document.getElementById("gene_table_download").setAttribute('href', data_prefix+'gene_table.csv');
                 document.getElementById("gene_weights_download").setAttribute('href', data_prefix+'gene_weights.csv');
                 document.getElementById("activity_download").setAttribute('href', data_prefix+'activity.csv');
@@ -322,16 +329,21 @@
             });
             
             // add navbar links
-            if (k==91) { //future datasets need to know max k
-                document.getElementById('next_iM').setAttribute('href', 'iModulon.html?k=91')
-            } else {
-                document.getElementById('next_iM').setAttribute('href', 'iModulon.html?k='+(parseInt(k)+1))
-            }
-            if (k==0) { 
-                document.getElementById('prev_iM').setAttribute('href', 'iModulon.html?k=0')
-            } else {
-                document.getElementById('prev_iM').setAttribute('href', 'iModulon.html?k='+(parseInt(k)-1))
-            }
+            var k = params.get('k');
+            $.get(org_folder + 'num_ims.txt', function(num_ims) {
+                console.log(num_ims)
+                if (k==num_ims) {
+                    document.getElementById('next_iM').setAttribute('href', 'iModulon.html'+link_suffix+'&k=0')
+                } else {
+                    document.getElementById('next_iM').setAttribute('href', 'iModulon.html'+link_suffix+'&k='+(parseInt(k)+1))
+                }
+            
+                if (k==0) { 
+                    document.getElementById('prev_iM').setAttribute('href', 'iModulon.html'+link_suffix+'&k='+num_ims)
+                } else {
+                    document.getElementById('prev_iM').setAttribute('href', 'iModulon.html'+link_suffix+'&k='+(parseInt(k)-1))
+                }
+            });
             
         </script>
     </body>
