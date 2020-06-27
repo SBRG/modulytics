@@ -39,7 +39,11 @@
     // bacillus
     var phase_idx = get_index(meta_head, 'phase')
     if (phase_idx != -1) {
-        return [phase_idx]
+        var media_idx = get_index(meta_head, 'media');
+        var supplement_idx = get_index(meta_head, 'supplement');
+        var time_idx = get_index(meta_head, 'time_min');
+        
+        return [media_idx, supplement_idx, phase_idx, time_idx]
     }
     
     // ecoli
@@ -276,9 +280,12 @@
                 
                 // metadata
                 for (col in cols_of_interest) {
-                    tooltip += '<br>'
-                    tooltip += metadata[0][cols_of_interest[col]] + ': ';
-                    tooltip += metadata[meta_index][cols_of_interest[col]];
+                    meta_val = metadata[meta_index][cols_of_interest[col]]
+                    if (meta_val != null) {
+                        tooltip += '<br>'
+                        tooltip += metadata[0][cols_of_interest[col]] + ': ';
+                        tooltip += meta_val;
+                    }
                 }
                 
                 return tooltip;
