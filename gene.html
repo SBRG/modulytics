@@ -78,10 +78,7 @@
                 <a class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
             </li>
             <li class="nav-item">
-                <a id="next_iM" class="nav-link navbar-dark" href="index.html">Next</a>
-            </li>
-            <li class="nav-item">
-                <a id="prev_iM" class="nav-link navbar-dark" href="index.html">Previous</a>
+                <a class="nav-link" href="geneSearch.html">Search Data by Gene</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -197,7 +194,7 @@
     //helper for querystring params
     function qs(key) {
         key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
-        var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+        var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
         return match && decodeURIComponent(match[1].replace(/\+/g, " "));
     }
 </script>

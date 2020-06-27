@@ -164,8 +164,8 @@
         run();
 
         // Search functionality below
-        const resultItem = ({gene_name, bNum}) => {
-            return `<li class="result"><a href="gene.html?bNum=${bNum}"><b>${gene_name}</b> : ${bNum}</a></li>`
+        const resultItem = ({gene_name, bNum, product}) => {
+            return `<li class="result"><a href="gene.html?bNum=${bNum}"><b>${gene_name}</b> : ${bNum}</a>   (<i>gene product: ${product}</i>) </li>`
         }
 
         async function search() {
@@ -181,9 +181,10 @@
             })
         }
 
-        search.addEventListener(
+        var input = document.getElementById("searchText");
+        input.addEventListener(
             "keyup", function (event) {
-                if (event.keyCode === 13) {
+                if (event.keyCode == 13) {
                     event.preventDefault();
                     document.getElementById("searchBtn").click();
                 }
