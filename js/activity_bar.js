@@ -37,15 +37,15 @@
     cols_of_interest = []
     
     // bacillus
-    var exp_desc_idx = get_index(meta_head, 'experiment_description')
-    if (exp_desc_idx != -1) {
-        return [exp_desc_idx]
+    var phase_idx = get_index(meta_head, 'phase')
+    if (phase_idx != -1) {
+        return [phase_idx]
     }
     
     // ecoli
     var media_idx = get_index(meta_head, 'Base Media');
     if (media_idx != -1) {
-        var carbon_idx = get_index(meta_head, 'Carbon Source');
+        var carbon_idx = get_index(meta_head, 'Carbon Source (g/L)');
         var supp_idx = get_index(meta_head, 'Supplement');
         var strain_idx = get_index(meta_head, 'Strain Description');
         
@@ -57,9 +57,9 @@
     if (strain2 != -1) {
         var time = get_index(meta_head, 'sample-time');
         var media2 = get_index(meta_head, 'base-media');
-        var antibiotic = get_index(meta_head, 'antibiotic');
+        var conditions = get_index(meta_head, 'conditions');
         
-        return [strain2, media2, antibiotic, time];
+        return [strain2, media2, conditions, time];
     }
     
     return cols_of_interest
@@ -75,6 +75,7 @@
     var sample_idx = get_index(metadata[0], 'sample_id');
     var project_idx = get_index(metadata[0], 'project_id');
     var link_idx = get_index(metadata[0], 'DOI');
+    console.log(sample_idx, project_idx, link_idx);
     
     // cols of interest: tooltip will show these metadata
     // These will be updated by a button in the future
