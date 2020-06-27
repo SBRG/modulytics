@@ -14,6 +14,7 @@
     
     // coordinates
     var coord_data = [];
+    var xmin=100; // find xmin since default is always zero
     for (i = 2; i < data.length; i++) {
         coord_data.push({b_num: data[i][0],
                          name: data[i][1],
@@ -22,7 +23,24 @@
                          cog: data[i][4],
                          color: data[i][5],
                          link: data[i][6]}); 
+        if (data[i][2] < xmin) {
+            xmin = data[i][2];
+        }
     }
+    
+    // sort by COG so that no annotation is in the back
+    function compare(a, b) {
+        let comparison = 0;
+        if (a.cog == 'No COG category') {
+            if (b.cog != 'No COG category') {
+                comparison = -1
+            }
+        } else if (b.cog == 'No COG category') {
+            comparison = 1
+        }
+        return comparison;
+    }
+    coord_data.sort(compare);
     
     // set up the plot
     var chartOptions = {
@@ -31,11 +49,12 @@
         },
         xAxis: {
             title: {
-                text: 'Baseline Expression (log(TPM))'
+                text: 'Baseline Expression'
             },
             crosshair: true,
             startOnTick: false,
             endOnTick: false,
+            min: xmin
         },
         yAxis: {
             title:{

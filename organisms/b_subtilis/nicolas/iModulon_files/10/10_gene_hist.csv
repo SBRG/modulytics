@@ -2,10 +2,10 @@
 thresh,-0.045382127,0.045382127,6,,,,,,,,,,,,,,,,,
 unreg,1,0,0,0,10,474,3533,257,38,7,4,2,3,2,0,0,0,0,0,0
 SigA,0,1,2,0,8,165,922,76,9,1,4,0,0,0,0,0,0,0,0,0
-CcpN,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0
 CcpA,0,0,0,0,6,9,47,15,18,4,2,0,0,0,0,0,0,0,0,0
-SigA and CcpN,0,0,0,0,0,0,2,3,0,0,0,1,0,0,1,1,0,0,0,0
+CcpN,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0
 SigA and CcpA,0,0,0,0,1,14,94,55,32,30,12,3,4,0,0,0,0,0,0,0
+SigA and CcpN,0,0,0,0,0,0,2,3,0,0,0,1,0,0,1,1,0,0,0,0
 unreg_genes,['S505'],[],[],[],[],[],[],[],[],['S150' 'S385' 'S744' 'S1514' 'S222' 'S381' 'yncC'],['S1107' 'S858' 'S438' 'S345'],['S637' 'S346'],['S476' 'ykoM' 'yerA'],['yrbE' 'S950'],[],[],[],[],[],[]
 SigA_genes,[],['ptsG'],['cggR' 'S1302'],[],['S1301' 'pstS' 'braB' 'S1124' 'S209' 'gapA' 'S1300' 'ptsI'],"['arsR' 'pgk' 'putC' 'pgm' 'BSU_misc_RNA_27' 'ykuP' 'putB' 'tpi' 'S440'
  'eno' 'ptsH' 'pstC' 'groES' 'ykuO' 'S1366' 'phoC' 'ldh' 'yjdF' 'grpE'
@@ -123,7 +123,6 @@ SigA_genes,[],['ptsG'],['cggR' 'S1302'],[],['S1301' 'pstS' 'braB' 'S1124' 'S209'
  'nadA' 'S39' 'nifS' 'S592' 'mtlA' 'recO' 'citG' 'fnr' 'S1215' 'S1284'
  'S957' 'licT' 'S605' 'S492' 'nadB' 'yqzL' 'bsrG' 'mrgA' 'S1447' 'era'
  'gutB' 'cdd' 'S892' 'S132' 'sdhB' 'S220']",['S1076' 'sdhA' 'pmi' 'sdhC' 'S1377' 'S90' 'S1507' 'gutP' 'S1310'],['S949'],['S1309' 'lutP' 'ywcE' 'S1470'],[],[],[],[],[],[],[],[],[]
-CcpN_genes,[],[],[],[],[],[],['dfrA' 'thyB'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 CcpA_genes,[],[],[],[],['S236' 'opuE' 'S1486' 'acoA' 'acoL' 'acoB'],['S786' 'acoC' 'S543' 'pftB' 'S515' 'S876' 'ykuJ' 'S583' 'ykuK'],"['ctaB' 'topA' 'cydA' 'yslB' 'refZ' 'cwlS' 'S542' 'S1339' 'S973' 'yopL'
  'S1487' 'ldt' 'yvmA' 'cydD' 'yfkN' 'pchR' 'S1128' 'S514' 'cydC' 'scoB'
  'yqxJ' 'scoA' 'serA' 'S1334' 'levG' 'S513' 'S785' 'yxjF' 'yqxI' 'S1451'
@@ -131,7 +130,7 @@ CcpA_genes,[],[],[],[],['S236' 'opuE' 'S1486' 'acoA' 'acoL' 'acoB'],['S786' 'aco
  'phrF' 'levE' 'rapF' 'galK' 'mmgA' 'mmgD' 'pftA']","['cydB' 'mmgE' 'S1337' 'levD' 'sacC' 'yesN' 'pel' 'S1500' 'sucD' 'S516'
  'sucC' 'S725' 'darB' 'S544' 'sigL']","['S1050' 'S1460' 'yesM' 'ctaG' 'rocG' 'yhaR' 'S1461' 'galT' 'ctaF' 'yobO'
  'bofC' 'ctaE' 'ctaC' 'yxkF' 'ypiF' 'ctaD' 'yesL' 'cimH']",['dprA' 'S727' 'csbX' 'S1490'],['S517' 'msmX'],[],[],[],[],[],[],[],[],[]
-SigA and CcpN_genes,[],[],[],[],[],[],['S533' 'S1093'],['speD' 'S534' 'S1092'],[],[],[],['pckA'],[],[],['gapB'],['sr1'],[],[],[],[]
+CcpN_genes,[],[],[],[],[],[],['dfrA' 'thyB'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 SigA and CcpA_genes,[],[],[],[],['gmuG'],"['ywdA' 'gmuF' 'gmuE' 'gmuR' 'glpD' 'S203' 'S323' 'gmuD' 'uxaC' 'S1085'
  'iolJ' 'glpQ' 'gmuC' 'yxiE']","['glvR' 'araN' 'nagR' 'araE' 'araP' 'uxaA' 'nagB' 'ganB' 'nagA' 'S1481'
  'ilvB' 'ytzK' 'abfA' 'melA' 'araQ' 'kduD' 'S1512' 'kduI' 'yvcN' 'S636'
@@ -154,3 +153,4 @@ SigA and CcpA_genes,[],[],[],[],['gmuG'],"['ywdA' 'gmuF' 'gmuE' 'gmuR' 'glpD' 'S
  'abn2' 'qcrB' 'treP' 'hutP' 'rhaM' 'iolC' 'S1525' 'S1465' 'licC' 'S1526'
  'melE' 'acsA' 'gntP' 'lcfA' 'cccA' 'acuC' 'acuA' 'acuB' 'iolB' 'rbsB']","['licB' 'glpF' 'melR' 'S108' 'sspH' 'S321' 'gntR' 'cstA' 'gntK' 'rbsC'
  'acoR' 'ylbP']",['rbsA' 'rbsK' 'S1098'],['rbsR' 'rbsD' 'dctP' 'S948'],[],[],[],[],[],[],[]
+SigA and CcpN_genes,[],[],[],[],[],[],['S533' 'S1093'],['speD' 'S534' 'S1092'],[],[],[],['pckA'],[],[],['gapB'],['sr1'],[],[],[],[]
