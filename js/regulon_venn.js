@@ -87,12 +87,12 @@
            name: 'Genes in Regulon and iModulon',
            gene_list: both_list
          }, {
-           sets: ['i-Modulon Genes', 'Regulon all contained in iModulon'],
+           sets: ['iModulon Genes', 'Regulon all contained in iModulon'],
            value: regulon2,
            color: '#37d7b4',
            opacity: 0.7,
            name: 'Genes in Regulon and iModulon',
-           geme_list: both_list
+           gene_list: both_list
          }, {
            sets: ['Regulon == iModulon'],
            value: overlap2,
@@ -113,7 +113,7 @@
                    tooltip += " only: <b>" + (this.point.gene_list.split(', ').length) + "</b>";
                }
                tooltip += "<br>" + this.point.gene_list
-               
+
                return tooltip;
            }
        },
