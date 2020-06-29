@@ -130,7 +130,7 @@
 
             <!-- Activity-related plots -->
             <div class="row mx-auto justify-content-center">
-                <h5>Activity</h5>
+                <h5>Gene Expression</h5>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -141,7 +141,7 @@
             <hr id="reg_hr" class="d-none"/>
 
             <!-- Footer -->
-            <hr />
+            <hr/>
             <footer>
                 <div class="container">
                     <div class="row">
@@ -182,12 +182,7 @@
 <script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
 
 <!-- Custom scripts -->
-<script src="js/gene_histogram.js"></script>
-<script src="js/gene_table.js"></script>
-<script src="js/gene_scatter.js"></script>
-<script src="js/activity_bar.js"></script>
-<script src="js/regulon_venn.js"></script>
-<script src="js/regulon_scatter.js"></script>
+<script src="js/gene_activity_bar.js"></script>
 
 
 <!-- Populate the HTML page -->
@@ -222,6 +217,12 @@
 
         // change page title
         document.title = 'Modulytics: ' + gene_meta[2][1] + ' gene';
+    });
+    // generate activity (expression) plot
+    $.get(org_folder + 'sample_metadata.csv', function (metadata) {
+        $.get(data_prefix + 'activity_bar.csv', function (activity_bar_data) {
+            generateGeneActivityBar(metadata, activity_bar_data, 'bar');
+        });
     });
 </script>
 </body>
