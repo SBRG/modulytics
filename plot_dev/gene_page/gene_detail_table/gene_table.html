@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- REPLACE: title -->
+        <title> ModulomeVis | Gene Tables </title>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <!-- FontAwesome Icons -->
+        <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
+    </head>
+  
+    <body>
+    
+        <div id="main_div" class="container-fluid">
+    
+            <h1>All Gene Tables in PRECISE 1.0</h1>
+            <p>Ensures generalizability of the gene table function for ModulomeVis.</p>
+            
+        </div>
+        
+        
+  
+        <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+        <!-- Required CDNs: highcharts, Papa Parse, Tabulator -->
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+        <script src="https://code.highcharts.com/modules/data.src.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+        
+        <!-- Tabulator -->
+        <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet"/>
+        <script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
+        
+        <script src="gene_table.js"></script>
+        
+        
+        <!-- Make plots -->
+
+        <script>
+            // generate all divs
+            for (k = 0; k < 92; k++) {
+                $('#main_div').append('<h4>'+k+'</h4>')
+                $('#main_div').append($('<div/>', {id: 'fig'+k, 'style': 'width: 500px;height: 275px;'}));
+            }
+            // recursively make all plots
+            function get_and_plot(k) {
+            
+                // REPLACE: csv file suffix
+                $.get('data/'+k+'_gene_table.csv', function(data) {
+                    // REPLACE: function name
+                    generateGeneTable(data, 'fig'+k)
+                    
+                    if (k < 91) {
+                        k++;
+                        get_and_plot(k);
+                    }
+                })
+            };
+            get_and_plot(0);
+        </script>
+        
+    </body>
+</html>
