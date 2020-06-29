@@ -52,7 +52,7 @@
         }
 
         .tall-row {
-            min-height: 100px;
+            min-height: 200px;
         }
 
         .no-results {
@@ -93,7 +93,7 @@
 
         <ul class="nav navbar-dark">
             <li class="nav-item">
-                <a class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
+                <a class="nav-link navbar-dark" href="dataset.html?organism=e_coli&dataset=precise1">iModulon List</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -163,7 +163,7 @@
         let gene_list = {};
 
         async function run() {
-            const response = await fetch("./e_coli/precise1/gene_page_files/gene_list.json");
+            const response = await fetch("./organisms/e_coli/precise1/gene_page_files/gene_list.json");
             gene_list = await response.json();
         }
 
@@ -178,9 +178,9 @@
             // clear previous results
             $('#results').empty();
 
-            const searchTerm = $('#searchText').val();
-            const results = gene_list.filter(gene => gene.gene_name.includes(searchTerm) ||
-                gene.bNum.includes(searchTerm));
+            const searchTerm = $('#searchText').val().toLowerCase();
+            const results = gene_list.filter(gene => gene.gene_name.toLowerCase().includes(searchTerm) ||
+                gene.bNum.toLowerCase().includes(searchTerm));
 
             results.forEach((result) => {
                 $('#results').append(resultItem(result));
@@ -188,7 +188,7 @@
 
             // Show 'no results found' message when there are no elements
             if (!$('#results').children().length) {
-                $('#results').append('<div class="no-results">No results found</div>')
+                $('#results').append('<div class="no-results">No results found. Please enter a valid <i>E. coli</i> gene or b-number. To see a list of all available genes, empty the input field and click the "Search" button. </div>')
             }
         }
 
