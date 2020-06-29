@@ -55,6 +55,12 @@
             min-height: 100px;
         }
 
+        .no-results {
+            text-align: center;
+            color: darkred;
+            margin-top: 2rem;
+        }
+
         .dropdown-menu {
             background-color: #007bff;
         }
@@ -178,7 +184,12 @@
 
             results.forEach((result) => {
                 $('#results').append(resultItem(result));
-            })
+            });
+
+            // Show 'no results found' message when there are no elements
+            if (!$('#results').children().length) {
+                $('#results').append('<div class="no-results">No results found</div>')
+            }
         }
 
         var input = document.getElementById("searchText");
