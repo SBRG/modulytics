@@ -31,7 +31,7 @@ def metadata_disagreement_check(sample_meta, ignored_cols):
                     dis = True
                     print('Disagreement:', cond_name, meta_col)
             else: # all rows have values
-                if (group.loc[group.index[0], meta_col] != group[meta_col]).any():
+                if (group.loc[group.index[0], meta_col] != group[meta_col].values).any():
                     dis = True
                     print('Disagreement:', cond_name, meta_col)
             

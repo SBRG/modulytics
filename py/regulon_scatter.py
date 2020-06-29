@@ -53,12 +53,17 @@ def get_fit(x,y):
 
 def get_tfs_to_scatter(ica_data, tf_string):
     
-    rename_tfs = {'csqR':'yihW', 'hprR':'yedW'}
+    rename_tfs = {'csqR':'yihW', 'hprR':'yedW', 'thi-box':'Thi-box'}
     res = []
     if type(tf_string) == str:
+        
+        tf_string = tf_string.replace(' ','').replace('[', '').replace(']', '')
+        
         tfs = re.split('\+|\/', tf_string)
         
         for tf in tfs:
+            tf = tf[0].lower() + tf[1:]
+            
             if tf in rename_tfs.keys():
                 tf = rename_tfs[tf]
             
@@ -66,6 +71,7 @@ def get_tfs_to_scatter(ica_data, tf_string):
                 b_num = ica_data.name2num[tf]
                 if b_num in ica_data.X.index:
                     res += [tf]
+    res = list(set(res)) # remove duplicates
     return res
 
 def regulon_scatter_df(ica_data, k, row):
