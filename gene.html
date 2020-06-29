@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="row mx-auto justify-content-center">
-                        <h5>Gene Table</h5>
+                        <h5>Gene Relationship to iModulons</h5>
                     </div>
                     <div id="gene_table" style="width: 100%;height:275px;"></div> <!-- width = 500px -->
                 </div>
@@ -224,6 +224,63 @@
             generateGeneActivityBar(metadata, activity_bar_data, 'bar');
         });
     });
+
+    // Generate table
+    $.get(data_prefix+'perGene_table.csv', function(table_data) {
+
+                // get the data, convert to objects
+                var data=Papa.parse(table_data,{dynamicTyping: true}).data;
+                var tabledata = []
+                for (i = 1; i < data.length -1; i++) { //rows, excluding header
+                    var obj = {};
+                    for (j = 0; j < data[0].length; j++) { //cols
+                        obj[data[0][j]] = data[i][j];
+                    }
+
+                    tabledata.push(obj);
+                }
+
+                // columns object
+                var columns = [
+                    {title: "iModulon Name", field:"Name", frozen:true},
+                    {title: "Gene in iModulon?", field: "in_iM",
+                        formatter:"tickCross"
+                    },
+                    {title: "M<sub>i</sub>", field: "gene_weight",
+                        formatter:"money", formatterParams:{precision:4}
+                    },
+                    {title: "iM Regulator", field: "Regulator",
+                        width:150
+                    },
+                    {title: "iM Function", field: "Function"},
+                    {title: "iM Category", field: "Category",
+                        sorter:function(a, b, aRow, bRow, column, dir, sorterParams){
+                            return aRow.getData().category_num - bRow.getData().category_num;
+                        }
+                    }
+                ]
+
+                // generate the table
+                var table = new Tabulator('#gene_table', {
+                    layout:"fitDataStretch",
+                    data:tabledata,
+                    columns:columns,
+                    initialSort:[
+                        {column:"Regulator", dir:"asc"},
+                        {column:"Category", dir:"asc"}
+                    ],
+                    rowClick:function(e, row){ //link to the page in a database
+                        var link='iModulon.html?';
+                        link += 'organism='+'e_coli'+"&";//params.get('organism')+'&';
+                        link += 'dataset='+"precise1"+"&";//+params.get('dataset')+'&';
+                        link += 'k='+row.getData().k;
+                        window.location.href = link;
+                    },
+                    tooltips:function(cell){
+                        return "Click to view iModulon dashboard";
+                    }
+                });
+            });
 </script>
 </body>
 </html>
