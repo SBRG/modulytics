@@ -3,31 +3,40 @@
  * @author Kevin Rychel
  * requires Highcharts, Papa Parse
  */
- 
- // edit function below
- // Write Highcharts plot to container (see gene_histogram.js for example)
- function generateGeneScatter(csvContent, container) {
+
+//helper for querystring params
+function qs(key) {
+    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+    var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
+    return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+}
+
+// edit function below
+// Write Highcharts plot to container (see gene_histogram.js for example)
+function generateGeneScatter(csvContent, container) {
     var data = Papa.parse(csvContent, {dynamicTyping: true}).data;
-    
+
     // basics
     var thresh = data[1][1]
-    
+
     // coordinates
     var coord_data = [];
-    var xmin=100; // find xmin since default is always zero
+    var xmin = 100; // find xmin since default is always zero
     for (i = 2; i < data.length; i++) {
-        coord_data.push({b_num: data[i][0],
-                         name: data[i][1],
-                         x: data[i][2], 
-                         y: data[i][3],
-                         cog: data[i][4],
-                         color: data[i][5],
-                         link: data[i][6]}); 
+        coord_data.push({
+            b_num: data[i][0],
+            name: data[i][1],
+            x: data[i][2],
+            y: data[i][3],
+            cog: data[i][4],
+            color: data[i][5],
+            link: data[i][6]
+        });
         if (data[i][2] < xmin) {
             xmin = data[i][2];
         }
     }
-    
+
     // sort by COG so that no annotation is in the back
     function compare(a, b) {
         let comparison = 0;
@@ -40,8 +49,9 @@
         }
         return comparison;
     }
+
     coord_data.sort(compare);
-    
+
     // set up the plot
     var chartOptions = {
         title: {
@@ -57,7 +67,7 @@
             min: xmin
         },
         yAxis: {
-            title:{
+            title: {
                 text: 'I-modulon Weight',
             },
             crosshair: true,
@@ -79,34 +89,25 @@
             data: coord_data,
             turboThreshold: 0, // should optimize better in future
             events: {
-                click: function(e) {
-                    var link = e.point.link
-                    
-                    // check if it exists
-                    if (link != null) {
-                        //sometimes the link is the last word
-                        var link_str = link.split(" "); 
-                        link = link_str[link_str.length -1]
-                        
-                        if (link[0] == 'h') {
-                            window.open(link);
-                        } else {
-                            window.open('http://' + link);
-                        }
-                    }
+                click: function (e) {
+                    var link = 'gene.html?';
+                    link += 'organism=' + qs('organism') + '&';
+                    link += 'dataset=' + qs('dataset') + '&';
+                    link += 'gene_id=' + e.point.b_num;
+                    window.open(link);
                 }
             }
         }],
         tooltip: {
-            formatter: function() {
-                
+            formatter: function () {
+
                 if (this.point.name == null) {
-                    var tooltip = '<b>'+this.point.b_num+'</b>'
+                    var tooltip = '<b>' + this.point.b_num + '</b>'
                 } else {
-                    var tooltip = this.point.b_num + ": <b>"+this.point.name+"</b>";
+                    var tooltip = this.point.b_num + ": <b>" + this.point.name + "</b>";
                 }
-                tooltip += "<br>Category: "+ this.point.cog;
-                tooltip += "<br>Baseline Expression: "+this.point.x.toFixed(3);
+                tooltip += "<br>Category: " + this.point.cog;
+                tooltip += "<br>Baseline Expression: " + this.point.x.toFixed(3);
                 tooltip += "<br>I-modulon Weight: " + this.point.y.toFixed(3);
                 return tooltip;
             }
@@ -125,4 +126,4 @@
     // make the chart
     var chart = Highcharts.chart(container, chartOptions);
     return;
- };
+};
