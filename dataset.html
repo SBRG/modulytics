@@ -85,6 +85,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a id="gene_search" class="nav-link" href="geneSearch.html">Search Data by Gene</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
                 </ul>
@@ -144,12 +147,14 @@
             // get the URL search params to know which dataset to generate
             var params = new URLSearchParams(window.location.search);
             var prefix = 'organisms/'+params.get('organism')+'/'+params.get('dataset')+'/';
-            
+            var link_suffix = "?organism="+params.get('organism')+"&dataset="+params.get('dataset');
+
             // update the download links
             document.getElementById('data_dl').setAttribute('href', prefix + 'data_files.zip');
             document.getElementById('gene_dl').setAttribute('href', 'organisms/'+params.get('organism')+'/annotation/gene_files.zip');
             document.getElementById('meta_dl').setAttribute('href', prefix + 'sample_metadata.csv');
             document.getElementById('imtb_dl').setAttribute('href', prefix + 'iM_table.csv');
+            document.getElementById('gene_search').setAttribute('href', 'geneSearch.html' + link_suffix);
             
             // populate the dataset info 
             $.get(prefix + 'dataset_meta.csv', function(meta) {
