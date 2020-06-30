@@ -34,6 +34,15 @@
             color: #15C70C;
         }
 
+        .subheader {
+            background-color: lightgray;
+            color: black;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            padding-top: 8px;
+        }
+
         .header a {
             color: #91F88B;
         }
@@ -53,6 +62,27 @@
         .dropdown-item:hover {
             background-color: #007bff;
             color: white;
+        }
+
+        h3 {
+            color: #4F5451;
+            font-size: 18px;
+        }
+
+        .title-container {
+            width: 100%;
+        }
+
+        .bd-lead {
+            ms-word-break: break-all;
+            word-break: break-all;
+
+            /* Non standard for WebKit */
+            word-break: break-word;
+
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
         }
 
     </style>
@@ -88,8 +118,10 @@
                     <a id="expression_download" class="dropdown-item" href="#">Gene Expression</a>
                     <div class="dropdown-divider"></div>
                     <a id="data_download" class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
-                    <a id="gene_download" class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
-                    <a id="meta_download" class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
+                    <a id="gene_download" class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations
+                        & TRN</a>
+                    <a id="meta_download" class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental
+                        Conditions</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -98,9 +130,19 @@
         </ul>
     </div>
 
+    <!-- Add dashboard title strip -->
+    <div class="row subheader mt-0">
+        <div class="col-xs-6 title-container">
+            <div id="dashboard_title">
+                <h3 id="title_org" class="text-center"></h3>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
 
         <!-- Main body -->
+
         <div class="col-md-12 p-3" style="max-width: 1200px">
 
             <!-- Gene header & gene table -->
@@ -196,16 +238,25 @@
 <script>
     // Determine which gene this is
     var gene_id = qs('gene_id');
-    var org_folder = "organisms/"+ qs('organism')+"/"+ qs('dataset')+"/";
+    var org_folder = "organisms/" + qs('organism') + "/" + qs('dataset') + "/";
     var data_prefix = org_folder + "gene_page_files/" + gene_id + "/" + gene_id + "_";
-    var link_suffix = "?organism="+qs('organism')+"&dataset="+qs('dataset');
+    var link_suffix = "?organism=" + qs('organism') + "&dataset=" + qs('dataset');
 
     // add links specific to this dataset
-    document.getElementById("im_list").setAttribute('href', "dataset.html"+link_suffix);
-    document.getElementById("gene_search_link").setAttribute('href', "geneSearch.html"+link_suffix);
+    document.getElementById("im_list").setAttribute('href', "dataset.html" + link_suffix);
+    document.getElementById("gene_search_link").setAttribute('href', "geneSearch.html" + link_suffix);
     document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
-    document.getElementById('gene_download').setAttribute('href', 'organisms/'+qs('organism')+'/annotation/gene_files.zip');
+    document.getElementById('gene_download').setAttribute('href', 'organisms/' + qs('organism') + '/annotation/gene_files.zip');
     document.getElementById('meta_download').setAttribute('href', org_folder + 'sample_metadata.csv');
+
+    // populate the dataset info
+    $.get(org_folder + 'dataset_meta.csv', function (meta) {
+        var metadata = Papa.parse(meta).data;
+
+        // dataset title
+        var title = 'Gene Dashboard for ' + metadata[0][1]
+        $('#title_org').append(title);
+    });
 
     // read in the gene metadata
     $.get(data_prefix + "meta.csv", function (gene_metaCSV) {
@@ -224,11 +275,11 @@
         $('#gene_head_text').append('<br><b>Additional information: </b>' + gene_meta[7][1]);
 
         // change page title
-        document.title = 'Modulytics: ' + gene_meta[1][1] ;
+        document.title = 'Modulytics: ' + gene_meta[1][1];
 
         // add download links specific to this imodulon
-        document.getElementById("gene_table_download").setAttribute('href', data_prefix+'perGene_table.csv');
-        document.getElementById("expression_download").setAttribute('href', data_prefix+'expression.csv');
+        document.getElementById("gene_table_download").setAttribute('href', data_prefix + 'perGene_table.csv');
+        document.getElementById("expression_download").setAttribute('href', data_prefix + 'expression.csv');
 
     });
     // generate activity (expression) plot
@@ -239,57 +290,61 @@
     });
 
     // Generate table
-    $.get(data_prefix+'perGene_table.csv', function(table_data) {
+    $.get(data_prefix + 'perGene_table.csv', function (table_data) {
 
-                // get the data, convert to objects
-                var data=Papa.parse(table_data,{dynamicTyping: true}).data;
-                var tabledata = []
-                for (i = 1; i < data.length -1; i++) { //rows, excluding header
-                    var obj = {};
-                    for (j = 0; j < data[0].length; j++) { //cols
-                        obj[data[0][j]] = data[i][j];
-                    }
+        // get the data, convert to objects
+        var data = Papa.parse(table_data, {dynamicTyping: true}).data;
+        var tabledata = []
+        for (i = 1; i < data.length - 1; i++) { //rows, excluding header
+            var obj = {};
+            for (j = 0; j < data[0].length; j++) { //cols
+                obj[data[0][j]] = data[i][j];
+            }
 
-                    tabledata.push(obj);
-                }
+            tabledata.push(obj);
+        }
 
-                // columns object
-                var columns = [
-                    {title: "iModulon Name", field:"Name", frozen:true},
-                    {title: "Gene in iModulon?", field: "in_iM",
-                        formatter:"tickCross"
-                    },
-                    {title: "M<sub>i</sub>", field: "gene_weight",
-                        formatter:"money", formatterParams:{precision:4}
-                    },
-                    {title: "iM Regulator", field: "Regulator",
-                        width:150
-                    },
-                    {title: "iM Function", field: "Function"},
-                    {title: "iM Category", field: "Category"
-                    }
-                ]
+        // columns object
+        var columns = [
+            {title: "iModulon Name", field: "Name", frozen: true},
+            {
+                title: "Gene in iModulon?", field: "in_iM",
+                formatter: "tickCross"
+            },
+            {
+                title: "M<sub>i</sub>", field: "gene_weight",
+                formatter: "money", formatterParams: {precision: 4}
+            },
+            {
+                title: "iM Regulator", field: "Regulator",
+                width: 150
+            },
+            {title: "iM Function", field: "Function"},
+            {
+                title: "iM Category", field: "Category"
+            }
+        ]
 
-                // generate the tableS
-                var table = new Tabulator('#gene_table', {
-                    layout:"fitDataStretch",
-                    data:tabledata,
-                    columns:columns,
-                    initialSort:[
-                        {column:"in_iM", dir:"desc"}
-                    ],
-                    rowClick:function(e, row){ //link to the page in a database
-                        var link='iModulon.html?';
-                        link += 'organism='+qs('organism')+'&';
-                        link += 'dataset='+qs('dataset')+'&';
-                        link += 'k='+row.getData().k;
-                        window.location.href = link;
-                    },
-                    tooltips:function(cell){
-                        return "Click to view iModulon dashboard";
-                    }
-                });
-            });
+        // generate the tableS
+        var table = new Tabulator('#gene_table', {
+            layout: "fitDataStretch",
+            data: tabledata,
+            columns: columns,
+            initialSort: [
+                {column: "in_iM", dir: "desc"}
+            ],
+            rowClick: function (e, row) { //link to the page in a database
+                var link = 'iModulon.html?';
+                link += 'organism=' + qs('organism') + '&';
+                link += 'dataset=' + qs('dataset') + '&';
+                link += 'k=' + row.getData().k;
+                window.location.href = link;
+            },
+            tooltips: function (cell) {
+                return "Click to view iModulon dashboard";
+            }
+        });
+    });
 </script>
 </body>
 </html>
