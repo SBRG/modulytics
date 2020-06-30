@@ -102,43 +102,39 @@
     </div>
 
     <!-- Heading Info -->
-    <div class = "row">
+    <div class="row">
 
-            <!-- Main body -->
-            <div class="col-md-12 p-3" style="max-width: 1200px">
+        <!-- Main body -->
+        <div class="col-md-12 p-3" style="max-width: 1200px">
 
-                <!-- Header: Dataset Info -->
-                <div class="row mx-auto justify-content-center">
-                    <h3 class="bd-title"><i>E. Coli</i> PRECISE: Search by Gene for Available Data</h3>
-                </div>
-                <div class="row mx-auto justify-content-center">
-                    <p class="bd-lead">
-                        <b>Organism:</b> <i>Escherichia Coli</i> K-12 <br />
-                        <b>Strain:</b> MG1655 and BW25113 <br />
-                        <b>Publication:</b> <a href="https://www.nature.com/articles/s41467-019-13483-w">Sastry, et al., 2019</a><br />
-                    </p>
-                </div>
-                <div class="row mx-auto justify-content-center">
-                    To find information on the Modulytics data of a particular gene, enter the gene name or ID
-                    (b-number) and click 'Search'. Click the desired result link to view the gene data.
-
-                </div>
+            <!-- Header: Dataset Info -->
+            <div class="row mx-auto justify-content-center">
+                <h3 id="title" class="bd-title"></h3>
             </div>
+            <div class="row mx-auto justify-content-center">
+                <p id="header" class="bd-lead"></p>
+            </div>
+        </div>
+        <div class="row mx-auto justify-content-center">
+            To find a gene's associated Modulytics data, enter the gene name or ID
+            and click 'Search'. Click the desired result link to view the gene data.
+        </div>
     </div>
+    <br>
 
     <!-- Search -->
     <div class="row mx-auto justify-content-center">
         <div>
-        <input type="text" id="searchText">
-        <button id="searchBtn" onclick="search()">
-            Search
-        </button>
+            <input type="text" id="searchText">
+            <button id="searchBtn" onclick="search()">
+                Search
+            </button>
         </div>
     </div>
     <div>
         <ul id="results"></ul>
     </div>
-    <div class="tall-row"> </div>
+    <div class="tall-row"></div>
     <hr>
     <!-- Footer -->
     <footer>
@@ -158,20 +154,46 @@
             </div>
         </div>
     </footer>
+
+    <!-- Required CDNs: URLSearchParams, Papa Parse -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+    ;
+
+    <!-- Populate page -->
     <script>
-        // { gene_name: "thrL", bNum: "b0001" }
+        // parse url
+        var params = new URLSearchParams(window.location.search);
+        var org_folder = 'organisms/' + params.get('organism') + '/' + params.get('dataset') + '/';
+        var link_suffix = "?organism=" + params.get('organism') + "&dataset=" + params.get('dataset');
+
+        // populate the dataset info
+        $.get(org_folder + 'dataset_meta.csv', function (meta) {
+            var metadata = Papa.parse(meta).data;
+
+            // dataset title
+            var title = 'Search Data by Gene: ' + metadata[0][1];
+            $('#title').append(title);
+
+            // header text
+            for (i = 1; i < metadata.length - 1; i++) {
+                $('#header').append('<b>' + metadata[i][0] + ':</b> ' + metadata[i][1] + '<br>');
+            }
+        });
+
+        // fetch json file
         let gene_list = {};
 
         async function run() {
-            const response = await fetch("./organisms/e_coli/precise1/gene_page_files/gene_list.json");
+            const response = await fetch(org_folder + "gene_page_files/gene_list.json");
             gene_list = await response.json();
         }
 
         run();
 
         // Search functionality below
-        const resultItem = ({gene_name, bNum, product}) => {
-            return `<li class="result"><a href="gene.html?bNum=${bNum}"><b>${gene_name}</b> : ${bNum}</a>   (<i>gene product: ${product}</i>) </li>`
+        const resultItem = ({gene_name, gene_id, product}) => {
+            return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i>gene product: ${product}</i>) </li>`
         }
 
         async function search() {
@@ -180,7 +202,7 @@
 
             const searchTerm = $('#searchText').val().toLowerCase();
             const results = gene_list.filter(gene => gene.gene_name.toLowerCase().includes(searchTerm) ||
-                gene.bNum.toLowerCase().includes(searchTerm));
+                gene.gene_id.toLowerCase().includes(searchTerm));
 
             results.forEach((result) => {
                 $('#results').append(resultItem(result));

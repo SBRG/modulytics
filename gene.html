@@ -75,22 +75,21 @@
 
         <ul class="nav navbar-dark">
             <li class="nav-item">
-                <a class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
+                <a id="im_list" class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="geneSearch.html">Search Data by Gene</a>
+                <a id="gene_search_link" class="nav-link" href="geneSearch.html">Search Data by Gene</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                    aria-expanded="false">Download</a>
                 <div class="dropdown-menu">
-                    <a id="gene_weights_download" class="dropdown-item" href="#">Gene Weights</a>
                     <a id="gene_table_download" class="dropdown-item" href="#">Gene Table</a>
-                    <a id="activity_download" class="dropdown-item" href="#">iModulon Activity</a>
+                    <a id="expression_download" class="dropdown-item" href="#">Gene Expression</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
-                    <a class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
-                    <a class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
+                    <a id="data_download" class="dropdown-item" href="e_coli/precise1/data_files.zip">Full Dataset</a>
+                    <a id="gene_download" class="dropdown-item" href="e_coli/annotation/gene_files.zip">Gene Annotations & TRN</a>
+                    <a id="meta_download" class="dropdown-item" href="e_coli/precise1/sample_metadata.csv">Experimental Conditions</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -196,9 +195,17 @@
 </script>
 <script>
     // Determine which gene this is
-    var gene_id = qs('bNum');
-    var org_folder = "organisms/e_coli/precise1/";
+    var gene_id = qs('gene_id');
+    var org_folder = "organisms/"+ qs('organism')+"/"+ qs('dataset')+"/";
     var data_prefix = org_folder + "gene_page_files/" + gene_id + "/" + gene_id + "_";
+    var link_suffix = "?organism="+qs('organism')+"&dataset="+qs('dataset');
+
+    // add links specific to this dataset
+    document.getElementById("im_list").setAttribute('href', "dataset.html"+link_suffix);
+    document.getElementById("gene_search_link").setAttribute('href', "geneSearch.html"+link_suffix);
+    document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
+    document.getElementById('gene_download').setAttribute('href', 'organisms/'+qs('organism')+'/annotation/gene_files.zip');
+    document.getElementById('meta_download').setAttribute('href', org_folder + 'sample_metadata.csv');
 
     // read in the gene metadata
     $.get(data_prefix + "meta.csv", function (gene_metaCSV) {
@@ -206,7 +213,7 @@
 
         // add header
         $('#gene_name').append("Gene: " + gene_meta[2][1]);
-        $('#gene_head_text').append('<b>Gene b-number: </b>' + gene_meta[1][1])
+        $('#gene_head_text').append('<b>Gene ID: </b>' + gene_meta[1][1])
         $('#gene_head_text').append('<br><b>Operon: </b>' + gene_meta[3][1])
         $('#gene_head_text').append('<br><b>Gene Product: </b>' + gene_meta[4][1])
         $('#gene_head_text').append('<br><b>COG: </b>' + gene_meta[5][1])
@@ -218,6 +225,11 @@
 
         // change page title
         document.title = 'Modulytics: ' + gene_meta[2][1] + ' gene';
+
+        // add download links specific to this imodulon
+        document.getElementById("gene_table_download").setAttribute('href', data_prefix+'perGene_table.csv');
+        document.getElementById("expression_download").setAttribute('href', data_prefix+'expression.csv');
+
     });
     // generate activity (expression) plot
     $.get(org_folder + 'sample_metadata.csv', function (metadata) {
@@ -254,21 +266,17 @@
                         width:150
                     },
                     {title: "iM Function", field: "Function"},
-                    {title: "iM Category", field: "Category",
-                        sorter:function(a, b, aRow, bRow, column, dir, sorterParams){
-                            return aRow.getData().category_num - bRow.getData().category_num;
-                        }
+                    {title: "iM Category", field: "Category"
                     }
                 ]
 
-                // generate the table
+                // generate the tableS
                 var table = new Tabulator('#gene_table', {
                     layout:"fitDataStretch",
                     data:tabledata,
                     columns:columns,
                     initialSort:[
-                        {column:"Regulator", dir:"asc"},
-                        {column:"Category", dir:"asc"}
+                        {column:"in_iM", dir:"desc"}
                     ],
                     rowClick:function(e, row){ //link to the page in a database
                         var link='iModulon.html?';
