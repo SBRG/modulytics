@@ -122,7 +122,7 @@
     <div class="row mx-auto justify-content-center">
         <div class="card text-white bg-primary p-3" style="width: 100%">
             <p class="card-body text-center">
-                Enter a gene name or ID below.
+                Enter a gene name or locus tag below.
             </p>
             <div class="input-group mx-auto px-5">
                 <input type="text" class="form-control" placeholder="" id="searchText">
@@ -215,7 +215,7 @@
 
             // Show 'no results found' message when there are no elements
             if (!$('#results').children().length) {
-                $('#results').append('<div class="no-results">No results found. Please enter a valid gene name or gene ID. To see a list of all available genes, empty the input field and click the "Search" button. </div>')
+                $('#results').append('<div class="no-results">No results found. Please enter a valid gene name or locus tag. To see a list of all available genes, empty the input field and click the "Search" button. </div>')
             }
         }
 
