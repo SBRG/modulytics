@@ -4,6 +4,13 @@
  * requires Papa parse, tabulator
  */
 
+//helper for querystring params
+function qs(key) {
+        key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+        var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
+        return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+    }
+
 // Write table to container 
 function generateGeneTable(csvContent, container) {
     // get the data
@@ -66,14 +73,16 @@ function generateGeneTable(csvContent, container) {
             {column:"comp", dir:"desc"}
         ],
         
-        rowClick:function(e, row){ //link to the page in a database
-            link=data[row.getData().id][data[0].length-1];
-            if (link==null){ // All absent links are for psuedogenes.
-                alert(row.getData().gene_name+' is a pseudogene. No link available at this time.');
-            } else {
-                window.open(link);
+        rowClick: function (e, row) { //link to the page in a database
+                var link = 'gene.html?';
+                link += 'organism=' + qs('organism') + '&';
+                link += 'dataset=' + qs('dataset') + '&';
+                link += 'gene_id=' + row.getData().locus;
+                window.location.href = link;
+            },
+            tooltips: function (cell) {
+                return "Click to view gene dashboard";
             }
-        },
-        
+
     });
 };
