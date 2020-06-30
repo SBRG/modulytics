@@ -92,7 +92,7 @@
            color: '#37d7b4',
            opacity: 0.7,
            name: 'Genes in Regulon and i-Modulon',
-           geme_list: both_list
+           gene_list: both_list
          }, {
            sets: ['Regulon == i-Modulon'],
            value: overlap2,
