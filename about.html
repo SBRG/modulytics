@@ -99,11 +99,10 @@
     .header{
         background-color: #007bff;
         color: white;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
-        padding-top: 1rem;
-        padding-bottom: 0.3rem;
+        padding: 0.4rem;
     }
 
     .subheader{
@@ -130,6 +129,10 @@
     .header a{
         color: #91F88B;
     }
+    
+    .header a:hover{
+        color: white;
+    }
 
     h2{
         font-size: 36px;
@@ -142,7 +145,7 @@
     }
 
     .dashboard-container{
-        border: #15C70C 0.3rem solid;
+        border: #007bff 0.3rem solid;
         border-radius: 8px;
         padding: 6px;
     }
@@ -166,43 +169,115 @@
 
 <!-- Begin HTML -->
 <div class="container">
+
+    <!-- Navbar -->
     <div class="top-banner row">
         <div class="col-xs-12 small-text">
             _
         </div>
     </div>
+    <div class="header row navbar-dark">
+                
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Modulytics</a>
+        </div>
+        
+        <ul class="nav navbar-dark">
+            <li class="nav-item">
+                <a class="nav-link navbar-dark" href="#basics">Basics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-dark" href="#basics">What is an iModulon?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-dark" href="#dashboard">iModulon Dashboards</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-dark" href="#citation">Citations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-dark" href="#contact">Contact us</a>
+            </li>
+        </ul>
+    </div>
     
-    <div class="header row">
-        <div class="col-xs-12 title-container">
+    <!-- Title -->
+    <div class="row">
+        <div class="col-xs-12 title-container my-2">
             <h2 class="text-center">About Modulytics</h2>
         </div>
-        <div class="col-sm-9 col-xs-12">
-            <div class="text-left">
-                Jump to: <a href="#dashboard">iModulon Dashboard Overview</a>  | <a href="#citation">Citation</a>  |
-                <a href="#contact">Contact Us</a>
-            </div>
-        </div>
-        <div class="col-sm-3 col-xs-12">
-            <div class="text-right">
-                <a href="index.html">Go back to Home</a>
+    </div>
+    
+    <!-- The basics -->
+    <div class="row subheader mt-0">
+        <div class="col-xs-6 title-container">
+            <div id="basics">
+                <h3 class="text-center">Basics</h3>
             </div>
         </div>
     </div>
     <div class="row">
-        <p>
-            The Modulytics website provides interactive visualizations of “iModulons”
-            (<u><b>i</b></u>ndependently <u><b>mod</b></u>ulated gene sets) that describe sets of coregulated genes
-            in an organism’s transcriptional regulatory network (TRN). The iModulons were determined
-            using independent component analysis (ICA), a signal deconvolution unsupervised learning algorithm,
-            which identified unique signals from transcriptomics data.
+        <div class="col-lg-5">
+            <img src="images/transcriptome_ex.png" class="img-fluid"></img>
+        </div>
+        <div class="col-lg-7">
+            <p>
+                This is a transcriptomic dataset. Each column represents an experimental condition that cells were subjected to, and each row represents a gene. Each element is an expression value indicating how active the gene is under the given condition. This dataset has been normalized such that the entire left column, representing the baseline condition of simple growth on glucose, is zero (white), and positive and negative values in other elements indicate that the gene is more or less expressed than it is in the baseline.
+            </p><p>
+                All living things need to adapt their gene expression to the situation that they are in. Genes encode proteins that perform necessary functions, like consuming a specific food source, synthesizing a required building block, or responding to stress. For example, the gene <i>glpT</i> is used to import a specific type of food, glycerol. We can find its row in the dataset and see that when glycerol was in the cell’s media, this gene was upregulated - the cell figured out that this gene was helpful under this condition, and adapted to use it. <b>One of our goals at the SBRG is to understand how and why genes are regulated the way that they are.</b> We are specifically looking for patterns in this type of dataset that give us valuable insights.
+            </p>
+        </div>
+    </div>
+    <div class="card mt-2">
+        <p class="card-body">
+            ADD GENE PLOTS FOR EXAMPLE GENES
         </p>
+        <p class="card-body">
+            Each of these plots represents a row from the dataset as a bar graph. Hovering over the tallest bars reveals which conditions cause each of the genes to be upregulated. It appears that the gene <i>glpT</i> is upregulated when glycerol is the carbon source, and the gene <i>sodA</i> is upregulated when paraquat, which causes oxidative stress, is present. <i>IlvC</i> and <i>ilvD</i> are both <i>down</i>regulated when LB media is used, since that media contains the product they produce and they are therefore not needed. Interestingly, <i>ilvC</i> and <i>ilvD</i> have very similar graphs - this indicates that they may be regulated the same way.
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="dashboard-container mt-2 p-5">
+                <h5 class="text-center">Have a dataset you'd like us to work with? <a href="#contact">Contact us.</a></h5>
+            </div>
+            <div class="dashboard-container mt-2">
+                <h5>Problems in Transcriptomics</h5>
+                <ul>
+                    <li>There are an extremely large number of genes - it would be nice if they were grouped together into a smaller number of variables.</li>
+                    <li>We want to know the activity of the underlying genetic regulators, and which regulators are most important.</li>
+                    <li>Some genes are completely unstudied - can we guess their function and regulation?</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="dashboard-container mt-2">
+                <h5>Applications of this Knowledge</h5>
+                <p>Why study bacterial transcriptomics?</p>
+                <ul>
+                    <li><b>Antibiotic development and resistance:</b> We can learn how bacteria respond to stress, which helps the field develop better antibiotics.</li>
+                    <li><b>Bacterial cell factories:</b> Bacteria are used to produce a ton of products for humans, such as pharmaceuticals and biofuels, and understanding how they regulate their genes improves the existing efficiency and opens doors to producing new products.</li>
+                    <li><b>Understand evolution:</b> Knowledge of how gene expression changes in small-scale evolution experiments and across the phylogenetic tree can tell us how organisms change in general, which might help us in fighting future pandemics.
+                    <li><b>Future applications to other organisms:</b> Technology developed for bacteria can eventually be useful in more complex organisms, like humans. This would be applicable to understanding any human disease with a genetic component.
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- What is an iModulon? -->
+    <div class="row subheader">
+        <div class="col-xs-6 title-container">
+            <div id="dashboard">
+                <h3 class="text-center">What is an iModulon?</h3>
+            </div>
+        </div>
+    </div>
+        <div class="row">
         <p>
-            Currently, Modulytics solely focuses on the iModulons from the pioneering
-            <a href="https://www.nature.com/articles/s41467-019-13483-w">paper</a> on <i>Escherichia coli</i>
-            that uses data from PRECISE (a Precision RNA-seq Expression Compendium for Independent Signal Exploration).
-            In the future, Modulytics will expand its scope to other prokaryotes – stay tuned!
+            Coming VERY soon!
         </p>
     </div>
+    <div cl
+    
     <!-- Dashboard Overview -->
     <div class="row subheader">
         <div class="col-xs-6 title-container">
@@ -213,8 +288,7 @@
     </div>
     <div class="row">
         <p>
-            For a description of each of the figures shown on the iModulon dashboards <b>hover over</b> the various
-            components of the example “MalT” iModulon below:
+            For a description of each of the figures shown on the iModulon dashboards <b>hover over</b> the various components of <a href="iModulon.html?organism=e_coli&dataset=precise1&k=12">the example “MalT” iModulon</a> below:
         </p>
     </div>
     <div class="dashboard-container">
@@ -226,9 +300,7 @@
                     <div class="desc-overlay" >
                         <h6>Name and Description</h6>
                         <p>
-                            Here, the iModulon name is given in large font. Below, several descriptors are given, including
-                            the biological function and category of iModulon. If the iModulon is found to map to a known
-                            regulator, then the "Regulated by" descriptor will be followed by the regulator name.
+                            Here, the iModulon name is given in large font. Below, several descriptors are given, including the biological function and category of iModulon. If the iModulon is found to map to a known regulator, then the "Regulated by" descriptor will be followed by the regulator name. If available, the regulator name will appear as a link to the appropriate database (e.g. RegulonDB).
                         </p>
                     </div>
                 </div>
@@ -238,18 +310,18 @@
                     <img src="images/mod_table.png" class="desc-image">
                     <div class="desc-overlay">
                         <h6>Gene Table</h6>
-                        <p>
-                            The gene table lists the genes that are included in the iModulon. Working from left to right,
-                            the <b>first column</b> gives the gene number (b-numbers for <i>E. coli</i>), the second column
-                            (<b>"M<span class="sub">i</span>"</b>) gives the ICA-determined weight of the gene in the iModulon,
-                            the third column (<b>"Name"</b>) gives the gene names, and the <b>next column</b> will be a checklist of whether the
-                            iModulon gene is in the regulon for regulatory iModulons only. After
-                            the first 3-4 columns, the <b>"Product"</b> column gives the expected product of the gene, the
-                            <b>"Operon"</b> column gives any other genes in the same operon as iModulon gene (where applicable),
-                            and the <b>"TF"</b> column (not shown here - need to scroll right) gives the known transcription
-                            factors associated with the iModulon gene. Clicking on a row will take you to a page with
-                            more information on the iModulon gene, such as EcoCyc for <i>E. coli</i>.
+                        <p  class="mb-0" style="font-size: 11px">
+                            The gene table lists the genes in an iModulon. Clicking a row will take you to a relevant database (e.g. Ecocyc) for that gene. This table is scrollable in both directions. Clicking the arrows in the header sorts the contents by the given feature, and right clicking on the header allows columns to be moved to the right end or hidden. This table is also downloadable from the "Download" dropdown menu in the site header.
                         </p>
+                        <ul class="text-left mt-0">
+                            <li>Column 1: Gene locus tag</li>
+                            <li>Column 2 (M<sub>i</sub>): ICA-determined gene weight</li>
+                            <li>Column 3 (Name): Gene Name</li>
+                            <li>Column 4: Regulated by transcription factor (or other regulator)</li>
+                            <li>Column 5 (Product): Description of gene product</li>
+                            <li>Column 6 (Operon): Genes in the same operon</li>
+                            <li>Column 7 (Regulators): List of known regulators for this gene</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -267,12 +339,7 @@
                     <div class="desc-overlay">
                         <h6>Gene Weight Histogram</h6>
                         <p>
-                            For the statistically-determined signal, each gene has a "weight" that represents its importance towards the signal.
-                            Genes with weights that occur above a determined threshold are considered to be a part of the iModulon.
-                            The histogram shows the distribution of gene weights for the particular signal that is associated with the iModulon.
-                            Genes that fall to the left or right of the region between vertical bars are in the iModulon.
-                            On the dashboard page, you can hover over the iModulon gene weight bars to see the associated genes. If the iModulon has
-                            a regulator enrichment, the genes in the regulon (per RegulonDB for <i>E. coli</i>) will be shown in blue.
+                            For each statistically-determined signal, each gene has a "weight" that represents its importance towards the signal. Genes with weights that occur above a determined threshold (outside the vertical lines) are considered to be a part of the iModulon, and non-iModulon genes have a gaussian distribution around zero. Note that the y-axis has a logarithmic scale. Hover over the bars to see the associated genes. If the iModulon has a regulator enrichment, the genes in the regulon will be shown in color. Click the elements in the legend to hide or show the associated bars.
                         </p>
                     </div>
                 </div>
@@ -283,11 +350,7 @@
                     <div class="desc-overlay">
                         <h6>Gene Weight Scatter Plot</h6>
                         <p>
-                            Similar to the gene histogram, the gene scatter plot shows the weight of each gene towards
-                            the signal. In this figure, the gene weights are plotted against the corresponding mean gene
-                            expression at the control conditions. The iModulon genes are those that fall above or below
-                            the horizontal threshold line(s). On the dashboard page, the gene name and values can be
-                            displayed by hovering over each point.
+                           Similar to the gene histogram, the gene weight scatter plot shows the weight of each gene towards the signal. In this figure, the gene weights are plotted against the gene expression in the control condition. They are colored by category. Again, genes outside the horizontal lines are in the iModulon – click on them to access their entries in a relevant database. Gene names, values, and categories can be displayed by hovering over each point.
                         </p>
                     </div>
                 </div>
@@ -306,20 +369,7 @@
                     <div class="desc-overlay">
                         <h6>Activity Bar Graph</h6>
                         <p>
-                            The activity bar graph shows the relative activity level of the iModulon across all the
-                            experimental samples included in the dataset. The breakdown of the different studies
-                            contributing to the activity profile are included below the x-axis, where the vertical lines
-                            indicate the split of different studies that the various samples fall into. The black points
-                            represent each biological replicate for the sample, and the blue bars represent the averaged
-                            activity from the biological replicates. Hovering over the data shows the sample name,
-                            the activity value, and the associated carbon source of the sample (if known). Clicking on
-                            the blue data bars will take you to the paper describing the associated study.
-                        </p>
-                        <p>
-                            The hamburger menu in the top right of the figure includes additional options, such as
-                            the ability to view the figure in full screen or download the figure as either a pdf or png
-                            file. The menu also includes csv file downloads for the metadata that describes the various
-                            samples, and the underlying activity data for the iModulon.
+                            The activity bar graph shows the relative activity level of the iModulon across all the experimental samples included in the dataset. The plot is divided by the source study for the dataset, and clicking a bar will take you to the associated publication. The black points represent each biological replicate for the sample, and the blue bars represent the averaged activity from the biological replicates. Hovering over the data shows the sample name, the activity value, and some associated metadata. The menu in the top right of the figure includes additional options to download the figure or underlying data. 
                         </p>
                     </div>
                 </div>
@@ -338,10 +388,7 @@
                     <div class="desc-overlay">
                         <h6>iModulon and Regulon Venn Diagram</h6>
                         <p>
-                            If the iModulon is mapped to a regulator, the venn diagram appears to show the overlap
-                            between the genes in the iModulon and the regulon (per RegulonDB for <i>E. coli</i>).
-                            On the dashboard page, you can hover over each part of the venn diagram to see the number
-                            of genes and gene names associated with each group in the diagram.
+                            If the iModulon is mapped to a regulator, the venn diagram shows the overlap between the genes in the iModulon and the literature-derived regulon. On the dashboard page, you can hover over each part of the venn diagram to see the number of genes and gene names associated with each group in the diagram.
                         </p>
                     </div>
                 </div>
@@ -350,13 +397,9 @@
                 <div class="desc-container base-image">
                     <img src="images/mod_corr.png" class="desc-image">
                     <div class="desc-overlay">
-                        <h6>Correlation to Regulator</h6>
-                        <p>
-                            In addition to the venn diagram, the correlation scatter plot appears if the iModulon can be
-                            mapped to a regulator. The plot shows the relationship between the iModulon activity level
-                            and the expression of the regulator gene across the various conditions. If the iModulon is
-                            correctly attributed to the regulator, a linear relationship is expected between activity
-                            and expression.
+                        <h6>Correlation with Regulator Expression</h6>
+                        <p style="font-size: 12px">
+                            The correlation scatter plot appears if the iModulon can be mapped to a transcription factor or sigma factor. The plot shows the relationship between the iModulon activity level and the expression of the regulator across conditions. There are three major relationships: linear correlation, broken linear correlation (shown here), and uncorrelated. Linear or broken linear correlations usually indicate that the regulator is in the iModulon or lacks post-transcriptional regulation, while uncorrelated regulator expression plots indicate that the iModulon responds to post-transcriptional regulation (such as ligand binding).
                         </p>
                     </div>
                 </div>
@@ -368,20 +411,30 @@
     <div class="row subheader">
         <div class="col-xs-6 title-container">
             <div id="citation">
-                <h3 class="text-center">Citation</h3>
+                <h3 class="text-center">Citations</h3>
             </div>
         </div>
     </div>
     <div class="row">
         <p>
-            For the <i>Escherichia coli</i> iModulons, please cite:
-        </p>
-        <p>
-            Sastry, A.V., Gao, Y., Szubin, R. et al. The Escherichia coli transcriptome
-            mostly consists of independently regulated modules. Nat Commun 10, 5536 (2019).
-            https://doi.org/10.1038/s41467-019-13483-w
+            While this site's manuscript is under preparation, please cite the publications associated with the datasets used:<br>
         </p>
     </div>
+    <div class="row">
+        <h5><i>E. coli</i>: Sastry, et al.</h5>
+        <p>
+            <a href="https://doi.org/10.1038/s41467-019-13483-w">Sastry, A.V., Gao, Y., Szubin, R. et al. The Escherichia coli transcriptome mostly consists of independently regulated modules. Nat Commun 10, 5536 (2019).</a>
+        </p>
+        <h5><i>S. aureus</i>: Poudel, et al.</i></h5>
+        <p>
+            <a href="https://doi.org/10.1101/2020.03.18.997296">Poudel, S., Tsunemoto, H., Seif, Y. et al. Revealing 29 sets of independently modulated genes in Staphylococcus aureus, their regulators and role in key physiological responses. PNAS, accepted. (2020)</a>
+        </p>
+        <h5><i>B. subtilis</i>: Rychel, et al.</i></h5>
+        <p>
+            <a href="https://doi.org/10.1101/2020.04.26.062638">Rychel, K., Sastry, A.V., Palsson, B.O. Machine learning uncovers independently regulated modules in the Bacillus subtilis transcriptome. In review (2020).</a>
+        </p>
+    </div>
+    
     <!-- Contact -->
     <div class="row subheader">
         <div class="col-xs-6 title-container">
@@ -392,7 +445,7 @@
     </div>
     <div class="row">
         <p>
-            For questions on Modulytics, please get send an email to Kevin Rychel (krychel-AT-ucsd-DOT-edu).
+            For questions, comments, feedback, or to collaborate with us, please send an email to Kevin Rychel (<a href="mailto:krychel@eng.ucsd.edu">krychel@eng.ucsd.edu</a>).
         </p>
         <p>
             For more information on the Systems Biology Research Group (SBRG) at the University of California,
