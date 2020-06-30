@@ -338,7 +338,7 @@
                 link += 'organism=' + qs('organism') + '&';
                 link += 'dataset=' + qs('dataset') + '&';
                 link += 'k=' + row.getData().k;
-                window.location.href = link;
+                window.open(link);
             },
             tooltips: function (cell) {
                 return "Click to view iModulon dashboard";
