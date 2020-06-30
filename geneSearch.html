@@ -93,7 +93,7 @@
 
         <ul class="nav navbar-dark">
             <li class="nav-item">
-                <a class="nav-link navbar-dark" href="dataset.html?organism=e_coli&dataset=precise1">iModulon List</a>
+                <a id="dataset_link" class="nav-link navbar-dark" href="dataset.html?organism=e_coli&dataset=precise1">iModulon List</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -157,8 +157,7 @@
 
     <!-- Required CDNs: URLSearchParams, Papa Parse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-    ;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>;
 
     <!-- Populate page -->
     <script>
@@ -166,6 +165,9 @@
         var params = new URLSearchParams(window.location.search);
         var org_folder = 'organisms/' + params.get('organism') + '/' + params.get('dataset') + '/';
         var link_suffix = "?organism=" + params.get('organism') + "&dataset=" + params.get('dataset');
+
+        // Update iModulon dataset page link
+        document.getElementById("dataset_link").setAttribute('href', 'dataset.html'+link_suffix);
 
         // populate the dataset info
         $.get(org_folder + 'dataset_meta.csv', function (meta) {
@@ -210,7 +212,7 @@
 
             // Show 'no results found' message when there are no elements
             if (!$('#results').children().length) {
-                $('#results').append('<div class="no-results">No results found. Please enter a valid <i>E. coli</i> gene or b-number. To see a list of all available genes, empty the input field and click the "Search" button. </div>')
+                $('#results').append('<div class="no-results">No results found. Please enter a valid gene name or gene ID. To see a list of all available genes, empty the input field and click the "Search" button. </div>')
             }
         }
 

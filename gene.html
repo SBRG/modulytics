@@ -108,7 +108,7 @@
                 <div class="col-md-4 m-auto">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 id="gene_name" class="bd-title"></h1>
+                            <h2 id="gene_name" class="bd-title"></h2>
                         </div>
                     </div>
                     <div class="row">
@@ -216,7 +216,7 @@
         $('#gene_head_text').append('<b>Gene ID: </b>' + gene_meta[1][1])
         $('#gene_head_text').append('<br><b>Operon: </b>' + gene_meta[3][1])
         $('#gene_head_text').append('<br><b>Gene Product: </b>' + gene_meta[4][1])
-        $('#gene_head_text').append('<br><b>COG: </b>' + gene_meta[5][1])
+        $('#gene_head_text').append('<br><b>Category: </b>' + gene_meta[5][1])
         var regulator_name = gene_meta[6][1]
         if (regulator_name != null) {
             $('#gene_head_text').append('<br><b>Regulated by: </b>' + regulator_name)
@@ -224,7 +224,7 @@
         $('#gene_head_text').append('<br><b>Additional information: </b>' + gene_meta[7][1]);
 
         // change page title
-        document.title = 'Modulytics: ' + gene_meta[2][1] + ' gene';
+        document.title = 'Modulytics: ' + gene_meta[1][1] ;
 
         // add download links specific to this imodulon
         document.getElementById("gene_table_download").setAttribute('href', data_prefix+'perGene_table.csv');
@@ -280,8 +280,8 @@
                     ],
                     rowClick:function(e, row){ //link to the page in a database
                         var link='iModulon.html?';
-                        link += 'organism='+'e_coli'+"&";//params.get('organism')+'&';
-                        link += 'dataset='+"precise1"+"&";//+params.get('dataset')+'&';
+                        link += 'organism='+qs('organism')+'&';
+                        link += 'dataset='+qs('dataset')+'&';
                         link += 'k='+row.getData().k;
                         window.location.href = link;
                     },
