@@ -97,7 +97,7 @@
                 <a id="im_list" class="nav-link navbar-dark">iModulon List</a>
             </li>
             <li class="nav-item">
-                <a id="gene_search_link" class="nav-link" href="geneSearch.html">Search Data by Gene</a>
+                <a id="gene_search_link" class="nav-link" href="geneSearch.html">Gene Search</a>
             </li>
             <li class="nav-item">
                 <a id="next_iM" class="nav-link navbar-dark" href="index.html">Next</a>
@@ -290,7 +290,7 @@
         var metadata = Papa.parse(meta).data;
 
         // dataset title
-        var title = 'iModulon Dashboard for '+metadata[0][1]
+        var title = metadata[0][1] + ': iModulon Dashboard';
         $('#title_org').append(title);
     });
 

@@ -115,20 +115,23 @@
                 <p id="header" class="bd-lead"></p>
             </div>
         </div>
-        <div class="row mx-auto justify-content-center">
-            To find a gene's associated Modulytics data, enter the gene name or ID
-            and click 'Search'. Click the desired result link to view the gene data.
-        </div>
     </div>
     <br>
 
     <!-- Search -->
     <div class="row mx-auto justify-content-center">
-        <div>
-            <input type="text" id="searchText">
-            <button id="searchBtn" onclick="search()">
-                Search
-            </button>
+        <div class="card text-white bg-primary p-3" style="width: 100%">
+            <p class="card-body text-center">
+                Enter a gene name or ID below.
+            </p>
+            <div class="input-group mx-auto px-5">
+                <input type="text" class="form-control" placeholder="" id="searchText">
+                <div class="input-group-append">
+                    <button class="btn btn-light" id="searchBtn" onclick="search()">
+                        Search
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     <div>
@@ -174,7 +177,7 @@
             var metadata = Papa.parse(meta).data;
 
             // dataset title
-            var title = 'Search Data by Gene: ' + metadata[0][1];
+            var title = 'Gene Search: ' + metadata[0][1];
             $('#title').append(title);
 
             // header text

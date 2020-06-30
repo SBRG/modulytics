@@ -108,7 +108,7 @@
                 <a id="im_list" class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
             </li>
             <li class="nav-item">
-                <a id="gene_search_link" class="nav-link" href="geneSearch.html">Search Data by Gene</a>
+                <a id="gene_search_link" class="nav-link" href="geneSearch.html">Gene Search</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -254,7 +254,7 @@
         var metadata = Papa.parse(meta).data;
 
         // dataset title
-        var title = 'Gene Dashboard for ' + metadata[0][1]
+        var title = metadata[0][1]+ ': Gene Dashboard';
         $('#title_org').append(title);
     });
 
