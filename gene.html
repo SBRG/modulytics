@@ -214,6 +214,7 @@
         if (regulator_name != null) {
             $('#gene_head_text').append('<br><b>Regulated by: </b>' + regulator_name)
         }
+        $('#gene_head_text').append('<br><b>Additional information: </b>' + gene_meta[7][1]);
 
         // change page title
         document.title = 'Modulytics: ' + gene_meta[2][1] + ' gene';
