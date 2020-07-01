@@ -130,12 +130,16 @@ def gene_hist_df(ica_data, k, row, bins = 20, tol = 0.001):
         b_upper = b_lower + width
         for r in tf_combo_order:
             # get the genes for this regulator and bin
-            genes = DF_gene.gene_name[(DF_gene.tf_combos == r) &
-                                      (DF_gene.comp < b_upper) &
-                                      (DF_gene.comp > b_lower)]
+            genes = DF_gene.index[(DF_gene.tf_combos == r) &
+                                  (DF_gene.comp < b_upper) &
+                                  (DF_gene.comp > b_lower)]
+            # use the gene names, and get them with num2name (more robust)
+            genes = [ica_data.num2name[g] for g in genes]
+                    
+            
             res.loc[r, b_mid] = len(genes)
 
-            gene_list = np.array2string(genes.values, separator = ' ')
+            gene_list = np.array2string(np.array(genes), separator = ' ')
 
             # don't list unregulated genes unless they are in the i-modulon
             if r == 'unreg':
