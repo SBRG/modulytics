@@ -102,6 +102,7 @@ function generateGeneScatter(csvContent, container) {
             formatter: function () {
 
                 if ((this.point.name == null)||(this.point.name == this.point.b_num)) {
+
                     var tooltip = '<b>' + this.point.b_num + '</b>'
                 } else {
                     var tooltip = this.point.b_num + ": <b>" + this.point.name + "</b>";
