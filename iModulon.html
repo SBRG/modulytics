@@ -378,7 +378,6 @@
     // add navbar links
     var k = params.get('k');
     $.get(org_folder + 'num_ims.txt', function (num_ims) {
-        console.log(num_ims)
         if (k == num_ims) {
             document.getElementById('next_iM').setAttribute('href', 'iModulon.html' + link_suffix + '&k=0')
         } else {

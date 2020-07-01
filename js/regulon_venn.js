@@ -107,12 +107,27 @@
        },
        tooltip: {
            formatter: function() {
+               // display totals
                var tooltip = this.point.name + ": <b>" + this.point.value + "</b>";
                if (this.point.name=="Regulon Genes" | this.point.name=="iModulon Genes") {
                    tooltip += "<br>Genes in "+this.point.name.substring(0, this.point.name.length-6);
                    tooltip += " only: <b>" + (this.point.gene_list.split(', ').length) + "</b>";
                }
-               tooltip += "<br>" + this.point.gene_list
+               
+               // remove genes if there are too many to display
+               var print_genes = this.point.gene_list;
+               if (print_genes.length > 500) {
+                    var gene_vector = print_genes.split(', ');
+                    print_genes = '';
+                    var i = 0;
+                    while (print_genes.length < 500) {
+                        print_genes += gene_vector[i] + ', ';
+                        i += 1;
+                    }
+                    print_genes = print_genes.slice(0, print_genes.length-2);
+                    print_genes += ' +'+ (gene_vector.length-i);
+               }
+               tooltip += "<br>" + print_genes;
 
                return tooltip;
            }

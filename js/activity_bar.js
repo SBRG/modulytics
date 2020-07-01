@@ -79,7 +79,6 @@
     var sample_idx = get_index(metadata[0], 'sample_id');
     var project_idx = get_index(metadata[0], 'project_id');
     var link_idx = get_index(metadata[0], 'DOI');
-    console.log(sample_idx, project_idx, link_idx);
     
     // cols of interest: tooltip will show these metadata
     // These will be updated by a button in the future
