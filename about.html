@@ -329,7 +329,9 @@
                 <img src="images/speakers.png" class="card-img"></img>
                 <div class="card-body">
                     <p class="card-text">
-                        ICA was originally developed in 1984 as a blind source separation algorithm. The most commonly described use case is for solving the <b>cocktail party problem</b>: given input from several microphones at a crowded party, can we separate the voice of each person that is talking? In this analogy, the X matrix would be the sound each microphone picked up over time. ICA would compute an M matrix (previously called S for sources) which describes how close each person is to each microphone, and an A matrix, which would be the sound each person made over time. The people are behaving independently, just like regulators or iModulons do. The combined sound they make is what we can observe, similar to how we can observe gene expression.
+                        ICA was originally developed in the 1980s to solve the blind source separation problem, also known as the cocktail party problem. Imagine you place microphones around a crowded, noisy room. Each microphone would pick up different combinations of each speaker. If we apply ICA to the resultant set of recordings, we can identify the original source signals (M) without any other information. In addition, ICA infers the volume of each source in each microphone-measured signal (A).
+                    </p><p class="card-text">
+                        Similarly, a transcriptomic dataset acts like microphones into the cell, measuring the combined effects of different transcriptional regulators with various condition-specific activities. The regulators/iModulons are behaving independently in the cell, the same way that the people in the room behave independently.
                     </p>
                 </div>
             </div>
@@ -347,11 +349,11 @@
             </div>
         </div>
     </div>
-    <div class="dashboard-container m-3 p-2">
+    <div id="iM_uses" class="dashboard-container m-3 p-2">
         <h5>Uses of iModulons</h5>
         <ul>
             <li><b>Systems-level view of the transcriptome:</b> We now have approximately 100 variables which we know have some importance in the dataset, as opposed to the 1000s of genes we started with. What those variables are tells us a lot about how cells regulate themselves.</li>
-            <li><b>Grouping genes together:</b> Let’s say you’re a biologist interested in a specific gene. Check out the database (by using the <a href="geneSearch.html?organism=e_coli&dataset=precise1">gene search functionality</a> for your organism of choice) to learn which other genes share an iModulon with it - now you know which other players are on its team, so to speak. This assists with characterizing unknown genes and better understanding biological responses. <a href="https://www.nature.com/articles/s41467-019-13483-w#figure-2">We have used our gene groupings to identify new gene-regulator relationships, and validated them using chip-exo.</a></li>
+            <li><b>Grouping genes together:</b> Let’s say you’re a biologist interested in a specific gene. Check out the database (by using the <a href="geneSearch.html?organism=e_coli&dataset=precise1">gene search functionality</a> for your organism of choice) to learn which other genes share an iModulon with it - now you know which other players are on its team, so to speak. This assists with characterizing unknown genes and better understanding biological responses. <a href="https://www.nature.com/articles/s41467-019-13483-w#figure-2">We have used our gene groupings to identify new gene-regulator relationships, and validated them using chip-exo.</a> <a href="https://doi.org/10.1101/2020.06.23.168344">We have also identified novel relationships between genes and two-component systems using our iModulon groupings.</a></li>
             <li><b>Discovering new regulators:</b> Uncharacterized groups of genes that show up in iModulons together are likely co-regulated by some unknown mechanism. <a href="https://doi.org/10.1101/2020.05.03.074617">We have discovered new regulators this way.</a></li>
             <li><b>Understanding cellular function and activity:</b> When faced with the activity profile of an iModulon, we can try to connect its function and activity. This was easy in the case of glycerol: any time glycerol is present, the glpR iModulon becomes activated. Other cases are not so self-explanatory, and may point to interesting hypotheses. <a href="https://doi.org/10.1101/2020.04.26.062638">Many of them were explored in <i>Bacillus subtilis.</i></a></li>
         </ul>
