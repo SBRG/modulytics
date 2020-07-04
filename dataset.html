@@ -11,46 +11,61 @@
         
         <!-- CSS -->
         <style>
-        .header{
-            background-color: #007bff;
+        .header {
+            background-color: #5D5C61;
             color: white;
-            margin-bottom: 1rem;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
+            margin-bottom: 0rem;
             padding: 0.4rem;
-        }
-
-        .top-banner{
-            background-color: #15C70C;
-        }
-
-        .small-text{
-            font-size: 3px;
-            color: #15C70C;
+            padding-left: 0.7rem;
         }
         
         .header a{
-            color: #91F88B;
+            color: white;
         }
         
         .header a:hover{
-            color: white;
+            color: #A8D0E6;
         }
         
         .dropdown-menu{
-            background-color: #007bff;
+            background-color: #5D5C61;
         }
         
         .dropdown-item{
-            color: #91F88B;
-        }
-        
-        .dropdown-item:hover{
-            background-color: #007bff;
             color: white;
         }
+        
+                #left_col {
+            background-color: #A8D0E6;
+            padding: 1rem;
+        }
+        
+        #left_col_content {
+            position: sticky;
+            top: 4.5rem;
+        }
+        
+        .card {
+            background-color: #5D5C61;
+        }
+        
+        .im_head_meta_cat {
+            margin-bottom: 0rem;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .im_head_meta_val {
+            color: white;
+        }
+        
+        .im_head_meta_val a{
+            color: #A8D0E6;
+        }
+
         .tabulator-frozen-left{
-            color: #007bff;
+            font-weight: bold;
         }
         .tabulator-header{
             color: black;
@@ -61,14 +76,10 @@
   
     <body>
         <!-- Page Content -->
-        <div class="container" style="min-width: 600px">  
+        <div class="container-fluid" style="min-width: 650px">  
             
             <!-- Navbar -->
-            <div class="top-banner row">
-                <div class="col-xs-12 small-text">_</div>
-            </div>
-            
-            <div class="header row navbar-dark">
+            <div class="header row navbar-dark sticky-top">
                 
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">Modulytics</a>
@@ -92,18 +103,20 @@
                     </li>
                 </ul>
             </div>
+        
         <div class = "row">
+        <!-- Left column: Header -->
+            <div id="left_col" class="col-md-3">
+                <div id="left_col_content">
+                    
+                    <h1 id="title" class="bd-title"></h1>
+                    <div class="card p-2" id="header"></div>
+                </div>
+            </div>
             
             <!-- Main body --> 
-            <div class="col-md-12 p-3" style="max-width: 1200px">
-                
-                <!-- Header: Dataset Info -->
-                <div class="row mx-auto justify-content-center">
-                    <h1 id="title" class="bd-title"></h1>
-                </div>
-                <div class="row mx-auto justify-content-center">
-                    <p id="header" class="bd-lead"></p>
-                </div>
+            <div class="col-md-9 p-3">
+                <h5 class="text-center">iModulons</h5>
                 
                 <!-- iModulon Table -->
                 <div id="iM_table" style="width: 100%"></div>
@@ -163,11 +176,12 @@
                 // dataset title
                 var title = metadata[0][1]
                 document.title = 'Modulytics: ' + title.replace( /(<([^>]+)>)/ig, '');
-                $('#title').append(title);
+                $('#title').append(title + ' Dataset');
                 
                 // header text
                 for (i = 1; i < metadata.length-1; i++) {
-                    $('#header').append('<b>'+metadata[i][0]+':</b> '+metadata[i][1]+'<br>');
+                    $('#header').append('<p class="im_head_meta_cat">'+metadata[i][0].toUpperCase()+'</p>')
+                    $('#header').append('<p class="im_head_meta_val">'+metadata[i][1]+'</p>');
                 }
             });
             
@@ -189,25 +203,25 @@
                 
                 // columns object
                 var columns = [
-                    {title: "iModulon Name", field:"Name", frozen:true},
-                    {title: "Regulator", field: "Regulator", 
-                        width:150, sorterParams:{alignEmptyValues:"bottom"}
-                    },
-                    {title: "Function", field: "Function"},
-                    {title: "Category", field: "Category",
+                    {title: "iModulon Name", field:"Name", frozen:true, formatter:"textarea", widthGrow: 2},
+                    {title: "Regulator", field: "Regulator", formatter:"textarea",
+                        width:150, sorterParams:{alignEmptyValues:"bottom"}, widthGrow: 2},
+                    {title: "Function", field: "Function", formatter:"textarea", widthGrow: 3},
+                    {title: "Category", field: "Category", formatter:"textarea",
                         sorter:function(a, b, aRow, bRow, column, dir, sorterParams){
                             return aRow.getData().category_num - bRow.getData().category_num;
-                        }
+                        },
+                        widthGrow: 2
                     }, 
-                    {title: "N", field: "n_genes"},
-                    {title: "Precision", field: "precision", formatter:"money", formatterParams:{precision:3}},
-                    {title: "Recall", field: "recall", formatter:"money", formatterParams:{precision:3}}
+                    {title: "N", field: "n_genes", variableHeight:true},
+                    {title: "Precision", field: "precision", formatter:"money", formatterParams:{precision:3}, variableHeight:true},
+                    {title: "Recall", field: "recall", formatter:"money", formatterParams:{precision:3}, variableHeight:true}
                 ]
                 
                 // generate the table
                 var table = new Tabulator('#iM_table', {
 
-                    layout:"fitDataStretch",
+                    layout:"fitColumns",
                     data:tabledata,
                     columns:columns,
                     initialSort:[
@@ -225,6 +239,7 @@
                         return "Click to view iModulon dashboard";
                     }
                 });
+                table.redraw();
             });
         </script>
     </body>

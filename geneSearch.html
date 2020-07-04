@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100vh;">
 <head>
     <title>Modulytics: Search Genes</title>
     <!-- Metadata -->
@@ -15,6 +15,17 @@
 
 
     <style>
+        
+        #search_box {
+            background-color: #A8D0E6;
+            color: black;
+        }
+        
+        #searchBtn {
+            background-color: #5D5C61;
+            color: white;
+        }
+        
         .result {
             list-style-type: none;
             border: 1px solid #BBBBBB;
@@ -26,66 +37,68 @@
         }
 
         .header {
-            background-color: #007bff;
+            background-color: #5D5C61;
             color: white;
-            margin-bottom: 1rem;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
+            margin-bottom: 0rem;
             padding: 0.4rem;
+            padding-left: 0.7rem;
         }
-
-        .top-banner {
-            background-color: #15C70C;
-        }
-
-        .small-text {
-            font-size: 3px;
-            color: #15C70C;
-        }
-
-        .header a {
-            color: #91F88B;
-        }
-
-        .header a:hover {
+        
+        .header a{
             color: white;
         }
-
-        .tall-row {
-            min-height: 200px;
+        
+        .header a:hover{
+            color: #A8D0E6;
         }
-
-        .no-results {
-            text-align: center;
-            color: darkred;
-            margin-top: 2rem;
+        
+        .dropdown-menu{
+            background-color: #5D5C61;
         }
-
-        .dropdown-menu {
-            background-color: #007bff;
-        }
-
-        .dropdown-item {
-            color: #91F88B;
-        }
-
-        .dropdown-item:hover {
-            background-color: #007bff;
+        
+        .dropdown-item{
             color: white;
+        }
+        
+        #left_col {
+            background-color: #A8D0E6;
+            padding: 1rem;
+            padding-bottom: 4.5rem;
+            height: 95vh;
+        }
+        
+        #left_col_content {
+            position: sticky;
+            top: 4.5rem;
+        }
+        
+        .card {
+            background-color: #5D5C61;
+        }
+        
+        .im_head_meta_cat {
+            margin-bottom: 0rem;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .im_head_meta_val {
+            color: white;
+        }
+        
+        .im_head_meta_val a{
+            color: #A8D0E6;
         }
     </style>
 </head>
-<body>
+<body style="height: 100vh;">
 
 <!-- Page Content -->
-<div class="container" style="min-width: 600px">
+<div class="container-fluid" style="min-width: 650px">
 
     <!-- Navbar -->
-    <div class="top-banner row">
-        <div class="col-xs-12 small-text">_</div>
-    </div>
-
-    <div class="header row navbar-dark">
+    <div class="header row navbar-dark sticky-top">
 
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html">Modulytics</a>
@@ -101,62 +114,60 @@
         </ul>
     </div>
 
-    <!-- Heading Info -->
     <div class="row">
+        <!-- Left column: Header -->
+        <div id="left_col" class="col-md-3">
+            <div id="left_col_content">
+                
+                <h1 id="title" class="bd-title"></h1>
+                <div class="card p-2" id="header"></div>
+            </div>
+        </div>
 
         <!-- Main body -->
-        <div class="col-md-12 p-3" style="max-width: 1200px">
-
-            <!-- Header: Dataset Info -->
+        <div class="col-md-9 p-3">
+            <!-- Search -->
             <div class="row mx-auto justify-content-center">
-                <h3 id="title" class="bd-title"></h3>
-            </div>
-            <div class="row mx-auto justify-content-center">
-                <p id="header" class="bd-lead"></p>
-            </div>
-        </div>
-    </div>
-    <br>
-
-    <!-- Search -->
-    <div class="row mx-auto justify-content-center">
-        <div class="card text-white bg-primary p-3" style="width: 100%">
-            <p class="card-body text-center">
-                Enter a gene name or locus tag below.
-            </p>
-            <div class="input-group mx-auto px-5">
-                <input type="text" class="form-control" placeholder="" id="searchText">
-                <div class="input-group-append">
-                    <button class="btn btn-light" id="searchBtn" onclick="search()">
-                        Search
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <ul id="results"></ul>
-    </div>
-    <div class="tall-row"></div>
-    <hr>
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <a href="http://systemsbiology.ucsd.edu/">
-                        <img class="img-fluid" src="images/sbrg-logo.png">
-                    </a>
-                </div>
-                <div class="col-sm-9 m-auto">
-                    <p class="copyright text-muted small">
-                        Modulytics is maintained by the Systems Biology Research Group at the University of
-                        California, San Diego. <br/>
+                <div id="search_box" class="card p-3" style="width: 100%">
+                    <p class="card-body text-center" style="font-size: larger">
+                        Enter a gene name or locus tag below.
                     </p>
+                    <div class="input-group mx-auto px-5">
+                        <input type="text" class="form-control" placeholder="" id="searchText">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" id="searchBtn" onclick="search()">
+                                Search
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div>
+                <ul id="results"></ul>
+            </div>
+            <div class="tall-row"></div>
+            <hr>
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="http://systemsbiology.ucsd.edu/">
+                                <img class="img-fluid" src="images/sbrg-logo.png">
+                            </a>
+                        </div>
+                        <div class="col-sm-9 m-auto">
+                            <p class="copyright text-muted small">
+                                Modulytics is maintained by the Systems Biology Research Group at the University of
+                                California, San Diego. <br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </footer>
+    </div>
+</div>
 
     <!-- Required CDNs: URLSearchParams, Papa Parse -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script>
@@ -172,17 +183,19 @@
         // Update iModulon dataset page link
         document.getElementById("dataset_link").setAttribute('href', 'dataset.html'+link_suffix);
 
-        // populate the dataset info
-        $.get(org_folder + 'dataset_meta.csv', function (meta) {
+        // populate the dataset info 
+        $.get(org_folder + 'dataset_meta.csv', function(meta) {
             var metadata = Papa.parse(meta).data;
-
+            
             // dataset title
-            var title = 'Gene Search: ' + metadata[0][1];
-            $('#title').append(title);
-
+            var title = metadata[0][1]
+            document.title = 'Modulytics: ' + title.replace( /(<([^>]+)>)/ig, '');
+            $('#title').append(title + ' Dataset');
+            
             // header text
-            for (i = 1; i < metadata.length - 1; i++) {
-                $('#header').append('<b>' + metadata[i][0] + ':</b> ' + metadata[i][1] + '<br>');
+            for (i = 1; i < metadata.length-1; i++) {
+                $('#header').append('<p class="im_head_meta_cat">'+metadata[i][0].toUpperCase()+'</p>')
+                $('#header').append('<p class="im_head_meta_val">'+metadata[i][1]+'</p>');
             }
         });
 
