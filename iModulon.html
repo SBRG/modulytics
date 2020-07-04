@@ -17,60 +17,56 @@
     <style>
 
         .header {
-            background-color: #007bff;
+            background-color: #5D5C61;
             color: white;
-            margin-bottom: 1rem;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
+            margin-bottom: 0rem;
             padding: 0.4rem;
-        }
-
-        .subheader {
-            background-color: lightgray;
-            color: black;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            padding-top: 8px;
-        }
-
-        .top-banner {
-            background-color: #15C70C;
-        }
-
-        .small-text {
-            font-size: 3px;
-            color: #15C70C;
+            padding-left: 0.7rem;
         }
 
         .header a {
-            color: #91F88B;
+            color: white;
         }
 
         .header a:hover {
-            color: white;
+            color: #A8D0E6;
         }
 
         .dropdown-menu {
-            background-color: #007bff;
+            background-color: #5D5C61;
         }
 
         .dropdown-item {
-            color: #91F88B;
-        }
-
-        .dropdown-item:hover {
-            background-color: #007bff;
             color: white;
         }
-
-        h3 {
-            color: #4F5451;
-            font-size: 18px;
+        
+        #left_col {
+            background-color: #A8D0E6;
+            padding: 1rem;
         }
-
-        .title-container {
-            width: 100%;
+        
+        #left_col_content {
+            position: sticky;
+            top: 4.5rem;
+        }
+        
+        .card {
+            background-color: #5D5C61;
+        }
+        
+        .im_head_meta_cat {
+            margin-bottom: 0rem;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .im_head_meta_val {
+            color: white;
+        }
+        
+        .im_head_meta_val a{
+            color: #A8D0E6;
         }
 
     </style>
@@ -79,14 +75,10 @@
 <body>
 
 <!-- Page Content -->
-<div class="container" style="min-width: 600px">
+<div class="container-fluid" style="min-width: 650px">
 
     <!-- Navbar -->
-    <div class="top-banner row">
-        <div class="col-xs-12 small-text">_</div>
-    </div>
-
-    <div class="header row navbar-dark">
+    <div class="header row navbar-dark sticky-top">
 
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html">Modulytics</a>
@@ -123,40 +115,26 @@
             </li>
         </ul>
     </div>
-
-    <!-- Add dashboard title strip -->
-    <div class="row subheader mt-0">
-        <div class="col-xs-6 title-container">
-            <div id="dashboard_title">
-                <h3 id="title_org" class="text-center"></h3>
+    <div class="row">
+        <!-- Left column: Header -->
+        <div id="left_col" class="col-md-3">
+            <div id="left_col_content">
+                
+                <h1 id="im_name" class="bd-title"></h1>
+                <div class="card p-2" id="im_head_text"></div>
             </div>
         </div>
-    </div>
-
-    <div class="row">
 
         <!-- Main body -->
-        <div class="col-md-12 p-3" style="max-width: 1200px">
+        <div class="col-md-9 p-3">
 
             <!-- iModulon header & gene table -->
             <div class="row">
-                <div class="col-md-4 m-auto">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 id="im_name" class="bd-title"></h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p id="im_head_text" class="bd-lead"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="row mx-auto justify-content-center">
                         <h5>Gene Table</h5>
                     </div>
-                    <div id="gene_table" style="width: 100%;height:275px;"></div> <!-- width = 500px -->
+                    <div id="gene_table" style="width: 100%;height:275px;"></div>
                 </div>
             </div>
 
@@ -285,31 +263,33 @@
     document.getElementById('gene_download').setAttribute('href', 'organisms/' + params.get('organism') + '/annotation/gene_files.zip');
     document.getElementById('meta_download').setAttribute('href', org_folder + 'sample_metadata.csv');
 
-    // populate the dataset info
-    $.get(org_folder + 'dataset_meta.csv', function (meta) {
-        var metadata = Papa.parse(meta).data;
-
-        // dataset title
-        var title = metadata[0][1] + ': iModulon Dashboard';
-        $('#title_org').append(title);
-    });
-
     // read in the iModulon metadata
     $.get(data_prefix + "meta.csv", function (im_metaCSV) {
         var im_meta = Papa.parse(im_metaCSV, {dynamicTyping: true}).data;
-
-        // add header
-        $('#im_name').append(im_meta[0][1] + " iModulon");
-        $('#im_head_text').append('Biological function: ' + im_meta[3][1])
-        $('#im_head_text').append('<br>Category: ' + im_meta[4][1])
-        var regulator_name = im_meta[2][1]
-        if (regulator_name != null) {
-            $('#im_head_text').append('<br>Regulated by: ' + regulator_name)
-        }
-
-        // change page title
-        document.title = 'Modulytics: ' + im_meta[0][1] + ' iModulon';
-
+        
+        // populate the dataset info
+        $.get(org_folder + 'dataset_meta.csv', function (meta) {
+            var metadata = Papa.parse(meta).data;
+            
+            // iModulon name
+            $('#im_name').append(im_meta[0][1] + " iModulon");
+            
+            // iModulon details
+            $('#im_head_text').append('<p class="im_head_meta_cat">DATASET</p>');
+            $('#im_head_text').append('<p class="im_head_meta_val">'+metadata[0][1]+'</p>');
+            $('#im_head_text').append('<p class="im_head_meta_cat">FUNCTION</p>');
+            $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[3][1]+'</p>');
+            $('#im_head_text').append('<p class="im_head_meta_cat">CATEGORY</p>');
+            $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[4][1]+'</p>');
+            var regulator_name = im_meta[2][1]
+            if (regulator_name != null) {
+                $('#im_head_text').append('<p class="im_head_meta_cat">REGULATOR</p>');
+                $('#im_head_text').append('<p class="im_head_meta_val">'+regulator_name+'</p>');
+            }
+            
+            // change page title
+            document.title = 'Modulytics: ' + im_meta[0][1] + ' iModulon';
+        });
         // add download links specific to this imodulon
         document.getElementById("gene_table_download").setAttribute('href', data_prefix + 'gene_table.csv');
         document.getElementById("gene_weights_download").setAttribute('href', data_prefix + 'gene_weights.csv');
