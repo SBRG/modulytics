@@ -90,7 +90,7 @@
   
     <body>
         <!-- Page Content -->
-        <div id="main" class="container-fluid" style="min-width: 650px">
+        <div id="main" class="container-fluid" style="min-width: 650px; max-width: 1600px">
         
             <!-- Navbar -->
             <div class="header row navbar-dark sticky-top justify-content-end">
@@ -134,8 +134,8 @@
                                 </i></small></h1>
                             <!-- About -->
                             <div class="row pt-5">
-                                <div class="col-sm-2"></div>
-                                <div class="col-sm-4">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
                                     <a id = "about_btn" href="about.html" role="button" class="btn btn-light btn-block">
                                         <span style="font-size:larger;">Learn About iModulons
                                     </span></a>
@@ -143,13 +143,13 @@
                                         or Choose a Dataset Below
                                     </h5>
                                 </div>
-                                <div class="col-sm-6"></div>
+                                <div class="col-md-6"></div>
                             </div>
                             <!-- Footer -->
                                 <div class="mt-auto">
                                     <div class="row">
-                                        <div class="col-sm-9 m-auto"></div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-7 col-md-9 m-auto"></div>
+                                        <div class="col-sm-5 col-md-3">
                                             <a href="http://systemsbiology.ucsd.edu/">
                                                 <img class="img-fluid" src="images/sbrg-logo.png">
                                             </a>
@@ -171,7 +171,7 @@
             </div>
             
             
-            <div id="dataset_row" class="row mt-0 pr-5">
+            <div id="dataset_row" class="row mt-0 pr-5 d-flex justify-content-center">
                 <div class="col-md-4 col-lg-3">
                     <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column" href="dataset.html?organism=e_coli&dataset=precise1">
                         <h2><i>E. coli</i></h2>
@@ -194,43 +194,6 @@
                     </a>
                 </div>
             </div>
-            
-            <!-- Datasets 
-            <div id="dataset_row" class="row mt-0">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center"><i>E. coli</i></h2>
-                            <p class="card-text text-center">Precision RNA-seq Expression Compendium for 
-                            Independent Signal Exploration (PRECISE)</p>
-                            <p class="card-text text-center"><i>Sastry, et al., 2019</i></p>
-                            <a href="dataset.html?organism=e_coli&dataset=precise1" class="btn btn-primary btn-block stretched-link">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center"><i>S. aureus</i></h2>
-                            <p class="card-text text-center"><i>Staph</i>PRECISE</p>
-                            <p class="card-text text-center"><i>Poudel, et al., 2020</i></p>
-                            <a href="dataset.html?organism=s_aureus&dataset=staph_precise" class="btn btn-primary btn-block stretched-link">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-title text-center"><i>B. subtilis</i></h2>
-                            <p class="card-text text-center"><i>Nicolas, et al., 2012</i> Microarray Dataset</p>
-                            <p class="card-text text-center"><i>Rychel, et al., 2020</i></p>
-                            <a href="dataset.html?organism=b_subtilis&dataset=nicolas" class="btn btn-primary btn-block stretched-link">View</a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            -->
         </div>
         
         <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
