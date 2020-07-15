@@ -353,7 +353,7 @@
         generateGeneScatter(gene_scatter_data, "g_scatter");
     });
     // generate activity plot
-    $.get(org_folder + 'sample_metadata.csv', function (metadata) {
+    $.get(org_folder + 'data_files/sample_metadata.csv', function (metadata) {
         $.get(data_prefix + 'activity_bar.csv', function (activity_bar_data) {
             generateActivityBar(metadata, activity_bar_data, 'bar');
         });

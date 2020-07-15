@@ -281,7 +281,7 @@
 
     });
     // generate activity (expression) plot
-    $.get(org_folder + 'sample_metadata.csv', function (metadata) {
+    $.get(org_folder + 'data_files/sample_metadata.csv', function (metadata) {
         $.get(data_prefix + 'activity_bar.csv', function (activity_bar_data) {
             generateGeneActivityBar(metadata, activity_bar_data, 'bar');
         });
