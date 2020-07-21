@@ -70,6 +70,18 @@
             color: #A8D0E6;
         }
 
+        .bd-lead {
+            ms-word-break: break-all;
+            word-break: break-all;
+
+            /* Non standard for WebKit */
+            word-break: break-word;
+
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+
     </style>
 </head>
 
@@ -124,7 +136,7 @@
         <div id="left_col" class="col-md-3">
             <div id="left_col_content">
                 
-                <h1 id="im_name" class="bd-title"></h1>
+                <h1 id="im_name" class="bd-title bd-lead"></h1>
                 <div class="card p-2" id="im_head_text"></div>
             </div>
         </div>
