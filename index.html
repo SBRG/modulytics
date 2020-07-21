@@ -90,6 +90,16 @@
             height: 80%;
         }
 
+        .about {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 350px;
+        }
+
+        .indent {
+            padding-left: 2rem;
+        }
+
         #addl_text {
             color: white;
         }
@@ -138,50 +148,50 @@
 
                 <!-- Title -->
                 <div class="row">
-                    <div class="col-3 my-auto justify-objects-center">
+                    <div class="col-3 col-xl-2">
                         <img class="img-fluid" src="images/modulytics_logo.png"></img>
                     </div>
-                    <div class="col-9">
-                        <h1 class="display-2">Modulytics</h1>
-                        <h1 id="sub_header"><small><i>
+                    <div class="col-9 col-xl-10">
+                        <h1 class="display-2 indent">Modulytics</h1>
+                        <h1 class="indent" id="sub_header"><small><i>
                             Independent Component Analysis of Bacterial Transcriptomes
                         </i></small></h1>
-                        <!-- About -->
-                        <div class="row pt-5">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-4">
-                                <a id="about_btn" href="about.html" role="button" class="btn btn-light btn-block">
+                    </div>
+                </div>
+                <!-- About -->
+                <div class="col-md-12 pt-5">
+                    <div class="row">
+                        <div class="row d-flex justify-content-center about">
+                            <a id="about_btn" href="about.html" role="button" class="btn btn-light btn-block">
                                         <span style="font-size:larger;">Learn About iModulons
                                     </span></a>
-                                <h5 class="mt-0 text-center">
-                                    or Choose a Dataset Below
-                                </h5>
-                            </div>
-                            <div class="col-md-6"></div>
+                            <h5 class="mt-0 text-center">
+                                or Choose a Dataset Below
+                            </h5>
                         </div>
-                        <!-- Footer -->
-                        <div class="mt-auto">
-                            <div class="row">
-                                <div class="col-sm-7 col-md-9 m-auto"></div>
-                                <div class="col-sm-5 col-md-3">
-                                    <a href="http://systemsbiology.ucsd.edu/">
-                                        <img class="img-fluid" src="images/sbrg-logo.png">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="copyright text-muted small text-right">
-                                        Modulytics is maintained by the Systems Biology Research Group at the University
-                                        of California, San Diego.
-                                    </p>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+                <!-- Footer -->
+                <div class="mt-auto pt-2">
+                    <div class="row">
+                        <div class="col-sm-7 col-md-9 m-auto"></div>
+                        <div class="col-sm-5 col-md-3">
+                            <a href="http://systemsbiology.ucsd.edu/">
+                                <img class="img-fluid" src="images/sbrg-logo.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="copyright text-muted small text-right">
+                                Modulytics is maintained by the Systems Biology Research Group at the University
+                                of California, San Diego.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
