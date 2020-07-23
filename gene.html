@@ -86,13 +86,10 @@
         }
 
         .bd-lead {
-            ms-word-break: break-all;
-            word-break: break-all;
-
-            /* Non standard for WebKit */
-            word-break: break-word;
-
+            overflow-wrap: break-word;
+            word-wrap: break-word;
             -webkit-hyphens: auto;
+            -ms-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
         }
@@ -120,7 +117,7 @@
                 <a id="im_list" class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
             </li>
             <li class="nav-item">
-                <a id="gene_search_link" class="nav-link" href="geneSearch.html">Gene Search</a>
+                <a id="gene_search_link" class="nav-link" href="search.html">Search Data</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -146,8 +143,7 @@
         <!-- Left column: Header -->
         <div id="left_col" class="col-md-3">
             <div id="left_col_content">
-
-                <h1 id="gene_name" class="bd-title"></h1>
+                <h1 id="gene_name" class="bd-title bd-lead"></h1>
                 <div class="card p-2 bd-lead" id="gene_head_text"></div>
             </div>
         </div>
@@ -242,7 +238,7 @@
 
     // add links specific to this dataset
     document.getElementById("im_list").setAttribute('href', "dataset.html" + link_suffix);
-    document.getElementById("gene_search_link").setAttribute('href', "geneSearch.html" + link_suffix);
+    document.getElementById("gene_search_link").setAttribute('href', "search.html" + link_suffix);
     document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
     document.getElementById('gene_download').setAttribute('href', 'organisms/' + qs('organism') + '/annotation/gene_files.zip');
     document.getElementById('meta_download').setAttribute('href', org_folder + 'sample_metadata.csv');

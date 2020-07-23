@@ -77,13 +77,10 @@
         }
 
         .bd-lead {
-            ms-word-break: break-all;
-            word-break: break-all;
-
-            /* Non standard for WebKit */
-            word-break: break-word;
-
+            overflow-wrap: break-word;
+            word-wrap: break-word;
             -webkit-hyphens: auto;
+            -ms-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
         }
@@ -111,7 +108,7 @@
                 <a id="im_list" class="nav-link navbar-dark">iModulon List</a>
             </li>
             <li class="nav-item">
-                <a id="gene_search_link" class="nav-link" href="geneSearch.html">Gene Search</a>
+                <a id="gene_search_link" class="nav-link" href="search.html">Search Data</a>
             </li>
             <li class="nav-item">
                 <a id="next_iM" class="nav-link navbar-dark" href="index.html">Next</a>
@@ -280,7 +277,7 @@
 
     // add links specific to this dataset
     document.getElementById("im_list").setAttribute('href', "dataset.html" + link_suffix);
-    document.getElementById("gene_search_link").setAttribute('href', "geneSearch.html"+link_suffix);
+    document.getElementById("gene_search_link").setAttribute('href', "search.html"+link_suffix);
     document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
     document.getElementById('gene_download').setAttribute('href', 'organisms/' + params.get('organism') + '/annotation/gene_files.zip');
     document.getElementById('meta_download').setAttribute('href', org_folder + 'sample_metadata.csv');

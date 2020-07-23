@@ -82,16 +82,14 @@
         }
 
         .bd-lead {
-            ms-word-break: break-all;
-            word-break: break-all;
-
-            /* Non standard for WebKit */
-            word-break: break-word;
-
+            overflow-wrap: break-word;
+            word-wrap: break-word;
             -webkit-hyphens: auto;
+            -ms-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
         }
+
     </style>
 
 </head>
@@ -123,7 +121,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a id="gene_search" class="nav-link" href="geneSearch.html">Gene Search</a>
+                <a id="gene_search" class="nav-link" href="search.html">Search Data</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -199,7 +197,7 @@
     document.getElementById('gene_dl').setAttribute('href', 'organisms/' + params.get('organism') + '/annotation/gene_files.zip');
     document.getElementById('meta_dl').setAttribute('href', prefix + 'sample_metadata.csv');
     document.getElementById('imtb_dl').setAttribute('href', prefix + 'iM_table.csv');
-    document.getElementById('gene_search').setAttribute('href', 'geneSearch.html' + link_suffix);
+    document.getElementById('gene_search').setAttribute('href', 'search.html' + link_suffix);
 
     // populate the dataset info
     $.get(prefix + 'dataset_meta.csv', function (meta) {
