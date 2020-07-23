@@ -43,6 +43,10 @@
             margin-right: 70px;
         }
 
+        .no-results {
+            list-style-type: none;
+        }
+
         .header {
             background-color: #5D5C61;
             color: white;
@@ -213,7 +217,8 @@
     });
 
     // fetch json file
-    let gene_list = {};
+    let gene_list = [];
+    let im_list = [];
 
     async function run() {
         const response = await fetch(org_folder + "gene_page_files/gene_list.json");
@@ -223,27 +228,59 @@
     run();
 
     // Search functionality below
-    const resultItem = ({gene_name, gene_id, product}) => {
+    const geneResultItem = ({gene_name, gene_id, product}) => {
         return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i>gene product: ${product}</i>) </li>`
-    }
+    };
+
+    const imResultItem = ({im_name, im_function}) => {
+        return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i>gene product: ${product}</i>) </li>`
+    };
+
+    const geneHeader = `<li class="geneHeader"> GENES </li>`;
+    const imHeader = `<li class="imHeader"> IMODS </li>`;
+    const noResults = `<li class="no-results"> No results found - please try again. To see a list of all available data, empty the input field and click the "Search" button. </li>`
 
     async function search() {
         // clear previous results
         $('#results').empty();
 
-        const searchTerm = $('#searchText').val().toLowerCase();
-        const results = gene_list.filter(gene => gene.gene_name.toLowerCase().includes(searchTerm) ||
-            gene.gene_id.toLowerCase().includes(searchTerm));
+        const showGenes = true; // TODO: get this from the checkbox
+        const showIMs = true; // TODO: get from checkbox too
 
-        results.forEach((result) => {
-            $('#results').append(resultItem(result));
+        const searchTerm = $('#searchText').val().toLowerCase();
+        const geneResults = !showGenes ? [] : gene_list.filter(gene => gene.gene_name.toLowerCase().includes(searchTerm) ||
+            gene.gene_id.toLowerCase().includes(searchTerm) || gene.product.toLowerCase().includes(searchTerm));
+
+        const imResults = !showIMs ? [] : im_list.filter(im => im);
+
+        const geneListItems = geneResults.map(result => geneResultItem(result));
+        const imListItems = imResults.map(result => imResultItem(result));
+
+        if (showGenes) {
+            geneListItems.unshift(geneHeader)
+            if (geneListItems.length == 1) {
+                geneListItems.push(noResults)
+            }
+        };
+
+        if (showIMs) {
+            imListItems.unshift(imHeader)
+            if (imListItems.length == 1) {
+                imListItems.push(noResults)
+            }
+        };
+
+        const allResultItems = imListItems.concat(geneListItems)
+
+        allResultItems.forEach((r) => {
+            $('#results').append(r);
         });
 
         // Show 'no results found' message when there are no elements
         if (!$('#results').children().length) {
             $('#results').append('<div class="no-results">No results found. Please enter a valid gene name or locus tag. To see a list of all available genes, empty the input field and click the "Search" button. </div>')
         }
-    }
+    };
 
     var input = document.getElementById("searchText");
     input.addEventListener(
