@@ -221,8 +221,10 @@
     let im_list = [];
 
     async function run() {
-        const response = await fetch(org_folder + "gene_page_files/gene_list.json");
-        gene_list = await response.json();
+        const response_gene = await fetch(org_folder + "gene_page_files/gene_list.json");
+        const response_im = await fetch(org_folder + "iModulon_files/im_list.json");
+        gene_list = await response_gene.json();
+        im_list = await response_im.json();
     }
 
     run();
@@ -232,8 +234,8 @@
         return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i>gene product: ${product}</i>) </li>`
     };
 
-    const imResultItem = ({im_name, im_function}) => {
-        return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i>gene product: ${product}</i>) </li>`
+    const imResultItem = ({component, name, Regulator, Function}) => {
+        return `<li class="result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b> : ${Regulator}</a>   (<i>iModulon Function: ${Function}</i>) </li>`
     };
 
     const geneHeader = `<li class="geneHeader"> GENES </li>`;
@@ -251,7 +253,8 @@
         const geneResults = !showGenes ? [] : gene_list.filter(gene => gene.gene_name.toLowerCase().includes(searchTerm) ||
             gene.gene_id.toLowerCase().includes(searchTerm) || gene.product.toLowerCase().includes(searchTerm));
 
-        const imResults = !showIMs ? [] : im_list.filter(im => im);
+        const imResults = !showIMs ? [] : im_list.filter(im => im.name.toLowerCase().includes(searchTerm) ||
+            im.Regulator.toLowerCase().includes(searchTerm) || im.Function.toLowerCase().includes(searchTerm));
 
         const geneListItems = geneResults.map(result => geneResultItem(result));
         const imListItems = imResults.map(result => imResultItem(result));
