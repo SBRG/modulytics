@@ -38,21 +38,40 @@
             border: 1px solid #BBBBBB;
             border-radius: 8px;
             padding: 8px;
-            margin-top: 8px;
-            margin-bottom: 8px;
-            margin-right: 70px;
+            margin: 8px 40px;
+            color: #5D5C61;
+            font-weight: 300;
+        }
+
+        .result a {
+            font-weight: 400;
+        }
+
+        #results {
+            padding: unset;
         }
 
         .no-results {
             list-style-type: none;
+            margin: 8px 40px;
+        }
+
+        .searchHeader {
+            list-style-type: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            margin: 2.5rem 40px 0.5rem;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: center;
         }
 
         .header {
             background-color: #5D5C61;
             color: white;
             margin-bottom: 0rem;
-            padding: 0.4rem;
-            padding-left: 0.7rem;
+            padding: 0.4rem 0.4rem 0.4rem 0.7rem;
         }
 
         .header a {
@@ -63,18 +82,9 @@
             color: #A8D0E6;
         }
 
-        .dropdown-menu {
-            background-color: #5D5C61;
-        }
-
-        .dropdown-item {
-            color: white;
-        }
-
         #left_col {
             background-color: #A8D0E6;
-            padding: 1rem;
-            padding-bottom: 4.5rem;
+            padding: 1rem 1rem 4.5rem;
             height: 95vh;
         }
 
@@ -101,7 +111,29 @@
         .im_head_meta_val a {
             color: #A8D0E6;
         }
+
+        .align-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .bd-lead {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+
+        .description {
+            margin: unset;
+            font-weight: 300;
+        }
+
     </style>
+
 </head>
 <body style="height: 100vh;">
 
@@ -135,7 +167,7 @@
         <div id="left_col" class="col-md-3">
             <div id="left_col_content">
 
-                <h1 id="title" class="bd-title"></h1>
+                <h1 id="title" class="bd-title bd-lead"></h1>
                 <div class="card p-2" id="header"></div>
             </div>
         </div>
@@ -145,18 +177,18 @@
             <!-- Search -->
             <div class="row mx-auto justify-content-center">
                 <div id="search_box" class="card p-3" style="width: 100%">
-                    <p class="card-body text-center" style="font-size: larger">
-                        Enter a gene name or locus tag below.
+                    <p class="card-body text-center" style="font-size: xx-large; font-weight: 400; padding: 0.5rem">
+                        Search Data by Gene and iModulon
                     </p>
                     <div class="row">
-                        <div class="col-6">
-                            <input type="checkbox" checked="true" id="gene_checkbox"><span class="option">Search genes</SPAN>
+                        <div class="col-6 align-right">
+                            <input type="checkbox" checked="true" id="gene_checkbox"><span class="option"> Search Genes </SPAN>
                         </div>
                         <div class="col-6">
                             <input type="checkbox" checked="true" id="im_checkbox"><span class="option">Search iModulons</SPAN>
                         </div>
                     </div>
-                    <div class="input-group mx-auto px-5">
+                    <div class="input-group mx-auto pt-2 px-5">
                         <input type="text" class="form-control" placeholder="" id="searchText">
                         <div class="input-group-append">
                             <button class="btn btn-dark" id="searchBtn" onclick="search()">
@@ -164,6 +196,12 @@
                             </button>
                         </div>
                     </div>
+                    <p class="description pt-4 px-5">
+                        <i> Genes: Search by gene name, locus tag, or gene product </i>
+                    </p>
+                    <p class="description px-5">
+                        <i> iModulons: Search by iModulon name, associated regulator, or iModulon function </i>
+                    </p>
                 </div>
             </div>
             <div>
@@ -239,15 +277,15 @@
 
     // Search functionality below
     const geneResultItem = ({gene_name, gene_id, product}) => {
-        return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i>gene product: ${product}</i>) </li>`
+        return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i><b>gene product:</b> ${product}</i>) </li>`
     };
 
     const imResultItem = ({component, name, Regulator, Function}) => {
-        return `<li class="result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b> : ${Regulator}</a>   (<i>iModulon Function: ${Function}</i>) </li>`
+        return `<li class="result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b></a>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li>`
     };
 
-    const geneHeader = `<li class="geneHeader"> GENES </li>`;
-    const imHeader = `<li class="imHeader"> IMODS </li>`;
+    const geneHeader = `<li class="searchHeader card"> Gene Search Results </li>`;
+    const imHeader = `<li class="searchHeader card"> iModulon Search Results </li>`;
     const noResults = `<li class="no-results"> No results found - please try again. To see a list of all available data, empty the input field and click the "Search" button. </li>`
 
     async function search() {
