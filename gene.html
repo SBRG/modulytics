@@ -5,7 +5,7 @@
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,8 +14,14 @@
     <!-- FontAwesome Icons -->
     <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
 
+    <!-- Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
     <!-- CSS -->
     <style>
+        * {
+            font-family: 'Roboto', 'Helvetica', 'Segoe UI', sans-serif;
+        }
 
         .header {
             background-color: #5D5C61;
@@ -49,44 +55,41 @@
         .dropdown-item {
             color: white;
         }
-        
+
         #left_col {
             background-color: #A8D0E6;
             padding: 1rem;
         }
-        
+
         #left_col_content {
             position: sticky;
             top: 4.5rem;
         }
-        
+
         .card {
             background-color: #5D5C61;
         }
-        
+
         .im_head_meta_cat {
             margin-bottom: 0rem;
             font-size: 12px;
             font-weight: bold;
             color: white;
         }
-        
+
         .im_head_meta_val {
             color: white;
         }
-        
-        .im_head_meta_val a{
+
+        .im_head_meta_val a {
             color: #A8D0E6;
         }
 
         .bd-lead {
-            ms-word-break: break-all;
-            word-break: break-all;
-
-            /* Non standard for WebKit */
-            word-break: break-word;
-
+            overflow-wrap: break-word;
+            word-wrap: break-word;
             -webkit-hyphens: auto;
+            -ms-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
         }
@@ -103,7 +106,8 @@
 
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html">
-                <img src="images/modulytics_logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                <img src="images/modulytics_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""
+                     loading="lazy">
                 Modulytics
             </a>
         </div>
@@ -113,7 +117,7 @@
                 <a id="im_list" class="nav-link navbar-dark" href="dataset.html">iModulon List</a>
             </li>
             <li class="nav-item">
-                <a id="gene_search_link" class="nav-link" href="geneSearch.html">Gene Search</a>
+                <a id="gene_search_link" class="nav-link" href="search.html">Search Data</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -139,9 +143,8 @@
         <!-- Left column: Header -->
         <div id="left_col" class="col-md-3">
             <div id="left_col_content">
-                
-                <h1 id="gene_name" class="bd-title"></h1>
-                <div class="card p-2" id="gene_head_text"></div>
+                <h1 id="gene_name" class="bd-title bd-lead"></h1>
+                <div class="card p-2 bd-lead" id="gene_head_text"></div>
             </div>
         </div>
 
@@ -235,7 +238,7 @@
 
     // add links specific to this dataset
     document.getElementById("im_list").setAttribute('href', "dataset.html" + link_suffix);
-    document.getElementById("gene_search_link").setAttribute('href', "geneSearch.html" + link_suffix);
+    document.getElementById("gene_search_link").setAttribute('href', "search.html" + link_suffix);
     document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
     document.getElementById('gene_download').setAttribute('href', 'organisms/' + qs('organism') + '/annotation/gene_files.zip');
     document.getElementById('meta_download').setAttribute('href', org_folder + 'sample_metadata.csv');
@@ -248,33 +251,33 @@
             var metadata = Papa.parse(meta).data;
 
             // dataset title
-            var title = metadata[0][1]+ ': Gene Dashboard';
+            var title = metadata[0][1] + ': Gene Dashboard';
             $('#title_org').append(title);
-        
+
             // add header
             $('#gene_name').append("Gene: " + gene_meta[2][1]);
             $('#gene_head_text').append('<p class="im_head_meta_cat">DATASET</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">'+metadata[0][1]+'</p>');
+            $('#gene_head_text').append('<p class="im_head_meta_val">' + metadata[0][1] + '</p>');
             $('#gene_head_text').append('<p class="im_head_meta_cat">GENE ID</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">'+gene_meta[1][1]+'</p>');
+            $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[1][1] + '</p>');
             $('#gene_head_text').append('<p class="im_head_meta_cat">PRODUCT</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">'+gene_meta[4][1]+'</p>');
+            $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[4][1] + '</p>');
             $('#gene_head_text').append('<p class="im_head_meta_cat">OPERON</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">'+gene_meta[3][1]+'</p>');
+            $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[3][1] + '</p>');
             $('#gene_head_text').append('<p class="im_head_meta_cat">CATEGORY</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">'+gene_meta[5][1]+'</p>');
+            $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[5][1] + '</p>');
             var regulator_name = gene_meta[6][1]
             if (regulator_name != null) {
                 $('#gene_head_text').append('<p class="im_head_meta_cat">REGULATOR</p>');
-                $('#gene_head_text').append('<p class="im_head_meta_val">'+regulator_name+'</p>');
+                $('#gene_head_text').append('<p class="im_head_meta_val">' + regulator_name + '</p>');
             }
             $('#gene_head_text').append('<p class="im_head_meta_cat">ADDITIONAL INFORMATION</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">'+gene_meta[7][1]+'</p>');
+            $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[7][1] + '</p>');
 
             // change page title
             document.title = 'Modulytics: ' + gene_meta[1][1];
         });
-        
+
         // add download links specific to this imodulon
         document.getElementById("gene_table_download").setAttribute('href', data_prefix + 'perGene_table.csv');
         document.getElementById("expression_download").setAttribute('href', data_prefix + 'expression.csv');

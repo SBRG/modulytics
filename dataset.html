@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title> Dataset Home </title>
-        <!-- Metadata -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        
-        <!-- Bootstrap CDN -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        
-        <!-- CSS -->
-        <style>
+<head>
+    <title> Dataset Home </title>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <style>
+        * {
+            font-family: 'Roboto', 'Helvetica', 'Segoe UI', sans-serif;
+        }
+
         .header {
             background-color: #5D5C61;
             color: white;
@@ -19,232 +27,265 @@
             padding: 0.4rem;
             padding-left: 0.7rem;
         }
-        
-        .header a{
+
+        .header a {
             color: white;
         }
-        
-        .header a:hover{
+
+        .header a:hover {
             color: #A8D0E6;
         }
-        
-        .dropdown-menu{
+
+        .dropdown-menu {
             background-color: #5D5C61;
         }
-        
-        .dropdown-item{
+
+        .dropdown-item {
             color: white;
         }
-        
-                #left_col {
+
+        #left_col {
             background-color: #A8D0E6;
             padding: 1rem;
         }
-        
+
         #left_col_content {
             position: sticky;
             top: 4.5rem;
         }
-        
+
         .card {
             background-color: #5D5C61;
         }
-        
+
         .im_head_meta_cat {
             margin-bottom: 0rem;
             font-size: 12px;
             font-weight: bold;
             color: white;
         }
-        
+
         .im_head_meta_val {
             color: white;
         }
-        
-        .im_head_meta_val a{
+
+        .im_head_meta_val a {
             color: #A8D0E6;
         }
 
-        .tabulator-frozen-left{
+        .tabulator-frozen-left {
             font-weight: bold;
         }
-        .tabulator-header{
+
+        .tabulator-header {
             color: black;
         }
-        </style>
-    
-    </head>
-  
-    <body>
-        <!-- Page Content -->
-        <div class="container-fluid" style="min-width: 650px; max-width: 1600px">  
-            
-            <!-- Navbar -->
-            <div class="header row navbar-dark sticky-top">
-                
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/modulytics_logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-                        Modulytics
-                    </a>
+
+        .bd-lead {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<!-- Page Content -->
+<div class="container-fluid" style="min-width: 650px; max-width: 1600px">
+
+    <!-- Navbar -->
+    <div class="header row navbar-dark sticky-top">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/modulytics_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""
+                     loading="lazy">
+                Modulytics
+            </a>
+        </div>
+
+        <ul class="nav navbar-dark">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">Download</a>
+                <div class="dropdown-menu">
+                    <a id="data_dl" class="dropdown-item">Full Dataset</a>
+                    <a id="gene_dl" class="dropdown-item">Gene Annotations & TRN</a>
+                    <a id="meta_dl" class="dropdown-item">Experimental Conditions</a>
+                    <a id="imtb_dl" class="dropdown-item" href="e_coli/precise1/iM_table.csv">iModulon Table</a>
                 </div>
-                
-                <ul class="nav navbar-dark">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Download</a>
-                        <div class="dropdown-menu">
-                            <a id="data_dl" class="dropdown-item">Full Dataset</a>
-                            <a id="gene_dl" class="dropdown-item">Gene Annotations & TRN</a>
-                            <a id="meta_dl" class="dropdown-item">Experimental Conditions</a>
-                            <a id="imtb_dl" class="dropdown-item" href="e_coli/precise1/iM_table.csv">iModulon Table</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a id="gene_search" class="nav-link" href="geneSearch.html">Gene Search</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                </ul>
-            </div>
-        
-        <div class = "row">
+            </li>
+            <li class="nav-item">
+                <a id="gene_search" class="nav-link" href="search.html">Search Data</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
         <!-- Left column: Header -->
-            <div id="left_col" class="col-md-3">
-                <div id="left_col_content">
-                    
-                    <h1 id="title" class="bd-title"></h1>
-                    <div class="card p-2" id="header"></div>
-                </div>
+        <div id="left_col" class="col-md-3">
+            <div id="left_col_content">
+
+                <h1 id="title" class="bd-title bd-lead"></h1>
+                <div class="card p-2" id="header"></div>
             </div>
-            
-            <!-- Main body --> 
-            <div class="col-md-9 p-3">
-                <h5 class="text-center">iModulons</h5>
-                
-                <!-- iModulon Table -->
-                <div id="iM_table" style="width: 100%"></div>
-                
-                <hr />
-                <!-- Footer -->
-                <footer>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <a href="http://systemsbiology.ucsd.edu/">
-                                    <img class="img-fluid" src="images/sbrg-logo.png">
-                                </a>
-                            </div>
-                            <div class="col-sm-9 m-auto">
-                                <p class="copyright text-muted small">
-                                    Modulytics is maintained by the Systems Biology Research Group at the University of California, San Diego. <br/>
-                                </p>
-                            </div>
+        </div>
+
+        <!-- Main body -->
+        <div class="col-md-9 p-3">
+            <h5 class="text-center">iModulons</h5>
+
+            <!-- iModulon Table -->
+            <div id="iM_table" style="width: 100%"></div>
+
+            <hr/>
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="http://systemsbiology.ucsd.edu/">
+                                <img class="img-fluid" src="images/sbrg-logo.png">
+                            </a>
+                        </div>
+                        <div class="col-sm-9 m-auto">
+                            <p class="copyright text-muted small">
+                                Modulytics is maintained by the Systems Biology Research Group at the University of
+                                California, San Diego. <br/>
+                            </p>
                         </div>
                     </div>
-                </footer>
-            </div>
-            
+                </div>
+            </footer>
         </div>
-        </div>
-        
-        <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        
-        <!-- Required CDNs: URLSearchParams, Papa Parse, Tabulator -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-        <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet"/>
-        <script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
-        
-        <!-- Populate the page -->
-        <script>
-            // get the URL search params to know which dataset to generate
-            var params = new URLSearchParams(window.location.search);
-            var prefix = 'organisms/'+params.get('organism')+'/'+params.get('dataset')+'/';
-            var link_suffix = "?organism="+params.get('organism')+"&dataset="+params.get('dataset');
 
-            // update the download links
-            document.getElementById('data_dl').setAttribute('href', prefix + 'data_files.zip');
-            document.getElementById('gene_dl').setAttribute('href', 'organisms/'+params.get('organism')+'/annotation/gene_files.zip');
-            document.getElementById('meta_dl').setAttribute('href', prefix + 'sample_metadata.csv');
-            document.getElementById('imtb_dl').setAttribute('href', prefix + 'iM_table.csv');
-            document.getElementById('gene_search').setAttribute('href', 'geneSearch.html' + link_suffix);
-            
-            // populate the dataset info 
-            $.get(prefix + 'dataset_meta.csv', function(meta) {
-                var metadata = Papa.parse(meta).data;
-                
-                // dataset title
-                var title = metadata[0][1]
-                document.title = 'Modulytics: ' + title.replace( /(<([^>]+)>)/ig, '');
-                $('#title').append(title + ' Dataset');
-                
-                // header text
-                for (i = 1; i < metadata.length-1; i++) {
-                    $('#header').append('<p class="im_head_meta_cat">'+metadata[i][0].toUpperCase()+'</p>')
-                    $('#header').append('<p class="im_head_meta_val">'+metadata[i][1]+'</p>');
-                }
-            });
-            
-            
-            // populate the table
-            $.get(prefix+'iM_table.csv', function(table_data) {
-                
-                // get the data, convert to objects
-                var data=Papa.parse(table_data,{dynamicTyping: true}).data;
-                var tabledata = []
-                for (i = 1; i < data.length -1; i++) { //rows, excluding header
-                    var obj = {};
-                    for (j = 0; j < data[0].length; j++) { //cols
-                        obj[data[0][j]] = data[i][j];
-                    }
-                    
-                    tabledata.push(obj);
-                }
-                
-                // columns object
-                var columns = [
-                    {title: "iModulon Name", field:"Name", frozen:true, formatter:"textarea", widthGrow: 2},
-                    {title: "Regulator", field: "Regulator", formatter:"textarea",
-                        width:150, sorterParams:{alignEmptyValues:"bottom"}, widthGrow: 2},
-                    {title: "Function", field: "Function", formatter:"textarea", widthGrow: 3},
-                    {title: "Category", field: "Category", formatter:"textarea",
-                        sorter:function(a, b, aRow, bRow, column, dir, sorterParams){
-                            return aRow.getData().category_num - bRow.getData().category_num;
-                        },
-                        widthGrow: 2
-                    }, 
-                    {title: "N", field: "n_genes", variableHeight:true},
-                    {title: "Precision", field: "precision", formatter:"money", formatterParams:{precision:3}, variableHeight:true},
-                    {title: "Recall", field: "recall", formatter:"money", formatterParams:{precision:3}, variableHeight:true}
-                ]
-                
-                // generate the table
-                var table = new Tabulator('#iM_table', {
+    </div>
+</div>
 
-                    layout:"fitColumns",
-                    data:tabledata,
-                    columns:columns,
-                    initialSort:[
-                        {column:"Regulator", dir:"asc"},
-                        {column:"Category", dir:"asc"}
-                    ],
-                    rowClick:function(e, row){ //link to the page in a database
-                        var link='iModulon.html?';
-                        link += 'organism='+params.get('organism')+'&';
-                        link += 'dataset='+params.get('dataset')+'&';
-                        link += 'k='+row.getData().k;
-                        window.location.href = link;
-                    },
-                    tooltips:function(cell){
-                        return "Click to view iModulon dashboard";
-                    }
-                });
-                table.redraw();
-            });
-        </script>
-    </body>
+<!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- Required CDNs: URLSearchParams, Papa Parse, Tabulator -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+<link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
+
+<!-- Populate the page -->
+<script>
+    // get the URL search params to know which dataset to generate
+    var params = new URLSearchParams(window.location.search);
+    var prefix = 'organisms/' + params.get('organism') + '/' + params.get('dataset') + '/';
+    var link_suffix = "?organism=" + params.get('organism') + "&dataset=" + params.get('dataset');
+
+    // update the download links
+    document.getElementById('data_dl').setAttribute('href', prefix + 'data_files.zip');
+    document.getElementById('gene_dl').setAttribute('href', 'organisms/' + params.get('organism') + '/annotation/gene_files.zip');
+    document.getElementById('meta_dl').setAttribute('href', prefix + 'sample_metadata.csv');
+    document.getElementById('imtb_dl').setAttribute('href', prefix + 'iM_table.csv');
+    document.getElementById('gene_search').setAttribute('href', 'search.html' + link_suffix);
+
+    // populate the dataset info
+    $.get(prefix + 'dataset_meta.csv', function (meta) {
+        var metadata = Papa.parse(meta).data;
+
+        // dataset title
+        var title = metadata[0][1]
+        document.title = 'Modulytics: ' + title.replace(/(<([^>]+)>)/ig, '');
+        $('#title').append(title + ' Dataset');
+
+        // header text
+        for (i = 1; i < metadata.length - 1; i++) {
+            $('#header').append('<p class="im_head_meta_cat">' + metadata[i][0].toUpperCase() + '</p>')
+            $('#header').append('<p class="im_head_meta_val">' + metadata[i][1] + '</p>');
+        }
+    });
+
+
+    // populate the table
+    $.get(prefix + 'iM_table.csv', function (table_data) {
+
+        // get the data, convert to objects
+        var data = Papa.parse(table_data, {dynamicTyping: true}).data;
+        var tabledata = []
+        for (i = 1; i < data.length - 1; i++) { //rows, excluding header
+            var obj = {};
+            for (j = 0; j < data[0].length; j++) { //cols
+                obj[data[0][j]] = data[i][j];
+            }
+
+            tabledata.push(obj);
+        }
+
+        // columns object
+        var columns = [
+            {title: "iModulon Name", field: "Name", frozen: true, formatter: "textarea", widthGrow: 2},
+            {
+                title: "Regulator", field: "Regulator", formatter: "textarea",
+                width: 150, sorterParams: {alignEmptyValues: "bottom"}, widthGrow: 2
+            },
+            {title: "Function", field: "Function", formatter: "textarea", widthGrow: 3},
+            {
+                title: "Category", field: "Category", formatter: "textarea",
+                sorter: function (a, b, aRow, bRow, column, dir, sorterParams) {
+                    return aRow.getData().category_num - bRow.getData().category_num;
+                },
+                widthGrow: 2
+            },
+            {title: "N", field: "n_genes", variableHeight: true},
+            {
+                title: "Precision",
+                field: "precision",
+                formatter: "money",
+                formatterParams: {precision: 3},
+                variableHeight: true
+            },
+            {
+                title: "Recall",
+                field: "recall",
+                formatter: "money",
+                formatterParams: {precision: 3},
+                variableHeight: true
+            }
+        ]
+
+        // generate the table
+        var table = new Tabulator('#iM_table', {
+
+            layout: "fitColumns",
+            data: tabledata,
+            columns: columns,
+            initialSort: [
+                {column: "Regulator", dir: "asc"},
+                {column: "Category", dir: "asc"}
+            ],
+            rowClick: function (e, row) { //link to the page in a database
+                var link = 'iModulon.html?';
+                link += 'organism=' + params.get('organism') + '&';
+                link += 'dataset=' + params.get('dataset') + '&';
+                link += 'k=' + row.getData().k;
+                window.location.href = link;
+            },
+            tooltips: function (cell) {
+                return "Click to view iModulon dashboard";
+            }
+        });
+        table.redraw();
+    });
+</script>
+</body>
 </html>
