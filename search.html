@@ -85,7 +85,8 @@
         #left_col {
             background-color: #A8D0E6;
             padding: 1rem 1rem 4.5rem;
-            height: 95vh;
+            height: unset;
+            min-height: 100vh;
         }
 
         #left_col_content {
@@ -234,7 +235,6 @@
 <!-- Required CDNs: URLSearchParams, Papa Parse -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-;
 
 <!-- Populate page -->
 <script>
@@ -334,7 +334,8 @@
 
         // Show 'no results found' message when there are no elements
         if (!$('#results').children().length) {
-            $('#results').append('<div class="no-results">No results found. Please enter a valid gene name or locus tag. To see a list of all available genes, empty the input field and click the "Search" button. </div>')
+            $('#results').append('<div class="no-results">No results found. Please select at least one dataset to search' +
+                ' by clicking the checkboxes above. </div>')
         }
     };
 
