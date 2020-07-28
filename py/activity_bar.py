@@ -56,7 +56,7 @@ def activity_bar_df(ica_data, k, sample_meta):
     A_k = ica_data.A.loc[k]
 
     # initialize the dataframe
-    max_replicates = sample_meta['Biological Replicates'].max()
+    max_replicates = int(sample_meta['Biological Replicates'].max())
     columns = ['A_avg', 'A_std', 'n'] + list(chain(*[['rep%i_idx'%(i), 'rep%i_A'%(i)] for i in range(1, max_replicates+1)]))
     res = pd.DataFrame(columns = columns)
 
