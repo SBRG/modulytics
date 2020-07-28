@@ -56,7 +56,7 @@ def gene_activity_bar_df(ica_data, gene_id, sample_meta):
     X_gene_id = ica_data.X.loc[gene_id]
 
     # initialize the dataframe
-    max_replicates = sample_meta['Biological Replicates'].max()
+    max_replicates = int(sample_meta['Biological Replicates'].max())
     columns = ['X_avg', 'X_std', 'n'] + list(chain(*[['rep%i_idx'%(i), 'rep%i_X'%(i)] for i in range(1, max_replicates+1)]))
     res = pd.DataFrame(columns = columns)
 
