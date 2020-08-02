@@ -33,31 +33,34 @@
             color: white;
         }
 
-        .name-result {
-            background-color: #EFF6FA;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
+        .result {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 7px 0 rgba(0, 0, 0, 0.09);
             list-style-type: none;
-            border: 1px solid #5D5C61;
             border-radius: 8px;
             padding: 8px;
             margin: 8px 40px;
             color: #5D5C61;
             font-weight: 300;
+        }
+
+        .name-result {
+            background-color: #E0EDF5;
+            border: 1px solid gray;
         }
 
         .desc-result {
-            list-style-type: none;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
             border: 1px solid #BBBBBB;
-            border-radius: 8px;
-            padding: 8px;
-            margin: 8px 40px;
-            color: #5D5C61;
-            font-weight: 300;
         }
 
-        .result a {
+        .result-title {
+            color: #007bff;
             font-weight: 400;
+        }
+
+        .result-link:hover .result {
+            background-color: #D6D6D6;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            text-decoration: none;
         }
 
         #results {
@@ -293,18 +296,18 @@
     // generate list items
     //genes
     const geneNameResultItem = ({gene_name, gene_id, product}) => {
-        return `<li class="name-result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i><b>gene product:</b> ${product}</i>) </li>`
+        return `<a class="result-link" style="text-decoration: none;" href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result name-result"><span class="result-title"><b>${gene_name}</b> : ${gene_id}</span>  (<i><b>gene product:</b> ${product}</i>) </li></a>`
     };
     const geneDescResultItem = ({gene_name, gene_id, product}) => {
-        return `<li class="desc-result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i><b>gene product:</b> ${product}</i>) </li>`
+        return `<a class="result-link" style="text-decoration: none;" href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result desc-result"><span class="result-title"><b>${gene_name}</b> : ${gene_id}</span>   (<i><b>gene product:</b> ${product}</i>) </li></a>`
     };
 
     // iModulons
     const imNameResultItem = ({component, name, Regulator, Function}) => {
-        return `<li class="name-result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b></a>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li>`
+        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result name-result"><span class="result-title"><b>${name}</b></span>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li></a>`
     };
     const imDescResultItem = ({component, name, Regulator, Function}) => {
-        return `<li class="desc-result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b></a>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li>`
+        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result desc-result"><span class="result-title"><b>${name}</b></span>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li></a>`
     };
 
     // Headers for different sections
