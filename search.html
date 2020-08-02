@@ -86,7 +86,7 @@
         .header {
             background-color: #5D5C61;
             color: white;
-            margin-bottom: 0rem;
+            margin-bottom: 0;
             padding: 0.4rem 0.4rem 0.4rem 0.7rem;
         }
 
@@ -115,7 +115,7 @@
         }
 
         .im_head_meta_cat {
-            margin-bottom: 0rem;
+            margin-bottom: 0;
             font-size: 12px;
             font-weight: bold;
             color: white;
@@ -199,10 +199,12 @@
                     </p>
                     <div class="row">
                         <div class="col-6 align-right">
-                            <input type="checkbox" checked="true" id="gene_checkbox"><span class="option"> Search Genes </SPAN>
+                            <input type="checkbox" checked="true" id="gene_checkbox"><span
+                                class="option"> Search Genes </SPAN>
                         </div>
                         <div class="col-6">
-                            <input type="checkbox" checked="true" id="im_checkbox"><span class="option">Search iModulons</SPAN>
+                            <input type="checkbox" checked="true" id="im_checkbox"><span
+                                class="option">Search iModulons</SPAN>
                         </div>
                     </div>
                     <div class="input-group mx-auto pt-2 px-5">
@@ -255,19 +257,19 @@
 <!-- Populate page -->
 <script>
     // parse url
-    var params = new URLSearchParams(window.location.search);
-    var org_folder = 'organisms/' + params.get('organism') + '/' + params.get('dataset') + '/';
-    var link_suffix = "?organism=" + params.get('organism') + "&dataset=" + params.get('dataset');
+    const params = new URLSearchParams(window.location.search);
+    const org_folder = 'organisms/' + params.get('organism') + '/' + params.get('dataset') + '/';
+    const link_suffix = "?organism=" + params.get('organism') + "&dataset=" + params.get('dataset');
 
     // Update iModulon dataset page link
     document.getElementById("dataset_link").setAttribute('href', 'dataset.html' + link_suffix);
 
     // populate the dataset info
     $.get(org_folder + 'dataset_meta.csv', function (meta) {
-        var metadata = Papa.parse(meta).data;
+        const metadata = Papa.parse(meta).data;
 
         // dataset title
-        var title = metadata[0][1]
+        const title = metadata[0][1]
         document.title = 'Modulytics: ' + title.replace(/(<([^>]+)>)/ig, '');
         $('#title').append(title + ' Dataset');
 
@@ -350,17 +352,19 @@
         // add headers or no results based on checkbox and search results
         if (showGenes) {
             geneNameListItems.unshift(geneHeader)
-            if ((geneNameListItems.length +  geneDescListItems.length) == 1) {
+            if ((geneNameListItems.length + geneDescListItems.length) == 1) {
                 geneDescListItems.push(noResults)
             }
-        };
+        }
+        ;
 
         if (showIMs) {
             imNameListItems.unshift(imHeader)
             if ((imNameListItems.length + imDescListItems.length) == 1) {
                 imDescListItems.push(noResults)
             }
-        };
+        }
+        ;
 
         // add all search items
         const allResultItems = imNameListItems.concat(imDescListItems, geneNameListItems, geneDescListItems)
@@ -377,7 +381,7 @@
     };
 
     // search on 'Enter'
-    var input = document.getElementById("searchText");
+    const input = document.getElementById("searchText");
     input.addEventListener(
         "keyup", function (event) {
             if (event.keyCode == 13) {
