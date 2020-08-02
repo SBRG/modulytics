@@ -33,8 +33,21 @@
             color: white;
         }
 
-        .result {
+        .name-result {
+            background-color: #EFF6FA;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
             list-style-type: none;
+            border: 1px solid #5D5C61;
+            border-radius: 8px;
+            padding: 8px;
+            margin: 8px 40px;
+            color: #5D5C61;
+            font-weight: 300;
+        }
+
+        .desc-result {
+            list-style-type: none;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
             border: 1px solid #BBBBBB;
             border-radius: 8px;
             padding: 8px;
@@ -278,12 +291,20 @@
     // Search functionality below
 
     // generate list items
-    const geneResultItem = ({gene_name, gene_id, product}) => {
-        return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i><b>gene product:</b> ${product}</i>) </li>`
+    //genes
+    const geneNameResultItem = ({gene_name, gene_id, product}) => {
+        return `<li class="name-result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i><b>gene product:</b> ${product}</i>) </li>`
+    };
+    const geneDescResultItem = ({gene_name, gene_id, product}) => {
+        return `<li class="desc-result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i><b>gene product:</b> ${product}</i>) </li>`
     };
 
-    const imResultItem = ({component, name, Regulator, Function}) => {
-        return `<li class="result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b></a>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li>`
+    // iModulons
+    const imNameResultItem = ({component, name, Regulator, Function}) => {
+        return `<li class="name-result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b></a>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li>`
+    };
+    const imDescResultItem = ({component, name, Regulator, Function}) => {
+        return `<li class="desc-result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b></a>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li>`
     };
 
     // Headers for different sections
@@ -310,32 +331,36 @@
             (gene.gene_id.toLowerCase().includes(searchTerm) || gene.product.toLowerCase().includes(searchTerm)) &&
             !gene.gene_name.toLowerCase().includes(searchTerm));
 
-        const geneResults = geneNameResults.concat(geneDescResults);
+        const imNameResults = !showIMs ? [] : im_list.filter(im =>
+            im.name.toLowerCase().includes(searchTerm));
 
-        const imResults = !showIMs ? [] : im_list.filter(im => im.name.toLowerCase().includes(searchTerm) ||
-            im.Regulator.toLowerCase().includes(searchTerm) || im.Function.toLowerCase().includes(searchTerm));
+        const imDescResults = !showIMs ? [] : im_list.filter(im =>
+            (im.Regulator.toLowerCase().includes(searchTerm) || im.Function.toLowerCase().includes(searchTerm)) &&
+            !im.name.toLowerCase().includes(searchTerm));
 
         // mapping
-        const geneListItems = geneResults.map(result => geneResultItem(result));
-        const imListItems = imResults.map(result => imResultItem(result));
+        const geneNameListItems = geneNameResults.map(result => geneNameResultItem(result));
+        const geneDescListItems = geneDescResults.map(result => geneDescResultItem(result));
+        const imNameListItems = imNameResults.map(result => imNameResultItem(result));
+        const imDescListItems = imDescResults.map(result => imDescResultItem(result));
 
         // add headers or no results based on checkbox and search results
         if (showGenes) {
-            geneListItems.unshift(geneHeader)
-            if (geneListItems.length == 1) {
-                geneListItems.push(noResults)
+            geneNameListItems.unshift(geneHeader)
+            if ((geneNameListItems.length +  geneDescListItems.length) == 1) {
+                geneDescListItems.push(noResults)
             }
         };
 
         if (showIMs) {
-            imListItems.unshift(imHeader)
-            if (imListItems.length == 1) {
-                imListItems.push(noResults)
+            imNameListItems.unshift(imHeader)
+            if ((imNameListItems.length + imDescListItems.length) == 1) {
+                imDescListItems.push(noResults)
             }
         };
 
         // add all search items
-        const allResultItems = imListItems.concat(geneListItems)
+        const allResultItems = imNameListItems.concat(imDescListItems, geneNameListItems, geneDescListItems)
 
         allResultItems.forEach((r) => {
             $('#results').append(r);
