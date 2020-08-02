@@ -276,6 +276,8 @@
     run();
 
     // Search functionality below
+
+    // generate list items
     const geneResultItem = ({gene_name, gene_id, product}) => {
         return `<li class="result"><a href="gene.html${link_suffix}&gene_id=${gene_id}"><b>${gene_name}</b> : ${gene_id}</a>   (<i><b>gene product:</b> ${product}</i>) </li>`
     };
@@ -284,6 +286,7 @@
         return `<li class="result"><a href="iModulon.html${link_suffix}&k=${component}"><b>${name}</b></a>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li>`
     };
 
+    // Headers for different sections
     const geneHeader = `<li class="searchHeader card"> Gene Search Results </li>`;
     const imHeader = `<li class="searchHeader card"> iModulon Search Results </li>`;
     const noResults = `<li class="no-results"> No results found - please try again. To see a list of all available data, empty the input field and click the "Search" button. </li>`
@@ -300,8 +303,14 @@
         const searchTerm = $('#searchText').val().toLowerCase();
 
         // gene & iM filter by input
-        const geneResults = !showGenes ? [] : gene_list.filter(gene => gene.gene_name.toLowerCase().includes(searchTerm) ||
-            gene.gene_id.toLowerCase().includes(searchTerm) || gene.product.toLowerCase().includes(searchTerm));
+        const geneNameResults = !showGenes ? [] : gene_list.filter(gene =>
+            gene.gene_name.toLowerCase().includes(searchTerm));
+
+        const geneDescResults = !showGenes ? [] : gene_list.filter(gene =>
+            (gene.gene_id.toLowerCase().includes(searchTerm) || gene.product.toLowerCase().includes(searchTerm)) &&
+            !gene.gene_name.toLowerCase().includes(searchTerm));
+
+        const geneResults = geneNameResults.concat(geneDescResults);
 
         const imResults = !showIMs ? [] : im_list.filter(im => im.name.toLowerCase().includes(searchTerm) ||
             im.Regulator.toLowerCase().includes(searchTerm) || im.Function.toLowerCase().includes(searchTerm));
