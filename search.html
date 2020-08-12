@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" style="height: 100vh;">
 <head>
-    <title>Modulytics: Search Genes</title>
+    <title>iModulonDB: Search</title>
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -164,14 +164,13 @@
             <a class="navbar-brand" href="index.html">
                 <img src="images/modulytics_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""
                      loading="lazy">
-                Modulytics
+                iModulonDB
             </a>
         </div>
 
         <ul class="nav navbar-dark">
             <li class="nav-item">
-                <a id="dataset_link" class="nav-link navbar-dark" href="dataset.html?organism=e_coli&dataset=precise1">iModulon
-                    List</a>
+                <a id="dataset_link" class="nav-link navbar-dark" href="dataset.html?organism=e_coli&dataset=precise1">Dataset Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -195,7 +194,7 @@
             <div class="row mx-auto justify-content-center">
                 <div id="search_box" class="card p-3" style="width: 100%">
                     <p class="card-body text-center" style="font-size: xx-large; font-weight: 400; padding: 0.5rem">
-                        Search Data by Gene and iModulon
+                        Search for a Gene or iModulon
                     </p>
                     <div class="row">
                         <div class="col-6 align-right">
@@ -239,7 +238,7 @@
                         </div>
                         <div class="col-sm-9 m-auto">
                             <p class="copyright text-muted small">
-                                Modulytics is maintained by the Systems Biology Research Group at the University of
+                                iModulonDB is maintained by the Systems Biology Research Group at the University of
                                 California, San Diego. <br/>
                             </p>
                         </div>
@@ -270,7 +269,7 @@
 
         // dataset title
         const title = metadata[0][1]
-        document.title = 'Modulytics: ' + title.replace(/(<([^>]+)>)/ig, '');
+        document.title = 'iModulonDB: ' + title.replace(/(<([^>]+)>)/ig, '');
         $('#title').append(title + ' Dataset');
 
         // header text

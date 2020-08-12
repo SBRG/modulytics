@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title> Modulytics </title>
+    <title> iModulonDB </title>
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -101,16 +101,16 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html">
                 <img src="images/modulytics_logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-                Modulytics
+                iModulonDB
             </a>
         </div>
 
         <ul class="nav navbar-dark">
             <li class="nav-item">
-                <a id="im_list" class="nav-link navbar-dark">iModulon List</a>
+                <a id="im_list" class="nav-link navbar-dark">Dataset Page</a>
             </li>
             <li class="nav-item">
-                <a id="gene_search_link" class="nav-link" href="search.html">Search Data</a>
+                <a id="gene_search_link" class="nav-link" href="search.html">Search</a>
             </li>
             <li class="nav-item">
                 <a id="next_iM" class="nav-link navbar-dark" href="index.html">Next</a>
@@ -229,7 +229,7 @@
                         </div>
                         <div class="col-sm-9 m-auto">
                             <p class="copyright text-muted small">
-                                Modulytics is maintained by the Systems Biology Research Group at the University of
+                                iModulonDB is maintained by the Systems Biology Research Group at the University of
                                 California, San Diego. <br/>
                             </p>
                         </div>
@@ -309,7 +309,7 @@
             }
             
             // change page title
-            document.title = 'Modulytics: ' + im_meta[0][1] + ' iModulon';
+            document.title = 'iModulonDB: ' + im_meta[0][1] + ' iModulon';
         });
         // add download links specific to this imodulon
         document.getElementById("gene_table_download").setAttribute('href', data_prefix + 'gene_table.csv');
