@@ -189,7 +189,7 @@
         },
         yAxis: {
             title:{
-                text: 'I-modulon Activity',
+                text: 'iModulon Activity',
             },
             crosshair: true,
             startOnTick: false,

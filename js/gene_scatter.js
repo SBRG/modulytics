@@ -68,7 +68,7 @@ function generateGeneScatter(csvContent, container) {
         },
         yAxis: {
             title: {
-                text: 'I-modulon Weight',
+                text: 'iModulon Weight',
             },
             crosshair: true,
             startOnTick: false,
@@ -109,7 +109,7 @@ function generateGeneScatter(csvContent, container) {
                 }
                 tooltip += "<br>Category: " + this.point.cog;
                 tooltip += "<br>Baseline Expression: " + this.point.x.toFixed(3);
-                tooltip += "<br>I-modulon Weight: " + this.point.y.toFixed(3);
+                tooltip += "<br>iModulon Weight: " + this.point.y.toFixed(3);
                 return tooltip;
             }
         },

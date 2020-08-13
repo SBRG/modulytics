@@ -1,5 +1,5 @@
 /**
- * @summary Creates regulon and i-modulon comparison venn diagrams for ModulomeVis
+ * @summary Creates regulon and iModulon comparison venn diagrams for ModulomeVis
  * @author Katherine Decker
  * requires Papa parse, Highcharts, and Highcharts data module
  */

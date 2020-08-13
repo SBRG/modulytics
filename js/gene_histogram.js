@@ -45,7 +45,7 @@ function generateHist(csvContent, container) {
                 color: 'black'
             }],
             title: {
-                text: 'I-modulon Weight'
+                text: 'iModulon Weight'
             }
         }, 
         yAxis: {
