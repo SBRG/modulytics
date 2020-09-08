@@ -325,6 +325,12 @@
             if (regulator_name != null) {
                 $('#im_head_text').append('<p class="im_head_meta_cat">REGULATOR</p>');
                 $('#im_head_text').append('<p class="im_head_meta_val">'+regulator_name+'</p>');
+                
+                // precision and recall
+                $('#im_head_text').append('<p class="im_head_meta_cat">PRECISION</p>');
+                $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[8][1].toFixed(2)+'</p>');
+                $('#im_head_text').append('<p class="im_head_meta_cat">RECALL</p>');
+                $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[9][1].toFixed(2)+'</p>');
             }
             
             // change page title
