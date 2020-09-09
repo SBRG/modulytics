@@ -4,22 +4,30 @@
     <!-- Global site tag (gtag.js) - Google Analytics - Personal -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176192306-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-176192306-1');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-176192306-1');
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics - SBRG -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176090948-2"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-176090948-2');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-176090948-2');
     </script>
-    
+
     <title>iModulonDB: Search</title>
     <!-- Metadata -->
     <meta charset="utf-8">
@@ -189,7 +197,8 @@
 
         <ul class="nav navbar-dark">
             <li class="nav-item">
-                <a id="dataset_link" class="nav-link navbar-dark" href="dataset.html?organism=e_coli&dataset=precise1">Dataset Page</a>
+                <a id="dataset_link" class="nav-link navbar-dark" href="dataset.html?organism=e_coli&dataset=precise1">Dataset
+                    Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -315,19 +324,22 @@
 
     // generate list items
     //genes
-    const geneNameResultItem = ({gene_name, gene_id, product}) => {
-        return `<a class="result-link" style="text-decoration: none;" href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result name-result"><span class="result-title"><b>${gene_name}</b> : ${gene_id}</span>  (<i><b>gene product:</b> ${product}</i>) </li></a>`
+    const geneNameResultItem = ({gene_name, gene_id, product}, searchTerm) => {
+        const re = new RegExp(searchTerm, "i");
+        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i><b>gene product:</b> ${product}</i>)`.replace(re, (match) => `<b>${match}</b>`)
+        return `<a class="result-link" style="text-decoration: none;" href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result name-result">${formatted} </li></a>`
     };
-    const geneDescResultItem = ({gene_name, gene_id, product}) => {
-        return `<a class="result-link" style="text-decoration: none;" href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result desc-result"><span class="result-title"><b>${gene_name}</b> : ${gene_id}</span>   (<i><b>gene product:</b> ${product}</i>) </li></a>`
+    const geneDescResultItem = ({gene_name, gene_id, product}, searchTerm) => {
+        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i><b>gene product:</b> ${product}</i>)`.replace(searchTerm, (match) => `<b>${match}</b>`)
+        return `<a class="result-link" style="text-decoration: none; " href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result desc-result">${formatted}</li></a>`
     };
 
     // iModulons
     const imNameResultItem = ({component, name, Regulator, Function}) => {
-        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result name-result"><span class="result-title"><b>${name}</b></span>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li></a>`
+        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result name-result"><span class="result-title">${name}</span>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li></a>`
     };
     const imDescResultItem = ({component, name, Regulator, Function}) => {
-        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result desc-result"><span class="result-title"><b>${name}</b></span>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li></a>`
+        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result desc-result"><span class="result-title">${name}</span>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li></a>`
     };
 
     // Headers for different sections
@@ -362,8 +374,8 @@
             !im.name.toLowerCase().includes(searchTerm));
 
         // mapping
-        const geneNameListItems = geneNameResults.map(result => geneNameResultItem(result));
-        const geneDescListItems = geneDescResults.map(result => geneDescResultItem(result));
+        const geneNameListItems = geneNameResults.map(result => geneNameResultItem(result, searchTerm));
+        const geneDescListItems = geneDescResults.map(result => geneDescResultItem(result, searchTerm));
         const imNameListItems = imNameResults.map(result => imNameResultItem(result));
         const imDescListItems = imDescResults.map(result => imDescResultItem(result));
 
@@ -408,6 +420,10 @@
             }
         }
     )
+
+    // Bolding of matching text
+    content=document.getElementById("results");
+    content.innerHTML=content.innerHTML.replace(/#searchText/gi,"<b>$&</b>");
 </script>
 </body>
 </html>
