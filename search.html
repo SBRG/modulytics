@@ -325,21 +325,26 @@
     // generate list items
     //genes
     const geneNameResultItem = ({gene_name, gene_id, product}, searchTerm) => {
-        const re = new RegExp(searchTerm, "i");
-        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i><b>gene product:</b> ${product}</i>)`.replace(re, (match) => `<b>${match}</b>`)
+        const re = new RegExp(searchTerm, "gi");
+        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i>gene product: ${product}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
         return `<a class="result-link" style="text-decoration: none;" href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result name-result">${formatted} </li></a>`
     };
     const geneDescResultItem = ({gene_name, gene_id, product}, searchTerm) => {
-        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i><b>gene product:</b> ${product}</i>)`.replace(searchTerm, (match) => `<b>${match}</b>`)
+        const re = new RegExp(searchTerm, "gi");
+        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i>gene product: ${product}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
         return `<a class="result-link" style="text-decoration: none; " href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result desc-result">${formatted}</li></a>`
     };
 
     // iModulons
-    const imNameResultItem = ({component, name, Regulator, Function}) => {
-        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result name-result"><span class="result-title">${name}</span>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li></a>`
+    const imNameResultItem = ({component, name, Regulator, Function}, searchTerm) => {
+        const re = new RegExp(searchTerm, "gi");
+        const formatted = `<span class="result-title">${name}</span>   (<i>associated regulator(s): ${Regulator}; function: ${Function}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
+        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result name-result">${formatted}</li></a>`
     };
-    const imDescResultItem = ({component, name, Regulator, Function}) => {
-        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result desc-result"><span class="result-title">${name}</span>   (<i><b>associated regulator(s):</b> ${Regulator}; <b>function:</b> ${Function}</i>) </li></a>`
+    const imDescResultItem = ({component, name, Regulator, Function}, searchTerm) => {
+        const re = new RegExp(searchTerm, "gi");
+        const formatted = `<span class="result-title">${name}</span>   (<i>associated regulator(s): ${Regulator}; function: ${Function}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
+        return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result desc-result">${formatted}</li></a>`
     };
 
     // Headers for different sections
@@ -376,8 +381,8 @@
         // mapping
         const geneNameListItems = geneNameResults.map(result => geneNameResultItem(result, searchTerm));
         const geneDescListItems = geneDescResults.map(result => geneDescResultItem(result, searchTerm));
-        const imNameListItems = imNameResults.map(result => imNameResultItem(result));
-        const imDescListItems = imDescResults.map(result => imDescResultItem(result));
+        const imNameListItems = imNameResults.map(result => imNameResultItem(result, searchTerm));
+        const imDescListItems = imDescResults.map(result => imDescResultItem(result, searchTerm));
 
         // add headers or no results based on checkbox and search results
         if (showGenes) {
