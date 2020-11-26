@@ -17,7 +17,17 @@ function generateGeneScatter(csvContent, container) {
     var data = Papa.parse(csvContent, {dynamicTyping: true}).data;
 
     // basics
-    var thresh = data[1][1]
+    var thresh = data[1][2]
+    var x_type = data[1][1]
+    
+    // set up x axis label
+    if (x_type == 'start') {
+        var x_label = 'Gene Start';
+        var x_label_dec = 0;
+    } else if (x_type == 'gene number') {
+        var x_label = 'Arbitrary Gene Number';
+        var x_label_dec = 0;
+    }
 
     // coordinates
     var coord_data = [];
@@ -59,7 +69,7 @@ function generateGeneScatter(csvContent, container) {
         },
         xAxis: {
             title: {
-                text: 'Baseline Expression'
+                text: x_label
             },
             crosshair: true,
             startOnTick: false,
@@ -108,7 +118,7 @@ function generateGeneScatter(csvContent, container) {
                     var tooltip = this.point.b_num + ": <b>" + this.point.name + "</b>";
                 }
                 tooltip += "<br>Category: " + this.point.cog;
-                tooltip += "<br>Baseline Expression: " + this.point.x.toFixed(3);
+                tooltip += "<br>" + x_label + ": " + this.point.x.toFixed(x_label_dec);
                 tooltip += "<br>iModulon Weight: " + this.point.y.toFixed(3);
                 return tooltip;
             }

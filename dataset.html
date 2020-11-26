@@ -136,7 +136,7 @@
                     <a id="data_dl" class="dropdown-item">Full Dataset</a>
                     <a id="gene_dl" class="dropdown-item">Gene Annotations & TRN</a>
                     <a id="meta_dl" class="dropdown-item">Experimental Conditions</a>
-                    <a id="imtb_dl" class="dropdown-item" href="e_coli/precise1/iM_table.csv">iModulon Table</a>
+                    <a id="imtb_dl" class="dropdown-item">iModulon Table</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -214,8 +214,8 @@
     // update the download links
     document.getElementById('data_dl').setAttribute('href', prefix + 'data_files.zip');
     document.getElementById('gene_dl').setAttribute('href', 'organisms/' + params.get('organism') + '/annotation/gene_files.zip');
-    document.getElementById('meta_dl').setAttribute('href', prefix + 'sample_metadata.csv');
-    document.getElementById('imtb_dl').setAttribute('href', prefix + 'iM_table.csv');
+    document.getElementById('meta_dl').setAttribute('href', prefix + 'data_files/sample_table.csv');
+    document.getElementById('imtb_dl').setAttribute('href', prefix + 'data_files/iM_table.csv');
     document.getElementById('gene_search').setAttribute('href', 'search.html' + link_suffix);
 
     // populate the dataset info
@@ -223,9 +223,12 @@
         var metadata = Papa.parse(meta).data;
 
         // dataset title
-        var title = metadata[0][1]
+        var title = metadata[1][1];
         document.title = 'iModulonDB: ' + title.replace(/(<([^>]+)>)/ig, '');
-        $('#title').append(title + ' Dataset');
+        if (title.slice(-8) != ' Dataset') {
+            title = title + ' Dataset';
+        }
+        $('#title').append(title);
 
         // header text
         for (i = 1; i < metadata.length - 1; i++) {
@@ -236,7 +239,7 @@
 
 
     // populate the table
-    $.get(prefix + 'iM_table.csv', function (table_data) {
+    $.get(prefix + 'data_files/iM_table.csv', function (table_data) {
 
         // get the data, convert to objects
         var data = Papa.parse(table_data, {dynamicTyping: true}).data;

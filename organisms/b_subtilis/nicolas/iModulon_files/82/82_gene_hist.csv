@@ -1,18 +1,10 @@
 ,-0.06420490312499999,-0.04993714687499999,-0.03566939062499999,-0.021401634374999992,-0.007133878124999993,0.007133878125000007,0.021401634375000006,0.035669390625000005,0.049937146875000005,0.06420490312499999,0.078472659375,0.09274041562500002,0.107008171875,0.12127592812499999,0.135543684375,0.14981144062500001,0.164079196875,0.17834695312499999,0.19261470937499997,0.206882465625
 thresh,-0.057071025,0.057071025,4,,,,,,,,,,,,,,,,,
 unreg,1,2,16,184,2378,1571,151,18,8,2,1,0,0,0,0,0,1,0,0,0
-CcpA,0,0,0,5,37,38,13,7,1,0,0,0,0,0,0,0,0,0,0,0
 SigA,1,5,4,81,551,475,59,16,2,2,0,0,0,0,0,0,0,0,0,0
-CcpA and SigA,0,0,0,12,46,77,34,30,15,13,5,5,3,2,3,0,0,0,0,0
+CcpA,0,0,0,5,37,38,13,7,1,0,0,0,0,0,0,0,0,0,0,0
+SigA and CcpA,0,0,0,12,46,77,34,30,15,13,5,5,3,2,3,0,0,0,0,0
 unreg_genes,['katA'],[],[],[],[],[],[],[],[],['ywsA' 'S1383'],['S1541'],[],[],[],[],[],['ywsB'],[],[],[]
-CcpA_genes,[],[],[],['S727' 'S1487' 'cimH' 'S1337' 'opuE'],"['S236' 'S543' 'S1451' 'pchR' 'yfkN' 'S514' 'S1128' 'cydC' 'yobO' 'ctaB'
- 'S513' 'S583' 'yqxJ' 'ldt' 'S725' 'yvmA' 'yozM' 'yqxI' 'cydD' 'sacC'
- 'cydB' 'acoB' 'ctaF' 'dprA' 'ctaD' 'mmgD' 'topA' 'S786' 'acoA' 'S876'
- 'mmgE' 'levF' 'mmgA' 'S973' 'ctaG' 'mmgB' 'yslB']","['S542' 'S748' 'levG' 'ctaE' 'S1334' 'S1339' 'S515' 'refZ' 'S1019' 'phrF'
- 'mmgC' 'S1486' 'abbA' 'ykuK' 'yxkF' 'yvnA' 'ctaC' 'acoC' 'ykuJ' 'S1490'
- 'levE' 'cwlS' 'mmgF' 'yopL' 'acoL' 'scoB' 'yxjF' 'serA' 'galT' 'galK'
- 'ypiF' 'pel' 'levD' 'S1500' 'scoA' 'yesL' 'hbuT' 'S544']","['S785' 'rapF' 'S517' 'bofC' 'yesN' 'sigL' 'yesM' 'cydA' 'yhaR' 'S1050'
- 'csbX' 'S1461' 'S516']",['darB' 'sucC' 'rocG' 'pftA' 'sucD' 'S1460' 'pftB'],['msmX'],[],[],[],[],[],[],[],[],[],[],[]
 SigA_genes,['mrgA'],['gapB' 'sr1' 'S502' 'pfeT' 'alsS'],['alsD' 'S23' 'S1092' 'S1470'],"['hemX' 'hemB' 'ywcE' 'ahpF' 'opuBD' 'hemC' 'hemL' 'hemD' 'S1296' 'ahpC'
  'abrB' 'perR' 'S1294' 'S471' 'S132' 'pckA' 'pheS' 'S1139' 'S472' 'thrR'
  'pheA' 'S580' 'S411' 'ycnJ' 'S1291' 'nrdF' 'nrdE' 'opuBC' 'S363' 'speD'
@@ -132,7 +124,15 @@ SigA_genes,['mrgA'],['gapB' 'sr1' 'S502' 'pfeT' 'alsS'],['alsD' 'S23' 'S1092' 'S
  'lytE' 'lutB' 'lutA' 'S1076' 'srfAB' 'mcsA' 'srfAC' 'S1307' 'srfAD'
  'groEL' 'sdhC']","['comS' 'manP' 'mcsB' 'S91' 'hypO' 'lutP' 'S439' 'S1309' 'sdhA' 'manA'
  'S492' 'clpE' 'gamA' 'S480' 'gamP' 'sdhB']",['sacB' 'ald'],['S1314' 'ptsG'],[],[],[],[],[],[],[],[],[],[]
-CcpA and SigA_genes,[],[],[],"['leuC' 'leuD' 'S262' 'leuB' 'ilvB' 'pta' 'leuA' 'S1516' 'melE' 'S1355'
+CcpA_genes,[],[],[],['S727' 'S1487' 'cimH' 'S1337' 'opuE'],"['S236' 'S543' 'S1451' 'pchR' 'yfkN' 'S514' 'S1128' 'cydC' 'yobO' 'ctaB'
+ 'S513' 'S583' 'yqxJ' 'ldt' 'S725' 'yvmA' 'yozM' 'yqxI' 'cydD' 'sacC'
+ 'cydB' 'acoB' 'ctaF' 'dprA' 'ctaD' 'mmgD' 'topA' 'S786' 'acoA' 'S876'
+ 'mmgE' 'levF' 'mmgA' 'S973' 'ctaG' 'mmgB' 'yslB']","['S542' 'S748' 'levG' 'ctaE' 'S1334' 'S1339' 'S515' 'refZ' 'S1019' 'phrF'
+ 'mmgC' 'S1486' 'abbA' 'ykuK' 'yxkF' 'yvnA' 'ctaC' 'acoC' 'ykuJ' 'S1490'
+ 'levE' 'cwlS' 'mmgF' 'yopL' 'acoL' 'scoB' 'yxjF' 'serA' 'galT' 'galK'
+ 'ypiF' 'pel' 'levD' 'S1500' 'scoA' 'yesL' 'hbuT' 'S544']","['S785' 'rapF' 'S517' 'bofC' 'yesN' 'sigL' 'yesM' 'cydA' 'yhaR' 'S1050'
+ 'csbX' 'S1461' 'S516']",['darB' 'sucC' 'rocG' 'pftA' 'sucD' 'S1460' 'pftB'],['msmX'],[],[],[],[],[],[],[],[],[],[],[]
+SigA and CcpA_genes,[],[],[],"['leuC' 'leuD' 'S262' 'leuB' 'ilvB' 'pta' 'leuA' 'S1516' 'melE' 'S1355'
  'ilvC' 'S879']","['degU' 'resE' 'melC' 'abn2' 'resD' 'ilvH' 'resC' 'ackA' 'glpD' 'melD'
  'ytzK' 'S836' 'S948' 'S1528' 'melA' 'S1138' 'resB' 'tyrS' 'whiA' 'degS'
  'phrC' 'yvcI' 'S1356' 'yvcJ' 'fadN' 'S1382' 'crh' 'glmR' 'S1322' 'rsbU'

@@ -45,7 +45,7 @@ function generateGeneTable(csvContent, container) {
     var columns = [
         {title: "", field: "locus", width: 50},
         {
-            title: "M<sub>i</sub>", field: "comp",
+            title: "M<sub>i</sub>", field: "gene_weight",
             formatter: "money", formatterParams: {precision: 4},
             headerContextMenu: headerMenu
         },
@@ -61,11 +61,12 @@ function generateGeneTable(csvContent, container) {
     // add additional columns
     columns = columns.concat([
         {
-            title: "Product", field: "product", formatter: "html",
+            title: "Product", field: "gene_product", formatter: "html",
             headerContextMenu: headerMenu
         },
+        {title: "COG", field: "COG", headerContextMenu: headerMenu},
         {title: "Operon", field: "operon", headerContextMenu: headerMenu},
-        {title: "TF", field: "TF", headerContextMenu: headerMenu},
+        {title: "TF", field: "regulator", headerContextMenu: headerMenu},
         {field: "end", visible: false} // facilitates moving to end
     ]);
 
@@ -76,7 +77,7 @@ function generateGeneTable(csvContent, container) {
         data: tabledata,
         columns: columns,
         initialSort: [
-            {column: "comp", dir: "desc"}
+            {column: "gene_weight", dir: "desc"}
         ],
 
         rowClick: function (e, row) { //link to the page in a database
@@ -91,4 +92,9 @@ function generateGeneTable(csvContent, container) {
         }
 
     });
+    
+    // hide unwanted columns
+    if (!data[0].includes("operon")) {
+        table.hideColumn("operon");
+    }
 };

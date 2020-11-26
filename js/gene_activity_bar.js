@@ -76,10 +76,12 @@
     var data = Papa.parse(dataCSV, {dynamicTyping: true}).data;
 
     // parse the metadata header to find the important columns
-    var sample_idx = get_index(metadata[0], 'sample_id');
-    var project_idx = get_index(metadata[0], 'project_id');
+    var sample_idx = get_index(metadata[0], 'sample');
+    if (sample_idx == -1) {
+        sample_idx = 0
+    }
+    var project_idx = get_index(metadata[0], 'project');
     var link_idx = get_index(metadata[0], 'DOI');
-    console.log(sample_idx, project_idx, link_idx);
 
     // cols of interest: tooltip will show these metadata
     // These will be updated by a button in the future

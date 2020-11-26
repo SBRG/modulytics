@@ -301,7 +301,7 @@
     document.getElementById("gene_search_link").setAttribute('href', "search.html"+link_suffix);
     document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
     document.getElementById('gene_download').setAttribute('href', 'organisms/' + params.get('organism') + '/annotation/gene_files.zip');
-    document.getElementById('meta_download').setAttribute('href', org_folder + 'sample_metadata.csv');
+    document.getElementById('meta_download').setAttribute('href', org_folder + 'data_files/sample_table.csv');
 
     // read in the iModulon metadata
     $.get(data_prefix + "meta.csv", function (im_metaCSV) {
@@ -312,29 +312,47 @@
             var metadata = Papa.parse(meta).data;
             
             // iModulon name
-            $('#im_name').append(im_meta[0][1] + " iModulon");
+            var im_name = im_meta[1][1];
+            if (typeof(im_name) == 'number') {
+                im_name = 'iModulon ' + im_name.toString()
+            } else {
+                if ((im_name.slice(0, 8) != 'iModulon') & (im_name.slice(-8) != 'iModulon')) {
+                    im_name = im_name + ' iModulon';
+                }
+            }
+            $('#im_name').append(im_name);
             
             // iModulon details
             $('#im_head_text').append('<p class="im_head_meta_cat">DATASET</p>');
-            $('#im_head_text').append('<p class="im_head_meta_val">'+metadata[0][1]+'</p>');
+            $('#im_head_text').append('<p class="im_head_meta_val">'+metadata[1][1]+'</p>');
             $('#im_head_text').append('<p class="im_head_meta_cat">FUNCTION</p>');
-            $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[3][1]+'</p>');
+            if (im_meta[4][1] == null) {
+                $('#im_head_text').append('<p class="im_head_meta_val">Uncharacterized</p>');
+            } else {
+                $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[4][1]+'</p>');
+            }
             $('#im_head_text').append('<p class="im_head_meta_cat">CATEGORY</p>');
-            $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[4][1]+'</p>');
-            var regulator_name = im_meta[2][1]
+            if (im_meta[5][1] == null) {
+                $('#im_head_text').append('<p class="im_head_meta_val">Uncharacterized</p>');
+            } else {
+                $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[5][1]+'</p>');
+            }
+            var regulator_name = im_meta[3][1]
             if (regulator_name != null) {
                 $('#im_head_text').append('<p class="im_head_meta_cat">REGULATOR</p>');
                 $('#im_head_text').append('<p class="im_head_meta_val">'+regulator_name+'</p>');
                 
                 // precision and recall
-                $('#im_head_text').append('<p class="im_head_meta_cat">PRECISION</p>');
-                $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[8][1].toFixed(2)+'</p>');
-                $('#im_head_text').append('<p class="im_head_meta_cat">RECALL</p>');
-                $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[9][1].toFixed(2)+'</p>');
+                if (!(im_meta[9][1] == null)) {
+	                $('#im_head_text').append('<p class="im_head_meta_cat">PRECISION</p>');
+	                $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[9][1].toFixed(2)+'</p>');
+	                $('#im_head_text').append('<p class="im_head_meta_cat">RECALL</p>');
+	                $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[10][1].toFixed(2)+'</p>');
+            	}
             }
             
             // change page title
-            document.title = 'iModulonDB: ' + im_meta[0][1] + ' iModulon';
+            document.title = 'iModulonDB: ' + im_meta[1][1] + ' iModulon';
         });
         // add download links specific to this imodulon
         document.getElementById("gene_table_download").setAttribute('href', data_prefix + 'gene_table.csv');
@@ -342,8 +360,8 @@
         document.getElementById("activity_download").setAttribute('href', data_prefix + 'activity.csv');
 
         // handle regulation
-        var venn_bool = (im_meta[5][1] == 'True')
-        var num_r_scatter = im_meta[6][1];
+        var venn_bool = (im_meta[6][1] == 'True')
+        var num_r_scatter = im_meta[7][1];
 
         var total_r_plots = venn_bool + num_r_scatter;
         var where_to_plot = {};
@@ -395,7 +413,7 @@
         generateGeneScatter(gene_scatter_data, "g_scatter");
     });
     // generate activity plot
-    $.get(org_folder + 'data_files/sample_metadata.csv', function (metadata) {
+    $.get(org_folder + 'data_files/sample_table.csv', function (metadata) {
         $.get(data_prefix + 'activity_bar.csv', function (activity_bar_data) {
             generateActivityBar(metadata, activity_bar_data, 'bar');
         });
@@ -404,7 +422,7 @@
     // add navbar links
     var k = params.get('k');
     $.get(org_folder + 'num_ims.txt', function (num_ims) {
-        if (k == num_ims) {
+        if (k == num_ims-1) {
             document.getElementById('next_iM').setAttribute('href', 'iModulon.html' + link_suffix + '&k=0')
         } else {
             document.getElementById('next_iM').setAttribute('href', 'iModulon.html' + link_suffix + '&k=' + (parseInt(k) + 1))

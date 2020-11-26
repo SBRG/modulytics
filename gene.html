@@ -278,11 +278,15 @@
             // add header
             $('#gene_name').append("Gene: " + gene_meta[2][1]);
             $('#gene_head_text').append('<p class="im_head_meta_cat">DATASET</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">' + metadata[0][1] + '</p>');
+            $('#gene_head_text').append('<p class="im_head_meta_val">' + metadata[1][1] + '</p>');
             $('#gene_head_text').append('<p class="im_head_meta_cat">GENE ID</p>');
             $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[1][1] + '</p>');
             $('#gene_head_text').append('<p class="im_head_meta_cat">PRODUCT</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[4][1] + '</p>');
+            if (gene_meta[2][1] == gene_meta[4][1]) {
+                $('#gene_head_text').append('<p class="im_head_meta_val"><i>Not Available</i></p>');
+            } else {
+                $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[4][1] + '</p>');
+            }
             $('#gene_head_text').append('<p class="im_head_meta_cat">OPERON</p>');
             $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[3][1] + '</p>');
             $('#gene_head_text').append('<p class="im_head_meta_cat">CATEGORY</p>');
@@ -305,7 +309,7 @@
 
     });
     // generate activity (expression) plot
-    $.get(org_folder + 'data_files/sample_metadata.csv', function (metadata) {
+    $.get(org_folder + 'data_files/sample_table.csv', function (metadata) {
         $.get(data_prefix + 'activity_bar.csv', function (activity_bar_data) {
             generateGeneActivityBar(metadata, activity_bar_data, 'bar');
         });

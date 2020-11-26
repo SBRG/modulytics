@@ -296,9 +296,12 @@
         const metadata = Papa.parse(meta).data;
 
         // dataset title
-        const title = metadata[0][1]
+        const title = metadata[1][1]
         document.title = 'iModulonDB: ' + title.replace(/(<([^>]+)>)/ig, '');
-        $('#title').append(title + ' Dataset');
+        if (title.slice(-8) != ' Dataset') {
+            title = title + ' Dataset';
+        }
+        $('#title').append(title);
 
         // header text
         for (i = 1; i < metadata.length - 1; i++) {
@@ -329,9 +332,9 @@
         const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i>gene product: ${product}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
         return `<a class="result-link" style="text-decoration: none;" href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result name-result">${formatted} </li></a>`
     };
-    const geneDescResultItem = ({gene_name, gene_id, product}, searchTerm) => {
+    const geneDescResultItem = ({gene_name, gene_id, gene_product}, searchTerm) => {
         const re = new RegExp(searchTerm, "gi");
-        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i>gene product: ${product}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
+        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i>gene product: ${gene_product}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
         return `<a class="result-link" style="text-decoration: none; " href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result desc-result">${formatted}</li></a>`
     };
 
@@ -368,7 +371,7 @@
             gene.gene_name.toLowerCase().includes(searchTerm));
 
         const geneDescResults = !showGenes ? [] : gene_list.filter(gene =>
-            (gene.gene_id.toLowerCase().includes(searchTerm) || gene.product.toLowerCase().includes(searchTerm)) &&
+            (gene.gene_id.toLowerCase().includes(searchTerm) || gene.gene_product.toLowerCase().includes(searchTerm)) &&
             !gene.gene_name.toLowerCase().includes(searchTerm));
 
         const imNameResults = !showIMs ? [] : im_list.filter(im =>
