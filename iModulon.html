@@ -198,7 +198,8 @@
 
             <!-- Activity-related plots -->
             <div class="row mx-auto justify-content-center">
-                <h5>Activity</h5>
+                <!-- Header with cog for changing appearance -->
+                <h5>Activity <a data-toggle="modal" data-target="#activityModal"><i class="fas fa-wrench"></i></a></h5>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -257,6 +258,27 @@
             </footer>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="activityModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="container-fluid p-1">
+            <h5 class="modal-title">Activity Bar Plot Settings</h5>
+            <p>Checked metadata categories will be displayed when hovering over bars.</p>
+            <p>Click the inkdrop to color the bars by metadata values.</p>
+        </div>
+      </div>
+      <div class="modal-body"id="activityModalBody"></div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="makeChangesButton">Make Changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
@@ -416,6 +438,7 @@
     $.get(org_folder + 'data_files/sample_table.csv', function (metadata) {
         $.get(data_prefix + 'activity_bar.csv', function (activity_bar_data) {
             generateActivityBar(metadata, activity_bar_data, 'bar');
+            generateModal(metadata, activity_bar_data, "activityModal", "activityModalBody", "makeChangesButton");
         });
     });
 

@@ -4,6 +4,11 @@
  * requires Papa parse, Highstock, highcharts exporting module
  */
  
+// need global variables
+ var cols_to_show = [];
+ var col_to_color = -1;
+ var chart, chartOptions;
+ 
  // data download helper function
  function data_download(csv_data, file_name) {
     const a = document.createElement("a");
@@ -66,7 +71,14 @@
         return [strain2, media2, conditions, time];
     }
     
-    return cols_of_interest
+    return cols_of_interest;
+ }
+ 
+ function get_cols_to_show() {
+    return cols_to_show;
+ }
+ function get_col_to_color() {
+    return col_to_color;
  }
  
  // Write Highcharts plot to container
@@ -84,8 +96,8 @@
     var link_idx = get_index(metadata[0], 'DOI');
     
     // cols of interest: tooltip will show these metadata
-    // These will be updated by a button in the future
-    var cols_of_interest = pick_cols_of_interest(metadata[0]);
+    // These will be updated by the modal
+    cols_to_show = pick_cols_of_interest(metadata[0]);
     
     // zoom thresh: number of columns at which less data is displayed
     var zoom_thresh = 40
@@ -112,7 +124,7 @@
             if (curr_proj == null) {
                 plot_bands.push({label:{text:project, verticalAlign: 'bottom', y: 5, x:5, rotation: 300, textAlign: 'right', style:{color: 'gray'}}, from:-0.5, color:'white'})
             } else { //all other projects
-                vert_lines.push({value: i-0.5, width: 1, zIndex: 5, color: 'gray'});
+                vert_lines.push({value: i-1.5, width: 1, zIndex: 5, color: 'gray'});
                 plot_bands[plot_bands.length-1]['to'] = i-0.5;
                 plot_bands.push({label:{text:project, verticalAlign: 'bottom', y: 5, x:5, rotation: 300, textAlign: 'right', style:{color: 'gray'}}, from:i-0.5, color:'white'});
             }
@@ -127,7 +139,7 @@
     plot_bands[plot_bands.length-1]['to'] = data.length-1.5;
     
     // set up plot
-    var chartOptions = {
+    chartOptions = {
         chart: {
             spacingBottom: 50,
             zoomType: 'x',
@@ -281,12 +293,20 @@
                 }
                 
                 // metadata
+                cols_of_interest = get_cols_to_show()
+                col_color = get_col_to_color()
                 for (col in cols_of_interest) {
                     meta_val = metadata[meta_index][cols_of_interest[col]]
                     if (meta_val != null) {
                         tooltip += '<br>'
+                        if (cols_of_interest[col] == col_color) {
+                            tooltip += '<b>'
+                        }
                         tooltip += metadata[0][cols_of_interest[col]] + ': ';
                         tooltip += meta_val;
+                        if (cols_of_interest[col] == col_color) {
+                            tooltip += '</b>'
+                        }
                     }
                 }
                 
@@ -324,5 +344,130 @@
     };
 
     // make the chart
-    var chart = Highcharts.chart(container, chartOptions);
+    chart = Highcharts.chart(container, chartOptions);
  };
+ 
+ // Fill in the modal menu for modifying this plot
+  function generateModal(metaCSV, dataCSV, modal, container, button) {
+    // get the data
+    var metadata = Papa.parse(metaCSV, {dynamicTyping: true}).data;
+    var data = Papa.parse(dataCSV, {dynamicTyping: true}).data;
+    
+    var to_add = "";
+    
+    for (i = 0; i < metadata[0].length; i++) {
+        
+        // start form
+        to_add += '<div class="form-check"><input class="form-check-input" type="checkbox" id="'
+        to_add += 'modal_display' + i.toString() + '"' // form check ID
+        if (cols_to_show.includes(i)) { // check the currently active ones
+            to_add += " checked";
+        }
+        // continue form
+        to_add += '><label class="form-check-label" for="defaultCheck1">'
+        
+        // add color button
+        to_add += '<a id="modal_color' + i.toString()
+        to_add += '"><i class="fas fa-tint-slash"></i></a>'
+        
+        // add label name
+        to_add += metadata[0][i]
+        to_add += '</label></div>' // end form
+    }
+    
+    document.getElementById(container).innerHTML = to_add;
+    
+    // add function links to the color buttons
+    for (i = 0; i < metadata[0].length; i++) {
+        document.getElementById('modal_color'+i.toString()).onclick = function() {
+            updateColor(metadata, data, this.id)
+        }
+    }
+    
+    // add function link to the make changes button
+    document.getElementById(button).onclick = function() {
+        modalChanges(metadata[0]);
+        $('#'+modal).modal('toggle');
+    }
+};
+
+// Onclick Make Changes function
+function modalChanges(metadata_cols) {
+    var new_cols = []
+    for (i = 0; i < metadata_cols.length; i++) {
+        var elt_name = 'modal_display' + i.toString();
+        if (document.getElementById(elt_name).checked) {
+            new_cols.push(i);
+        }
+    }
+    
+    cols_to_show = new_cols;
+}
+
+// Onclick Color Changes function
+function updateColor(metadata, data, i_str) {
+    var metadata_cols = metadata[0]
+    var i = parseInt(i_str.slice(11));
+    var current_color = get_col_to_color();
+    var current_str = 'modal_color' + current_color.toString();
+    
+    if (i != current_color) { //update to new color
+        document.getElementById(i_str).innerHTML = ' <i class="fas fa-tint"></i> ';
+        
+        if (current_color != -1) {
+            document.getElementById(current_str).innerHTML = '<i class="fas fa-tint-slash"></i>';
+        }
+        col_to_color = i;
+
+        var color_list = get_colors(metadata, data, i);
+
+        chartOptions.series[0].colorByPoint = true;
+        chartOptions.plotOptions.column.colors = color_list;
+        
+        document.getElementById('modal_display'+i.toString()).checked = true;
+        
+    } else {
+        document.getElementById(i_str).innerHTML = '<i class="fas fa-tint-slash"></i>';
+        col_to_color = -1;
+        
+        chartOptions.series[0].colorByPoint = false;
+    }
+    chart = new Highcharts.Chart('bar', chartOptions);
+}
+
+function get_colors(metadata, data, i) {
+    // first get the list of sample indices to check (only first from each cond)
+    var idx = []
+    for (n = 1; n < data.length-1; n++) {
+        idx.push(data[n][5]+1);
+    }
+    
+    // get the list of all values and all unique values for each condition
+    var vals = []
+    var unique_vals = []
+    for (j in idx) {
+        vals.push(metadata[idx[j]][i]);
+        if (!unique_vals.includes(metadata[idx[j]][i])) {
+            unique_vals.push(metadata[idx[j]][i]);
+        }
+    }
+    
+    // assume these are categorical
+    // generate a list of colors, then map colors to values
+    var colors = ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf']
+    while (colors.length < unique_vals.length) {
+        // add random colors until we have enough
+        colors.push('#' + Math.floor(Math.random()*16777215).toString(16));
+    }
+    var color_dict = {}
+    for (k = 0; k < unique_vals.length; k++) {
+        color_dict[unique_vals[k]] = colors[k]
+    }
+    
+    // get a list of colors for each bar
+    var result = []
+    for (m = 0; m < vals.length; m++) {
+        result.push(color_dict[vals[m]]);
+    }
+    return result;
+}
