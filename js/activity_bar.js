@@ -355,6 +355,12 @@
     
     var to_add = "";
     
+    // add the sort button
+    /*
+    to_add += '<div class="form-check"><input class="form-check-input" type="checkbox" id="sortBtn">Sort Activities by Value</div>'
+    to_add += '<hr>'
+    */
+    
     for (i = 0; i < metadata[0].length; i++) {
         
         // start form
@@ -393,6 +399,8 @@
 
 // Onclick Make Changes function
 function modalChanges(metadata_cols) {
+    
+    //update tooltip
     var new_cols = []
     for (i = 0; i < metadata_cols.length; i++) {
         var elt_name = 'modal_display' + i.toString();
@@ -402,6 +410,16 @@ function modalChanges(metadata_cols) {
     }
     
     cols_to_show = new_cols;
+    
+    //sort
+    /*
+    if (document.getElementById('sortBtn').checked) {
+        chartOptions.xAxis.categories = chartOptions.xAxis.categories.shift();
+    } else {
+        console.log('unsort');
+    }
+    chart = new Highcharts.Chart('bar', chartOptions);
+    */
 }
 
 // Onclick Color Changes function

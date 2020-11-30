@@ -95,6 +95,17 @@
             background-color: #A8D0E6;
             color: black;
         }
+        
+        #nar_btn {
+            background-color: #F76C6C;
+            color: white;
+            font-weight: bold;
+        }
+
+        #nar_btn:hover {
+            background-color: #A8D0E6;
+            color: black;
+        }
 
         #dataset_row {
             background-color: #5D5C61;
@@ -143,7 +154,11 @@
     <!-- Navbar -->
     <div class="header row navbar-dark sticky-top justify-content-end">
         <ul class="nav navbar-dark">
+            <li class="nav-item">
+                <a class="nav-link" href="all_data.zip">Download All Data</a>
+            </li>
             <li class="nav-item dropdown">
+                
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                    aria-expanded="false">Total Database Size</a>
                 <div class="dropdown-menu">
@@ -187,6 +202,9 @@
                 <div class="col-md-12 pt-5">
                     <div class="row">
                         <div class="row d-flex justify-content-center about">
+                            <a id="nar_btn" href="https://doi.org/10.1093/nar/gkaa810" role="button" class="btn btn-light btn-block">
+                                <span style="font-size:larger;">Read our Article
+                                    </span></a>
                             <a id="about_btn" href="about.html" role="button" class="btn btn-light btn-block">
                                         <span style="font-size:larger;">Learn About iModulons
                                     </span></a>
