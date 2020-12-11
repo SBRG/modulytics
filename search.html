@@ -296,7 +296,7 @@
         const metadata = Papa.parse(meta).data;
 
         // dataset title
-        const title = metadata[1][1]
+        var title = metadata[1][1]
         document.title = 'iModulonDB: ' + title.replace(/(<([^>]+)>)/ig, '');
         if (title.slice(-8) != ' Dataset') {
             title = title + ' Dataset';
