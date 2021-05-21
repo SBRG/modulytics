@@ -2,10 +2,10 @@
 thresh,-0.045382127,0.045382127,6,,,,,,,,,,,,,,,,,
 unreg,0,0,0,5,320,2600,153,25,1,0,0,2,1,0,0,0,0,0,0,0
 SigA,1,1,0,4,123,736,46,4,0,2,0,0,0,0,0,0,0,0,0,0
-CcpN,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 CcpA,0,0,0,4,4,35,10,15,2,1,0,0,0,0,0,0,0,0,0,0
-SigA and CcpN,0,0,0,0,0,0,1,0,0,0,1,0,0,1,1,0,0,0,0,0
+CcpN,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 SigA and CcpA,0,0,0,1,11,75,44,20,26,10,2,3,0,0,0,0,0,0,0,0
+SigA and CcpN,0,0,0,0,0,0,1,0,0,0,1,0,0,1,1,0,0,0,0,0
 unreg_genes,[],[],[],[],[],[],[],[],['yncC'],[],[],['ykoM' 'yerA'],['yrbE'],[],[],[],[],[],[],[]
 SigA_genes,['ptsG'],['cggR'],[],['pstS' 'braB' 'gapA' 'ptsI'],"['arsR' 'pgk' 'putC' 'pgm' 'BSU_misc_RNA_27' 'ykuP' 'putB' 'tpi' 'eno'
  'ptsH' 'pstC' 'groES' 'ykuO' 'phoC' 'ldh' 'yjdF' 'grpE' 'groEL' 'glcR'
@@ -98,13 +98,12 @@ SigA_genes,['ptsG'],['cggR'],[],['pstS' 'braB' 'gapA' 'ptsI'],"['arsR' 'pgk' 'pu
  'kapB' 'tcyJ' 'snaA' 'pheT' 'spo0F' 'sda' 'fruC' 'azoR2' 'rplW' 'pheS'
  'iolR' 'nadC' 'nadA' 'nifS' 'mtlA' 'recO' 'citG' 'fnr' 'licT' 'nadB'
  'yqzL' 'mrgA' 'era' 'gutB' 'cdd' 'sdhB']",['sdhA' 'pmi' 'sdhC' 'gutP'],[],['lutP' 'ywcE'],[],[],[],[],[],[],[],[],[],[]
-CcpN_genes,[],[],[],[],[],['dfrA' 'thyB'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 CcpA_genes,[],[],[],['opuE' 'acoA' 'acoL' 'acoB'],['acoC' 'pftB' 'ykuJ' 'ykuK'],"['ctaB' 'topA' 'cydA' 'yslB' 'refZ' 'cwlS' 'yopL' 'ldt' 'yvmA' 'cydD'
  'yfkN' 'pchR' 'cydC' 'scoB' 'yqxJ' 'scoA' 'serA' 'levG' 'yxjF' 'yqxI'
  'yvnA' 'yozM' 'mmgF' 'mmgB' 'levF' 'mmgC' 'hbuT' 'abbA' 'phrF' 'levE'
  'rapF' 'galK' 'mmgA' 'mmgD' 'pftA']",['cydB' 'mmgE' 'levD' 'sacC' 'yesN' 'pel' 'sucD' 'sucC' 'darB' 'sigL'],"['yesM' 'ctaG' 'rocG' 'yhaR' 'galT' 'ctaF' 'yobO' 'bofC' 'ctaE' 'ctaC'
  'yxkF' 'ypiF' 'ctaD' 'yesL' 'cimH']",['dprA' 'csbX'],['msmX'],[],[],[],[],[],[],[],[],[],[]
-SigA and CcpN_genes,[],[],[],[],[],[],['speD'],[],[],[],['pckA'],[],[],['gapB'],['sr1'],[],[],[],[],[]
+CcpN_genes,[],[],[],[],[],['dfrA' 'thyB'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 SigA and CcpA_genes,[],[],[],['gmuG'],"['ywdA' 'gmuF' 'gmuE' 'gmuR' 'glpD' 'gmuD' 'uxaC' 'iolJ' 'glpQ' 'gmuC'
  'yxiE']","['glvR' 'araN' 'nagR' 'araE' 'araP' 'uxaA' 'nagB' 'ganB' 'nagA' 'ilvB'
  'ytzK' 'abfA' 'melA' 'araQ' 'kduD' 'kduI' 'yvcN' 'mleA' 'yjmC' 'degU'
@@ -121,3 +120,4 @@ SigA and CcpA_genes,[],[],[],['gmuG'],"['ywdA' 'gmuF' 'gmuE' 'gmuR' 'glpD' 'gmuD
  'rhaEW' 'nupC' 'glpK' 'resC' 'manR' 'etfA' 'treA' 'kdgT' 'citZ' 'qcrA']","['yneN' 'licA' 'iolD' 'kdgA' 'iolA' 'qcrC' 'bglH' 'bglP' 'amyE' 'abn2'
  'qcrB' 'treP' 'hutP' 'rhaM' 'iolC' 'licC' 'melE' 'acsA' 'gntP' 'lcfA'
  'cccA' 'acuC' 'acuA' 'acuB' 'iolB' 'rbsB']",['licB' 'glpF' 'melR' 'sspH' 'gntR' 'cstA' 'gntK' 'rbsC' 'acoR' 'ylbP'],['rbsA' 'rbsK'],['rbsR' 'rbsD' 'dctP'],[],[],[],[],[],[],[],[]
+SigA and CcpN_genes,[],[],[],[],[],[],['speD'],[],[],[],['pckA'],[],[],['gapB'],['sr1'],[],[],[],[],[]

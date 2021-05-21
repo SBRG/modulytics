@@ -3,14 +3,14 @@ thresh,-0.1160513825,0.1160513825,11,,,,,,,,,,,,,,,,,
 unreg,0,0,0,7,16,347,2289,342,10,0,0,0,0,0,0,0,0,0,0,0
 AbrB,0,0,0,0,1,17,67,60,7,0,0,0,0,0,0,0,0,0,0,0
 SinR,0,0,0,0,0,0,5,1,0,0,0,0,0,0,0,0,0,0,0,0
-SigA,0,0,0,0,20,147,709,97,8,0,0,1,0,0,0,0,0,0,0,0
 RemA,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0
+SigA,0,0,0,0,20,147,709,97,8,0,0,1,0,0,0,0,0,0,0,0
 AbrB and SinR,0,0,0,0,0,0,5,0,1,0,0,0,1,0,0,0,0,0,0,0
 AbrB and SigA,0,0,0,0,3,14,47,16,7,1,0,0,0,0,0,0,0,0,0,0
 SinR and SigA,0,0,0,0,0,0,10,1,1,0,0,0,0,0,0,0,0,0,0,0
-SigA and RemA,0,0,0,0,0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0
+RemA and SigA,0,0,0,0,0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0
 "AbrB, SinR, and SigA",0,0,0,0,0,0,5,1,0,0,0,0,0,0,0,0,0,0,0,0
-"AbrB, SinR, SigA, and RemA",0,0,0,0,0,0,0,0,0,0,0,0,1,6,8,0,2,0,1,0
+"AbrB, SinR, RemA, and SigA",0,0,0,0,0,0,0,0,0,0,0,0,1,6,8,0,2,0,1,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 AbrB_genes,[],[],[],[],['rocC'],"['yvzA' 'yvgO' 'yvcB' 'rocB' 'ycbD' 'yphF' 'ycbC' 'yqcF' 'yvcA' 'yflD'
  'rsiW' 'sigW' 'rocA' 'ycbE' 'yqcG' 'yknZ' 'yphE']","['yknY' 'yknX' 'dacF' 'yvnA' 'yfmJ' 'ycbF' 'ycbH' 'ynzD' 'ctaB' 'yomJ'
@@ -26,6 +26,7 @@ AbrB_genes,[],[],[],[],['rocC'],"['yvzA' 'yvgO' 'yvcB' 'rocB' 'ycbD' 'yphF' 'ycb
  'ppsE' 'bdbA' 'yvrP' 'pksH' 'pksI' 'sdpA' 'ylaE' 'rocG' 'yolJ' 'nprE'
  'tlpA' 'ycdA' 'yfmG' 'yxaL' 'bslA' 'pksR' 'sivA' 'pksJ' 'sivC' 'yoqM']",['sdpB' 'yxaJ' 'pksN' 'pksL' 'lip' 'yoaW' 'pksM'],[],[],[],[],[],[],[],[],[],[],[]
 SinR_genes,[],[],[],[],[],[],['ywbD' 'lytF' 'mstX' 'epr' 'yugO'],['yvgN'],[],[],[],[],[],[],[],[],[],[],[],[]
+RemA_genes,[],[],[],[],[],[],['opuCC' 'opuCA' 'opuCB' 'opuCD'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 SigA_genes,[],[],[],[],"['gltA' 'gltB' 'pstBA' 'bglP' 'dppC' 'yqiI' 'ald' 'pstBB' 'dppB' 'frlM'
  'frlD' 'yurJ' 'yqiH' 'alsD' 'frlN' 'lytE' 'alsS' 'sr1' 'pstA' 'nrdF']","['frlO' 'motS' 'dppD' 'ykuP' 'sacP' 'gltC' 'bglH' 'pstS' 'dppE' 'dppA'
  'pstC' 'gutP' 'comS' 'ykuO' 'putC' 'sacA' 'nadC' 'nrdI' 'ykuN' 'pdhB'
@@ -122,7 +123,6 @@ SigA_genes,[],[],[],[],"['gltA' 'gltB' 'pstBA' 'bglP' 'dppC' 'yqiI' 'ald' 'pstBB
  'psdA' 'rplQ' 'gabP' 'ywoB' 'BSU_misc_RNA_10' 'hutP' 'yhdF' 'catE' 'yxeQ'
  'catD' 'purT' 'mcsB' 'citM' 'fabF' 'lutP' 'mrgA' 'braB' 'clpC' 'yciB'
  'folEB' 'fabHA' 'zinT' 'htrA' 'ytrF' 'ytrA' 'glpT' 'rapI' 'ytrD' 'ytrC']",['ytrE' 'clpE' 'nasD' 'liaH' 'ytrB' 'liaI' 'ohrA' 'ptsG'],[],[],['dctP'],[],[],[],[],[],[],[],[]
-RemA_genes,[],[],[],[],[],[],['opuCC' 'opuCA' 'opuCB' 'opuCD'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 AbrB and SinR_genes,[],[],[],[],[],[],['spoVG' 'sigF' 'rok' 'spoIIAA' 'spoIIAB'],[],['pnbA'],[],[],[],['slrR'],[],[],[],[],[],[],[]
 AbrB and SigA_genes,[],[],[],[],['sdpI' 'sdpR' 'yocH'],"['gmuE' 'gmuF' 'yxnB' 'yxbA' 'yxbB' 'gmuG' 'secE' 'gmuR' 'gntR' 'phrE'
  'gntK' 'spo0E' 'antE' 'gntP']","['skfC' 'skfF' 'rpmGB' 'skfE' 'skfB' 'sigH' 'skfG' 'rbsR' 'rbsD' 'skfA'
@@ -132,6 +132,6 @@ AbrB and SigA_genes,[],[],[],[],['sdpI' 'sdpR' 'yocH'],"['gmuE' 'gmuF' 'yxnB' 'y
  'dhbB' 'dhbE' 'ycnI' 'ptpZ' 'tkmA' 'yydH' 'ycnJ']","['ugd' 'comK' 'yydJ' 'yydI' 'ptkA' 'ycnK' 'ywcE' 'dhbF' 'ybdZ' 'gmuA'
  'glpD' 'yydF' 'gmuB' 'sboX' 'yydG' 'bacF']",['glpK' 'bacE' 'glpF' 'sboA' 'bacD' 'bacB' 'bacC'],['bacA'],[],[],[],[],[],[],[],[],[],[]
 SinR and SigA_genes,[],[],[],[],[],[],['lytC' 'degS' 'degU' 'lutB' 'lutA' 'lytB' 'rapG' 'lutC' 'lytA' 'phrG'],['kapB'],['kinB'],[],[],[],[],[],[],[],[],[],[],[]
-SigA and RemA_genes,[],[],[],[],[],['opuAC' 'opuAB' 'opuAA'],['opuBD' 'opuBC' 'opuBB' 'opuBA'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+RemA and SigA_genes,[],[],[],[],[],['opuAC' 'opuAB' 'opuAA'],['opuBD' 'opuBC' 'opuBB' 'opuBA'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 "AbrB, SinR, and SigA_genes",[],[],[],[],[],[],['sigE' 'spoIIGA' 'sinR' 'sigG' 'sinI'],['aprE'],[],[],[],[],[],[],[],[],[],[],[],[]
-"AbrB, SinR, SigA, and RemA_genes",[],[],[],[],[],[],[],[],[],[],[],[],['epsC'],['epsD' 'epsF' 'epsH' 'epsK' 'epsG' 'epsE'],['epsJ' 'epsB' 'epsI' 'epsL' 'epsN' 'epsM' 'epsO' 'epsA'],[],['tapA' 'sipW'],[],['tasA'],[]
+"AbrB, SinR, RemA, and SigA_genes",[],[],[],[],[],[],[],[],[],[],[],[],['epsC'],['epsD' 'epsF' 'epsH' 'epsK' 'epsG' 'epsE'],['epsJ' 'epsB' 'epsI' 'epsL' 'epsN' 'epsM' 'epsO' 'epsA'],[],['tapA' 'sipW'],[],['tasA'],[]
