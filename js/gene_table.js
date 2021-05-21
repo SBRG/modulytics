@@ -52,7 +52,7 @@ function generateGeneTable(csvContent, container) {
         {title: "Name", field: "gene_name", headerContextMenu: headerMenu}
     ]
     // add TF columns
-    for (j = 6; j < data[0].length - 1; j++) {
+    for (j = 7; j < data[0].length - 1; j++) {
         columns.push({
             title: data[0][j], field: data[0][j],
             formatter: "tickCross", headerContextMenu: headerMenu

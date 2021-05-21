@@ -112,7 +112,7 @@
             if (curr_proj == null) {
                 plot_bands.push({label:{text:project, verticalAlign: 'bottom', y: 5, x:5, rotation: 300, textAlign: 'right', style:{color: 'gray'}}, from:-0.5, color:'white'})
             } else { //all other projects
-                vert_lines.push({value: i-0.5, width: 1, zIndex: 5, color: 'gray'});
+                vert_lines.push({value: i-1.5, width: 1, zIndex: 5, color: 'gray'});
                 plot_bands[plot_bands.length-1]['to'] = i-0.5;
                 plot_bands.push({label:{text:project, verticalAlign: 'bottom', y: 5, x:5, rotation: 300, textAlign: 'right', style:{color: 'gray'}}, from:i-0.5, color:'white'});
             }
