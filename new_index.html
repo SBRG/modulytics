@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics - Personal -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176192306-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-176192306-1');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics - SBRG -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176090948-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-176090948-2');
+    </script>
+    
+    <title> iModulonDB Home </title>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
+
+    <!-- Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <style>
+        * {
+            font-family: 'Roboto', 'Helvetica', 'Segoe UI', sans-serif;
+        }
+
+        .header {
+            background-color: #5D5C61;
+            color: white;
+            margin-bottom: 0rem;
+            padding: 0.4rem;
+            padding-left: 0.7rem;
+        }
+
+        .header a {
+            color: white;
+        }
+
+        .header a:hover {
+            color: #A8D0E6;
+        }
+
+        .dropdown-menu {
+            background-color: #5D5C61;
+        }
+
+        .im_head_meta_cat {
+            margin-bottom: 0rem;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .im_head_meta_val {
+            color: white;
+        }
+
+        .im_head_meta_val a {
+            color: #A8D0E6;
+        }
+
+        #left_col_content {
+            background-color: white;
+            color: black;
+        }
+
+        @media (max-width: 544px) {
+            .display-2 {
+                font-size: 60px;
+            }
+        }
+
+        .btn-primary:hover {
+            background-color: #F76C6C;
+            color: black;
+        }
+        
+        #nar_btn {
+            background-color: #F76C6C;
+            color: white;
+            font-weight: bold;
+        }
+
+        #nar_btn:hover {
+            background-color: #A8D0E6;
+            color: black;
+        }
+
+        #dataset_row {
+            background-color: #5D5C61;
+        }
+
+        .btn-primary {
+            margin: 1rem;
+            padding: .5rem;
+            background-color: #A8D0E6;
+            color: black;
+            outline-color: white;
+            height: 80%;
+        }
+
+        .about {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 350px;
+        }
+
+        .indent {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .logo {
+            max-height: 220px;
+            float: right;
+        }
+
+        #addl_text {
+            color: white;
+        }
+
+        .private_set {
+            background-color: #F76C6C;
+        }
+
+        #left_col {
+            background-color: #A8D0E6;
+            padding: 1rem;
+        }
+
+        #left_col_content {
+            position: sticky;
+            top: 4.5rem;
+        }
+
+        .nav-link {
+            color: black;
+            font-size: 28px;
+            padding-left: 2rem;
+        }
+
+        #db_size {
+            font-size: 18px;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+<!-- Page Content -->
+<div id="main" class="container-fluid" style="min-width: 650px; max-width: 1600px">
+
+    <!-- Navbar -->
+    <div class="header row navbar-dark sticky-top justify-content-end">
+        <ul class="nav navbar-dark">
+            <li class="nav-item dropdown">
+                
+                <a id="db_size" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">Total Database Size</a>
+                <div class="dropdown-menu">
+                            <span class="dropdown-item-text">
+                                <p class="im_head_meta_cat">DATASETS</p>
+                                <p class="im_head_meta_val">3</p>
+                                <p class="im_head_meta_cat">SAMPLES</p>
+                                <p class="im_head_meta_val">651</p>
+                                <p class="im_head_meta_cat">UNIQUE CONDITIONS</p>
+                                <p class="im_head_meta_val">321</p>
+                                <p class="im_head_meta_cat">GENES</p>
+                                <p class="im_head_meta_val">12,618</p>
+                                <p class="im_head_meta_cat">IMODULONS</p>
+                                <p class="im_head_meta_val">204</p>
+                            </span>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <!-- Left column: Header -->
+        <div id="left_col" class="col-md-3">
+
+            <h1>Organisms</h1>
+            <hr />
+
+            <!-- Datasets -->
+            <ul class="nav navbar-dark flex-column">
+
+                <li class="nav-item organism">
+                    <a class="nav-link active" href="dataset.html?organism=e_coli&dataset=precise1"><i class="fas fa-angle-right pr-2"></i><i>E. coli</i>
+                    </a>
+                </li>
+                <li class="nav-item organism">
+                    <a class="nav-link active" href="dataset.html?organism=b_subtilis&dataset=nicolas"><i class="fas fa-angle-right pr-2"></i><i>B. subtilis</i>
+                    </a>
+                </li>
+                <li class="nav-item organism">
+                    <a class="nav-link active" href="dataset.html?organism=s_aureus&dataset=staph_precise"><i class="fas fa-angle-right pr-2"></i><i>S. aureus</i>
+                    </a>
+                </li>
+        </div>
+
+        <!-- Main body -->
+        <div class="col-md-9 p-3">
+
+            <!-- Title -->
+            <div class="row py-5">
+                <div class="col-3">
+                    <img class="img-fluid logo" src="images/modulytics_logo.png"></img>
+                </div>
+                <div class="col-9">
+                    <h1 class="display-2 indent">iModulonDB</h1>
+                    <h2 class="indent" id="sub_header"><small><i>
+                        Independent Component Analysis of Prokaryotic Transcriptomes
+                    </i></small></h2>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="row justify-content-center py-5">
+                <i class="fas fa-long-arrow-alt-left fa-4x"></i>
+                <h2 class="display-4 ml-4">  Select an organism to begin.</h2>
+            </div>
+            <div class="row mt-3 pr-5 py-5 d-flex justify-content-center">
+                <div class="col-lg-3 col-md-4">
+                    <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
+                       href="about.html">
+                        <i class="far fa-question-circle fa-3x"></i>
+                        <h2>About</h2>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
+                       href="https://doi.org/10.1093/nar/gkaa810">
+                        <i class="far fa-newspaper fa-3x"></i>
+                        <h2>Article</h2>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
+                       href="all_data.zip">
+                       <i class="fas fa-download fa-3x"></i>
+                        <h2>Download</h2>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-9 m-auto">
+                            <p class="copyright text-muted small">
+                                iModulonDB is maintained by the Systems Biology Research Group at the University of
+                                California, San Diego. <br/>
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="http://systemsbiology.ucsd.edu/">
+                                <img class="img-fluid" src="images/sbrg-logo.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
