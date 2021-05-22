@@ -29,6 +29,9 @@
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
 
     <!-- Font -->
      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
@@ -85,14 +88,8 @@
             }
         }
 
-        #about_btn {
+        .btn-primary:hover {
             background-color: #F76C6C;
-            color: white;
-            font-weight: bold;
-        }
-
-        #about_btn:hover {
-            background-color: #A8D0E6;
             color: black;
         }
         
@@ -144,6 +141,50 @@
             background-color: #F76C6C;
         }
 
+        #left_col {
+            background-color: #A8D0E6;
+            padding: 1rem;
+        }
+
+        #left_col_content {
+            position: sticky;
+            top: 4.5rem;
+        }
+
+        .nav-link {
+            color: black;
+            font-size: 24px;
+            padding-left: 2rem;
+        }
+
+        #db_size {
+            font-size: 18px;
+        }
+
+        .panel {
+            background-color: #A8D0E6;
+            border: none;
+        }
+
+        .panel-header {
+            background-color: #A8D0E6;
+        }
+
+        .panel-body {
+            border: none;
+        }
+
+        .organism {
+            font-size: 28px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .organism:hover {
+            text-decoration: none;
+        }
+
+
     </style>
 </head>
 
@@ -154,12 +195,9 @@
     <!-- Navbar -->
     <div class="header row navbar-dark sticky-top justify-content-end">
         <ul class="nav navbar-dark">
-            <li class="nav-item">
-                <a class="nav-link" href="all_data.zip">Download All Data</a>
-            </li>
             <li class="nav-item dropdown">
                 
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                <a id="db_size" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                    aria-expanded="false">Total Database Size</a>
                 <div class="dropdown-menu">
                             <span class="dropdown-item-text">
@@ -180,95 +218,166 @@
         </ul>
     </div>
 
-
     <div class="row">
-        <!-- Left column: Splash -->
-        <div class="col-md-12">
-            <div id="left_col_content" class="dashboard-container m-4 mb-0 p-2 d-flex flex-column">
+        <!-- Left column: Header -->
+        <div id="left_col" class="col-md-3">
 
-                <!-- Title -->
-                <div class="row">
-                    <div class="col-3">
-                        <img class="img-fluid logo" src="images/modulytics_logo.png"></img>
-                    </div>
-                    <div class="col-9">
-                        <h1 class="display-2 indent">iModulonDB</h1>
-                        <h1 class="indent" id="sub_header"><small><i>
-                            Independent Component Analysis of Bacterial Transcriptomes
-                        </i></small></h1>
-                    </div>
+            <h1>Organisms</h1>
+            <hr />
+
+            <div class="accordion" id="organismAccordion">
+              <div class="panel">
+                <div class="panel-header">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed organism" type="button" data-toggle="collapse" data-target="#e_coli" aria-expanded="true" aria-controls="e_coli">
+                      <i>E. coli</i>
+                    </button>
+                  </h2>
                 </div>
-                <!-- About -->
-                <div class="col-md-12 pt-5">
+
+                <div id="e_coli" class="collapse" data-parent="#organismAccordion">
+                  <div class="panel-body">
+                    <ul class="nav navbar-dark flex-column">
+                        <li class="nav-item dataset">
+                            <a class="nav-link active" href="dataset.html?organism=e_coli&dataset=precise2">
+                                <i class="fa fa-star-o pr-2"></i>PRECISE 2.0
+
+                            </a>
+                        </li>
+
+                        <li class="nav-item dataset">
+                            <a class="nav-link active" href="dataset.html?organism=e_coli&dataset=precise1"><i class="fas fa-angle-right pl-2 pr-3"></i>PRECISE 1.0
+                            </a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed organism" type="button" data-toggle="collapse" data-target="#b_subtilis" aria-expanded="false" aria-controls="b_subtilis">
+                      <i>B. subtilis</i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="b_subtilis" class="collapse" data-parent="#organismAccordion">
+                  <div class="panel-body">
+                    <ul class="nav navbar-dark flex-column">
+                        <li class="nav-item dataset">
+                            <a class="nav-link active" href="dataset.html?organism=b_subtilis&dataset=nicolas"><i class="fas fa-angle-right pr-2"></i>Microarray
+                            </a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed organism" type="button" data-toggle="collapse" data-target="#s_aureus" aria-expanded="false" aria-controls="s_aureus">
+                      <i>S. aureus</i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="s_aureus" class="collapse" aria-labelledby="headingThree" data-parent="#organismAccordion">
+                  <div class="panel-body">
+                    <ul class="nav navbar-dark flex-column">
+                        <li class="nav-item dataset">
+                            <a class="nav-link active" href="dataset.html?organism=s_aureus&dataset=staph_precise"><i class="fas fa-angle-right pr-2"></i><i>Staph</i>PRECISE
+                            </a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Datasets 
+            <ul class="nav navbar-dark flex-column">
+
+                <li class="nav-item organism">
+                    <a class="nav-link active" href="dataset.html?organism=e_coli&dataset=precise1"><i class="fas fa-angle-right pr-2"></i><i>E. coli</i>
+                    </a>
+                </li>
+                <li class="nav-item organism">
+                    <a class="nav-link active" href="dataset.html?organism=b_subtilis&dataset=nicolas"><i class="fas fa-angle-right pr-2"></i><i>B. subtilis</i>
+                    </a>
+                </li>
+                <li class="nav-item organism">
+                    <a class="nav-link active" href="dataset.html?organism=s_aureus&dataset=staph_precise"><i class="fas fa-angle-right pr-2"></i><i>S. aureus</i>
+                    </a>
+                </li>
+            -->
+        </div>
+            
+        <!-- Main body -->
+        <div class="col-md-9 p-3">
+
+            <!-- Title -->
+            <div class="row py-5">
+                <div class="col-3">
+                    <img class="img-fluid logo" src="images/modulytics_logo.png"></img>
+                </div>
+                <div class="col-9">
+                    <h1 class="display-2 indent">iModulonDB</h1>
+                    <h2 class="indent" id="sub_header"><small><i>
+                        Independent Component Analysis of Prokaryotic Transcriptomes
+                    </i></small></h2>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="row justify-content-center py-5">
+                <i class="fas fa-long-arrow-alt-left fa-4x"></i>
+                <h2 class="display-4 ml-4">  Select an organism to begin.</h2>
+            </div>
+            <div class="row mt-3 pr-5 py-5 d-flex justify-content-center">
+                <div class="col-lg-3 col-md-4">
+                    <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
+                       href="about.html">
+                        <i class="far fa-question-circle fa-3x"></i>
+                        <h2>About</h2>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
+                       href="https://doi.org/10.1093/nar/gkaa810">
+                        <i class="far fa-newspaper fa-3x"></i>
+                        <h2>Article</h2>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
+                       href="all_data.zip">
+                       <i class="fas fa-download fa-3x"></i>
+                        <h2>Download</h2>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container">
                     <div class="row">
-                        <div class="row d-flex justify-content-center about">
-                            <a id="nar_btn" href="https://doi.org/10.1093/nar/gkaa810" role="button" class="btn btn-light btn-block">
-                                <span style="font-size:larger;">Read our Article
-                                    </span></a>
-                            <a id="about_btn" href="about.html" role="button" class="btn btn-light btn-block">
-                                        <span style="font-size:larger;">Learn About iModulons
-                                    </span></a>
-                            <h5 class="mt-0 text-center">
-                                or Choose a Dataset Below
-                            </h5>
+                        <div class="col-sm-9 m-auto">
+                            <p class="copyright text-muted small">
+                                iModulonDB is maintained by the Systems Biology Research Group at the University of
+                                California, San Diego. <br/>
+                            </p>
                         </div>
-                    </div>
-                    <div class="col-md-6"></div>
-                </div>
-                <!-- Footer -->
-                <div class="mt-auto pt-1">
-                    <div class="row">
-                        <div class="col-sm-7 col-md-9 m-auto"></div>
-                        <div class="col-sm-5 col-md-3">
+                        <div class="col-sm-3">
                             <a href="http://systemsbiology.ucsd.edu/">
                                 <img class="img-fluid" src="images/sbrg-logo.png">
                             </a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="copyright text-muted small text-right">
-                                iModulonDB is maintained by the Systems Biology Research Group at the University
-                                of California, San Diego.
-                            </p>
-                        </div>
-                    </div>
                 </div>
-            </div>
+            </footer>
         </div>
+
     </div>
 
-
-    <div id="dataset_row" class="row mt-0 pr-5 d-flex justify-content-center">
-        <div class="col-md-4 col-lg-3">
-            <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
-               href="dataset.html?organism=e_coli&dataset=precise1">
-                <h2><i>E. coli</i></h2>
-                <p>Precision RNA-seq Expression Compendium for Independent Signal Exploration (PRECISE)</p>
-                <p class="mt-auto">Sastry, et al., 2019</p>
-            </a>
-        </div>
-        <div class="col-md-4 col-lg-3">
-            <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
-               href="dataset.html?organism=s_aureus&dataset=staph_precise">
-                <h2><i>S. aureus</i></h2>
-                <p><i>Staph</i>PRECISE</p>
-                <p class="mt-auto">Poudel, et al., 2020</p>
-            </a>
-        </div>
-        <div class="col-md-4 col-lg-3">
-            <a role="button" class="btn btn-primary btn-outline-light btn-block d-flex flex-column"
-               href="dataset.html?organism=b_subtilis&dataset=nicolas">
-                <h2><i>B. subtilis</i></h2>
-                <p>Nicolas, et al., 2012</i> Microarray Dataset</p>
-                <p class="mt-auto">Rychel, et al., 2020</p>
-            </a>
-        </div>
-        <!-- INSERT NEW DATASETS BELOW THIS LINE -->
-        <!-- Be sure to match indentations and close all divs properly -->
-
-        <!-- INSERT NEW DATASETS ABOVE THIS LINE -->
-    </div>
 </div>
 
 <!-- Scripts for Bootstrap: jQuery, Popper.js, Bootstrap JS-->
