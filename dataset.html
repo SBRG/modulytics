@@ -264,6 +264,8 @@
             {
                 title: "Category", field: "Category", formatter: "textarea",
                 sorter: function (a, b, aRow, bRow, column, dir, sorterParams) {
+                    console.log('in sorter')
+                    console.log(aRow.getData().category_num)
                     return aRow.getData().category_num - bRow.getData().category_num;
                 },
                 widthGrow: 2
