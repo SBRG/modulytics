@@ -57,6 +57,7 @@ function generateRegulonScatter(csvContent, container, tf_i){
             name: 'Samples',
             type: 'scatter',
             data: coord_data,
+            turboThreshold: 0,
             color: '#2085e3',
             showInLegend: false
         }, {

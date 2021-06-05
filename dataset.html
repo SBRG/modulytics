@@ -264,13 +264,22 @@
             {
                 title: "Category", field: "Category", formatter: "textarea",
                 sorter: function (a, b, aRow, bRow, column, dir, sorterParams) {
-                    console.log('in sorter')
-                    console.log(aRow.getData().category_num)
                     return aRow.getData().category_num - bRow.getData().category_num;
                 },
                 widthGrow: 2
             },
             {title: "N", field: "n_genes", variableHeight: true},
+            {
+                title: "Explained Variance", 
+                field: "exp_var",
+                formatter:function(cell, formatterParams, onRendered){
+                    //cell - the cell component
+                    //formatterParams - parameters set for the column
+                    //onRendered - function to call when the formatter has been rendered
+                    return (cell.getValue()*100).toFixed(4) + "%";
+                },
+                variableHeight: true
+            },
             {
                 title: "Precision",
                 field: "precision",
@@ -294,9 +303,14 @@
             data: tabledata,
             columns: columns,
             initialSort: [
+                {column: "Name", dir: "asc"},
                 {column: "Regulator", dir: "asc"},
-                {column: "Category", dir: "asc"}
+                {column: "exp_var", dir: "desc"}
             ],
+            /*[ //old version
+                {column: "Regulator", dir: "asc"},
+                {column: "Category", dir: "asc"},
+            ],*/
             rowClick: function (e, row) { //link to the page in a database
                 var link = 'iModulon.html?';
                 link += 'organism=' + params.get('organism') + '&';

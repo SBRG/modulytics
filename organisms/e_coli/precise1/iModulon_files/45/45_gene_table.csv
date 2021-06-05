@@ -1,18 +1,18 @@
-locus,gene_weight,gene_name,gene_product,COG,operon,regulator,cpxR,link
-b4484,0.289190419585,cpxP,CpxP,Cell motility,cpxPQ,"cpxR,rpoD",True,https://ecocyc.org/gene?orgid=ECOLI&id=G7816
-b1535,0.20199700470100002,dgcZ,diguanylate cyclase,Signal transduction mechanisms,dgcZ,"cpxR,cysB,rpoD",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11643
-b1113,0.184040607745,ldtC,"L,D-transpeptidase YcfS",Function unknown,ldtC,"cpxR,nac,rpoD",True,https://ecocyc.org/gene?orgid=ECOLI&id=G6571
-b1846,0.162495716664,yebE,conserved inner membrane protein,Function unknown,yebE,"cpxR,rpoD",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11806
-b1843,0.129084871006,yobB,conserved protein,Function unknown,yobB-exoX,,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7015
-b0970,0.101888874601,yccA,putative carrier/transport protein,Function unknown,yccA,"arcA,cpxR,rpoD",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11113
-b2597,0.097830720195,raiA,stationary phase translation inhibitor and ribosome stability factor,"Translation, ribosomal structure and biogenesis",raiA,"cra,crp,nac,rpoH",False,https://ecocyc.org/gene?orgid=ECOLI&id=EG11151
-b4188,0.09688052256010002,yjfN,putative protein,Function unknown,yjfN,,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7851
-b0461,0.09630603346380001,tomB,protein that modulates Hha toxicity,Function unknown,tomB-hha,"basR,cpxR,pdhR,rpoD,ydcI",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG12429
-b1902,0.09621445647780001,ftnB,predicted ferritin-like protein,Inorganic ion transport and metabolism,ftnB,"cpxR,fur,nac,rpoD,rpoE,trpR",True,https://ecocyc.org/gene?orgid=ECOLI&id=G7033
-b3088,0.09196700704289999,alx,predicted membrane-bound redox modulator that is induced by high pH,Inorganic ion transport and metabolism,alx,,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7607
-b1829,0.0876931531417,htpX,"heat shock protein, integral membrane protein","Posttranslational modification, protein turnover, chaperones",htpX,rpoH,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG10462
-b0837,0.08686833190760003,yliI,aldose sugar dehydrogenase,Carbohydrate transport and metabolism,yliI,,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6437
-b1600,0.0777433771112,mdtJ,multidrug / spermidine efflux pump - membrane subunit MdtJ,Inorganic ion transport and metabolism,mdtJI,"h-NS,rpoD",False,https://ecocyc.org/gene?orgid=ECOLI&id=G6858
-b0460,0.07770338791410003,hha,haemolysin expression modulating protein,Function unknown,tomB-hha,"basR,cpxR,pdhR,rpoD",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10439
-b1597,-0.080996630395,asr,acid shock protein,No COG Annotation,asr,"gadX,h-NS,phoB,rcdA,rpoD,rpoS,rstA",False,https://ecocyc.org/gene?orgid=ECOLI&id=G6855
-b0287,-0.117706989163,yagU,inner membrane protein that contributes to acid resistance,Function unknown,yagU,,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6158
+locus,gene_weight,gene_name,gene_product,COG,operon,regulator,CpxR,link
+b4484,0.2891904196,cpxP,periplasmic protein CpxP,Cell motility,cpxPQ,"RpoD,YidZ,CpxR,cpxQ",True,https://ecocyc.org/gene?orgid=ECOLI&id=G7816
+b1535,0.2019970047,dgcZ,diguanylate cyclase DgcZ,Signal transduction mechanisms,dgcZ,"RpoD,CysB,CpxR,CsrA,Lrp",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11643
+b1113,0.1840406077,ldtC,L%2CD-transpeptidase YcfS,Cell wall/membrane/envelope biogenesis,ldtC,"RpoD,CpxR,micA",True,https://ecocyc.org/gene?orgid=ECOLI&id=G6571
+b1846,0.16249571670000001,yebE,conserved inner membrane protein YebE,Function unknown,yebE,"RpoD,CpxR",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11806
+b1843,0.12908487100000002,yobB,putative carbon-nitrogen hydrolase family protein YobB,Function unknown,yobB-exoX,"OmpR,Nac",False,https://ecocyc.org/gene?orgid=ECOLI&id=G7015
+b0970,0.1018888746,yccA,modulator of FtsH protease,Function unknown,yccA,"RpoD,CpxR",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11113
+b2597,0.0978307202,raiA,stationary phase translation inhibitor and ribosome stability factor,"Translation, ribosomal structure and biogenesis",raiA,"RpoH,Crp,ppGpp",False,https://ecocyc.org/gene?orgid=ECOLI&id=EG11151
+b4188,0.0968805226,yjfN,protease activator,Function unknown,yjfN,CpxR,True,https://ecocyc.org/gene?orgid=ECOLI&id=G7851
+b0461,0.0963060335,tomB,protein that modulates Hha toxicity,"Replication, recombination and repair",tomB-hha,"RpoD,PdhR,YdcI,CpxR,BasR,Nac",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG12429
+b1902,0.0962144565,ftnB,putative ferritin-like protein,Inorganic ion transport and metabolism,ftnB,"RpoD,RpoE,CpxR,ppGpp,Nac",True,https://ecocyc.org/gene?orgid=ECOLI&id=G7033
+b3088,0.091967007,alx,putative membrane-bound redox modulator Alx,Inorganic ion transport and metabolism,alx,"ppGpp,OmpR,H,Mn2",False,https://ecocyc.org/gene?orgid=ECOLI&id=G7607
+b1829,0.0876931531,htpX,zinc dependent endoprotease,"Post-translational modification, protein turnover,and chaperones",htpX,"RpoH,OmpR,Nac",False,https://ecocyc.org/gene?orgid=ECOLI&id=EG10462
+b0837,0.0868683319,yliI,aldose sugar dehydrogenase YliI,Carbohydrate transport and metabolism,yliI,,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6437
+b1600,0.0777433771,mdtJ,multidrug/spermidine efflux pump membrane subunit MdtJ,Inorganic ion transport and metabolism,mdtJI,"RpoD,ppGpp,H-NS",False,https://ecocyc.org/gene?orgid=ECOLI&id=G6858
+b0460,0.0777033879,hha,hemolysin expression modulating protein,Transcription,tomB-hha,"PdhR,RpoD,CpxR,BasR",True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10439
+b1597,-0.0809966304,asr,acid shock protein,No COG annotation,asr,"RpoD,PhoB,RpoS,H-NS,RcdA,RstA",False,https://ecocyc.org/gene?orgid=ECOLI&id=G6855
+b0287,-0.1177069892,yagU,inner membrane protein that contributes to acid resistance,Function unknown,yagU,"YfeC,YfeD,ppGpp,Lrp,Nac",False,https://ecocyc.org/gene?orgid=ECOLI&id=G6158
