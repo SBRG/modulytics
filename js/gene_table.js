@@ -64,7 +64,7 @@ function generateGeneTable(csvContent, container) {
             title: "Product", field: "gene_product", formatter: "html",
             headerContextMenu: headerMenu
         },
-        {title: "COG", field: "COG", headerContextMenu: headerMenu},
+        {title: "COG", field: "cog", headerContextMenu: headerMenu},
         {title: "Operon", field: "operon", headerContextMenu: headerMenu},
         {title: "TF", field: "regulator", headerContextMenu: headerMenu},
         {field: "end", visible: false} // facilitates moving to end
