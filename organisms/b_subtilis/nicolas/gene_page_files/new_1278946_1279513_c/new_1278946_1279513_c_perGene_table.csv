@@ -1,34 +1,34 @@
-k,Name,in_iM,gene_weight,Regulator,Function,Category
+k,name,in_iM,gene_weight,regulator,function,category
 9,ResD – Oxygen Limitation,True,0.064089135,ResD,"Anaerobic nitrate respiration, bacteriocin production, heme, cytochrome, and ATP synthesis, copper homeostasis",Oxygen Limitation
 29,Noise – S1235,False,0.03151941,,"Independent transcript S1235, behaves similar to late sporulation I-modulons",Uncharacterized
 51,ComK – Competence,False,0.031422137,ComK,"DNA transport, pseudopilus, recombination machinery, and regulatory proteins for competence",Lifestyles
 6,MalR – Malate,False,0.026778481000000003,MalR,Malate uptake and utilization,Carbon
 44,Rex – Overflow Metabolism,False,-0.02643493,Rex,Overflow metabolism (LDH) and cytochrome BD oxidation  for respiration in anaerobic conditions,Oxygen Limitation
-73,TnrA / PucR – Nitrogen Limitation,False,-0.025128585000000002,[SigA  and  TnrA]  or  [SigA  and  PucR],"Ammonium uptake, utilization of nitrate and xanthine. Suggests nitrate limitation in the BT condition",Multi-Purpose
+73,TnrA / PucR – Nitrogen Limitation,False,-0.025128585000000002,[SigA + TnrA] / [SigA + PucR],"Ammonium uptake, utilization of nitrate and xanthine. Suggests nitrate limitation in the BT condition",Multi-Purpose
 43,Uncharacterized 2,False,-0.024496201000000002,,"Contains cold shock, sporulation onset, toxin, amino acid homeostasis, translataional, other proteins, many RNAs",Uncharacterized
 26,Uncharacterized 6,False,0.023476727000000003,,5’ ends of tRNAs and independent transcripts,Uncharacterized
 17,Uncharacterized 1,False,0.023332531,,"Contains a SigE/SigG inhibitor, spore coat proteins, translational proteins, oxidative stress response, many RNAs",Uncharacterized
-67,CymR / NsrR – Sulfur and Nitrate Respiration,False,-0.022310257,[SigA  and  CymR]  or  [ResD  and  SigA  and  NsrR],Import and utilization of sulfonate and cystine for cysteine production. Nitrite reduction,Multi-Purpose
+67,CymR / NsrR – Sulfur and Nitrate Respiration,False,-0.022310257,[SigA + CymR] / [ResD + SigA + NsrR],Import and utilization of sulfonate and cystine for cysteine production. Nitrite reduction,Multi-Purpose
 23,SigD – Motility,False,-0.021042109,SigD,"Production of flagella components and export machinery, chemotaxis receptors, use of extracellular energy (polyglutamic acid), regulation of swarming, sporulation inhibitors, cell wall turnover",Lifestyles
 19,Empty 1,False,-0.019445465000000002,,Contains no genes,Uncharacterized
 52,His – Histidine Synthesis,False,0.019202281,YlxR,Synthesis of histidine,Amino Acids
 27,SknR – Skin Element,False,-0.017975099,SknR,Prophage element that disrupts the SigK gene but also plays roles in preventing early germination and regulating proliferation. Unknown and toxin resistance genes.,Mobile Genes
 38,GlpP – Glycerol,False,-0.016626447000000003,GlpP,Glycerol uptake and utilization,Carbon
-81,"MtlR / AnsR – Mannitol, Asparagine, and Aspartate",False,0.016339366,[MtlR]  or  [AnsR  and  SigA],"Uptake and utilization of mannitol, degradation of asparagine and aspartate",Multi-Purpose
+81,"MtlR / AnsR – Mannitol, Asparagine, and Aspartate",False,0.016339366,[MtlR] / [AnsR + SigA],"Uptake and utilization of mannitol, degradation of asparagine and aspartate",Multi-Purpose
 61,FrlR – Amino Sugars,False,-0.01606143,FrlR,Amino sugar uptake and metabolism,Carbon
-40,NadR / BirA – NAD and Biotin,False,0.014718499000000001,[NadR]  or  [BirA],"Biosynthesis of NAD and biotin, plus safA & coxA sporulation proteins and repression of manganese uptake",Multi-Purpose
+40,NadR / BirA – NAD and Biotin,False,0.014718499000000001,[NadR] / [BirA],"Biosynthesis of NAD and biotin, plus safA & coxA sporulation proteins and repression of manganese uptake",Multi-Purpose
 47,SigM – Membrane Stress,False,-0.014325183000000002,SigM,"General stress proteins, alarmones, lipid carriers and flippases, DNA repair, inhibition of septation. Contains many UTRs and some unknown proteins.",Stress
-5,Eps – Exopolymeric Substances,False,-0.013566439000000001,SigA  and  AbrB  and  RemA  and  SinR,"Biosynthesis of tasA and extracellular polysaccharides, the major components of the biofilm",Lifestyles
-10,CcpA-2 – Low Glucose 2,False,-0.012791998,[CcpA  and  SigA]  or  [CcpN],"Uptake, utilization, and regulation of alternative carbon sources: TCA intermediates, ribose, maltodextrin, galacto-oligosaccharides, acetoin, gluconate, etc. Suppression of glucose pathways. Stationary phase.",Carbon
+5,Eps – Exopolymeric Substances,False,-0.013566439000000001,SigA + AbrB + RemA + SinR,"Biosynthesis of tasA and extracellular polysaccharides, the major components of the biofilm",Lifestyles
+10,CcpA-2 – Low Glucose 2,False,-0.012791998,[CcpA + SigA] / [CcpN],"Uptake, utilization, and regulation of alternative carbon sources: TCA intermediates, ribose, maltodextrin, galacto-oligosaccharides, acetoin, gluconate, etc. Suppression of glucose pathways. Stationary phase.",Carbon
 36,AbrB – Transition State,False,0.012117508,AbrB,"Various transition state roles: spore killing, antibiotic resistance, toxin production, metabolism, protein modification, and unknown proteins.",Lifestyles
-21,StrRes – Translation,False,0.011391885000000001,[stringent response]  or  [RplJ],"Production of ribosomes, translation initiation factors, ADP formation, protein processing and secretory machinery, DNA replication, RNA polymerase",Lifestyles
-79,Alb – Antilisterial Bacteriocin,False,0.011193960000000001,Rok  and  ResD  and  AbrB  and  SigA,"Produces and exports subtilosin, which kills anaerobic listeria bacteria",Lifestyles
+21,StrRes – Translation,False,0.011391885000000001,[stringent response] / [RplJ],"Production of ribosomes, translation initiation factors, ADP formation, protein processing and secretory machinery, DNA replication, RNA polymerase",Lifestyles
+79,Alb – Antilisterial Bacteriocin,False,0.011193960000000001,Rok + ResD + AbrB + SigA,"Produces and exports subtilosin, which kills anaerobic listeria bacteria",Lifestyles
 66,SigG – Sporulation 4,False,0.010842652000000001,SigG,"Calcium and nutrient delivery to the spore, endospore cortex maturation, lipoproteins, forespore-specific metabolic proteins, many unknown sporulation proteins, stress resistance, proteins required for germination",Sporulation
 32,CzrA – Toxic Cation Export,False,0.010370556000000001,CzrA,"Resistance to Zn, Cu, Co, Ni, and Cd",Elements
 28,Noise – S415,False,0.010231582000000001,,Noisy independent transcript S415,Uncharacterized
-64,Spβ-2 – SP-β Prophage 2,False,-0.009709989,CsoR  and  SigA  and  SigK  and  SigE,"Temperature-responsive SP-beta prophage. Prophage, unknown, and putative metabolic genes. Response to mitomycin.",Mobile Genes
+64,Spβ-2 – SP-β Prophage 2,False,-0.009709989,CsoR + SigA + SigK + SigE,"Temperature-responsive SP-beta prophage. Prophage, unknown, and putative metabolic genes. Response to mitomycin.",Mobile Genes
 76,Empty 2,False,0.009338836000000001,,Contains no genes,Uncharacterized
-77,PhoP-1 – Phosphate Limitation 1,False,0.009219352,PhoP  and  SigA,"High-affinity phosphate uptake, teichuronic acid production pseudogene.",Elements
+77,PhoP-1 – Phosphate Limitation 1,False,0.009219352,PhoP + SigA,"High-affinity phosphate uptake, teichuronic acid production pseudogene.",Elements
 55,Noise – LBGexp_1,False,-0.008986408000000001,,Likely accounting for noise in the first sample of LBG_exp. Top few RNAs are 5' UTRs of glucose metabolism genes,Uncharacterized
 49,LexA – DNA Repair,False,0.008842685000000001,LexA,SOS response for DNA protection and repair,Stress
 70,Thi-Box – Thiamine,False,-0.008795007,Thi-box,Synthesis and uptake of thiamine,Other Organics
@@ -41,41 +41,41 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 39,MtrB – Tryptophan,False,0.00706894,MtrB,Biosynthesis of tryptophan,Amino Acids
 65,Xpf – PBSX Prophage,False,0.007022736000000001,Xpf,Prophage element that induces production of bacteriocin and cell lysis in response to DNA-damaging agents,Mobile Genes
 7,SigB-1 – General Stress 1,False,0.006868005000000001,SigB,"Survival of general stressors including ethanol, salt, paraquat, heat, and freeze-thaw",Stress
-71,"TnrA + CodY – Leucine, Methionine, and Threonine",False,0.0067139,[TnrA  and  CodY  and  ThrR]  or  [TnrA  and  CodY  and  T-box  and  CcpA  and  SigA],"Synthesis and salvage of leucine, methionine, threonine",Amino Acids
+71,"TnrA + CodY – Leucine, Methionine, and Threonine",False,0.0067139,[TnrA + CodY + ThrR] / [TnrA + CodY + T-box + CcpA + SigA],"Synthesis and salvage of leucine, methionine, threonine",Amino Acids
 0,PchR – Pulcherrimin,False,-0.00666029,PchR,Extracellular synthesis and import of pulcherrimin for iron acquisition,Elements
 1,FadR – Fatty Acids,False,-0.0066162370000000005,FadR,Fatty acid degradation,Carbon
 25,SigK-2 – Sporulation 6,False,0.006394049000000001,SigK,"Production of outermost spore coat and crust proteins, mother cell lysis",Sporulation
 78,Empty 3,False,-0.006264768,,Contains no genes,Uncharacterized
 75,HutP – Histidine Utilization,False,0.0060063700000000005,HutP,Histidine uptake and utilization,Amino Acids
-14,WapA – Intercellular Competition,False,0.005998869,SigA  and  YvrHb  and  DegU  and  WalR,Activation of WapA and its operon of unknown genes for interspecies toxin delivery,Lifestyles
+14,WapA – Intercellular Competition,False,0.005998869,SigA + YvrHb + DegU + WalR,Activation of WapA and its operon of unknown genes for interspecies toxin delivery,Lifestyles
 30,ManR – Mannose,False,0.005923427,ManR,Utilization of mannose for cell wall synthesis. Needed for exponential growth in LB media (absent glucose) or in the presence of fructose,Carbon
 59,FruR – Fructose,False,-0.005799528,FruR,Fructose uptake and utilization,Carbon
 24,Uncharacterized 5,False,0.005771979,,Contains many poorly characterized RNAs with noisy activity ,Uncharacterized
 33,Uncharacterized 3,False,0.005457026,,"Contains many poorly characterized RNAs with noisy activity but clear time correlations, especially in sporulation. May be indicative of overall decreased translational activity ",Uncharacterized
 12,Yrk – Putative Sulfur Carriers,False,0.0053774470000000005,,Putative sulfur carriers. High activity under diamide stress,Elements
-82,CcpA-1 – Low Glucose 1,False,0.005216999,CcpA  and  SigA,"Uptake and utilization of alternative carbon sources: ribose, sucrose, salicin, beta-glucosides, lichenan,  glucomannon, trehalose, G3P, etc. High expression in exponential phase on LB media",Carbon
+82,CcpA-1 – Low Glucose 1,False,0.005216999,CcpA + SigA,"Uptake and utilization of alternative carbon sources: ribose, sucrose, salicin, beta-glucosides, lichenan,  glucomannon, trehalose, G3P, etc. High expression in exponential phase on LB media",Carbon
 16,Ybc – Uncharacterized Operon,False,-0.0050157,,Contains one subunit of NADH dehydrogenase with several unknown genes. Categorized as prophage. Responds to heat shock.,Stress
 58,PurR – Purines,False,-0.004784537,PurR,"Synthesis of purine, xanthine and guanine uptake and conversion into purines",Other Organics
 72,LevR – Levan and Fructose,False,-0.004726476,LevR,"Fuctose uptake and phosphorylation, degradation of the exopolysaccharide levan into fructose",Carbon
-60,RocR / PutR – Arginine and Proline Utilization,False,-0.004615173,[SigL  and  AhrC  and  RocR]  or  [Spo0A  and  SigA  and  CodY  and  PutR],"Utilization of arginine, ornithine, citrulline and proline as carbon and energy sources",Amino Acids
-56,AhrC – Arginine,False,-0.003912174,AhrC  and  YlxR,Uptake and biosynthesis of arginine,Amino Acids
+60,RocR / PutR – Arginine and Proline Utilization,False,-0.004615173,[SigL + AhrC + RocR] / [Spo0A + SigA + CodY + PutR],"Utilization of arginine, ornithine, citrulline and proline as carbon and energy sources",Amino Acids
+56,AhrC – Arginine,False,-0.003912174,AhrC + YlxR,Uptake and biosynthesis of arginine,Amino Acids
 50,PyrR – Pyrimidines,False,0.0038827820000000004,PyrR,Synthesis of pyrimidines,Other Organics
 80,LicR – Lichenan,False,0.003737862,LicR,"Uptake, phosphorylation, and utilization of lechenin, a glucan found in soil",Carbon
 2,CodY – BCAA Limitation,False,-0.003429099,CodY,"Uptake of di-/oligopeptides, uptake of guanosine, cell wall metabolism",Amino Acids
-15,GerE / GerR – Mid-late Spore Coat,False,-0.003356524,[SigK  and  GerE]  or  [SigK  and  GerR],"Production of spore coat and crust proteins. Omitted from sporulation analysis because all genes are contained by SigK1 & 2, and activity levels are very noisy in non-sporulating conditions.",Sporulation
-20,"IolR / MelR – Inositol, Melibiose, and Acetoin",False,-0.003318309,[IolR]  or  [MelR]  or  [AcoR],"Uptake and utilization of inositol, melibiose/raffinose, and acetoin",Multi-Purpose
-35,Spo0A – Sporulation 1,False,-0.0031603330000000004,[Spo0A]  or  [DnaA],"Initiation of sporulation through sigma factor, transcription factor, and regulatory protein expression, as well as septum formation and chromosome anchoring",Sporulation
+15,GerE / GerR – Mid-late Spore Coat,False,-0.003356524,[SigK + GerE] / [SigK + GerR],"Production of spore coat and crust proteins. Omitted from sporulation analysis because all genes are contained by SigK1 & 2, and activity levels are very noisy in non-sporulating conditions.",Sporulation
+20,"IolR / MelR – Inositol, Melibiose, and Acetoin",False,-0.003318309,[IolR] / [MelR] / [AcoR],"Uptake and utilization of inositol, melibiose/raffinose, and acetoin",Multi-Purpose
+35,Spo0A – Sporulation 1,False,-0.0031603330000000004,[Spo0A] / [DnaA],"Initiation of sporulation through sigma factor, transcription factor, and regulatory protein expression, as well as septum formation and chromosome anchoring",Sporulation
 13,SigK-1 – Sporulation 5,False,-0.0031114320000000003,SigK,"Production of spore coat and crust proteins, L-sulfolactate production, spore coat cross-linking, stress resistance, many unknown proteins",Sporulation
 34,Uncharacterized 4,False,0.0025136010000000003,,Contains many poorly characterized RNAs with noisy activity ,Uncharacterized
-53,ComA – Surfactants,False,0.002447089,[ComA  and  CcpA  and  TnrA]  or  [Abh  and  SigA  and  ComA  and  Spx  and  PhoP  and  CodY  and  PerR],"Activated during transition to stationary phase (quorum sensing), production of surfactant and exoenzymes to improve nutrient delivery in the biofilm, ComS for activation of competence ",Lifestyles
-11,ArsR+ – Diamide Stress,False,0.0020421980000000003,[ArsR]  or  [YodB]  or  [SigA  and  CtsR]  or  [SigA  and  CsoR],"Detoxification in response to: oxidative protein damage, arsenic, catechol, copper, toxic quinones",Multi-Purpose
+53,ComA – Surfactants,False,0.002447089,[ComA + CcpA + TnrA] / [Abh + SigA + ComA + Spx + PhoP + CodY + PerR],"Activated during transition to stationary phase (quorum sensing), production of surfactant and exoenzymes to improve nutrient delivery in the biofilm, ComS for activation of competence ",Lifestyles
+11,ArsR+ – Diamide Stress,False,0.0020421980000000003,[ArsR] / [YodB] / [SigA + CtsR] / [SigA + CsoR],"Detoxification in response to: oxidative protein damage, arsenic, catechol, copper, toxic quinones",Multi-Purpose
 69,CymR – Sulfur,False,-0.0015805580000000001,CymR,"Sulfur metabolism in response to oxidative stress. Utilization and detoxification of S-(2-succino)cysteine, methionine-cysteine conversion, siroheme biosynthesis",Elements
 46,SigB-2 – General Stress 2,False,-0.0015692280000000002,SigB,Likely accounting for microarray saturation in the ethanol condition of I-modulon SigB 1 by negatively weighting highly expressed ethanol genes,Stress
 37,Noise – Diamide 15,False,-0.00154353,,Likely accounting for noise in the diamide after 15 minutes and LBG exponential conditions,Uncharacterized
 18,ImmR – ICEBs1,False,0.001525096,ImmR,Mobile genetic element that participates in horizontal gene transfer,Mobile Genes
-68,SigE / G – Sporulation 3,False,-0.0010414760000000002,[SigE]  or  [SigG],"Spore coat production, transcription factor and regulator expression, spore DNA protection, spore stress resistance",Sporulation
-74,PhoP-2 – Phosphate Limitation 2,False,0.0009537520000000001,PhoP  and  SigA,"Degradation of wall teichoic acid to salvage phosphate, synthesis of teichuronic acid to replace wall, high-affinity phosphate uptake.",Elements
-8,Fnr – Nitrate Respiration,False,0.0009094999999999999,Fnr  and  SigA,Nitrate respiration and nitrite extrusion,Oxygen Limitation
+68,SigE / G – Sporulation 3,False,-0.0010414760000000002,[SigE] / [SigG],"Spore coat production, transcription factor and regulator expression, spore DNA protection, spore stress resistance",Sporulation
+74,PhoP-2 – Phosphate Limitation 2,False,0.0009537520000000001,PhoP + SigA,"Degradation of wall teichoic acid to salvage phosphate, synthesis of teichuronic acid to replace wall, high-affinity phosphate uptake.",Elements
+8,Fnr – Nitrate Respiration,False,0.0009094999999999999,Fnr + SigA,Nitrate respiration and nitrite extrusion,Oxygen Limitation
 4,SigW – Cell Wall Stress,False,-0.000768497,SigW,"Adaptation to membrane active agents such as cefuroxime, antimicrobials from B. amyloliquefaciens, sdpC, and nisin. Control of membrane fluidity. Contains many unknown proteins.",Stress
 62,Noise – S144,False,-0.000727614,,"Likely accounting for noisey RNA S144, an independent transcript",Uncharacterized
 48,SigE – Sporulation 2,False,-0.0006507790000000001,SigE,"Spore maturation through core dehydration, nutrient transport and utilization, septum degradation, inner cortex synthesis, and regulator activation",Sporulation

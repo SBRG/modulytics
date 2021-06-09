@@ -1,4 +1,4 @@
-locus,gene_weight,gene_name,gene_product,COG,operon,regulator,RpoN,NtrC,link
+locus,gene_weight,gene_name,gene_product,cog,operon,regulator,NtrC,RpoN,link
 b1012,0.2966334681,rutA,pyrimidine oxygenase,Nucleotide transport and metabolism,rutABCDEFG,"PhoP,RpoN,NtrC,ArcA,RutR",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6523
 b1011,0.2816148564,rutB,peroxyureidoacrylate/ureidoacrylate amidohydrolase,"Secondary metabolites biosynthesis, transport, and catabolism",rutABCDEFG,"PhoP,NtrC,RpoN,ArcA,RutR,Nac",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6522
 b1009,0.2478952063,rutD,putative aminoacrylate hydrolase,Nucleotide transport and metabolism,rutABCDEFG,"PhoP,NtrC,RpoN,ArcA,RutR",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6520
@@ -17,7 +17,7 @@ b1748,0.1136976205,astC,succinylornithine transaminase,Amino acid transport and 
 b1484,0.112420163,ddpD,putative D%2CD-dipeptide ABC transporter ATP-binding subunit DdpD,Inorganic ion transport and metabolism,ddpXABCDF,"RpoN,RpoS,NtrC",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6778
 b1747,0.1074743685,astA,arginine N-succinyltransferase,Amino acid transport and metabolism,astCADBE,"RpoD,RpoN,RpoS,ArgR,NtrC",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6943
 b1485,0.10686121280000001,ddpC,putative D%2CD-dipeptide ABC transporter membrane subunit DdpC,Amino acid transport and metabolism,ddpXABCDF,"RpoN,RpoS,NtrC,Nac",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6779
-b1987,0.1030977221,cbl,DNA-binding transcriptional activator Cbl,Transcription,cbl,"RpoD,YdcR,NtrC,CysB,Lrp",False,True,https://ecocyc.org/gene?orgid=ECOLI&id=G7071
+b1987,0.1030977221,cbl,DNA-binding transcriptional activator Cbl,Transcription,cbl,"RpoD,YdcR,NtrC,CysB,Lrp",True,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7071
 b1744,0.09335001200000001,astE,succinylglutamate desuccinylase,Amino acid transport and metabolism,astCADBE,"RpoD,RpoN,RpoS,ArgR,NtrC",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6940
 b1745,0.088560502,astB,N-succinylarginine dihydrolase,Amino acid transport and metabolism,astCADBE,"RpoD,RpoN,RpoS,ArgR,NtrC",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6941
 b1746,0.0869323768,astD,aldehyde dehydrogenase,Energy production and conversion,astCADBE,"RpoD,RpoN,RpoS,ArgR,NtrC",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6942
@@ -25,32 +25,32 @@ b2310,0.0861951759,argT,lysine/arginine/ornithine ABC transporter periplasmic bi
 b2876,0.0840261764,yqeC,uncharacterized protein YqeC,Cell wall/membrane/envelope biogenesis,yqeC,,False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7495
 b2875,0.0826875329,yqeB,XdhC-CoxI family protein YqeB,"Post-translational modification, protein turnover,and chaperones",yqeB,Nac,False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7494
 b3270,0.0816439992,yhdY,putative ABC transporter membrane subunit YhdY,Inorganic ion transport and metabolism,yhdWXYZ,"NtrC,RpoN",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG12836
-b4002,0.0795523653,zraP,zinc responsive%2C periplasmic protein with chaperone activity,Cell motility,zraP,"RpoN,ZraR",True,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG11918
+b4002,0.0795523653,zraP,zinc responsive%2C periplasmic protein with chaperone activity,Cell motility,zraP,"RpoN,ZraR",False,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11918
 b3870,0.0713047484,glnA,glutamine synthetase,Nucleotide transport and metabolism,glnALG,"RpoD,RpoN,Crp,NtrC,Fis,Lrp",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10383
 b1932,0.0703351864,yedL,putative acetyltransferase YedL,Transcription,yedL,Nac,False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7040
 b3269,0.0695873322,yhdX,putative ABC transporter membrane subunit YhdX,Inorganic ion transport and metabolism,yhdWXYZ,"NtrC,RpoN",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG12835
 b1596,0.0645774526,ynfM,putative transporter YnfM,Amino acid transport and metabolism,ynfM,YidZ,False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6854
-b2726,0.0618897376,hypA,hydrogenase 3 nickel incorporation protein HypA,Function unknown,hypABCDE-fhlA,"RpoN,NsrR,IHF,FhlA",True,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG10483
+b2726,0.0618897376,hypA,hydrogenase 3 nickel incorporation protein HypA,Function unknown,hypABCDE-fhlA,"RpoN,NsrR,IHF,FhlA",False,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10483
 b3271,0.0572427352,yhdZ,putative ABC transporter ATP-binding subunit YhdZ,Inorganic ion transport and metabolism,yhdWXYZ,"NtrC,RpoN",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG12837
 b3073,0.0570263186,patA,putrescine aminotransferase,Coenzyme transport and metabolism,patA,"YfeD,RpoN,RpoS,IHF,Fis,NtrC,Lrp,ppGpp",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G7596
 b2870,0.0567243856,ygeW,putative carbamoyltransferase YgeW,Nucleotide transport and metabolism,ygeW,Crp,False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7489
 b3869,0.0559518102,glnL,sensory histidine kinase NtrB,Nucleotide transport and metabolism,glnALG,"RpoD,RpoN,Crp,NtrC,Fis,Lrp",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10387
 b3868,0.0558534825,ntrC,DNA-binding transcriptional dual regulator NtrC,Signal transduction mechanisms,glnALG,"RpoD,RpoN,Crp,NtrC,Fis",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10385
-b1218,0.0456800723,chaC,glutathione-specific gamma-glutamylcyclotransferase,Inorganic ion transport and metabolism,chaBC,"RpoN,GlaR",True,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG12403
+b1218,0.0456800723,chaC,glutathione-specific gamma-glutamylcyclotransferase,Inorganic ion transport and metabolism,chaBC,"RpoN,GlaR",False,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG12403
 b2659,0.0456619583,csiD,PF08943 family protein CsiD,Energy production and conversion,csiD-lhgO-gabDTP,"RpoS,H-NS,Crp,Lrp,GlaR,Nac,ArcA,ppGpp",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7394
 b1826,0.045276678,mgrB,PhoQ kinase inhibitor,Function unknown,mgrB,PhoP,False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7002
 b4242,0.0450660619,mgtA,Mg(2(+)) importing P-type ATPase,Inorganic ion transport and metabolism,mgtLA,"RpoD,YiaU,ppGpp,PhoP",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG12525
 b1597,0.0429424075,asr,acid shock protein,No COG annotation,asr,"RpoD,PhoB,RpoS,H-NS,RcdA,RstA",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6855
 b1784,0.042450987100000004,yeaH,DUF444 domain-containing protein YeaH,Function unknown,yeaGH,"NtrC,YfeD,RpoN,ppGpp",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6970
 b0674,0.041264598900000005,asnB,asparagine synthetase B,Amino acid transport and metabolism,asnB,"GadX,ppGpp,Lrp,gcvB",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG10092
-b4079,0.039240068,fdhF,formate dehydrogenase H,Energy production and conversion,fdhF,"YeiE,RpoN,Fnr,NarP,NarL,FhlA",True,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG10285
+b4079,0.039240068,fdhF,formate dehydrogenase H,Energy production and conversion,fdhF,"YeiE,RpoN,Fnr,NarP,NarL,FhlA",False,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10285
 b1783,0.038339215,yeaG,protein kinase YeaG,Signal transduction mechanisms,yeaGH,"NtrC,RpoN,Lrp,ppGpp",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6969
 b2663,0.0376163946,gabP,4-aminobutyrate:H(+) symporter,Amino acid transport and metabolism,csiD-lhgO-gabDTP,"RpoD,YddM,RpoS,H-NS,Nac,Crp,Lrp,GlaR,ppGpp",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG11330
-b0331,0.035164722100000004,prpB,2-methylisocitrate lyase,Carbohydrate transport and metabolism,prpBCDE,"PrpR,RpoN,Cra,Crp",True,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6196
+b0331,0.035164722100000004,prpB,2-methylisocitrate lyase,Carbohydrate transport and metabolism,prpBCDE,"PrpR,RpoN,Cra,Crp",False,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6196
 b3744,0.0350562356,asnA,asparagine synthetase A,Nucleotide transport and metabolism,asnA,"RpoD,AsnC,Lrp,Nac,gcvB",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG10091
 b0854,0.034114277000000005,potF,putrescine ABC transporter periplasmic binding protein,Inorganic ion transport and metabolism,potFGHI,"YciT,RpoN,NtrC,ArgR,Lrp,ArcA",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG11629
 b2306,0.0338638387,hisP,lysine/arginine/ornithine ABC transporter/histidine ABC transporter%2C ATP binding subunit,Inorganic ion transport and metabolism,argT-hisJQMP,"RpoD,RpoN,H-NS,NtrC,ArgR,ppGpp",True,True,https://ecocyc.org/gene?orgid=ECOLI&id=EG10452
-b0655,0.0337564309,gltI,glutamate/aspartate ABC transporter periplasmic binding protein,Amino acid transport and metabolism,gltI-sroC-gltJKL,"RpoD,RpoN,gcvB,FlhDC",True,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6359
+b0655,0.0337564309,gltI,glutamate/aspartate ABC transporter periplasmic binding protein,Amino acid transport and metabolism,gltI-sroC-gltJKL,"RpoD,RpoN,gcvB,FlhDC",False,True,https://ecocyc.org/gene?orgid=ECOLI&id=G6359
 b2660,0.0320048054,lhgO,L-2-hydroxyglutarate oxidase,Energy production and conversion,csiD-lhgO-gabDTP,"YidZ,RpoS,H-NS,Crp,Lrp,GlaR,ppGpp",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=EG12387
 b1797,-0.039665736800000004,yeaR,DUF1971 domain-containing protein YeaR,Inorganic ion transport and metabolism,yeaR-yoaG,"RpoD,NarP,NsrR,NarL,Fis",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G6983
 b2106,-0.0399325052,rcnA,Ni(2(+))/Co(2(+)) exporter,"Intracellular trafficking, secretion, and vesicular transport",rcnAB,"RpoD,Fur,RcnR",False,False,https://ecocyc.org/gene?orgid=ECOLI&id=G7138

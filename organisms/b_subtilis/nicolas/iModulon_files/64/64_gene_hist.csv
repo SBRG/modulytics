@@ -1,14 +1,14 @@
 ,-0.03243081644444444,-0.02432311233333333,-0.01621540822222222,-0.00810770411111111,0.0,0.008107704111111114,0.01621540822222222,0.024323112333333327,0.03243081644444444,0.040538520555555554,0.04864622466666667,0.05675392877777777,0.06486163288888888,0.072969337,0.0810770411111111,0.08918474522222221,0.09729244933333332,0.10540015344444444,0.11350785755555555,0.12161556166666666
 thresh,-0.0364846685,0.0364846685,9,,,,,,,,,,,,,,,,,
 unreg,0,6,60,1239,2232,321,60,13,8,7,4,15,24,32,28,23,2,0,0,0
-SigE,0,0,2,61,126,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-SigA,0,0,28,480,713,152,17,0,1,0,0,0,0,0,0,0,0,0,0,0
 SigK,0,0,0,17,77,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+SigA,0,0,28,480,713,152,17,0,1,0,0,0,0,0,0,0,0,0,0,0
+SigE,0,0,2,61,126,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+SigK and SigA,0,0,1,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+SigK and SigE,0,0,0,9,47,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 CsoR and SigA,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-SigE and SigA,0,0,0,8,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-SigE and SigK,0,0,0,9,47,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-SigA and SigK,0,0,1,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"CsoR, SigE, SigA, and SigK",0,0,0,0,0,0,0,0,0,0,0,1,1,0,11,1,0,0,0,0
+SigA and SigE,0,0,0,8,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"SigK, CsoR, SigA, and SigE",0,0,0,0,0,0,0,0,0,0,0,1,1,0,11,1,0,0,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],['yorC' 'yonV' 'bhlA' 'yopV' 'blyA' 'tagC' 'yomG'],['S780' 'yomE' 'yosT' 'yomD'],"['cwlP' 'S805' 'yorA' 'yorO' 'yorN' 'yomF' 'yomH' 'S806' 'yopW' 'yopX'
  'yonP' 'S800' 'S793' 'S774' 'pghZ']","['yoqY' 'yoqH' 'yomN' 'yonG' 'yoqU' 'S766' 'S775' 'yopY' 'yopZ' 'yosV'
  'yoqA' 'yonO' 'yojW' 'yomM' 'S778' 'S765' 'yonX' 'yorP' 'S779' 'yoqL'
@@ -20,27 +20,15 @@ unreg_genes,[],[],[],[],[],[],[],[],[],['yorC' 'yonV' 'bhlA' 'yopV' 'blyA' 'tagC
  'yorT' 'yorS' 'S769' 'yorH' 'yorZ' 'S761' 'mtbP' 'yosE']","['yosG' 'nrdEB' 'yosC' 'yosK' 'S770' 'yosJ' 'yosB' 'yosH' 'yosI' 'yorW'
  'S764' 'yorF' 'yonN' 'yosM' 'S772' 'yorV' 'yorI' 'S799' 'yorG' 'yonH'
  'S768' 'yosF' 'yonJ']",['S802' 'yonK'],[],[],[]
-SigE_genes,[],[],['S940' 'S556'],"['glgD' 'ysxE' 'gerQ' 'yozE' 'spoVID' 'glgA' 'glgP' 'glgC' 'yheD' 'cotJA'
- 'glgB' 'S1463' 'S343' 'yaaH' 'sqhC' 'polA' 'S1055' 'sodF' 'divIC' 'S1096'
- 'yyaD' 'yoaW' 'spoIIID' 'yheC' 'cotJC' 'yabR' 'mutM' 'cotJB' 'yhaX'
- 'S246' 'S1566' 'S1405' 'usd' 'S597' 'spoIIIAG' 'S704' 'ytaG' 'S559'
- 'ytrH' 'glnP' 'yabO' 'S745' 'yodR' 'S493' 'yabQ' 'yodS' 'ytaF' 'S648'
- 'nucB' 'spoIIIAE' 'ycgG' 'ykvI' 'yodP' 'yrrS' 'S919' 'S387' 'glnM' 'bdbC'
- 'spoIIIAA' 'spoIIIAF' 'yabN']","['ydcA' 'ykvU' 'yxeD' 'spoVB' 'cspR' 'ytrI' 'stoA' 'spoIVFB' 'ydjP'
- 'spoIIIAD' 'S557' 'S1049' 'asnO' 'yybI' 'citH' 'ydhD' 'kamA' 'yqfZ'
- 'spoIIIAH' 'yqhV' 'spoIVFA' 'S1218' 'bdbD' 'yabM' 'yodQ' 'spoIIIAC'
- 'glnQ' 'yuzC' 'ywcA' 'spoIID' 'ymxH' 'yugU' 'dacB' 'yuzH' 'yodT' 'S1041'
- 'glnH' 'prkA' 'ywcB' 'spoIVCA' 'fisB' 'S388' 'yusQ' 'ispG' 'spoIIIAB'
- 'mraY' 'yhbB' 'yjaV' 'mmgE' 'yngI' 'yngF' 'yhxC' 'S314' 'S226' 'ynzB'
- 'S862' 'yesK' 'yncD' 'murD' 'S891' 'S1192' 'mmgD' 'yteV' 'yeaA' 'yngG'
- 'ytvI' 'yokU' 'spoVV' 'yqxA' 'S551' 'spoIIM' 'yngJ' 'spoIVA' 'yjcA'
- 'mmgC' 'yndA' 'ydjO' 'yngH' 'spoVD' 'yusR' 'yxjF' 'yngE' 'yusS' 'mmgB'
- 'spoVR' 'S638' 'yqkF' 'spmB' 'yesJ' 'S705' 'S1090' 'yknT' 'mmgF' 'yabP'
- 'pdaB' 'S123' 'S558' 'spmA' 'yckC' 'S441' 'yngHB' 'spoIIP' 'ylmC' 'mmgA'
- 'spoVE' 'S647' 'S574' 'coxA' 'yocL' 'murE' 'bofA' 'ctpB' 'pbpI' 'cotO'
- 'S649' 'yrzE' 'hbuT' 'S1500' 'gerR' 'ytxC' 'yqfD' 'yhaL' 'yjfA' 'spoVM'
- 'ybaK' 'scoB']","['ypjB' 'scoA' 'yjdH' 'safA' 'S1056' 'S62' 'ydcC' 'mciZ' 'yhbH' 'yqfC'
- 'yfhS' 'gerM' 'cwlD' 'S162']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+SigK_genes,[],[],[],"['cgeE' 'spoIISA' 'cgeD' 'spoIISB' 'cotU' 'S945' 'S1075' 'ldt' 'yfhP'
+ 'S995' 'cwlH' 'yrzN' 'pghL' 'S1562' 'yabG' 'S195' 'cotQ']","['S296' 'gerPB' 'S839' 'S379' 'gerPF' 'yjqC' 'gerPC' 'gerPD' 'S425' 'S598'
+ 'ydgB' 'S657' 'gerE' 'ydgA' 'S28' 'S1316' 'cotP' 'lytH' 'cotI' 'S654'
+ 'cotA' 'gerPA' 'S1179' 'cotR' 'ytcC' 'S1178' 'gerPE' 'ykzQ' 'yqfQ' 'yrkC'
+ 'S497' 'ytdA' 'yodH' 'yaaO' 'yjzB' 'S380' 'ytlD' 'spoVIF' 'sscA' 'ytlC'
+ 'S622' 'ytcB' 'ykvP' 'yitB' 'spoVFA' 'ytlA' 'cotD' 'spoVFB' 'S1317'
+ 'ytxO' 'gerT' 'S751' 'ykvQ' 'cgeA' 'S349' 'S347' 'ylbE' 'S698' 'yitA'
+ 'cotF' 'ytcA' 'yisZ' 'cgeC' 'yeeK' 'yurS' 'yodI' 'sspG' 'cotS' 'oxdD'
+ 'cwlC' 'S394' 'yodU' 'ylbD' 'lipC' 'cgeB' 'S22' 'cotSA']",['yxeE' 'cotC' 'yaaN' 'ymaG' 'xpaC'],['csfB'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 SigA_genes,[],[],"['mrgA' 'S484' 'S1375' 'ftsW' 'S492' 'S893' 'S480' 'licB' 'ycnL' 'licH'
  'melC' 'S132' 'fnr' 'S836' 'licA' 'S902' 'ansA' 'abrB' 'melD' 'yeaB'
  'S1518' 'dhbF' 'flgL' 'ydfM' 'S1125' 'veg' 'rppH' 'yueC']","['S209' 'S529' 'licC' 'lytE' 'yviE' 'csbA' 'disA' 'melA' 'licR' 'nupC'
@@ -180,23 +168,35 @@ SigA_genes,[],[],"['mrgA' 'S484' 'S1375' 'ftsW' 'S492' 'S893' 'S480' 'licB' 'ycn
  'zinT' 'S107' 'S1291' 'S1366' 'acsA' 'S563' 'azoR2' 'S82' 'sda' 'S91'
  'opuBA' 'pstBA']","['pstBB' 'gbsA' 'yflN' 'pstS' 'S363' 'frlB' 'mhqO' 'S1302' 'cggR' 'nasD'
  'S190' 'hmp' 'ywkB' 'mhqN' 'maeA' 'S1434' 'citM']",[],['S262'],[],[],[],[],[],[],[],[],[],[],[]
-SigK_genes,[],[],[],"['cgeE' 'spoIISA' 'cgeD' 'spoIISB' 'cotU' 'S945' 'S1075' 'ldt' 'yfhP'
- 'S995' 'cwlH' 'yrzN' 'pghL' 'S1562' 'yabG' 'S195' 'cotQ']","['S296' 'gerPB' 'S839' 'S379' 'gerPF' 'yjqC' 'gerPC' 'gerPD' 'S425' 'S598'
- 'ydgB' 'S657' 'gerE' 'ydgA' 'S28' 'S1316' 'cotP' 'lytH' 'cotI' 'S654'
- 'cotA' 'gerPA' 'S1179' 'cotR' 'ytcC' 'S1178' 'gerPE' 'ykzQ' 'yqfQ' 'yrkC'
- 'S497' 'ytdA' 'yodH' 'yaaO' 'yjzB' 'S380' 'ytlD' 'spoVIF' 'sscA' 'ytlC'
- 'S622' 'ytcB' 'ykvP' 'yitB' 'spoVFA' 'ytlA' 'cotD' 'spoVFB' 'S1317'
- 'ytxO' 'gerT' 'S751' 'ykvQ' 'cgeA' 'S349' 'S347' 'ylbE' 'S698' 'yitA'
- 'cotF' 'ytcA' 'yisZ' 'cgeC' 'yeeK' 'yurS' 'yodI' 'sspG' 'cotS' 'oxdD'
- 'cwlC' 'S394' 'yodU' 'ylbD' 'lipC' 'cgeB' 'S22' 'cotSA']",['yxeE' 'cotC' 'yaaN' 'ymaG' 'xpaC'],['csfB'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-CsoR and SigA_genes,[],[],[],['copZ'],['copA' 'S1283'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-SigE and SigA_genes,[],[],[],['S401' 'ylxX' 'exuR' 'ylxW' 'med' 'comZ' 'uxaB' 'phoR'],"['sbp' 'divIB' 'mbl' 'murB' 'S1097' 'murG' 'uxaA' 'exuT' 'yjmF' 'ctaA'
- 'S201' 'ydhF' 'phoP' 'uxuA' 'yjmC' 'yjmD' 'S452' 'phoB']",[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-SigE and SigK_genes,[],[],[],['S610' 'yfnD' 'spsI' 'spsF' 'S1191' 'cotX' 'yfnE' 'spsE' 'spsG'],"['spsD' 'S1387' 'S841' 'S666' 'cotW' 'spsL' 'spsC' 'spsJ' 'cotE' 'S422'
+SigE_genes,[],[],['S940' 'S556'],"['glgD' 'ysxE' 'gerQ' 'yozE' 'spoVID' 'glgA' 'glgP' 'glgC' 'yheD' 'cotJA'
+ 'glgB' 'S1463' 'S343' 'yaaH' 'sqhC' 'polA' 'S1055' 'sodF' 'divIC' 'S1096'
+ 'yyaD' 'yoaW' 'spoIIID' 'yheC' 'cotJC' 'yabR' 'mutM' 'cotJB' 'yhaX'
+ 'S246' 'S1566' 'S1405' 'usd' 'S597' 'spoIIIAG' 'S704' 'ytaG' 'S559'
+ 'ytrH' 'glnP' 'yabO' 'S745' 'yodR' 'S493' 'yabQ' 'yodS' 'ytaF' 'S648'
+ 'nucB' 'spoIIIAE' 'ycgG' 'ykvI' 'yodP' 'yrrS' 'S919' 'S387' 'glnM' 'bdbC'
+ 'spoIIIAA' 'spoIIIAF' 'yabN']","['ydcA' 'ykvU' 'yxeD' 'spoVB' 'cspR' 'ytrI' 'stoA' 'spoIVFB' 'ydjP'
+ 'spoIIIAD' 'S557' 'S1049' 'asnO' 'yybI' 'citH' 'ydhD' 'kamA' 'yqfZ'
+ 'spoIIIAH' 'yqhV' 'spoIVFA' 'S1218' 'bdbD' 'yabM' 'yodQ' 'spoIIIAC'
+ 'glnQ' 'yuzC' 'ywcA' 'spoIID' 'ymxH' 'yugU' 'dacB' 'yuzH' 'yodT' 'S1041'
+ 'glnH' 'prkA' 'ywcB' 'spoIVCA' 'fisB' 'S388' 'yusQ' 'ispG' 'spoIIIAB'
+ 'mraY' 'yhbB' 'yjaV' 'mmgE' 'yngI' 'yngF' 'yhxC' 'S314' 'S226' 'ynzB'
+ 'S862' 'yesK' 'yncD' 'murD' 'S891' 'S1192' 'mmgD' 'yteV' 'yeaA' 'yngG'
+ 'ytvI' 'yokU' 'spoVV' 'yqxA' 'S551' 'spoIIM' 'yngJ' 'spoIVA' 'yjcA'
+ 'mmgC' 'yndA' 'ydjO' 'yngH' 'spoVD' 'yusR' 'yxjF' 'yngE' 'yusS' 'mmgB'
+ 'spoVR' 'S638' 'yqkF' 'spmB' 'yesJ' 'S705' 'S1090' 'yknT' 'mmgF' 'yabP'
+ 'pdaB' 'S123' 'S558' 'spmA' 'yckC' 'S441' 'yngHB' 'spoIIP' 'ylmC' 'mmgA'
+ 'spoVE' 'S647' 'S574' 'coxA' 'yocL' 'murE' 'bofA' 'ctpB' 'pbpI' 'cotO'
+ 'S649' 'yrzE' 'hbuT' 'S1500' 'gerR' 'ytxC' 'yqfD' 'yhaL' 'yjfA' 'spoVM'
+ 'ybaK' 'scoB']","['ypjB' 'scoA' 'yjdH' 'safA' 'S1056' 'S62' 'ydcC' 'mciZ' 'yhbH' 'yqfC'
+ 'yfhS' 'gerM' 'cwlD' 'S162']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+SigK and SigA_genes,[],[],['S599'],['dapA' 'dapG' 'ftsY' 'S600' 'asd'],['surC'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+SigK and SigE_genes,[],[],[],['S610' 'yfnD' 'spsI' 'spsF' 'S1191' 'cotX' 'yfnE' 'spsE' 'spsG'],"['spsD' 'S1387' 'S841' 'S666' 'cotW' 'spsL' 'spsC' 'spsJ' 'cotE' 'S422'
  'spsB' 'S421' 'S984' 'cotV' 'spsA' 'yisY' 'S729' 'cwlJ' 'cotH' 'sigK'
  'S251' 'S624' 'yhjQ' 'yppG' 'yobW' 'spsK' 'ywrJ' 'ypqA' 'yitD' 'yitC'
  'S1386' 'spoVK' 'tgl' 'yfnH' 'yfnF' 'ysnD' 'S420' 'yhjR' 'yhcO' 'cotG'
  'S393' 'cotZ' 'yfnG' 'cotM' 'cotT' 'cotY' 'cotB']",['sigKC'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-SigA and SigK_genes,[],[],['S599'],['dapA' 'dapG' 'ftsY' 'S600' 'asd'],['surC'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"CsoR, SigE, SigA, and SigK_genes",[],[],[],[],[],[],[],[],[],[],[],['sprB'],['S763'],[],"['yotH' 'yotE' 'yotG' 'yotI' 'yotB' 'yotD' 'yotK' 'yosX' 'S762' 'yotM'
+CsoR and SigA_genes,[],[],[],['copZ'],['copA' 'S1283'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+SigA and SigE_genes,[],[],[],['S401' 'ylxX' 'exuR' 'ylxW' 'med' 'comZ' 'uxaB' 'phoR'],"['sbp' 'divIB' 'mbl' 'murB' 'S1097' 'murG' 'uxaA' 'exuT' 'yjmF' 'ctaA'
+ 'S201' 'ydhF' 'phoP' 'uxuA' 'yjmC' 'yjmD' 'S452' 'phoB']",[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+"SigK, CsoR, SigA, and SigE_genes",[],[],[],[],[],[],[],[],[],[],[],['sprB'],['S763'],[],"['yotH' 'yotE' 'yotG' 'yotI' 'yotB' 'yotD' 'yotK' 'yosX' 'S762' 'yotM'
  'yotC']",['yotJ'],[],[],[],[]

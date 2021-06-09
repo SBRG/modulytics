@@ -1,15 +1,16 @@
 ,-0.2339588486583103,-0.19142087617498116,-0.14888290369165202,-0.10634493120832289,-0.06380695872499376,-0.021268986241664622,0.02126898624166451,0.06380695872499365,0.10634493120832278,0.1488829036916519,0.19142087617498105,0.23395884865831018,0.2764968211416393,0.31903479362496845,0.3615727661082976,0.4041107385916267,0.44664871107495585,0.489186683558285,0.5317246560416141,0.5742626285249433
 thresh,-0.25522783489997486,0.25522783489997486,9,,,,,,,,,,,,,,,,,
 unreg,0,0,0,0,2,1672,1539,6,0,0,0,0,0,0,0,0,0,0,0,0
-Nac,0,0,0,0,0,238,205,0,0,0,0,0,0,0,0,0,0,0,0,0
 TorR,0,0,0,0,0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0
+Nac,0,0,0,0,0,238,205,0,0,0,0,0,0,0,0,0,0,0,0,0
 Crp,0,0,0,0,1,233,232,8,0,0,0,0,0,0,0,0,0,0,0,0
-Nac and TorR,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-Nac and Crp,0,0,0,0,0,30,32,2,0,0,0,0,0,0,0,0,0,0,0,0
+TorR and Nac,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 TorR and Crp,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Nac, TorR, and Crp",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Nac, TorR, Crp, and L-tryptophan",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0
+Nac and Crp,0,0,0,0,0,30,32,2,0,0,0,0,0,0,0,0,0,0,0,0
+"TorR, Nac, and Crp",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+"TorR, Nac, Crp, and L-tryptophan",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+TorR_genes,[],[],[],[],[],['torD' 'hdeA'],['torC' 'torR' 'yhiD' 'hdeB'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 Nac_genes,[],[],[],[],[],"['ackA' 'yraH' 'yihL' 'nac' 'yhaB' 'asnC' 'rlmF' 'gltP' 'yafO' 'ecnB'
  'ydiO' 'intD' 'ytfK' 'yieE' 'fklB' 'dppA' 'ybeQ' 'yiaD' 'ybfC' 'tomB'
  'yedL' 'lpxH' 'bglH' 'yigI' 'ygaC' 'amn' 'yhfZ' 'ygjH' 'tolB' 'cycA'
@@ -54,7 +55,6 @@ Nac_genes,[],[],[],[],[],"['ackA' 'yraH' 'yihL' 'nac' 'yhaB' 'asnC' 'rlmF' 'gltP
  'metR' 'yegR' 'cydA' 'dgcT' 'pinQ' 'yfiL' 'glcA' 'yfiR' 'ynfG' 'ytfJ'
  'ddpC' 'narK' 'eptA' 'uspA' 'holE' 'cmtB' 'pfkB' 'yjcB' 'asnA' 'yiiF'
  'ydcU' 'ydcV' 'ydcS' 'lysA' 'ydcT']",[],[],[],[],[],[],[],[],[],[],[],[],[]
-TorR_genes,[],[],[],[],[],['torD' 'hdeA'],['torC' 'torR' 'yhiD' 'hdeB'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 Crp_genes,[],[],[],[],['galP'],"['aceE' 'aceF' 'fucP' 'citG' 'fumB' 'gatY' 'mhpA' 'dcuB' 'gutM' 'mhpB'
  'sgcE' 'melR' 'cspE' 'caiT' 'glpA' 'fumC' 'mdtF' 'glpD' 'malX' 'galE'
  'ntrC' 'gatZ' 'yahN' 'sgcR' 'galT' 'prpB' 'paaI' 'citF' 'nirB' 'guaB'
@@ -101,13 +101,13 @@ Crp_genes,[],[],[],[],['galP'],"['aceE' 'aceF' 'fucP' 'citG' 'fumB' 'gatY' 'mhpA
  'uxaA' 'lacZ' 'lhgO' 'nanC' 'actP' 'dsdA' 'fucO' 'tsx' 'lacI' 'puuC'
  'fadH' 'cstA' 'gpsA' 'fucR' 'lsrD' 'yiaM' 'bhsA' 'kbaZ' 'putP' 'puuE'
  'xylF' 'preA' 'dsdX' 'melA' 'hyfI' 'sodA' 'rspA' 'uidB' 'dctA' 'rbsB']",['psuK' 'cyaA' 'aldB' 'uidA' 'agaV' 'rihA' 'tdcB' 'psuG'],[],[],[],[],[],[],[],[],[],[],[],[]
-Nac and TorR_genes,[],[],[],[],[],[],['torA'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+TorR and Nac_genes,[],[],[],[],[],[],['torA'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+TorR and Crp_genes,[],[],[],[],[],['gadA'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 Nac and Crp_genes,[],[],[],[],[],"['abgR' 'mdtE' 'gatA' 'gdhA' 'gltF' 'nanA' 'rimP' 'ortT' 'srlR' 'bglB'
  'tdcA' 'malI' 'gltD' 'nupC' 'gadE' 'serA' 'nusA' 'ompF' 'feaB' 'gcvT'
  'ompR' 'ampD' 'hofC' 'hfq' 'malY' 'ompA' 'marR' 'fecD' 'gabP' 'sucA']","['fecA' 'gltB' 'nlpE' 'csiD' 'exuT' 'aceB' 'ynfK' 'mglB' 'cpdB' 'gabT'
  'gltA' 'fecE' 'sdhC' 'ilvN' 'caiF' 'nadC' 'araE' 'araF' 'osmY' 'nanK'
  'fecC' 'gabD' 'yjhI' 'hupA' 'glpK' 'mglA' 'fecB' 'dadA' 'uxaC' 'fucA'
  'feaR' 'yfaE']",['csiE' 'ansB'],[],[],[],[],[],[],[],[],[],[],[],[]
-TorR and Crp_genes,[],[],[],[],[],['gadA'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"Nac, TorR, and Crp_genes",[],[],[],[],[],[],['gadX'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"Nac, TorR, Crp, and L-tryptophan_genes",[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],['tnaB'],['tnaA'],[],[]
+"TorR, Nac, and Crp_genes",[],[],[],[],[],[],['gadX'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+"TorR, Nac, Crp, and L-tryptophan_genes",[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],['tnaB'],['tnaA'],[],[]

@@ -1,22 +1,12 @@
 ,-0.1132870438181818,-0.09062963505454544,-0.06797222629090907,-0.045314817527272705,-0.02265740876363634,2.7755575615628914e-17,0.022657408763636394,0.04531481752727276,0.06797222629090913,0.0906296350545455,0.11328704381818186,0.13594445258181823,0.1586018613454546,0.18125927010909096,0.20391667887272732,0.2265740876363637,0.24923149640000006,0.2718889051636364,0.2945463139272728,0.31720372269090913
 thresh,-0.12461574819999999,0.12461574819999999,6,,,,,,,,,,,,,,,,,
 unreg,0,0,3,25,599,2710,508,42,4,1,1,1,0,0,0,0,0,0,0,0
-RpoN,0,0,0,1,16,61,13,1,0,0,0,0,0,0,0,0,0,0,0,0
-PspF,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 IHF,0,0,0,1,25,129,22,2,0,0,0,0,0,0,0,0,0,0,0,0
-RpoN and IHF,0,0,0,0,1,32,4,2,0,0,0,0,0,0,0,0,0,0,0,0
-"RpoN, PspF, and IHF",0,0,0,0,0,0,0,1,0,0,0,0,2,1,1,0,0,1,0,0
+PspF,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+RpoN,0,0,0,1,16,61,13,1,0,0,0,0,0,0,0,0,0,0,0,0
+IHF and RpoN,0,0,0,0,1,32,4,2,0,0,0,0,0,0,0,0,0,0,0,0
+"IHF, PspF, and RpoN",0,0,0,0,0,0,0,1,0,0,0,0,2,1,1,0,0,1,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],['spy'],[],[],[],[],[],[],[],[]
-RpoN_genes,[],[],[],['gnsA'],"['nikR' 'zraR' 'hyfC' 'prpD' 'prpE' 'radD' 'ymjE' 'hyfE' 'hyfA' 'xapB'
- 'yeaH' 'nikE' 'glnK' 'rhaD' 'zraS' 'hyfF']","['ddpC' 'hyfB' 'astB' 'hydN' 'focB' 'astC' 'hyfR' 'yaaU' 'potH' 'yhjC'
- 'rutF' 'nac' 'glnL' 'argT' 'ddpF' 'prpC' 'acrD' 'htpG' 'hyfH' 'ssnA'
- 'gltI' 'relA' 'rutA' 'hisM' 'rutB' 'astD' 'hisP' 'rtcR' 'hisJ' 'potG'
- 'gltK' 'nikD' 'rutD' 'hyfI' 'hypF' 'nikC' 'potF' 'puuP' 'hisQ' 'glnA'
- 'gltL' 'ddpA' 'rutG' 'astE' 'rutC' 'hyfJ' 'yhdZ' 'potI' 'hyfG' 'xdhA'
- 'xdhC' 'yahE' 'ddpX' 'ntrC' 'ddpB' 'yeaG' 'amtB' 'rutE' 'ygfK' 'astA'
- 'yhdX']","['emrD' 'aslB' 'chaC' 'nikB' 'yhdW' 'gltJ' 'zraP' 'prpB' 'ddpD' 'hyfD'
- 'yhdY' 'xdhB' 'fdhF']",['nikA'],[],[],[],[],[],[],[],[],[],[],[],[]
-PspF_genes,[],[],[],[],[],['pspF'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 IHF_genes,[],[],[],['ompR'],"['sra' 'dps' 'fimB' 'osmE' 'fnr' 'dppB' 'adiA' 'ompC' 'nuoN' 'tyrP' 'tdcC'
  'gcd' 'ilvE' 'yjbE' 'uspA' 'cysJ' 'cysH' 'ilvG' 'tcyJ' 'gltF' 'narK'
  'paaH' 'phoU' 'paaI' 'nrfD']","['cysI' 'yiaK' 'tdcE' 'sucA' 'fimH' 'nuoA' 'fliA' 'nuoC' 'paaA' 'nrfC'
@@ -34,8 +24,18 @@ IHF_genes,[],[],[],['ompR'],"['sra' 'dps' 'fimB' 'osmE' 'fnr' 'dppB' 'adiA' 'omp
  'lyxK' 'paaC' 'ihfA' 'nirB' 'nrfE' 'fimA' 'carA' 'ssuC' 'sgbE']","['yjbG' 'gltA' 'narI' 'yjbH' 'prfA' 'paaJ' 'glpT' 'glcG' 'sodB' 'hemA'
  'sucC' 'ihfB' 'ompF' 'yjcH' 'yjbF' 'folA' 'dmsB' 'sodA' 'proV' 'pstS'
  'tdcA' 'proW']",['paaB' 'proX'],[],[],[],[],[],[],[],[],[],[],[],[]
-RpoN and IHF_genes,[],[],[],[],['hycF'],"['rseD' 'rseC' 'hycE' 'hycG' 'glnQ' 'atoE' 'patA' 'hypA' 'atoB' 'rseA'
+PspF_genes,[],[],[],[],[],['pspF'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+RpoN_genes,[],[],[],['gnsA'],"['nikR' 'zraR' 'hyfC' 'prpD' 'prpE' 'radD' 'ymjE' 'hyfE' 'hyfA' 'xapB'
+ 'yeaH' 'nikE' 'glnK' 'rhaD' 'zraS' 'hyfF']","['ddpC' 'hyfB' 'astB' 'hydN' 'focB' 'astC' 'hyfR' 'yaaU' 'potH' 'yhjC'
+ 'rutF' 'nac' 'glnL' 'argT' 'ddpF' 'prpC' 'acrD' 'htpG' 'hyfH' 'ssnA'
+ 'gltI' 'relA' 'rutA' 'hisM' 'rutB' 'astD' 'hisP' 'rtcR' 'hisJ' 'potG'
+ 'gltK' 'nikD' 'rutD' 'hyfI' 'hypF' 'nikC' 'potF' 'puuP' 'hisQ' 'glnA'
+ 'gltL' 'ddpA' 'rutG' 'astE' 'rutC' 'hyfJ' 'yhdZ' 'potI' 'hyfG' 'xdhA'
+ 'xdhC' 'yahE' 'ddpX' 'ntrC' 'ddpB' 'yeaG' 'amtB' 'rutE' 'ygfK' 'astA'
+ 'yhdX']","['emrD' 'aslB' 'chaC' 'nikB' 'yhdW' 'gltJ' 'zraP' 'prpB' 'ddpD' 'hyfD'
+ 'yhdY' 'xdhB' 'fdhF']",['nikA'],[],[],[],[],[],[],[],[],[],[],[],[]
+IHF and RpoN_genes,[],[],[],[],['hycF'],"['rseD' 'rseC' 'hycE' 'hycG' 'glnQ' 'atoE' 'patA' 'hypA' 'atoB' 'rseA'
  'atoA' 'hypB' 'rtcB' 'fhlA' 'hycB' 'dcuD' 'glnP' 'hycD' 'hypD' 'hycA'
  'rpoE' 'hycC' 'glpQ' 'rseB' 'norW' 'atoD' 'glnH' 'rtcA' 'hycH' 'rpoH'
  'actP' 'hypE']",['flhD' 'norV' 'flhC' 'hycI'],['ibpB' 'hypC'],[],[],[],[],[],[],[],[],[],[],[],[]
-"RpoN, PspF, and IHF_genes",[],[],[],[],[],[],[],['pspE'],[],[],[],[],['pspC' 'pspB'],['pspA'],['pspD'],[],[],['pspG'],[],[]
+"IHF, PspF, and RpoN_genes",[],[],[],[],[],[],[],['pspE'],[],[],[],[],['pspC' 'pspB'],['pspA'],['pspD'],[],[],['pspG'],[],[]

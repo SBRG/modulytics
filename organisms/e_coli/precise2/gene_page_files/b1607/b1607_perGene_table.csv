@@ -1,13 +1,13 @@
-k,Name,in_iM,gene_weight,Regulator,Function,Category
+k,name,in_iM,gene_weight,regulator,function,category
 104,ArcA,True,0.06976012990000001,ArcA,,Anaerobiosis
 159,SG_ydfW,False,0.0318249133,,,Unknown
 3,Membrane-1,False,0.031178838900000002,,,Membrane Homeostasis
-189,ExuR/YdfH/RhaRS,False,-0.027510822,ExuR or YdfH or RhaR or RhaS,,Carbon Metabolism
-46,PspF,False,-0.0262423573,RpoN and IHF and PspF,,Phage Shock
+189,ExuR/YdfH/RhaRS,False,-0.027510822,ExuR/YdfH/RhaR/RhaS,,Carbon Metabolism
+46,PspF,False,-0.0262423573,RpoN+IHF+PspF,,Phage Shock
 120,RpoE,False,-0.0250598437,RpoE,,Membrane Homeostasis
 201,YbaQ,False,0.024130032000000003,,,Unknown
-75,AtoC,False,-0.0216111747,RpoN and AtoC,,Fatty Acid Metabolism
-52,LldR+ArcA,False,-0.020961609200000002,ArcA and LldR,,Carbon Metabolism
+75,AtoC,False,-0.0216111747,RpoN+AtoC,,Fatty Acid Metabolism
+52,LldR+ArcA,False,-0.020961609200000002,ArcA+LldR,,Carbon Metabolism
 187,entC ALE,False,0.0201298579,,,Unknown
 195,ryhB,False,-0.019534189100000002,ryhB,,Metal Homeostasis
 59,Anaero-related,False,-0.0193994297,,,Anaerobiosis
@@ -15,40 +15,40 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 194,PhoP,False,-0.0188321935,PhoP,,Metal Homeostasis
 92,SG_ghoT,False,0.0178462162,,,Toxin/Antitoxin
 204,SG_ydfA,False,-0.0170170775,,,Unknown
-44,NikR+Fnr+NarL,False,0.016466001100000002,NikR and Fnr and NarL and RpoN,,Metal Homeostasis
-102,XylR,False,-0.016441638800000002,Crp and XylR,,Carbon Metabolism
+44,NikR+Fnr+NarL,False,0.016466001100000002,NikR+Fnr+NarL+RpoN,,Metal Homeostasis
+102,XylR,False,-0.016441638800000002,Crp+XylR,,Carbon Metabolism
 128,Single Reads,False,-0.016287818500000002,,,Unknown
 118,AHAS I,False,-0.0158777895,,,Amino Acid Metabolism
 34,NanR,False,0.0157271886,NanR,,Carbon Metabolism
-23,GalRS,False,0.0153570717,GalR and GalS and Crp,,Carbon Metabolism
-212,NtrC+RpoS,False,-0.0141228085,NtrC and RpoN and RpoS,,Nitrogen Metabolism
-171,ComR/MarR,False,-0.0135461526,ComR or MarR,,Metal Homeostasis
+23,GalRS,False,0.0153570717,GalR+GalS+Crp,,Carbon Metabolism
+212,NtrC+RpoS,False,-0.0141228085,NtrC+RpoN+RpoS,,Nitrogen Metabolism
+171,ComR/MarR,False,-0.0135461526,ComR/MarR,,Metal Homeostasis
 184,Molybdenum,False,0.0133475328,,,Metal Homeostasis
 7,SG_yqhI,False,-0.012930183500000001,,,Unknown
 90,CysB-2,False,-0.0128895126,CysB,,Amino Acid Metabolism
 149,NDH-1,False,0.012656783100000001,,,Energy Metabolism
 95,Envelope Stress,False,0.0124181181,,,Membrane Homeostasis
 10,YieP,False,0.0118621447,YieP,,Membrane Homeostasis
-114,LsrR,False,0.0118613804,RpoS and Crp and LsrR,,Quorum Sensing
+114,LsrR,False,0.0118613804,RpoS+Crp+LsrR,,Quorum Sensing
 8,SG_icdC,False,0.01165543,,,Unknown
 207,SG_alaE,False,0.0113895095,,,Unknown
-15,TdcAR/CadC,False,0.011388946700000001,TdcA or TdcR or CadC,,Amino Acid Metabolism
+15,TdcAR/CadC,False,0.011388946700000001,TdcA/TdcR/CadC,,Amino Acid Metabolism
 109,EvgA,False,-0.011116206,EvgA,,Membrane Homeostasis
 214,SG_ynaM,False,-0.0110781425,,,Unknown
 39,DksA-related,False,-0.010773397,,,Stringent Response
-181,GutM+SrlR,False,-0.0107140055,GutM and SrlR,,Carbon Metabolism
+181,GutM+SrlR,False,-0.0107140055,GutM+SrlR,,Carbon Metabolism
 125,FDH-O,False,-0.010696015500000001,,,Energy Metabolism
 73,Fnr-2,False,-0.010563037,Fnr,,Anaerobiosis
 91,FlhDC-1,False,-0.0104597041,FlhDC,,Motility
 79,Translation,False,-0.0104157407,DksA,,Translation
 186,Resistance,False,0.0102005102,,,Membrane Homeostasis
 49,SG_ynfT,False,0.010186653,,,Unknown
-131,Mlc,False,-0.0100363029,Mlc and Crp,,Carbon Metabolism
+131,Mlc,False,-0.0100363029,Mlc+Crp,,Carbon Metabolism
 25,SG_yafF,False,-0.0100306817,,,Unknown
 211,NarL,False,-0.0100027669,NarL,,Nitrogen Metabolism
 64,GntR,False,-0.009880046,GntR,,Carbon Metabolism
 148,SG_ydaF,False,-0.0098100326,,,Unknown
-45,Isoleucine,False,0.0098098329,Ile-tRNA and ppGpp,,Amino Acid Metabolism
+45,Isoleucine,False,0.0098098329,Ile-tRNA+ppGpp,,Amino Acid Metabolism
 205,SSW_cspC,False,0.009782391500000001,,,Unknown
 180,NagC,False,0.0097176799,NagC,,Carbon Metabolism
 21,SG_yfaH,False,-0.0096375592,,,Unknown
@@ -61,14 +61,14 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 71,Molybdopterin,False,0.009194322900000001,Molybdopterin,,Cofactor Metabolism
 84,Nac,False,-0.0091634199,Nac,,Nitrogen Metabolism
 168,tpiA ALE,False,0.0089553381,,,Unknown
-74,Suf System,False,0.0089238109,IHF and IscR and OxyR and ppGpp and Fur and NsrR,,Fe-S Cluster Assembly
-28,PlaR,False,-0.008630521700000001,PlaR and IHF and Crp,,Carbon Metabolism
+74,Suf System,False,0.0089238109,IHF+IscR+OxyR+ppGpp+Fur+NsrR,,Fe-S Cluster Assembly
+28,PlaR,False,-0.008630521700000001,PlaR+IHF+Crp,,Carbon Metabolism
 135,YgbI,False,0.0084982403,YgbI,,Carbon Metabolism
-199,AscG,False,-0.008494170300000001,AscG and Crp,,Carbon Metabolism
-55,PuuR,False,-0.008166669100000001,RpoS and ArcA and PuuR,,Nitrogen Metabolism
+199,AscG,False,-0.008494170300000001,AscG+Crp,,Carbon Metabolism
+55,PuuR,False,-0.008166669100000001,RpoS+ArcA+PuuR,,Nitrogen Metabolism
 129,PAL Dup,False,-0.0081108185,,,Unknown
 42,BW25113,False,-0.0080104219,,,Strain Difference
-77,Leucine,False,-0.0079301057,LeuO and Leu-tRNA and ppGpp,,Amino Acid Metabolism
+77,Leucine,False,-0.0079301057,LeuO+Leu-tRNA+ppGpp,,Amino Acid Metabolism
 208,SG_cspH,False,0.0078567362,,,Unknown
 76,ROS Del,False,-0.007826830600000001,,,Redox Stress
 144,fur KO,False,0.0078020451,,,Metal Homeostasis
@@ -80,27 +80,27 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 130,Fur-2,False,0.0074209048,Fur,,Metal Homeostasis
 192,ZraR,False,-0.0074094751,ZraR,,Metal Homeostasis
 50,CsqR,False,0.0073803332,CsqR,,Carbon Metabolism
-163,Histidine,False,0.007353318,His-tRNA and DksA,,Amino Acid Metabolism
+163,Histidine,False,0.007353318,His-tRNA+DksA,,Amino Acid Metabolism
 80,rdlC,False,-0.007294507800000001,rdlC,,Toxin/Antitoxin
 26,LPS,False,0.007277792900000001,,,Extracellular Structures
 51,CueR,False,-0.0072673980000000004,CueR,,Metal Homeostasis
-89,RbsR+dsrA,False,0.0072094297000000005,dsrA and Crp and RbsR,,Carbon Metabolism
+89,RbsR+dsrA,False,0.0072094297000000005,dsrA+Crp+RbsR,,Carbon Metabolism
 161,Crp-2,False,-0.0071948151,Crp,,Carbon Metabolism
-16,Fimbriae,False,0.0071774582,Lrp and H-NS,,Extracellular Structures
+16,Fimbriae,False,0.0071774582,Lrp+H-NS,,Extracellular Structures
 65,SG_ymgI,False,-0.0068963416000000005,,,Unknown
 142,SG_hokA,False,0.0068890964,,,Toxin/Antitoxin
-145,Glyoxylate,False,0.0068780469,Cra and IHF and Crp and IclR and ArcA,,Carbon Metabolism
-100,NtrC-1,False,-0.0068665390000000005,RpoN and NtrC,,Nitrogen Metabolism
-193,NtrC-3,False,0.0067817194,NtrC and RpoN,,Nitrogen Metabolism
+145,Glyoxylate,False,0.0068780469,Cra+IHF+Crp+IclR+ArcA,,Carbon Metabolism
+100,NtrC-1,False,-0.0068665390000000005,RpoN+NtrC,,Nitrogen Metabolism
+193,NtrC-3,False,0.0067817194,NtrC+RpoN,,Nitrogen Metabolism
 152,Fe-related-2,False,-0.0067508741,,,Metal Homeostasis
-12,Curli,False,-0.0065117915,BasR and Cra and Crp and CsgD and IHF and MlrA and OmpR and ppGpp and RcdA and CpxR and FliZ and H-NS and MqsA and BtsR and RcsAB and RstA,,Extracellular Structures
-123,PurR,False,0.0064988107000000005,ppGpp and PurR,,Nucleotide Metabolism
+12,Curli,False,-0.0065117915,BasR+Cra+Crp+CsgD+IHF+MlrA+OmpR+ppGpp+RcdA+CpxR+FliZ+H-NS+MqsA+BtsR+RcsAB+RstA,,Extracellular Structures
+123,PurR,False,0.0064988107000000005,ppGpp+PurR,,Nucleotide Metabolism
 122,Fur-1,False,-0.0064647189,Fur,,Metal Homeostasis
 209,SG_ymcE,False,-0.0063752792,,,Unknown
 29,SG_ygdT,False,-0.0062550081,,,Unknown
 40,soxS KO,False,-0.0061919642,,,Redox Stress
 147,ubiC,False,0.0061013923,,,Energy Metabolism
-134,Fnr+IHF+gcvB,False,-0.0060710442,Fnr and IHF and gcvB,,Carbon Metabolism
+134,Fnr+IHF+gcvB,False,-0.0060710442,Fnr+IHF+gcvB,,Carbon Metabolism
 188,RpoS,False,-0.0060648421000000004,RpoS,,Stringent Response
 0,e14 Removal,False,0.0060598211,,,Prophage
 81,Membrane Stress,False,-0.0060452579,,,Membrane Homeostasis
@@ -116,11 +116,11 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 167,SG_intG,False,-0.0054332199,,,Unknown
 178,gnd KO,False,-0.0052751776,,,Carbon Metabolism
 36,ECA,False,-0.0052665934,,,Extracellular Structures
-127,FucR/ExuR,False,-0.0051726303,FucR or ExuR,,Carbon Metabolism
+127,FucR/ExuR,False,-0.0051726303,FucR/ExuR,,Carbon Metabolism
 53,Thiamine-1,False,0.005001092600000001,Thiamine diphosphate,,Cofactor Metabolism
 103,Cytochrome c,False,-0.0050004421,,,Energy Metabolism
 61,SG_ydaG,False,-0.004959640600000001,,,Unknown
-190,CysB+Cbl,False,-0.0049349867,CysB and Cbl,,Amino Acid Metabolism
+190,CysB+Cbl,False,-0.0049349867,CysB+Cbl,,Amino Acid Metabolism
 206,AA-related,False,-0.0049089514,,,Amino Acid Metabolism
 210,OmpR,False,0.0049057988000000005,OmpR,,Membrane Homeostasis
 203,ROS_yedX,False,0.0048901749000000005,,,Unknown
@@ -134,9 +134,9 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 164,RpoH,False,-0.004506199000000001,RpoH,,Heat Shock
 4,CysB-1,False,-0.004346643,CysB,,Amino Acid Metabolism
 151,CCK-PGI Del,False,0.0043241505,,,Unknown
-113,asr,False,0.0040215161,PhoB and RcdA and H-NS and RstA,,Redox Stress
+113,asr,False,0.0040215161,PhoB+RcdA+H-NS+RstA,,Redox Stress
 110,menF KO,False,0.0040132426,,,Metal Homeostasis
-41,GlcC,False,0.0038035942,IHF and ArcA and PdhR and GlcC,,Carbon Metabolism
+41,GlcC,False,0.0038035942,IHF+ArcA+PdhR+GlcC,,Carbon Metabolism
 62,NsrR,False,-0.0037210502,NsrR,,Redox Stress
 177,ppGpp,False,-0.0037005019,ppGpp,,Stringent Response
 38,Cytochrome bo3,False,-0.0036785798000000002,,,Energy Metabolism
@@ -148,26 +148,26 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 156,FliA,False,-0.0033354456,FliA,,Motility
 1,SG_yzfA,False,-0.0033093119,,,Unknown
 31,RcsC-related,False,-0.0032926844000000003,,,Membrane Homeostasis
-43,BaeR+CpxR,False,0.0032644006,BaeR and CpxR,,Membrane Homeostasis
+43,BaeR+CpxR,False,0.0032644006,BaeR+CpxR,,Membrane Homeostasis
 93,Crp-1,False,0.0032163793,Crp,,Carbon Metabolism
 22,malE OE,False,0.0030722167000000002,,,Carbon Metabolism
-32,RhaS,False,-0.0029556102,Crp and RhaS,,Carbon Metabolism
+32,RhaS,False,-0.0029556102,Crp+RhaS,,Carbon Metabolism
 179,SG_ythA,False,0.0028895538000000003,,,Unknown
 139,Cra,False,0.0028878750000000003,Cra,,Carbon Metabolism
 106,SG_ynfQ,False,0.0027786439000000002,,,Prophage
-30,FhlA,False,-0.0027162521,RpoN and FhlA,,Carbon Metabolism
+30,FhlA,False,-0.0027162521,RpoN+FhlA,,Carbon Metabolism
 121,Cytochrome bd-I,False,-0.0026760175,,,Energy Metabolism
 157,FecI,False,0.0025200714,FecI,,Metal Homeostasis
 124,ArgP,False,-0.0024470864,ArgP,,Amino Acid Metabolism
 154,CdaR,False,-0.0024400815,CdaR,,Carbon Metabolism
-66,Fnr+NarLP,False,-0.0023118243,Fnr and NarP and NarL,,Nitrogen Metabolism
+66,Fnr+NarLP,False,-0.0023118243,Fnr+NarP+NarL,,Nitrogen Metabolism
 162,SG_yfiF,False,-0.0022726577,,,Unknown
 72,Membrane-2,False,-0.0022584087,,,Membrane Homeostasis
-119,ZntR/Zur/CueR,False,0.0022065368,ZntR or Zur or CueR,,Metal Homeostasis
+119,ZntR/Zur/CueR,False,0.0022065368,ZntR/Zur/CueR,,Metal Homeostasis
 96,SG_ytiC,False,0.0021776244,,,Unknown
 57,Hydrogenase 1,False,-0.0021530433,,,Redox Stress
 2,SG_ytiD,False,0.0020523769,,,Unknown
-155,PrpR+Cra,False,0.0020416807,RpoN and PrpR and Cra,,Carbon Metabolism
+155,PrpR+Cra,False,0.0020416807,RpoN+PrpR+Cra,,Carbon Metabolism
 173,SG_xisR,False,0.0020403809,,,Unknown
 54,SG_yoaI,False,0.0020349164,,,Unknown
 94,ArgR,False,-0.0019972163,ArgR,,Amino Acid Metabolism
@@ -175,44 +175,44 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 85,pgi KO,False,-0.001831857,,,Carbon Metabolism
 82,RcnR,False,-0.0018231402,RcnR,,Metal Homeostasis
 78,SoxS,False,-0.0018203696,SoxS,,Redox Stress
-33,sokB/rdlD,False,0.0017490518,sokB or rdlD,,Toxin/Antitoxin
+33,sokB/rdlD,False,0.0017490518,sokB/rdlD,,Toxin/Antitoxin
 111,CP4-44,False,0.0017385235,,,Prophage
 14,Fnr-1,False,-0.0015583355,Fnr,,Anaerobiosis
 67,RcsAB,False,0.0015095823,RcsAB,,Membrane Homeostasis
 138,SG_yjiS,False,-0.0014985010000000002,,,Unknown
-141,flhDC,False,-0.00145632,Crp and H-NS and QseB and AcrR and Fur and FliZ and HdfR and IHF and LrhA and OmpR and RcsAB and YjjQ,,Motility
-176,GadEXW,False,-0.0014455825000000001,GadE or GadX or GadW,,Redox Stress
+141,flhDC,False,-0.00145632,Crp+H-NS+QseB+AcrR+Fur+FliZ+HdfR+IHF+LrhA+OmpR+RcsAB+YjjQ,,Motility
+176,GadEXW,False,-0.0014455825000000001,GadE/GadX/GadW,,Redox Stress
 70,SG_yoaG,False,-0.001437907,,,Unknown
 172,GcvA,False,0.001434275,GcvA,,Amino Acid Metabolism
 160,YgeV,False,0.0013806445,,,Unknown
 47,OxyR,False,-0.0013506478,OxyR,,Redox Stress
 86,KdpE,False,-0.0013477697,KdpE,,Metal Homeostasis
 191,FlhDC-2,False,-0.0013037752000000001,FlhDC,,Motility
-146,PaaX,False,-0.0012673081,IHF and Crp and PaaX,,Carbon Metabolism
+146,PaaX,False,-0.0012673081,IHF+Crp+PaaX,,Carbon Metabolism
 117,UC-1,False,0.0012338152,,,Unknown
-143,NtrC-2,False,0.0011269876,NtrC and RpoN,,Nitrogen Metabolism
+143,NtrC-2,False,0.0011269876,NtrC+RpoN,,Nitrogen Metabolism
 158,CpxR,False,0.0011233186,CpxR,,Membrane Homeostasis
 60,pdhR KO,False,0.0010775296,,,Carbon Metabolism
 88,ALE Muts,False,0.0010135403,,,Unknown
 35,FadR,False,-0.0010087989,FadR,,Fatty Acid Metabolism
 185,MetJ,False,0.0009849057000000001,MetJ,,Amino Acid Metabolism
 27,PyrR,False,0.0007994048,PyrR,,Carbon Metabolism
-170,GadE+FliZ,False,0.0007975178,GadE and FliZ,,Membrane Homeostasis
+170,GadE+FliZ,False,0.0007975178,GadE+FliZ,,Membrane Homeostasis
 175,Hot TALE Mut-2,False,0.0007748917,,,Unknown
 69,TyrR,False,0.0007664269,TyrR,,Amino Acid Metabolism
-48,Tryptophan,False,0.0007246158,TrpR or Trp-tRNA or L-tryptophan,,Amino Acid Metabolism
+48,Tryptophan,False,0.0007246158,TrpR/Trp-tRNA/L-tryptophan,,Amino Acid Metabolism
 101,YmfT,False,0.0006827329,,,Unknown
-18,Fnr+NarL,False,-0.0006285756,Fnr and NarL,,Nitrogen Metabolism
+18,Fnr+NarL,False,-0.0006285756,Fnr+NarL,,Nitrogen Metabolism
 9,NQ-ALE3,False,-0.0006038462000000001,,,Energy Metabolism
 198,pts KO,False,-0.000510068,,,Carbon Metabolism
 17,UTP,False,-0.0004828611,PurR,,Nucleotide Metabolism
 24,BtsR,False,0.00040650200000000005,BtsR,,Carbon Metabolism
 107,SG_ykgR,False,-0.00038518090000000003,,,Unknown
-5,CueR/CusR/HprR,False,0.0003834271,CueR or CusR or HprR,,Metal Homeostasis
-136,ComR/FlhDC/SgrR,False,0.0003076442,ComR or FlhDC or SgrR,,Motility
+5,CueR/CusR/HprR,False,0.0003834271,CueR/CusR/HprR,,Metal Homeostasis
+136,ComR/FlhDC/SgrR,False,0.0003076442,ComR/FlhDC/SgrR,,Motility
 133,CecR,False,-0.0002959687,CecR,,Membrane Homeostasis
 140,GlpR-1,False,0.0002022367,GlpR,,Carbon Metabolism
-126,AllR/AraC/FucR,False,0.0001034891,FucR or AraC or AllR,,Carbon Metabolism
+126,AllR/AraC/FucR,False,0.0001034891,FucR/AraC/AllR,,Carbon Metabolism
 83,Lrp,False,-7.965130000000001e-05,Lrp,,Amino Acid Metabolism
 137,LexA,False,1.41718e-05,LexA,,DNA Damage
 87,PhoB-2,False,-6.0627e-06,PhoB,,Phosphate Metabolism

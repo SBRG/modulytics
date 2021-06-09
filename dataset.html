@@ -255,14 +255,14 @@
 
         // columns object
         var columns = [
-            {title: "iModulon Name", field: "Name", frozen: true, formatter: "textarea", widthGrow: 2},
+            {title: "iModulon Name", field: "name", frozen: true, formatter: "textarea", widthGrow: 2},
             {
-                title: "Regulator", field: "Regulator", formatter: "textarea",
+                title: "Regulator", field: "regulator_readable", formatter: "textarea",
                 width: 150, sorterParams: {alignEmptyValues: "bottom"}, widthGrow: 2
             },
-            {title: "Function", field: "Function", formatter: "textarea", widthGrow: 3},
+            {title: "Function", field: "function", formatter: "textarea", widthGrow: 3},
             {
-                title: "Category", field: "Category", formatter: "textarea",
+                title: "Category", field: "category", formatter: "textarea",
                 sorter: function (a, b, aRow, bRow, column, dir, sorterParams) {
                     return aRow.getData().category_num - bRow.getData().category_num;
                 },
@@ -303,8 +303,8 @@
             data: tabledata,
             columns: columns,
             initialSort: [
-                {column: "Name", dir: "asc"},
-                {column: "Regulator", dir: "asc"},
+                {column: "name", dir: "asc"},
+                {column: "regulator_readable", dir: "asc"},
                 {column: "exp_var", dir: "desc"}
             ],
             /*[ //old version

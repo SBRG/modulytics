@@ -2,25 +2,25 @@
 thresh,-0.08852793352551944,0.08852793352551944,21,,,,,,,,,,,,,,,,,
 unreg,0,0,0,0,0,2,29,1611,1419,23,1,0,0,1,0,0,0,0,0,0
 RpoS,0,0,0,0,0,1,1,96,88,3,0,0,0,0,0,0,0,0,0,0
-GadX,0,0,0,0,0,0,0,6,4,0,0,0,0,0,0,0,0,0,0,0
 GadE,0,0,0,0,0,0,0,8,5,0,0,0,0,0,0,0,0,0,0,0
 ppGpp,0,0,0,0,0,3,4,358,387,13,1,0,0,0,0,0,0,0,0,0
-RpoS and GadX,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0
-RpoS and FliZ,0,0,0,0,0,0,0,2,2,1,0,0,0,0,0,0,0,0,0,0
+GadX,0,0,0,0,0,0,0,6,4,0,0,0,0,0,0,0,0,0,0,0
 RpoS and GadE,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0
 RpoS and ppGpp,0,0,0,0,0,0,2,41,54,6,1,1,0,0,0,0,0,0,0,0
-GadX and ppGpp,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0
-GadX and GadW,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
-FliZ and ppGpp,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0
+RpoS and GadX,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0
+RpoS and FliZ,0,0,0,0,0,0,0,2,2,1,0,0,0,0,0,0,0,0,0,0
 GadE and ppGpp,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0
-"RpoS, GadX, FliZ, GadE, ppGpp, and GadW",1,0,1,0,0,0,0,1,1,0,0,2,0,0,2,0,0,0,0,0
-"GadX, ppGpp, and GadW",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"RpoS, GadX, GadE, and ppGpp",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"RpoS, FliZ, and ppGpp",0,0,0,0,0,0,0,1,4,0,0,0,0,0,0,0,0,0,0,0
+ppGpp and GadX,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0
+ppGpp and FliZ,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0
+GadX and GadW,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+"RpoS, GadE, ppGpp, GadX, FliZ, and GadW",1,0,1,0,0,0,0,1,1,0,0,2,0,0,2,0,0,0,0,0
+"ppGpp, GadX, and GadW",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"RpoS, GadE, ppGpp, and GadX",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+"RpoS, ppGpp, and FliZ",0,0,0,0,0,0,0,1,4,0,0,0,0,0,0,0,0,0,0,0
 "RpoS, GadE, and ppGpp",0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0
-"RpoS, GadX, GadE, ppGpp, and GadW",0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0
-"RpoS, GadX, and ppGpp",0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0
-"RpoS, GadX, ppGpp, and GadW",0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+"RpoS, GadE, ppGpp, GadX, and GadW",0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0
+"RpoS, ppGpp, and GadX",0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0
+"RpoS, ppGpp, GadX, and GadW",0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],[],[],['cnu'],[],[],[],[],[],[]
 RpoS_genes,[],[],[],[],[],['fumC'],['dkgB'],"['murQ' 'pphA' 'sucA' 'actP' 'evgA' 'ydhY' 'ydbK' 'ydcS' 'yffP' 'artP'
  'ydcU' 'ravA' 'astE' 'pqiB' 'ynfF' 'dhaM' 'baeS' 'yhfG' 'puuP' 'baeR'
@@ -40,7 +40,6 @@ RpoS_genes,[],[],[],[],[],['fumC'],['dkgB'],"['murQ' 'pphA' 'sucA' 'actP' 'evgA'
  'yciF' 'sucD' 'yciT' 'yffO' 'galE' 'btsT' 'ddpA' 'pdhR' 'xapB' 'yqiI'
  'hyaA' 'oxyR' 'galT' 'hyaC' 'araF' 'frdB' 'hofO' 'ddpF' 'hyaD' 'hofN'
  'ompN' 'frdA' 'blr' 'ydhW' 'csiE' 'ydhU' 'ydhT' 'yafO']",['nhaR' 'appC' 'appB'],[],[],[],[],[],[],[],[],[],[]
-GadX_genes,[],[],[],[],[],[],[],['ydeN' 'murI' 'lon' 'ydeM' 'dtpA' 'btuB'],['cadB' 'hns' 'glnK' 'amtB'],[],[],[],[],[],[],[],[],[],[],[]
 GadE_genes,[],[],[],[],[],[],[],['fabZ' 'skp' 'purA' 'lpxD' 'rcsA' 'cyoD' 'lpxA' 'cyoC'],['cyoA' 'cyoB' 'gnd' 'fliC' 'cyoE'],[],[],[],[],[],[],[],[],[],[],[]
 ppGpp_genes,[],[],[],[],[],['yahO' 'yegR' 'crp'],['ydiY' 'nrfA' 'ycaD' 'greA'],"['gfcC' 'tyrP' 'emrD' 'uhpA' 'argR' 'iraP' 'tabA' 'rutR' 'yfcZ' 'yegQ'
  'trmA' 'ygaM' 'yagU' 'pyrG' 'hdhA' 'yqaE' 'raiA' 'uhpB' 'cysK' 'ybgS'
@@ -117,8 +116,7 @@ ppGpp_genes,[],[],[],[],[],['yahO' 'yegR' 'crp'],['ydiY' 'nrfA' 'ycaD' 'greA'],"
  'ytfL' 'sbmC' 'sufE' 'yhjD' 'sgbE' 'yhbW' 'mltD' 'yjhI' 'ivy' 'mgtA'
  'lysS' 'yphA' 'rluA' 'rpmE' 'ytfI' 'yhjC']","['uspF' 'infA' 'leuO' 'alx' 'adhP' 'pgl' 'yghA' 'gdhA' 'kch' 'ybaA' 'ydgK'
  'aroM' 'yjjU']",['dmlA'],[],[],[],[],[],[],[],[],[]
-RpoS and GadX_genes,[],[],[],[],[],[],[],['ynfB' 'speG'],[],[],[],[],[],[],[],[],[],[],[],[]
-RpoS and FliZ_genes,[],[],[],[],[],[],[],['csgA' 'csgB'],['pdeR' 'csgC'],['mlrA'],[],[],[],[],[],[],[],[],[],[]
+GadX_genes,[],[],[],[],[],[],[],['ydeN' 'murI' 'lon' 'ydeM' 'dtpA' 'btuB'],['cadB' 'hns' 'glnK' 'amtB'],[],[],[],[],[],[],[],[],[],[],[]
 RpoS and GadE_genes,[],[],[],[],[],[],[],[],['gltF'],[],[],[],[],[],[],[],[],['yhiM'],[],[]
 RpoS and ppGpp_genes,[],[],[],[],[],[],['ariR' 'osmF'],"['pabA' 'proW' 'proV' 'csiD' 'pqiA' 'yggE' 'blc' 'speC' 'uspB' 'csrA'
  'poxB' 'proX' 'tam' 'puuA' 'pcnB' 'rsmG' 'mglA' 'msyB' 'sgrT' 'ftsQ'
@@ -130,15 +128,17 @@ RpoS and ppGpp_genes,[],[],[],[],[],[],['ariR' 'osmF'],"['pabA' 'proW' 'proV' 'c
  'recF' 'tktB' 'rpoE' 'artQ' 'osmC' 'glgC' 'otsA' 'katE' 'hdfR' 'glgA'
  'murR' 'dps' 'ybjP' 'gabP' 'glgP' 'cfa' 'hmp' 'iraD' 'glgS' 'insI-1'
  'fbaB' 'patA' 'acnA' 'yadS']",['narU' 'hchA' 'appA' 'nhaA' 'rsd' 'cbpA'],['cbpM'],['aidB'],[],[],[],[],[],[],[],[]
-GadX and ppGpp_genes,[],[],[],[],[],[],[],[],['cadA' 'uspE' 'asnB' 'rpoS'],[],[],[],[],[],[],[],[],[],[],[]
-GadX and GadW_genes,[],[],[],[],[],[],[],[],[],[],['dctR'],[],[],[],[],[],[],[],[],[]
-FliZ and ppGpp_genes,[],[],[],[],[],[],[],['flhD'],['yjbJ' 'flhC'],[],[],[],[],[],[],[],[],[],[],[]
+RpoS and GadX_genes,[],[],[],[],[],[],[],['ynfB' 'speG'],[],[],[],[],[],[],[],[],[],[],[],[]
+RpoS and FliZ_genes,[],[],[],[],[],[],[],['csgA' 'csgB'],['pdeR' 'csgC'],['mlrA'],[],[],[],[],[],[],[],[],[],[]
 GadE and ppGpp_genes,[],[],[],[],[],[],[],['lrp'],['yjbR' 'yjbQ'],[],[],[],[],[],[],[],[],[],[],[]
-"RpoS, GadX, FliZ, GadE, ppGpp, and GadW_genes",['hdeB'],[],['hdeA'],[],[],[],[],['gadE'],['yhiD'],[],[],['mdtE' 'mdtF'],[],[],['gadB' 'gadC'],[],[],[],[],[]
-"GadX, ppGpp, and GadW_genes",[],[],[],[],['slp'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"RpoS, GadX, GadE, and ppGpp_genes",[],[],[],[],[],[],['hdeD'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"RpoS, FliZ, and ppGpp_genes",[],[],[],[],[],[],[],['csgF'],['osmY' 'csgE' 'csgG' 'csgD'],[],[],[],[],[],[],[],[],[],[],[]
+ppGpp and GadX_genes,[],[],[],[],[],[],[],[],['cadA' 'uspE' 'asnB' 'rpoS'],[],[],[],[],[],[],[],[],[],[],[]
+ppGpp and FliZ_genes,[],[],[],[],[],[],[],['flhD'],['yjbJ' 'flhC'],[],[],[],[],[],[],[],[],[],[],[]
+GadX and GadW_genes,[],[],[],[],[],[],[],[],[],[],['dctR'],[],[],[],[],[],[],[],[],[]
+"RpoS, GadE, ppGpp, GadX, FliZ, and GadW_genes",['hdeB'],[],['hdeA'],[],[],[],[],['gadE'],['yhiD'],[],[],['mdtE' 'mdtF'],[],[],['gadB' 'gadC'],[],[],[],[],[]
+"ppGpp, GadX, and GadW_genes",[],[],[],[],['slp'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+"RpoS, GadE, ppGpp, and GadX_genes",[],[],[],[],[],[],['hdeD'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+"RpoS, ppGpp, and FliZ_genes",[],[],[],[],[],[],[],['csgF'],['osmY' 'csgE' 'csgG' 'csgD'],[],[],[],[],[],[],[],[],[],[],[]
 "RpoS, GadE, and ppGpp_genes",[],[],[],[],[],[],[],['gltB' 'gltD'],[],[],[],[],[],[],[],[],[],[],[],[]
-"RpoS, GadX, GadE, ppGpp, and GadW_genes",[],[],[],[],[],[],[],['gadW' 'gadX'],[],[],[],[],[],[],[],[],[],[],[],[]
-"RpoS, GadX, and ppGpp_genes",[],[],[],[],[],[],[],[],[],[],['glsA'],['ybaT'],[],[],[],[],[],[],[],[]
-"RpoS, GadX, ppGpp, and GadW_genes",[],[],[],[],[],[],[],[],[],[],[],[],[],[],['gadA'],[],[],[],[],[]
+"RpoS, GadE, ppGpp, GadX, and GadW_genes",[],[],[],[],[],[],[],['gadW' 'gadX'],[],[],[],[],[],[],[],[],[],[],[],[]
+"RpoS, ppGpp, and GadX_genes",[],[],[],[],[],[],[],[],[],[],['glsA'],['ybaT'],[],[],[],[],[],[],[],[]
+"RpoS, ppGpp, GadX, and GadW_genes",[],[],[],[],[],[],[],[],[],[],[],[],[],[],['gadA'],[],[],[],[],[]

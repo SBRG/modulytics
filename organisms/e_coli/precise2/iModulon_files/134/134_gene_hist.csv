@@ -2,12 +2,12 @@
 thresh,-0.09189337524999999,0.09189337524999999,8,,,,,,,,,,,,,,,,,
 unreg,0,2,33,610,2504,505,28,8,1,1,1,0,0,0,0,0,0,0,0,0
 IHF,0,0,2,22,78,31,4,1,0,0,0,0,0,0,0,0,0,0,0,0
-gcvB,0,0,1,8,34,8,6,1,0,0,1,0,0,0,0,0,0,0,0,0
 Fnr,0,0,0,50,148,29,3,0,0,0,0,0,0,0,0,0,0,0,0,0
-IHF and gcvB,0,0,0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gcvB,0,0,1,8,34,8,6,1,0,0,1,0,0,0,0,0,0,0,0,0
 IHF and Fnr,0,0,1,10,48,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-gcvB and Fnr,0,1,0,0,3,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"IHF, gcvB, and Fnr",0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,4,0,0
+IHF and gcvB,0,0,0,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Fnr and gcvB,0,1,0,0,3,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+"IHF, Fnr, and gcvB",0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,4,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],['dadA'],['dadX'],[],[],[],[],[],[],[],[],[]
 IHF_genes,[],[],['ompC' 'hycA'],"['rpoE' 'glcA' 'rseA' 'yiaL' 'ihfB' 'dps' 'hipB' 'glcB' 'hemF' 'rseC'
  'carB' 'folA' 'pspE' 'hycG' 'rseB' 'pspB' 'atoD' 'ilvG' 'fimF' 'yjbE'
@@ -22,10 +22,6 @@ IHF_genes,[],[],['ompC' 'hycA'],"['rpoE' 'glcA' 'rseA' 'yiaL' 'ihfB' 'dps' 'hipB
  'mtr' 'glnP' 'atoB' 'proX' 'fimH' 'ulaG' 'paaE' 'proW' 'sgbE' 'cysI'
  'hycH' 'paaI' 'fimB' 'paaJ' 'pspG' 'osmY' 'ilvE' 'uspB' 'yjbF' 'cysJ'
  'glnQ']",['ilvD' 'ompF' 'ilvA' 'tyrP'],['sodB'],[],[],[],[],[],[],[],[],[],[],[],[]
-gcvB_genes,[],[],['ygeG'],['yedN' 'ygeF' 'rfbA' 'cysD' 'clpB' 'argT' 'ybfB' 'ilvC'],"['glf' 'wbbH' 'opgB' 'sfmH' 'casD' 'htpG' 'rfbX' 'yhaC' 'ygeI' 'dnaK'
- 'gatZ' 'gltI' 'ymgG' 'yibG' 'wbbJ' 'asnB' 'yafU' 'phoP' 'ypjC' 'lon'
- 'oppA' 'ibpA' 'adeQ' 'hdeB' 'fimZ' 'ygeN' 'yebB' 'groS' 'lrp' 'phoQ'
- 'inaA' 'srlD' 'srlB' 'yhiL']",['livK' 'yjbM' 'panD' 'ilvB' 'slp' 'oppF' 'asnA' 'nlpA'],['oppD' 'serA' 'yifK' 'livJ' 'oppB' 'oppC'],['cycA'],[],[],['sstT'],[],[],[],[],[],[],[],[],[]
 Fnr_genes,[],[],[],"['hlyE' 'hcp' 'fepE' 'uraA' 'narL' 'feoA' 'pykA' 'hyfI' 'hyfB' 'ccmB'
  'hyfF' 'gcvT' 'ompX' 'moaB' 'nrdD' 'citF' 'hmp' 'malP' 'citD' 'arcA'
  'hyfA' 'moaA' 'garR' 'moaC' 'caiD' 'upp' 'ccmC' 'cyoA' 'moaE' 'aceE'
@@ -47,12 +43,16 @@ Fnr_genes,[],[],[],"['hlyE' 'hcp' 'fepE' 'uraA' 'narL' 'feoA' 'pykA' 'hyfI' 'hyf
  'ychO' 'ydhY' 'ompW' 'ycaC' 'fdhF' 'cydD' 'garP' 'focB']","['rplP' 'fixC' 'caiE' 'katG' 'rpmC' 'hyfH' 'soxR' 'xdhC' 'rpsQ' 'cheR'
  'ynfE' 'nikA' 'ynfF' 'ydeJ' 'napB' 'caiA' 'grcA' 'glpB' 'caiF' 'fumA'
  'napF' 'nfeR' 'ynfG' 'glpA' 'nac' 'dcuC' 'frdC' 'frdB' 'frdA']",['frdD' 'gadW' 'aroP'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-IHF and gcvB_genes,[],[],[],['csgD'],['csgE' 'csgG' 'tcyJ' 'csgF'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+gcvB_genes,[],[],['ygeG'],['yedN' 'ygeF' 'rfbA' 'cysD' 'clpB' 'argT' 'ybfB' 'ilvC'],"['glf' 'wbbH' 'opgB' 'sfmH' 'casD' 'htpG' 'rfbX' 'yhaC' 'ygeI' 'dnaK'
+ 'gatZ' 'gltI' 'ymgG' 'yibG' 'wbbJ' 'asnB' 'yafU' 'phoP' 'ypjC' 'lon'
+ 'oppA' 'ibpA' 'adeQ' 'hdeB' 'fimZ' 'ygeN' 'yebB' 'groS' 'lrp' 'phoQ'
+ 'inaA' 'srlD' 'srlB' 'yhiL']",['livK' 'yjbM' 'panD' 'ilvB' 'slp' 'oppF' 'asnA' 'nlpA'],['oppD' 'serA' 'yifK' 'livJ' 'oppB' 'oppC'],['cycA'],[],[],['sstT'],[],[],[],[],[],[],[],[],[]
 IHF and Fnr_genes,[],[],['glpT'],['focA' 'glpQ' 'nrfF' 'tdcG' 'nrfC' 'tdcE' 'tdcF' 'pflB' 'norV' 'ssuA'],"['cysG' 'tdcC' 'ubiC' 'nuoA' 'narK' 'nirC' 'dmsC' 'tdcA' 'narH' 'pstS'
  'nuoB' 'hypB' 'nrfG' 'dmsB' 'nuoI' 'nuoJ' 'phoU' 'ndh' 'tdcB' 'sodA'
  'hypE' 'norW' 'tdcD' 'narG' 'pstC' 'hypD' 'ssuD' 'nuoL' 'nuoK' 'nrfA'
  'nuoH' 'dmsA' 'hypC' 'nuoE' 'nirB' 'nrfD' 'nuoC' 'fnr' 'nuoF' 'nuoG'
  'fhlA' 'yeiL' 'narJ' 'gltF' 'nuoM' 'nrfE' 'narI' 'hemA']","['ubiA' 'pstB' 'nirD' 'gltD' 'nrfB' 'ssuC' 'sucD' 'gltB' 'pstA' 'prfA'
  'sucB' 'sucA' 'ssuB' 'sucC' 'prmC' 'nuoN']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-gcvB and Fnr_genes,[],['adhE'],[],[],['ydhU' 'emrY' 'ysgA'],[],['gdhA'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"IHF, gcvB, and Fnr_genes",[],[],[],[],['ssuE'],[],[],[],[],[],[],[],[],[],['dppA'],[],[],['dppD' 'dppB' 'dppF' 'dppC'],[],[]
+IHF and gcvB_genes,[],[],[],['csgD'],['csgE' 'csgG' 'tcyJ' 'csgF'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+Fnr and gcvB_genes,[],['adhE'],[],[],['ydhU' 'emrY' 'ysgA'],[],['gdhA'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+"IHF, Fnr, and gcvB_genes",[],[],[],[],['ssuE'],[],[],[],[],[],[],[],[],[],['dppA'],[],[],['dppD' 'dppB' 'dppF' 'dppC'],[],[]

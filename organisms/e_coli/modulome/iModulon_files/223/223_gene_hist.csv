@@ -1,13 +1,17 @@
 ,-0.1213454615992494,-0.09707636927939953,-0.07280727695954965,-0.04853818463969978,-0.024269092319849903,-2.7755575615628914e-17,0.024269092319849847,0.048538184639699736,0.0728072769595496,0.09707636927939946,0.12134546159924935,0.14561455391909922,0.16988364623894908,0.19415273855879894,0.21842183087864886,0.24269092319849872,0.2669600155183486,0.29122910783819844,0.3154982001580483,0.3397672924778982
 thresh,-0.13348000775917435,0.13348000775917435,7,,,,,,,,,,,,,,,,,
 unreg,0,0,3,16,426,2403,393,26,1,1,0,0,0,0,0,0,0,0,0,0
-ppGpp,0,0,1,8,110,587,109,5,1,0,0,0,0,0,0,0,0,0,0,0
-DksA,0,0,0,0,2,24,5,0,0,0,0,0,0,0,0,0,0,0,0,0
 Thiamine diphosphate,0,0,0,1,1,4,0,0,0,0,0,0,0,0,0,1,0,0,1,0
-ppGpp and DksA,0,0,0,0,15,57,3,0,0,0,0,0,0,0,0,0,0,0,0,0
-ppGpp and SgrR,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"ppGpp, DksA, and SgrR",0,0,0,0,0,3,0,0,0,0,0,0,3,0,0,0,0,0,0,0
+DksA,0,0,0,0,2,24,5,0,0,0,0,0,0,0,0,0,0,0,0,0
+ppGpp,0,0,1,8,110,587,109,5,1,0,0,0,0,0,0,0,0,0,0,0
+SgrR and ppGpp,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+DksA and ppGpp,0,0,0,0,15,57,3,0,0,0,0,0,0,0,0,0,0,0,0,0
+"SgrR, DksA, and ppGpp",0,0,0,0,0,3,0,0,0,0,0,0,3,0,0,0,0,0,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+Thiamine diphosphate_genes,[],[],[],['thiE'],['thiC'],['thiF' 'thiG' 'thiH' 'thiS'],[],[],[],[],[],[],[],[],[],['thiM'],[],[],['thiD'],[]
+DksA_genes,[],[],[],[],['rpoC' 'spoT'],"['trmH' 'hisC' 'fadR' 'rpmD' 'ihfB' 'thrS' 'rpmI' 'ihfA' 'pheT' 'rpoZ'
+ 'rpmJ' 'hisA' 'hisG' 'recG' 'hisH' 'rpmG' 'fabG' 'rpmC' 'rpsC' 'hisB'
+ 'rplV' 'hisI' 'fabD' 'rplP']",['fusA' 'hisF' 'tufA' 'fabH' 'rpsQ'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 ppGpp_genes,[],[],['yqcC'],['gadE' 'glgS' 'yihI' 'yiaG' 'rsd' 'yfjW' 'yqeH' 'ybcI'],"['dgcF' 'rpsO' 'yfgJ' 'satP' 'csgF' 'argT' 'yiiS' 'truC' 'gdhA' 'yeaO'
  'glsB' 'sodC' 'elaB' 'yadK' 'ytfI' 'lepA' 'mntP' 'ansP' 'yfhL' 'evgS'
  'lpxH' 'pheP' 'mcrA' 'hcaT' 'tcdA' 'speC' 'mhpC' 'clcB' 'treF' 'yqaE'
@@ -87,16 +91,12 @@ ppGpp_genes,[],[],['yqcC'],['gadE' 'glgS' 'yihI' 'yiaG' 'rsd' 'yfjW' 'yqeH' 'ybc
  'prfC' 'tyrB' 'ybhR' 'pyrF' 'ycaO' 'yabI' 'yjjU' 'tesA' 'sfmC' 'yegS'
  'hlyE' 'pyrC' 'potI' 'opgC' 'ygdQ' 'pxpB' 'yadS' 'serC' 'osmY' 'yjbJ'
  'ybdK' 'ybgS' 'katG' 'ycaM' 'queA' 'purB' 'yhbO' 'yeiS' 'mgtA']",['ybaQ' 'yagU' 'yjfY' 'dmlA' 'waaH'],['chiQ'],[],[],[],[],[],[],[],[],[],[],[]
-DksA_genes,[],[],[],[],['rpoC' 'spoT'],"['trmH' 'hisC' 'fadR' 'rpmD' 'ihfB' 'thrS' 'rpmI' 'ihfA' 'pheT' 'rpoZ'
- 'rpmJ' 'hisA' 'hisG' 'recG' 'hisH' 'rpmG' 'fabG' 'rpmC' 'rpsC' 'hisB'
- 'rplV' 'hisI' 'fabD' 'rplP']",['fusA' 'hisF' 'tufA' 'fabH' 'rpsQ'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-Thiamine diphosphate_genes,[],[],[],['thiE'],['thiC'],['thiF' 'thiG' 'thiH' 'thiS'],[],[],[],[],[],[],[],[],[],['thiM'],[],[],['thiD'],[]
-ppGpp and DksA_genes,[],[],[],[],"['rseC' 'rpsM' 'iraP' 'rpsK' 'rplM' 'fis' 'tktB' 'talA' 'rplJ' 'yhbE'
+SgrR and ppGpp_genes,[],[],[],[],[],['alaC'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+DksA and ppGpp_genes,[],[],[],[],"['rseC' 'rpsM' 'iraP' 'rpsK' 'rplM' 'fis' 'tktB' 'talA' 'rplJ' 'yhbE'
  'rplK' 'rpsU' 'rseB' 'dusB' 'thrA']","['dksA' 'rpsI' 'dnaG' 'rpsJ' 'fimB' 'rpsD' 'rpoB' 'rplU' 'rplY' 'rplA'
  'csrA' 'gluQ' 'rplQ' 'thrC' 'rpsT' 'hmp' 'thrB' 'rplT' 'pheS' 'hisD'
  'rpsE' 'rpoA' 'livJ' 'rplE' 'rplD' 'rpoS' 'rplL' 'rplC' 'rimM' 'ytiC'
  'rplB' 'rpmA' 'rpsS' 'rpsN' 'mutM' 'rplR' 'rplF' 'rpsH' 'rseA' 'rplW'
  'rplN' 'secY' 'trmD' 'folK' 'obgE' 'argI' 'rpmB' 'rpsP' 'rplO' 'ytiD'
  'pcnB' 'rpoE' 'iraD' 'rplX' 'rpsL' 'rpsG' 'rplS']",['infC' 'rpoD' 'rpsA'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-ppGpp and SgrR_genes,[],[],[],[],[],['alaC'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"ppGpp, DksA, and SgrR_genes",[],[],[],[],[],['sgrT' 'sgrR' 'setA'],[],[],[],[],[],[],['thiQ' 'thiP' 'thiB'],[],[],[],[],[],[],[]
+"SgrR, DksA, and ppGpp_genes",[],[],[],[],[],['sgrT' 'sgrR' 'setA'],[],[],[],[],[],[],['thiQ' 'thiP' 'thiB'],[],[],[],[],[],[],[]
