@@ -1,13 +1,15 @@
 ,-0.09359880555555555,-0.07019910416666666,-0.04679940277777778,-0.02339970138888889,0.0,0.02339970138888889,0.04679940277777778,0.07019910416666666,0.09359880555555555,0.11699850694444444,0.14039820833333333,0.1637979097222222,0.1871976111111111,0.21059731250000002,0.23399701388888888,0.25739671527777774,0.28079641666666666,0.3041961180555556,0.32759581944444444,0.3509955208333333
 thresh,-0.10529865625,0.10529865625,7,,,,,,,,,,,,,,,,,
 unreg,0,1,13,477,2393,395,11,1,1,1,0,0,0,0,0,0,0,0,0,0
-ppGpp,0,1,4,119,640,111,7,4,0,0,0,0,0,0,0,0,0,0,0,0
 Leu-tRNA,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 LeuO,0,0,0,3,8,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-ppGpp and Leu-tRNA,0,0,0,0,2,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0
-ppGpp and LeuO,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"ppGpp, Leu-tRNA, and LeuO",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0
+ppGpp,0,1,4,119,640,111,7,4,0,0,0,0,0,0,0,0,0,0,0,0
+Leu-tRNA and ppGpp,0,0,0,0,2,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0
+LeuO and ppGpp,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Leu-tRNA, LeuO, and ppGpp",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],['ilvC'],[],[],[],[],[],[],[],[],[],[]
+Leu-tRNA_genes,[],[],[],[],[],['uhpC'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+LeuO_genes,[],[],[],['casA' 'yjjQ' 'cas1'],['casC' 'bglJ' 'bglG' 'cas2' 'casD' 'cadC' 'bglB' 'yghR'],['bglF' 'gltF' 'yghS'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 ppGpp_genes,[],['emrD'],['yddM' 'purR' 'yfdF' 'dgcM'],"['allB' 'ftp' 'yegQ' 'recO' 'mutM' 'yihY' 'recX' 'elaB' 'ybgS' 'ybaP'
  'yceA' 'dkgA' 'holD' 'yadV' 'yaeI' 'csiD' 'ygaM' 'ycfZ' 'puuD' 'argH'
  'yhjC' 'udk' 'ynfD' 'menD' 'udp' 'yhjY' 'ybhG' 'ybhF' 'pyrB' 'dtd' 'potI'
@@ -94,8 +96,6 @@ ppGpp_genes,[],['emrD'],['yddM' 'purR' 'yfdF' 'dgcM'],"['allB' 'ftp' 'yegQ' 'rec
  'yadK' 'codB' 'pstS' 'dadA' 'ybhN' 'glgS' 'mdtF' 'hdhA' 'yjjZ' 'tdcA'
  'sgrT' 'mdtE' 'putA' 'patA' 'osmC' 'metH' 'nupC' 'pxpC' 'ais' 'modF'
  'mhpC']",['aceB' 'yeaQ' 'ykfI' 'livJ' 'rmf' 'gltD' 'gltB'],['ilvI' 'ilvH' 'thrB' 'thrC'],[],[],[],[],[],[],[],[],[],[],[],[]
-Leu-tRNA_genes,[],[],[],[],[],['uhpC'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-LeuO_genes,[],[],[],['casA' 'yjjQ' 'cas1'],['casC' 'bglJ' 'bglG' 'cas2' 'casD' 'cadC' 'bglB' 'yghR'],['bglF' 'gltF' 'yghS'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-ppGpp and Leu-tRNA_genes,[],[],[],[],['uhpA' 'ilvM'],['ilvG' 'uhpB' 'ilvE'],['ilvA' 'ilvB' 'ilvD' 'ilvN'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-ppGpp and LeuO_genes,[],[],[],[],['casB' 'ybeQ' 'casE' 'leuO'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"ppGpp, Leu-tRNA, and LeuO_genes",[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],['leuD' 'leuA'],['leuB' 'leuC'],[],[]
+Leu-tRNA and ppGpp_genes,[],[],[],[],['uhpA' 'ilvM'],['ilvG' 'uhpB' 'ilvE'],['ilvA' 'ilvB' 'ilvD' 'ilvN'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+LeuO and ppGpp_genes,[],[],[],[],['casB' 'ybeQ' 'casE' 'leuO'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+"Leu-tRNA, LeuO, and ppGpp_genes",[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],['leuD' 'leuA'],['leuB' 'leuC'],[],[]

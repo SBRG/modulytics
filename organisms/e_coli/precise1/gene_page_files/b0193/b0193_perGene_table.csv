@@ -1,14 +1,14 @@
-k,Name,in_iM,gene_weight,Regulator,Function,Category
+k,name,in_iM,gene_weight,regulator,function,category
 9,YneJ,False,-0.036286774800000005,,Unknown Function,Regulator Discovery
 40,Fnr,False,-0.0326666978,Fnr,Anaerobic response,Energy Metabolism
-23,Cbl+CysB,False,0.0325381567,Cbl and CysB,Aliphatic sulfonate utilization,Miscellaneous Metabolism
+23,Cbl+CysB,False,0.0325381567,Cbl+CysB,Aliphatic sulfonate utilization,Miscellaneous Metabolism
 66,EvgA,False,0.0323827987,EvgA,Acid and osmotic stress response,Stress Response
 88,iron-related,False,-0.030168825000000003,,Related to iron metabolism,Biological Enrichment
 56,PuuR,False,0.030145508600000002,PuuR,Putrescine catabolism,Miscellaneous Metabolism
 6,proVWX,False,-0.0288314908,,Glycine betaine transport,Biological Enrichment
 8,ArgR,False,0.0285365152,ArgR,Arginine biosynthesis,Amino Acid and Nucleotide Biosynthesis
 22,PurR-2,False,0.0282057923,PurR,Pyrimidine biosynthesis,Amino Acid and Nucleotide Biosynthesis
-80,GntR/TyrR,False,0.026346296800000002,GntR or TyrR,Gluconate catabolism and tyrosine biosynthesis,Carbon Source Utilization
+80,GntR/TyrR,False,0.026346296800000002,GntR/TyrR,Gluconate catabolism and tyrosine biosynthesis,Carbon Source Utilization
 87,FecI,False,0.024431377400000003,FecI,Ferric citrate transport,Metal Homeostasis
 82,RpoS,False,-0.0224181217,RpoS,General stress response,Stress Response
 45,CpxR,False,0.020445817,CpxR,Various stress responses,Stress Response
@@ -17,13 +17,13 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 13,OxyR,False,-0.0185509539,OxyR,Peroxide reductases,Stress Response
 60,His-tRNA,False,-0.0185271475,His-tRNA,Histidine biosynthesis,Amino Acid and Nucleotide Biosynthesis
 33,PrpR,False,-0.0171678802,PrpR,Propionate catabolism,Carbon Source Utilization
-76,FadR/IclR,False,-0.017096623800000002,FadR or IclR,Fatty acid degradation,Miscellaneous Metabolism
+76,FadR/IclR,False,-0.017096623800000002,FadR/IclR,Fatty acid degradation,Miscellaneous Metabolism
 15,AtoC,False,-0.016736831100000002,AtoC,Acetoacetate degradation,Miscellaneous Metabolism
 29,fur-KO,False,-0.0151508617,,Accounts for fur knock-out,Genomic Alterations
-42,Pyruvate,False,-0.014176917,BtsR or PyrR or PdhR,Pyruvate transport and metabolism,Carbon Source Utilization
-68,Zinc,False,0.0141628716,ZntR or Zur,Zinc homeostasis,Metal Homeostasis
+42,Pyruvate,False,-0.014176917,BtsR/PyrR/PdhR,Pyruvate transport and metabolism,Carbon Source Utilization
+68,Zinc,False,0.0141628716,ZntR/Zur,Zinc homeostasis,Metal Homeostasis
 74,flu-yeeRS,False,-0.0134494602,,Genes in CP4-44 prophage,Biological Enrichment
-58,NtrC+RpoN,False,0.013268084500000001,NtrC and RpoN,Nitrogen starvation response,Stress Response
+58,NtrC+RpoN,False,0.013268084500000001,NtrC+RpoN,Nitrogen starvation response,Stress Response
 36,CecR,False,0.0131265598,CecR,Related to antibiotic sensitivity,Stress Response
 4,ydcI-KO,False,0.012828996700000001,,Accounts for ydcI knock-out,Genomic Alterations
 84,duplication-1,False,-0.012790365500000001,,Large duplication of 129 genes during evolution,Genomic Alterations
@@ -40,12 +40,12 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 2,YgbI,False,0.0096703315,,Unknown Function,Regulator Discovery
 77,lipopolysaccharide,False,-0.009587576300000001,,Lipopolysaccharide biosynthesis,Biological Enrichment
 47,Lrp,False,0.009131018000000001,Lrp,Amino acid and peptide transport,Amino Acid and Nucleotide Biosynthesis
-44,NagC/TyrR,False,-0.0089220017,NagC or TyrR,N-acetylglucosamine catabolism and tyrosine biosynthesis,Carbon Source Utilization
+44,NagC/TyrR,False,-0.0089220017,NagC/TyrR,N-acetylglucosamine catabolism and tyrosine biosynthesis,Carbon Source Utilization
 70,Nac,False,-0.0087863397,Nac,Nitrogen starvation response,Stress Response
-34,GadWX,False,0.008491353600000001,GadX and GadW,Acid stress response,Stress Response
+34,GadWX,False,0.008491353600000001,GadX+GadW,Acid stress response,Stress Response
 54,CysB,False,-0.0078003817,CysB,Inorganic sulfate assimilation,Amino Acid and Nucleotide Biosynthesis
 72,curli,False,0.007746724900000001,,Curli assembly,Biological Enrichment
-71,Tryptophan,False,0.0074759491,L-tryptophan or TrpR or Trp-tRNA,Tryptophan Biosynthesis,Amino Acid and Nucleotide Biosynthesis
+71,Tryptophan,False,0.0074759491,L-tryptophan/TrpR/Trp-tRNA,Tryptophan Biosynthesis,Amino Acid and Nucleotide Biosynthesis
 20,entC-menF-KO,False,-0.0073563008,,Accounts for entC and menF knock-outs,Genomic Alterations
 38,ArcA-1,False,-0.0070075199,ArcA,Anaerobic response,Energy Metabolism
 11,e14-deletion,False,0.0069945821000000005,,Removal of e14 prophage,Genomic Alterations
@@ -57,23 +57,23 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 83,membrane,False,0.0058694354,,Enriched in membrane-bound proteins,Biological Enrichment
 51,Fur-1,False,-0.0057496621000000005,Fur,Iron homeostasis,Metal Homeostasis
 69,SoxS,False,-0.0057359331,SoxS,Oxidative stress response,Stress Response
-49,Leu/Ile,False,0.0056914305000000005,Ile-tRNA or IlvY or Leu-tRNA,Branched-chain amino acid biosynthesis,Amino Acid and Nucleotide Biosynthesis
+49,Leu/Ile,False,0.0056914305000000005,Ile-tRNA/IlvY/Leu-tRNA,Branched-chain amino acid biosynthesis,Amino Acid and Nucleotide Biosynthesis
 81,purR-KO,False,-0.0056086846,,Accounts for purR knock-out,Genomic Alterations
 61,Fur-2,False,0.005528691200000001,Fur,Iron homeostasis,Metal Homeostasis
-31,GadEWX,False,0.0050350656,GadE and GadW and GadX,Acid stress response,Stress Response
+31,GadEWX,False,0.0050350656,GadE+GadW+GadX,Acid stress response,Stress Response
 57,NikR,False,0.0048013238,NikR,Nickel homeostasis,Metal Homeostasis
 14,Crp-2,False,0.004731814,Crp,Various carbon source catabolism,Carbon Source Utilization
 52,uncharacterized-5,False,-0.0044203938,,Unknown Function,Uncharacterized
 35,fimbriae,False,0.0043760313,,Fimbriae assembly,Biological Enrichment
-63,AllR/AraC/FucR,False,0.0043697397,AllR or AraC or FucR,"Allantoin, glyoxylate, L-arabinose, and L-fucose catabolism",Carbon Source Utilization
+63,AllR/AraC/FucR,False,0.0043697397,AllR/AraC/FucR,"Allantoin, glyoxylate, L-arabinose, and L-fucose catabolism",Carbon Source Utilization
 59,RcsAB,False,0.0041327526,RcsAB,Colanic acid capsule formation,Structural Components
 32,translation,False,-0.0040654188,,Enriched in translation machinery,Biological Enrichment
-86,ExuR/FucR,False,0.0039408968,ExuR or FucR,D-galacturonate and L-fucose catabolism,Carbon Source Utilization
+86,ExuR/FucR,False,0.0039408968,ExuR/FucR,D-galacturonate and L-fucose catabolism,Carbon Source Utilization
 78,FlhDC,False,0.0038845706,FlhDC,Flagella assembly,Structural Components
 16,PurR-1,False,-0.0037460075,PurR,Purine Biosynthesis,Amino Acid and Nucleotide Biosynthesis
 24,GlcC,False,-0.0035727595,GlcC,Glycolate catabolism,Carbon Source Utilization
 65,ArcA-2,False,-0.0035090634000000003,ArcA,Electron Transport Chain,Energy Metabolism
-62,Copper,False,0.0029805763,CusR or HprR or CueR,Copper homeostasis,Metal Homeostasis
+62,Copper,False,0.0029805763,CusR/HprR/CueR,Copper homeostasis,Metal Homeostasis
 39,nitrate-related,False,-0.002589722,,Nitric oxide response,Biological Enrichment
 27,GcvA,False,-0.0023949438,GcvA,Glycine cleavage system,Miscellaneous Metabolism
 1,GlpR,False,0.0023830835,GlpR,Glycerol catabolism,Carbon Source Utilization
@@ -88,6 +88,6 @@ k,Name,in_iM,gene_weight,Regulator,Function,Category
 41,CdaR,False,-0.0008049045,CdaR,Glucarate catabolism,Carbon Source Utilization
 21,uncharacterized-6,False,-0.0005242031,,Unknown Function,Uncharacterized
 89,RbsR,False,0.0004396868,RbsR,D-ribose catabolism,Carbon Source Utilization
-43,SrlR+GutM,False,-0.0004396302,SrlR and GutM,Sorbitol catabolism,Carbon Source Utilization
-7,DhaR/Mlc,False,-0.0002185147,DhaR or Mlc,Dihydroxyacetone kinase and phosphotransferase systems,Carbon Source Utilization
+43,SrlR+GutM,False,-0.0004396302,SrlR+GutM,Sorbitol catabolism,Carbon Source Utilization
+7,DhaR/Mlc,False,-0.0002185147,DhaR/Mlc,Dihydroxyacetone kinase and phosphotransferase systems,Carbon Source Utilization
 79,crp-KO,False,-6.09199e-05,,Accounts for crp knock-out,Genomic Alterations
