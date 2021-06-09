@@ -339,14 +339,14 @@
     };
 
     // iModulons
-    const imNameResultItem = ({component, name, Regulator, Function}, searchTerm) => {
+    const imNameResultItem = ({component, name, regulator, Function}, searchTerm) => {
         const re = new RegExp(searchTerm, "gi");
-        const formatted = `<span class="result-title">${name}</span>   (<i>associated regulator(s): ${Regulator}; function: ${Function}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
+        const formatted = `<span class="result-title">${name}</span>   (<i>associated regulator(s): ${regulator}; Function: ${Function}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
         return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result name-result">${formatted}</li></a>`
     };
-    const imDescResultItem = ({component, name, Regulator, Function}, searchTerm) => {
+    const imDescResultItem = ({component, name, regulator, Function}, searchTerm) => {
         const re = new RegExp(searchTerm, "gi");
-        const formatted = `<span class="result-title">${name}</span>   (<i>associated regulator(s): ${Regulator}; function: ${Function}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
+        const formatted = `<span class="result-title">${name}</span>   (<i>associated regulator(s): ${regulator}; Function: ${Function}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
         return `<a class="result-link" style="text-decoration: none;" href="iModulon.html${link_suffix}&k=${component}"><li class="result desc-result">${formatted}</li></a>`
     };
 
@@ -378,7 +378,7 @@
             im.name.toLowerCase().includes(searchTerm));
 
         const imDescResults = !showIMs ? [] : im_list.filter(im =>
-            (im.Regulator.toLowerCase().includes(searchTerm) || im.Function.toLowerCase().includes(searchTerm)) &&
+            (im.regulator.toLowerCase().includes(searchTerm) || im.Function.toLowerCase().includes(searchTerm)) &&
             !im.name.toLowerCase().includes(searchTerm));
 
         // mapping
