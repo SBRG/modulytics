@@ -1,15 +1,18 @@
 ,-0.17405182187933743,-0.13537363923948467,-0.09669545659963191,-0.05801727395977915,-0.019339091319926394,0.019339091319926366,0.058017273959779125,0.09669545659963186,0.13537363923948464,0.17405182187933743,0.21273000451919016,0.2514081871590429,0.2900863697988957,0.32876455243874847,0.36744273507860115,0.40612091771845393,0.4447991003583067,0.4834772829981595,0.5221554656380123,0.560833648277865
 thresh,-0.1933909131992638,0.1933909131992638,9,,,,,,,,,,,,,,,,,
 unreg,0,0,0,1,1877,1656,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-RpoN,0,0,0,0,40,63,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Cra,0,0,0,0,15,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+RpoN,0,0,0,0,40,63,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Crp,0,0,0,0,236,230,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-PrpR and Crp,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-RpoN and Cra,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-RpoN and Crp,0,0,0,0,10,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cra and RpoN,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Cra and Crp,0,0,0,1,14,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"PrpR, RpoN, Cra, and Crp",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,1,0,0
+RpoN and Crp,0,0,0,0,10,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+PrpR and Crp,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Cra, RpoN, PrpR, and Crp",0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,1,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+Cra_genes,[],[],[],[],"['tpiA' 'zwf' 'gpmM' 'sgrT' 'adhE' 'eda' 'fruA' 'envC' 'betB' 'fbaB'
+ 'yibQ' 'edd' 'ppc' 'fruK' 'glk']","['betT' 'eno' 'cydA' 'pfkA' 'cydB' 'yeaD' 'betA' 'fruB' 'icd' 'betI'
+ 'poxB' 'aroP' 'setA' 'pykF' 'pdeL' 'ppsA']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 RpoN_genes,[],[],[],[],"['hypC' 'pspE' 'rutF' 'pspD' 'nikB' 'hycF' 'yhdX' 'yaaU' 'emrD' 'dcuD'
  'hycH' 'nikA' 'fhlA' 'gltK' 'rutG' 'glnK' 'yhdZ' 'hycI' 'ibpB' 'gltL'
  'rutD' 'yeaG' 'aslB' 'acrD' 'ygfK' 'ddpC' 'pspB' 'ymjE' 'hycE' 'nac'
@@ -20,9 +23,6 @@ RpoN_genes,[],[],[],[],"['hypC' 'pspE' 'rutF' 'pspD' 'nikB' 'hycF' 'yhdX' 'yaaU'
  'ddpB' 'rtcB' 'potG' 'pspC' 'hisQ' 'glnQ' 'ddpX' 'glnH' 'xdhC' 'astA'
  'nikE' 'chaC' 'atoD' 'atoA' 'ddpD' 'amtB' 'argT' 'yahE' 'ddpA' 'patA'
  'astD' 'astE' 'astB']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-Cra_genes,[],[],[],[],"['tpiA' 'zwf' 'gpmM' 'sgrT' 'adhE' 'eda' 'fruA' 'envC' 'betB' 'fbaB'
- 'yibQ' 'edd' 'ppc' 'fruK' 'glk']","['betT' 'eno' 'cydA' 'pfkA' 'cydB' 'yeaD' 'betA' 'fruB' 'icd' 'betI'
- 'poxB' 'aroP' 'setA' 'pykF' 'pdeL' 'ppsA']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 Crp_genes,[],[],[],[],"['proP' 'rhaS' 'srlA' 'csiD' 'ulaB' 'mdh' 'hofO' 'ansB' 'sgcE' 'ptsG'
  'rbsB' 'rhaR' 'sgcR' 'uidB' 'sodB' 'sgcA' 'rbsD' 'citX' 'galS' 'gabT'
  'fixB' 'ulaA' 'puuD' 'ompW' 'uxaA' 'chbF' 'uxuA' 'casB' 'uidA' 'puuR'
@@ -69,12 +69,12 @@ Crp_genes,[],[],[],[],"['proP' 'rhaS' 'srlA' 'csiD' 'ulaB' 'mdh' 'hofO' 'ansB' '
  'dgoA' 'mhpE' 'yeiP' 'deoC' 'xylF' 'ynfK' 'tdcB' 'idnK' 'rmf' 'mokB'
  'treB' 'ugpE' 'galP' 'araD' 'focA' 'treC' 'modA' 'rspB' 'dgoT' 'lsrF'
  'ebgC' 'entD' 'gntU' 'lsrB' 'malT' 'grcA' 'fadL' 'araF' 'tnaA' 'rspA']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-PrpR and Crp_genes,[],[],[],[],['prpR'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-RpoN and Cra_genes,[],[],[],[],[],['hypF'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-RpoN and Crp_genes,[],[],[],[],['ntrC' 'glnL' 'glnA' 'hyfJ' 'hyfR' 'flhD' 'rpoH' 'hyfA' 'flhC' 'hyfE'],"['hyfH' 'hyfG' 'rseA' 'relA' 'rseB' 'rseC' 'hyfF' 'hyfI' 'hyfB' 'rseD'
- 'glpQ' 'hyfD' 'rpoE' 'hyfC' 'zraS' 'rhaD' 'actP' 'zraR' 'focB']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+Cra and RpoN_genes,[],[],[],[],[],['hypF'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 Cra and Crp_genes,[],[],[],['ptsI'],"['epd' 'csgF' 'manZ' 'manY' 'manX' 'fbaA' 'cyoE' 'mpl' 'cyoD' 'marA'
  'marB' 'cyoA' 'gapA' 'crp']","['pgk' 'cyoB' 'lpd' 'csgE' 'marR' 'aceF' 'cyoC' 'nirD' 'cysG' 'nirB'
  'aceA' 'nirC' 'aceE' 'aceK' 'acnA' 'pck' 'aceB' 'mtlD' 'mtlR' 'ptsH'
  'acnB' 'csgG' 'csgD' 'mtlA' 'crr' 'glcC' 'pdhR']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"PrpR, RpoN, Cra, and Crp_genes",[],[],[],[],[],[],[],[],[],[],[],[],[],['prpE'],[],[],['prpD' 'prpC'],['prpB'],[],[]
+RpoN and Crp_genes,[],[],[],[],['ntrC' 'glnL' 'glnA' 'hyfJ' 'hyfR' 'flhD' 'rpoH' 'hyfA' 'flhC' 'hyfE'],"['hyfH' 'hyfG' 'rseA' 'relA' 'rseB' 'rseC' 'hyfF' 'hyfI' 'hyfB' 'rseD'
+ 'glpQ' 'hyfD' 'rpoE' 'hyfC' 'zraS' 'rhaD' 'actP' 'zraR' 'focB']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+PrpR and Crp_genes,[],[],[],[],['prpR'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+"Cra, RpoN, PrpR, and Crp_genes",[],[],[],[],[],[],[],[],[],[],[],[],[],['prpE'],[],[],['prpD' 'prpC'],['prpB'],[],[]

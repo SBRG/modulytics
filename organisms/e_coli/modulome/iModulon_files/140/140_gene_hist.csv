@@ -1,14 +1,18 @@
 ,-0.0607120454786055,-0.03035602273930275,0.0,0.030356022739302747,0.0607120454786055,0.09106806821790825,0.12142409095721099,0.15178011369651376,0.1821361364358165,0.21249215917511924,0.242848181914422,0.2732042046537248,0.3035602273930275,0.3339162501323303,0.36427227287163305,0.39462829561093576,0.42498431835023853,0.4553403410895413,0.485696363828844,0.5160523865681468
 thresh,-0.07589005684825688,0.07589005684825688,8,,,,,,,,,,,,,,,,,
 unreg,0,215,3304,169,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gcvB,0,8,39,10,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 IHF,0,6,119,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Fnr,0,11,212,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-gcvB,0,8,39,10,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gcvB and IHF,0,1,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+gcvB and Fnr,1,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 IHF and Fnr,0,3,69,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-IHF and gcvB,0,1,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Fnr and gcvB,1,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"IHF, Fnr, and gcvB",0,0,1,0,0,0,0,0,0,0,1,0,0,0,4,0,0,0,0,0
+"gcvB, IHF, and Fnr",0,0,1,0,0,0,0,0,0,0,1,0,0,0,4,0,0,0,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+gcvB_genes,[],['opgB' 'yedN' 'ygeG' 'argT' 'wbbJ' 'ygeF' 'gatZ' 'lon'],"['casD' 'glf' 'rfbA' 'hdeB' 'sfmH' 'ibpA' 'phoQ' 'lrp' 'adeQ' 'cysD'
+ 'fimZ' 'srlD' 'slp' 'yhaC' 'phoP' 'rfbX' 'ypjC' 'yhiL' 'wbbH' 'yjbM'
+ 'asnA' 'htpG' 'dnaK' 'clpB' 'panD' 'ybfB' 'groS' 'ygeN' 'gltI' 'yibG'
+ 'srlB' 'livK' 'ymgG' 'yebB' 'asnB' 'ilvB' 'yafU' 'inaA' 'oppA']",['livJ' 'ygeI' 'serA' 'oppF' 'nlpA' 'oppD' 'yifK' 'oppB' 'oppC' 'ilvC'],['cycA'],['sstT'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 IHF_genes,[],['hycA' 'ilvM' 'ilvG' 'gcd' 'yiaM' 'glcB'],"['ompR' 'rseA' 'actP' 'hipA' 'pspB' 'pspC' 'paaA' 'ompC' 'patA' 'pspD'
  'ihfA' 'glcA' 'rseB' 'htrE' 'proV' 'paaC' 'atoB' 'flhC' 'pspE' 'glnP'
  'pspA' 'rseC' 'atoE' 'yjbE' 'fimC' 'carB' 'glcG' 'fimI' 'folA' 'paaD'
@@ -45,10 +49,8 @@ Fnr_genes,[],"['gnd' 'hmp' 'amtB' 'gcvT' 'moaA' 'caiD' 'cadC' 'moaC' 'narL' 'puu
  'rplB' 'fixC' 'fumC' 'glpB' 'msrB' 'napD' 'ynfG' 'argK' 'tar' 'fdhF'
  'dcuA' 'frdA' 'malQ' 'hyfR' 'ompW' 'hyfD' 'frdD' 'rplC' 'gadW' 'nikE'
  'glpA' 'nac']",['ynfF' 'ydhY' 'rpsJ' 'ompX' 'hcr' 'aspA' 'hyfJ'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-gcvB_genes,[],['opgB' 'yedN' 'ygeG' 'argT' 'wbbJ' 'ygeF' 'gatZ' 'lon'],"['casD' 'glf' 'rfbA' 'hdeB' 'sfmH' 'ibpA' 'phoQ' 'lrp' 'adeQ' 'cysD'
- 'fimZ' 'srlD' 'slp' 'yhaC' 'phoP' 'rfbX' 'ypjC' 'yhiL' 'wbbH' 'yjbM'
- 'asnA' 'htpG' 'dnaK' 'clpB' 'panD' 'ybfB' 'groS' 'ygeN' 'gltI' 'yibG'
- 'srlB' 'livK' 'ymgG' 'yebB' 'asnB' 'ilvB' 'yafU' 'inaA' 'oppA']",['livJ' 'ygeI' 'serA' 'oppF' 'nlpA' 'oppD' 'yifK' 'oppB' 'oppC' 'ilvC'],['cycA'],['sstT'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+gcvB and IHF_genes,[],['csgD'],['csgE' 'tcyJ' 'csgF'],['csgG'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+gcvB and Fnr_genes,['adhE'],[],['ydhU' 'emrY'],['ysgA' 'gdhA'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 IHF and Fnr_genes,[],['fnr' 'tdcA' 'nrfB'],"['nrfG' 'pflB' 'yeiL' 'dmsB' 'nrfA' 'ndh' 'ssuA' 'cysG' 'narH' 'nuoM'
  'hypC' 'nuoK' 'nuoH' 'dmsC' 'sucA' 'tdcG' 'ubiC' 'nuoI' 'dmsA' 'focA'
  'ssuC' 'glpQ' 'nuoL' 'tdcF' 'nuoG' 'nirC' 'tdcE' 'nirD' 'sodA' 'nrfE'
@@ -56,6 +58,4 @@ IHF and Fnr_genes,[],['fnr' 'tdcA' 'nrfB'],"['nrfG' 'pflB' 'yeiL' 'dmsB' 'nrfA' 
  'pstC' 'glpT' 'fhlA' 'nirB' 'ssuD' 'nuoF' 'hypD' 'ssuB' 'narJ' 'hypB'
  'nuoB' 'prmC' 'narI' 'hypE' 'prfA' 'norV' 'hemA' 'ubiA' 'tdcD' 'sucC'
  'nrfD' 'narG' 'pstS' 'sucD' 'nuoA' 'sucB' 'tdcC' 'pstA' 'pstB']",['gltB' 'gltF' 'gltD'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-IHF and gcvB_genes,[],['csgD'],['csgE' 'tcyJ' 'csgF'],['csgG'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-Fnr and gcvB_genes,['adhE'],[],['ydhU' 'emrY'],['ysgA' 'gdhA'],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"IHF, Fnr, and gcvB_genes",[],[],['ssuE'],[],[],[],[],[],[],[],['dppA'],[],[],[],['dppC' 'dppF' 'dppD' 'dppB'],[],[],[],[],[]
+"gcvB, IHF, and Fnr_genes",[],[],['ssuE'],[],[],[],[],[],[],[],['dppA'],[],[],[],['dppC' 'dppF' 'dppD' 'dppB'],[],[],[],[],[]

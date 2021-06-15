@@ -1,16 +1,15 @@
 ,-0.10946927693014805,-0.0851427709456707,-0.060816264961193356,-0.03648975897671601,-0.012163252992238666,0.01216325299223868,0.036489758976716025,0.060816264961193384,0.08514277094567071,0.10946927693014805,0.1337957829146254,0.15812228889910276,0.1824487948835801,0.20677530086805743,0.2311018068525348,0.2554283128370122,0.27975481882148945,0.30408132480596684,0.3284078307904441,0.3527343367749215
 thresh,-0.12163252992238671,0.12163252992238671,8,,,,,,,,,,,,,,,,,
 unreg,0,0,1,95,1894,1794,72,1,0,0,0,0,0,0,0,0,0,0,0,0
-ModE,0,0,0,3,7,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Fnr,0,0,2,6,125,148,9,0,0,0,0,0,0,0,0,0,0,0,0,0
-CsrA,0,0,0,1,7,6,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 CueR,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-ModE and Fnr,0,0,0,0,6,10,4,0,0,0,0,0,0,0,0,0,0,0,0,0
+Fnr,0,0,2,6,125,148,9,0,0,0,0,0,0,0,0,0,0,0,0,0
+ModE,0,0,0,3,7,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CsrA,0,0,0,1,7,6,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Fnr and ModE,0,0,0,0,6,10,4,0,0,0,0,0,0,0,0,0,0,0,0,0
 Fnr and CsrA,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Molybdopterin, ModE, Fnr, CsrA, and CueR",0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,2,2,0,0
+"CueR, Fnr, ModE, CsrA, and Molybdopterin",0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,2,2,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-ModE_genes,[],[],[],['modA' 'modB' 'hycD'],['oppA' 'hycF' 'hycC' 'modC' 'hycB' 'hycE' 'oppD'],"['deoC' 'hycA' 'oppF' 'deoD' 'oppC' 'hycG' 'deoB' 'hycH' 'hycI' 'deoA'
- 'oppB']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+CueR_genes,[],[],[],[],['copA'],['cueO'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 Fnr_genes,[],[],['grcA' 'sdhC'],['gnd' 'ssuC' 'ydeJ' 'caiT' 'dppA' 'caiF'],"['fnr' 'caiA' 'cheR' 'zwf' 'ansB' 'thrA' 'caiE' 'tpx' 'ortT' 'yfcZ' 'adhE'
  'bcsB' 'katG' 'fepE' 'cyoA' 'tdcG' 'aroP' 'tdcE' 'purN' 'gcvP' 'argK'
  'nirB' 'cadC' 'hyfI' 'scpA' 'ybdZ' 'uxaC' 'gadX' 'bcsZ' 'ydfZ' 'aceE'
@@ -38,8 +37,9 @@ Fnr_genes,[],[],['grcA' 'sdhC'],['gnd' 'ssuC' 'ydeJ' 'caiT' 'dppA' 'caiF'],"['fn
  'frdD' 'nuoB' 'rpsP' 'pdhR' 'tdcB' 'rimM' 'nrfE' 'tdcF' 'glpB' 'dpiB'
  'soxS' 'ydhV' 'pdeF' 'rplC' 'feoC' 'rplD' 'glnK' 'puuP' 'malP' 'ybdN'
  'nrfC' 'gcvH' 'cyoE' 'nrdG' 'ackA' 'yecR' 'xdhC' 'narG']",['hypE' 'nirC' 'citX' 'gadA' 'emrK' 'sodA' 'glpT' 'dpiA' 'hlyE'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+ModE_genes,[],[],[],['modA' 'modB' 'hycD'],['oppA' 'hycF' 'hycC' 'modC' 'hycB' 'hycE' 'oppD'],"['deoC' 'hycA' 'oppF' 'deoD' 'oppC' 'hycG' 'deoB' 'hycH' 'hycI' 'deoA'
+ 'oppB']",[],[],[],[],[],[],[],[],[],[],[],[],[],[]
 CsrA_genes,[],[],[],['pgaD'],['nhaR' 'rpoE' 'glgP' 'glgC' 'pgaC' 'dgcZ' 'glgA'],['pgaB' 'sdiA' 'dgcI' 'pgaA' 'glgS' 'pdeI'],['dgcT'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-CueR_genes,[],[],[],[],['copA'],['cueO'],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
-ModE and Fnr_genes,[],[],[],[],['napB' 'napH' 'ccmH' 'napA' 'ccmF' 'ccmG'],['ccmA' 'dmsA' 'napF' 'napC' 'napG' 'ccmB' 'napD' 'narX' 'dmsB' 'ccmC'],['dmsC' 'narL' 'ccmE' 'ccmD'],[],[],[],[],[],[],[],[],[],[],[],[],[]
+Fnr and ModE_genes,[],[],[],[],['napB' 'napH' 'ccmH' 'napA' 'ccmF' 'ccmG'],['ccmA' 'dmsA' 'napF' 'napC' 'napG' 'ccmB' 'napD' 'narX' 'dmsB' 'ccmC'],['dmsC' 'narL' 'ccmE' 'ccmD'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 Fnr and CsrA_genes,[],[],[],[],[],[],['iraD'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"Molybdopterin, ModE, Fnr, CsrA, and CueR_genes",[],[],[],[],[],[],[],[],[],[],[],[],['moaA'],[],[],[],['moaB' 'moaC'],['moaE' 'moaD'],[],[]
+"CueR, Fnr, ModE, CsrA, and Molybdopterin_genes",[],[],[],[],[],[],[],[],[],[],[],[],['moaA'],[],[],[],['moaB' 'moaC'],['moaE' 'moaD'],[],[]

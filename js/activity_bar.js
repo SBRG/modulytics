@@ -93,7 +93,7 @@
         sample_idx = 0
     }
     var project_idx = get_index(metadata[0], 'project');
-    var link_idx = get_index(metadata[0], 'DOI');
+    var link_idx = get_index(metadata[0], 'doi');
     
     // cols of interest: tooltip will show these metadata
     // These will be updated by the modal
