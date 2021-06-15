@@ -1,14 +1,20 @@
 ,-0.1695100747751829,-0.14343160173284708,-0.11735312869051126,-0.09127465564817544,-0.06519618260583962,-0.0391177095635038,-0.01303923652116798,0.01303923652116784,0.03911770956350366,0.06519618260583948,0.0912746556481753,0.11735312869051115,0.14343160173284694,0.16951007477518273,0.19558854781751858,0.22166702085985443,0.24774549390219022,0.27382396694452604,0.29990243998686184,0.32598091302919774
 thresh,-0.18254931129635082,0.18254931129635082,8,,,,,,,,,,,,,,,,,
 unreg,0,0,0,0,1,70,1796,1628,67,4,0,0,0,0,0,0,0,0,0,0
+Fis,0,0,0,0,0,1,39,30,1,0,0,0,0,0,0,0,0,0,0,0
 Cra,0,0,0,0,0,0,14,15,2,0,0,0,0,0,0,0,0,0,0,0
 Crp,0,0,0,1,2,15,201,196,12,0,2,0,0,0,0,0,0,0,0,0
-Fis,0,0,0,0,0,1,39,30,1,0,0,0,0,0,0,0,0,0,0,0
+Fis and Cra,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Fis and Crp,0,0,0,0,0,0,31,32,4,0,0,0,0,0,0,0,0,0,0,0
 Cra and Crp,0,0,0,0,0,1,7,18,1,0,0,0,0,0,0,0,0,0,0,0
-Cra and Fis,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-Crp and Fis,0,0,0,0,0,0,31,32,4,0,0,0,0,0,0,0,0,0,0,0
-"Cra, Crp, and Fis",0,0,0,0,0,0,8,8,0,0,0,0,0,0,0,0,0,2,1,0
+"Fis, Cra, and Crp",0,0,0,0,0,0,8,8,0,0,0,0,0,0,0,0,0,2,1,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
+Fis_genes,[],[],[],[],[],['flxA'],"['glnQ' 'narI' 'hyaA' 'cbpM' 'cspI' 'nrfD' 'ogt' 'ndh' 'pdxA' 'apaH'
+ 'katE' 'rsmA' 'gltX' 'nrfE' 'fadA' 'cbpA' 'narH' 'sra' 'nuoG' 'fadB'
+ 'nuoI' 'nuoN' 'apaG' 'hyaE' 'hyaC' 'pyrD' 'narJ' 'nuoJ' 'nuoB' 'nrfG'
+ 'gyrB' 'fau' 'nrfF' 'dmsB' 'nuoF' 'nuoM' 'cspA' 'osmE' 'msrA']","['hyaF' 'nuoH' 'trmA' 'yoaG' 'patA' 'nuoL' 'nrfA' 'hyaD' 'nuoE' 'dps'
+ 'nuoC' 'mazG' 'recF' 'topA' 'nuoA' 'queA' 'dnaN' 'dmsC' 'tufB' 'narK'
+ 'carA' 'hns' 'dnaA' 'nuoK' 'hyaB' 'dmsA' 'nrfC' 'narG' 'yeaR' 'nrfB']",['carB'],[],[],[],[],[],[],[],[],[],[],[]
 Cra_genes,[],[],[],[],[],[],"['fruA' 'eda' 'edd' 'hypF' 'glk' 'betT' 'pfkA' 'gpmM' 'betA' 'fruK' 'betB'
  'betI' 'ppc' 'tpiA']","['ppsA' 'zwf' 'envC' 'eno' 'yibQ' 'sgrT' 'aroP' 'cydB' 'fbaB' 'poxB' 'icd'
  'fruB' 'setA' 'cydA' 'pykF']",['yeaD' 'pdeL'],[],[],[],[],[],[],[],[],[],[],[]
@@ -54,20 +60,14 @@ Crp_genes,[],[],[],['raiA'],['preA' 'ompF'],"['preT' 'fumC' 'tdcA' 'yeiW' 'paaC'
  'lgoD' 'galP' 'fucP' 'fixC' 'mlc' 'hofN' 'csiE' 'hyfJ' 'dadA' 'ulaC'
  'entA' 'gutM' 'ppiA' 'hicA' 'glgS' 'cstA']","['sdhC' 'cdd' 'lsrK' 'hyfA' 'uxaA' 'malT' 'aldA' 'putP' 'flhC' 'uxaC'
  'feaR' 'yqeF']",[],['flhD' 'dctA'],[],[],[],[],[],[],[],[],[]
-Fis_genes,[],[],[],[],[],['flxA'],"['glnQ' 'narI' 'hyaA' 'cbpM' 'cspI' 'nrfD' 'ogt' 'ndh' 'pdxA' 'apaH'
- 'katE' 'rsmA' 'gltX' 'nrfE' 'fadA' 'cbpA' 'narH' 'sra' 'nuoG' 'fadB'
- 'nuoI' 'nuoN' 'apaG' 'hyaE' 'hyaC' 'pyrD' 'narJ' 'nuoJ' 'nuoB' 'nrfG'
- 'gyrB' 'fau' 'nrfF' 'dmsB' 'nuoF' 'nuoM' 'cspA' 'osmE' 'msrA']","['hyaF' 'nuoH' 'trmA' 'yoaG' 'patA' 'nuoL' 'nrfA' 'hyaD' 'nuoE' 'dps'
- 'nuoC' 'mazG' 'recF' 'topA' 'nuoA' 'queA' 'dnaN' 'dmsC' 'tufB' 'narK'
- 'carA' 'hns' 'dnaA' 'nuoK' 'hyaB' 'dmsA' 'nrfC' 'narG' 'yeaR' 'nrfB']",['carB'],[],[],[],[],[],[],[],[],[],[],[]
-Cra and Crp_genes,[],[],[],[],[],['pck'],['ptsI' 'prpE' 'mpl' 'prpC' 'csgE' 'aceA' 'acnA'],"['aceB' 'aceE' 'fbaA' 'aceF' 'manZ' 'csgG' 'pdhR' 'csgD' 'manY' 'manX'
- 'pgk' 'aceK' 'gapA' 'crr' 'prpD' 'prpB' 'csgF' 'epd']",['ptsH'],[],[],[],[],[],[],[],[],[],[],[]
-Cra and Fis_genes,[],[],[],[],[],[],[],['adhE'],[],[],[],[],[],[],[],[],[],[],[],[]
-Crp and Fis_genes,[],[],[],[],[],[],"['grcA' 'ptsG' 'malG' 'glpQ' 'mglA' 'glpA' 'gyrA' 'xylF' 'mglC' 'deoD'
+Fis and Cra_genes,[],[],[],[],[],[],[],['adhE'],[],[],[],[],[],[],[],[],[],[],[],[]
+Fis and Crp_genes,[],[],[],[],[],[],"['grcA' 'ptsG' 'malG' 'glpQ' 'mglA' 'glpA' 'gyrA' 'xylF' 'mglC' 'deoD'
  'glpT' 'ansB' 'deoB' 'pflB' 'nrdA' 'deoA' 'nanE' 'yfaE' 'rpsI' 'hupB'
  'gadB' 'nanA' 'nanT' 'xylR' 'bglB' 'nusA' 'rplM' 'gadX' 'deoC' 'yhcH'
  'nanK']","['bglF' 'dusB' 'gadC' 'fis' 'hupA' 'nrdB' 'rimP' 'rbfA' 'infB' 'gadA'
  'glpB' 'guaB' 'mazF' 'pnp' 'xylH' 'rpsO' 'bglG' 'proP' 'malF' 'guaA'
  'trg' 'malE' 'xylG' 'ntrC' 'glnL' 'aldB' 'hlyE' 'osmY' 'mazE' 'glnA'
  'fumB' 'truB']",['glpC' 'actP' 'acs' 'yjcH'],[],[],[],[],[],[],[],[],[],[],[]
-"Cra, Crp, and Fis_genes",[],[],[],[],[],[],['glcC' 'marB' 'cyoA' 'acnB' 'nirC' 'cyoB' 'cyoC' 'cyoE'],['marR' 'nirD' 'cyoD' 'cysG' 'lpd' 'nirB' 'crp' 'marA'],[],[],[],[],[],[],[],[],[],['mtlD' 'mtlR'],['mtlA'],[]
+Cra and Crp_genes,[],[],[],[],[],['pck'],['ptsI' 'prpE' 'mpl' 'prpC' 'csgE' 'aceA' 'acnA'],"['aceB' 'aceE' 'fbaA' 'aceF' 'manZ' 'csgG' 'pdhR' 'csgD' 'manY' 'manX'
+ 'pgk' 'aceK' 'gapA' 'crr' 'prpD' 'prpB' 'csgF' 'epd']",['ptsH'],[],[],[],[],[],[],[],[],[],[],[]
+"Fis, Cra, and Crp_genes",[],[],[],[],[],[],['glcC' 'marB' 'cyoA' 'acnB' 'nirC' 'cyoB' 'cyoC' 'cyoE'],['marR' 'nirD' 'cyoD' 'cysG' 'lpd' 'nirB' 'crp' 'marA'],[],[],[],[],[],[],[],[],[],['mtlD' 'mtlR'],['mtlA'],[]

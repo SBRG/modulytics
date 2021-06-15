@@ -1,14 +1,17 @@
 ,-0.07441132590909091,-0.05952906072727273,-0.044646795545454546,-0.02976453036363636,-0.014882265181818177,0.0,0.014882265181818191,0.029764530363636382,0.04464679554545456,0.05952906072727274,0.07441132590909091,0.08929359109090912,0.1041758562727273,0.11905812145454547,0.13394038663636368,0.14882265181818186,0.16370491700000003,0.1785871821818182,0.1934694473636364,0.20835171254545456
 thresh,-0.0818524585,0.0818524585,8,,,,,,,,,,,,,,,,,
 unreg,1,0,4,49,721,3047,519,53,7,5,1,1,0,1,0,0,0,0,0,0
-SigA,1,0,3,21,208,896,182,26,7,4,0,0,0,0,0,0,0,0,0,0
 CymR,0,0,0,0,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 ResD,0,0,0,1,1,14,3,1,1,0,0,0,0,0,0,0,0,0,0,0
-SigA and CymR,0,0,0,8,1,7,4,6,1,2,0,0,0,2,9,1,0,2,2,0
-SigA and ResD,0,0,0,0,15,15,3,0,0,0,0,0,0,0,0,0,0,0,0,0
+SigA,1,0,3,21,208,896,182,26,7,4,0,0,0,0,0,0,0,0,0,0
+CymR and SigA,0,0,0,8,1,7,4,6,1,2,0,0,0,2,9,1,0,2,2,0
+ResD and SigA,0,0,0,0,15,15,3,0,0,0,0,0,0,0,0,0,0,0,0,0
 SigA and NsrR,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"SigA, ResD, and NsrR",0,0,0,0,0,2,4,3,0,0,1,1,1,0,0,0,1,1,0,0
+"ResD, SigA, and NsrR",0,0,0,0,0,2,4,3,0,0,1,1,1,0,0,0,1,1,0,0
 unreg_genes,[],[],[],[],[],[],[],[],[],[],[],['S144'],[],['ykjA'],[],[],[],[],[],[]
+CymR_genes,[],[],[],[],['ydbM'],['tcyP' 'yetJ'],[],[],['yezD'],[],[],[],[],[],[],[],[],[],[],[]
+ResD_genes,[],[],[],['cydD'],['yclJ'],"['S544' 'cydC' 'ctaE' 'yclK' 'ctaF' 'S542' 'ctaB' 'yjlC' 'ctaG' 'ctaC'
+ 'ndh' 'ctaD' 'S543' 'S451']",['cydB' 'S1487' 'S129'],['cydA'],['S1486'],[],[],[],[],[],[],[],[],[],[],[]
 SigA_genes,['lctP'],[],['ldh' 'S1208' 'treA'],"['treP' 'lutA' 'treR' 'S1294' 'lutC' 'htrA' 'S17' 'eno' 'nupN' 'ybdZ'
  'pgm' 'tpi' 'S1301' 'lutB' 'ald' 'pgk' 'S18' 'S709' 'S471' 'dppB' 'comS']","['nadR' 'sigE' 'S1300' 'S960' 'S1525' 'dhbB' 'dppA' 'S1011' 'S532' 'gapA'
  'S564' 'pdhB' 'pbuX' 'S1215' 'srfAD' 'S297' 'dhbF' 'srfAB' 'S592' 'zinT'
@@ -142,12 +145,9 @@ SigA_genes,['lctP'],[],['ldh' 'S1208' 'treA'],"['treP' 'lutA' 'treR' 'S1294' 'lu
  'ureB' 'ureC']","['feuC' 'liaI' 'ykoL' 'des' 'S1119' 'dctP' 'S1284' 'mrgA' 'S502' 'yxaM'
  'S371' 'S492' 'licH' 'clpE' 'S1291' 'bglP' 'asnH' 'glcP' 'licA' 'nrgA'
  'licB' 'ntdC' 'S1447' 'S1513' 'narG' 'licC']",['S1582' 'narH' 'ntdA' 'ntdB' 'narI' 'narJ' 'sdpR'],['sdpI' 'S683' 'gltA' 'gltB'],[],[],[],[],[],[],[],[],[],[]
-CymR_genes,[],[],[],[],['ydbM'],['tcyP' 'yetJ'],[],[],['yezD'],[],[],[],[],[],[],[],[],[],[],[]
-ResD_genes,[],[],[],['cydD'],['yclJ'],"['S544' 'cydC' 'ctaE' 'yclK' 'ctaF' 'S542' 'ctaB' 'yjlC' 'ctaG' 'ctaC'
- 'ndh' 'ctaD' 'S543' 'S451']",['cydB' 'S1487' 'S129'],['cydA'],['S1486'],[],[],[],[],[],[],[],[],[],[],[]
-SigA and CymR_genes,[],[],[],['BSU_misc_RNA_29' 'cysC' 'S570' 'cysP' 'S569' 'ylnD' 'sat' 'cysH'],['yxeK'],['sirB' 'snaB' 'yxeM' 'ylnF' 'yxeN' 'yxeO' 'cysK'],['S1033' 'mtnN' 'sndB' 'ascR'],['S1115' 'yxeQ' 'yrrT' 'yrhC' 'mccA' 'S1032'],['mccB'],['S310' 'ygaN'],[],[],[],['ytnM' 'snaA'],['cmoO' 'tcyJ' 'tcyN' 'sndA' 'tcyK' 'tcyL' 'cmoJ' 'cmoI' 'ribR'],['tcyM'],[],['ssuC' 'ssuB'],['ssuA' 'ssuD'],[]
-SigA and ResD_genes,[],[],[],[],"['nrdI' 'ymaB' 'S878' 'nrdF' 'nrdE' 'resE' 'albG' 'albD' 'S322' 'albF'
+CymR and SigA_genes,[],[],[],['BSU_misc_RNA_29' 'cysC' 'S570' 'cysP' 'S569' 'ylnD' 'sat' 'cysH'],['yxeK'],['sirB' 'snaB' 'yxeM' 'ylnF' 'yxeN' 'yxeO' 'cysK'],['S1033' 'mtnN' 'sndB' 'ascR'],['S1115' 'yxeQ' 'yrrT' 'yrhC' 'mccA' 'S1032'],['mccB'],['S310' 'ygaN'],[],[],[],['ytnM' 'snaA'],['cmoO' 'tcyJ' 'tcyN' 'sndA' 'tcyK' 'tcyL' 'cmoJ' 'cmoI' 'ribR'],['tcyM'],[],['ssuC' 'ssuB'],['ssuA' 'ssuD'],[]
+ResD and SigA_genes,[],[],[],[],"['nrdI' 'ymaB' 'S878' 'nrdF' 'nrdE' 'resE' 'albG' 'albD' 'S322' 'albF'
  'resD' 'S879' 'albE' 'albA' 'albB']","['albC' 'ctaA' 'S621' 'resB' 'resA' 'qcrA' 'S854' 'glpK' 'qcrC' 'glpF'
  'resC' 'qcrB' 'S1450' 'ywcE' 'sboX']",['S321' 'S1470' 'sboA'],[],[],[],[],[],[],[],[],[],[],[],[],[]
 SigA and NsrR_genes,[],[],[],[],[],[],['narK'],[],[],[],[],[],[],[],[],[],[],[],[],[]
-"SigA, ResD, and NsrR_genes",[],[],[],[],[],['ykoP' 'S477'],['fnr' 'S466' 'nasB' 'nasC'],['ykuP' 'ykuO' 'ykuN'],[],[],['nasE'],['nasF'],['nasD'],[],[],[],['hmp'],['S467'],[],[]
+"ResD, SigA, and NsrR_genes",[],[],[],[],[],['ykoP' 'S477'],['fnr' 'S466' 'nasB' 'nasC'],['ykuP' 'ykuO' 'ykuN'],[],[],['nasE'],['nasF'],['nasD'],[],[],[],['hmp'],['S467'],[],[]
