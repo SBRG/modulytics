@@ -327,9 +327,9 @@
 
     // generate list items
     //genes
-    const geneNameResultItem = ({gene_name, gene_id, product}, searchTerm) => {
+    const geneNameResultItem = ({gene_name, gene_id, gene_product}, searchTerm) => {
         const re = new RegExp(searchTerm, "gi");
-        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i>gene product: ${product}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
+        const formatted = `<span class="result-title">${gene_name} : ${gene_id}</span>  (<i>gene product: ${gene_product}</i>)`.replace(re, (match) => `<u><b>${match}</b></u>`)
         return `<a class="result-link" style="text-decoration: none;" href="gene.html${link_suffix}&gene_id=${gene_id}"><li class="result name-result">${formatted} </li></a>`
     };
     const geneDescResultItem = ({gene_name, gene_id, gene_product}, searchTerm) => {
