@@ -201,6 +201,7 @@
                    aria-expanded="false">Total Database Size</a>
                 <div class="dropdown-menu">
                             <span class="dropdown-item-text">
+                                <p class="im_head_meta_val">Due to ongoing organism additions, this information may be out of date.</p>
                                 <p class="im_head_meta_cat">DATASETS</p>
                                 <p class="im_head_meta_val">5</p>
                                 <p class="im_head_meta_cat">UNIQUE SAMPLES</p>
@@ -241,7 +242,12 @@
                     <ul class="nav navbar-dark flex-column">
                         <li class="nav-item dataset">
                             <a class="nav-link active" href="dataset.html?organism=b_subtilis&dataset=nicolas">
-                                <i class="fas fa-angle-right pr-2"></i>Microarray
+                                <i class="fa fa-star-o pr-2"></i>Microarray
+                            </a>
+                        </li>
+                        <li class="nav-item dataset">
+                            <a class="nav-link active" href="dataset.html?organism=b_subtilis&dataset=modulome">
+                                <i class="fas fa-angle-right pl-2 pr-3"></i>Modulome
                             </a>
                         </li>
                     </ul>
@@ -302,6 +308,28 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Psuedomonas aeruginosa -->
+              <div class="panel">
+                  <div class="panel-header">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed organism" type="button" data-toggle="collapse" data-target="#p_aeruginosa" aria-expanded="false" aria-controls="p_aeruginosa">
+                        <i>P. aeruginosa</i>
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="p_aeruginosa" class="collapse" aria-labelledby="headingThree" data-parent="#organismAccordion">
+                    <div class="panel-body">
+                      <ul class="nav navbar-dark flex-column">
+                          <li class="nav-item dataset">
+                              <a class="nav-link active" href="dataset.html?organism=p_aeruginosa&dataset=modulome"><i class="fas fa-angle-right pr-2"></i>
+                                Modulome
+                              </a>
+                          </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
               <!-- Staphylococcus aureus -->
               <div class="panel">
