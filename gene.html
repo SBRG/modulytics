@@ -281,6 +281,10 @@
             $('#gene_head_text').append('<p class="im_head_meta_val">' + metadata[1][1] + '</p>');
             $('#gene_head_text').append('<p class="im_head_meta_cat">GENE ID</p>');
             $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[1][1] + '</p>');
+            if (qs('organism') == 's_acidocaldarius') {
+                $('#gene_head_text').append('<p class="im_head_meta_cat">OLD LOCUS TAG</p>');
+                $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[8][1] + '</p>');
+            }
             $('#gene_head_text').append('<p class="im_head_meta_cat">PRODUCT</p>');
             if (gene_meta[2][1] == gene_meta[4][1]) {
                 $('#gene_head_text').append('<p class="im_head_meta_val"><i>Not Available</i></p>');

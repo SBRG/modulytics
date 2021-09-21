@@ -431,7 +431,7 @@
 
     // generate gene plots
     $.get(data_prefix + 'gene_table.csv', function (gene_table_data) {
-        generateGeneTable(gene_table_data, "gene_table");
+        generateGeneTable(gene_table_data, "gene_table", params.get('organism'));
     });
     $.get(data_prefix + 'gene_hist.csv', function (gene_hist_data) {
         generateHist(gene_hist_data, "hist");
