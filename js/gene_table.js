@@ -12,7 +12,7 @@ function qs(key) {
 }
 
 // Write table to container 
-function generateGeneTable(csvContent, container) {
+function generateGeneTable(csvContent, container, organism) {
     // get the data
     var data = Papa.parse(csvContent, {dynamicTyping: true}).data;
 
@@ -51,8 +51,19 @@ function generateGeneTable(csvContent, container) {
         },
         {title: "Name", field: "gene_name", headerContextMenu: headerMenu}
     ]
+
+    // add organism-specific columns
+    var tf_column_start = 7
+    if (organism == 's_acidocaldarius') {
+        columns.push({
+            title: "Old Locus Tag", field: "old_locus_tag",
+            headerContextMenu: headerMenu
+        })
+        tf_column_start = 8
+    }
+
     // add TF columns
-    for (j = 7; j < data[0].length - 1; j++) {
+    for (j = tf_column_start; j < data[0].length - 1; j++) {
         columns.push({
             title: data[0][j], field: data[0][j],
             formatter: "tickCross", headerContextMenu: headerMenu
