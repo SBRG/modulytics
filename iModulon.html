@@ -347,10 +347,9 @@
             // iModulon details
             $('#im_head_text').append('<p class="im_head_meta_cat">DATASET</p>');
             $('#im_head_text').append('<p class="im_head_meta_val">'+metadata[1][1]+'</p>');
-            $('#im_head_text').append('<p class="im_head_meta_cat">FUNCTION</p>');
-            if (im_meta[4][1] == null) {
-                $('#im_head_text').append('<p class="im_head_meta_val">Uncharacterized</p>');
-            } else {
+            
+            if (im_meta[4][1] != null) {
+                $('#im_head_text').append('<p class="im_head_meta_cat">FUNCTION</p>');
                 $('#im_head_text').append('<p class="im_head_meta_val">'+im_meta[4][1]+'</p>');
             }
             $('#im_head_text').append('<p class="im_head_meta_cat">CATEGORY</p>');
