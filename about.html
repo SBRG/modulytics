@@ -30,6 +30,9 @@
 
     <!-- Font -->
      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+     
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/a27dabf34d.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
     <style>
@@ -169,7 +172,23 @@
     .dashboard-container{
         border: #5D5C61 0.3rem solid;
         border-radius: 8px;
+        padding: 6px;s
+    }
+    
+    .list-group{
+        border: #5D5C61 0.3rem solid;
+        border-radius: 8px;
+        padding: 6px;s
+    }
+    
+    .list-group-item{
+        border: none;
         padding: 6px;
+        padding-left: 16px;
+    }
+    
+    .list-group-item:hover {
+        background-color: #A8D0E6;
     }
 
     .title-container {
@@ -204,22 +223,19 @@
         
         <ul class="nav navbar-dark">
             <li class="nav-item">
-                <a class="nav-link navbar-dark" href="#basics">Basics</a>
+                <a class="nav-link navbar-dark" href="#introduction">Introduction</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbar-dark" href="#what_is">What is an iModulon?</a>
+                <a class="nav-link navbar-dark" href="#iModulons">iModulons</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-dark" href="#datasets">Datasets & Code</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link navbar-dark" href="#use_site">Using this Site</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbar-dark" href="#dashboard">iModulon Dashboards</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link navbar-dark" href="#citation">Citations</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link navbar-dark" href="#contact">Contact us</a>
+                <a class="nav-link navbar-dark" href="#publications">Publications</a>
             </li>
         </ul>
     </div>
@@ -235,35 +251,87 @@
         <div class="row">
             <p>
                 Welcome to iModulonDB! This is a web-based tool for accessing a database of transcriptomic dataset decompositions. If you are a biologist interested in what machine learning can tell us about the regulation of bacterial gene expression, this site will provide very valuable tools for you.
+            </p>
         </div> 
         
-        <div class="dashboard-container m-3 pt-2">
-            <h5 class="text-center"><a href="https://doi.org/10.1093/nar/gkaa810">Read the iModulonDB Paper<br><small>Nucleic Acids Research, 2021 Database Issue</small></a></h5>
-        </div>
-        
-        <div class="dashboard-container m-3 pt-2">
-            <h5 class="text-center"><a href="https://youtu.be/UmiHapImBuY">Watch a YouTube Video on iModulons</a></h5>
+        <div class="row">
+            <div class="col-12">
+                <ul class="list-group m-3 pt-2">
+                    <h3>Useful Links</h3>
+                    <a href="https://doi.org/10.1093/nar/gkaa810" class="list-group-item list-group-item-action">
+                        <i class="fa-solid fa-newspaper pr-2"></i>
+                        iModulonDB Paper in Nucleic Acids Research, 2021 Database Issue</a>
+                    <a href="https://youtu.be/UmiHapImBuY" class="list-group-item list-group-item-action">
+                        <i class="fa-brands fa-youtube pr-2"></i>
+                        YouTube Video on iModulons</a>
+                    <a href="https://github.com/avsastry/modulome-workflow" class="list-group-item list-group-item-action">
+                        <i class="fa-brands fa-github pr-2"></i>
+                        Modulome Workflow (the iModulon Processing Pipeline)</a>
+                    <a href="https://pymodulon.readthedocs.io/en/latest/" class="list-group-item list-group-item-action">
+                        <i class="fa-brands fa-python pr-2"></i>
+                        PyModulon (the iModulon Analysis and Visualization Python Package)</a>
+                    <a href="mailto:imodulondb@ucsd.edu" class="list-group-item list-group-item-action">
+                        <i class="fa-solid fa-envelope pr-2"></i>
+                        Contact Us (imodulondb@ucsd.edu)</a>
+                </ul>
+            </div>
         </div>
 
         
-        <!-- The basics -->
+        <!-- Introduction -->
         <div class="row subheader mt-0">
             <div class="col-xs-6 title-container">
-                <div id="basics">
-                    <h3 class="text-center">Basics</h3>
+                <div id="introduction">
+                    <h3 class="text-center">Introduction</h3>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-5">
-                <img src="images/transcriptome_ex.png" class="img-fluid"></img>
-            </div>
-            <div class="col-lg-7">
+            <div class="col-12">
                 <p>
-                    This is a transcriptomic dataset. Each column represents an experimental condition that cells were subjected to, and each row represents a gene. Each element is an expression value indicating how active the gene is under the given condition. This dataset has been normalized such that the entire left column, representing the baseline condition of simple growth on glucose, is zero (white), and positive and negative values in other elements indicate that the gene is more or less expressed than it is in the baseline.
+                    All living things need to adapt their gene expression to the situation they are in. The transcriptional regulatory network (TRN) is the system within cells that enables this. For instance, consider the gene <i>glpT</i> in <i>E. coli</i>, which is used to import a specific type of food, glycerol. When glycerol is present in the cell’s media, components of the TRN will sense it and respond by upregulating <i>glpT</i> so that the cell can use it for growth. The TRN controls metabolism, stress responses, growth, and nearly every biological process. It is therefore of particular interest in science to understand how it works.
                 </p><p>
-                    All living things need to adapt their gene expression to the situation that they are in. Genes encode proteins that perform necessary functions, like consuming a specific food source, synthesizing a required building block, or responding to stress. For example, the gene <i>glpT</i> is used to import a specific type of food, glycerol. We can find its row in the dataset and see that when glycerol was in the cell’s media, this gene was upregulated - the cell figured out that this gene was helpful under this condition, and adapted to use it. <b>One of our goals at the SBRG is to understand how and why genes are regulated the way that they are.</b> We are specifically looking for patterns in this type of dataset that give us valuable insights.
+                    Traditional methods for studying the TRN have focused on individual genes and regulators, especially in model organisms. Wet lab microbiologists have spent decades deleting or overexpressing particular genes, making hypotheses about the effects, and testing them in drill-down studies. In this way, researchers have built a <b>bottom-up</b> understanding of how the TRN works. This approach is very important for making confident claims about individual systems, but it is time-consuming, costly, and often fails to support mathematical models of global gene expression. 
+                
+                </p><p>
+                    Thus, we have developed a new approach which creates a <b>top-down</b> perspective on the TRN. We start with a transcriptomic dataset, which measures the expression of each gene under several conditions. There are thousands of genes in any given organism, and we hope to understand as much of the data as possible – therefore, we need to use machine learning to look for patterns in that dataset which give us valuable insight into the underlying regulation. 
                 </p>
+            </div>
+        </div><div class="row">
+            <div class="col-12">
+                <div class="dashboard-container mt-2">
+                    <h5>Applications of this Knowledge</h5>
+                    <p>Why study bacterial transcriptional regulation?</p>
+                    <ul>
+                        <li><b>Disease and Antimicrobials:</b> Some of the bacteria we study, such as <i>tuberculosis</i>, cause important diseases. They make us sick by adapting their gene expression to their host environment, and understanding the process by which they do that can help us to better fight disease. The insights we gain into how bacteria respond to stress also help the field develop new antibiotics.</li>
+                        <li><b>Bacterial cell factories:</b> Bacteria are used to produce a ton of products for humans, such as pharmaceuticals and biofuels, and understanding how they regulate their genes improves the existing efficiency and opens doors to producing new products.</li>
+                        <li><b>Understand evolution:</b> Knowledge of how gene expression changes in small-scale evolution experiments and across the phylogenetic tree can tell us how organisms change in general, which might help us in fighting future pandemics.
+                        <li><b>Future applications to other organisms:</b> Technology developed for bacteria can eventually be useful in more complex organisms, like humans. This would be applicable to understanding any human disease with a genetic component.
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="dashboard-container mt-2">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img src="images/transcriptome_ex.png" class="img-fluid"></img>
+                        </div>
+                        <div class="col-md-7">
+                            <h5>Introduction to Transcriptomic Data</h5>
+                            <p>
+                                This is a transcriptomic dataset. Each column represents an experimental condition that cells were subjected to, and each row represents a gene. Each element is an expression value indicating how active the gene is under the given condition (typically measured using RNA-sequencing or microarrays). This dataset has been normalized such that the entire left column, representing the baseline condition of simple growth on glucose, is zero (white), and positive and negative values in other elements indicate that the gene is more or less expressed than it is in the baseline. At iModulonDB, we generate some of the datasets we analyze in-house and download many of them from online sources such as the Sequence Read Archive.
+                            </p>
+                            <h5>Problems in Transcriptomics</h5>
+                            <ul>
+                                <li>There are an extremely large number of genes - it would be nice if they were grouped together into a smaller number of variables.</li>
+                                <li>We want to know the activity of the underlying genetic regulators, and which regulators are most important.</li>
+                                <li>Some genes are completely unstudied - can we guess their function and regulation?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card mt-2">
@@ -272,41 +340,14 @@
             <h5 class="text-center"><i>glpA</i></h5>
             <div id="glpa_bar" style="width: 100%;height: 250px;"></div>
             <p class="card-body">
-                Each of these plots represents a row from the dataset as a bar graph.  We show two related genes: <i>glpT</i>, which imports glycerol, and <i>glpA</i>, which helps break down glycerol. The x axis labels are names given to the various projects in which the samples were collected (for example, ssw stands for "substrate-switching", in which we switched between various substrates). Hovering over the tallest bars reveals which conditions cause each of the genes to be upregulated. You will notice that in both graphs, activity is highest when glycerol is the carbon source. It would be convenient to treat both of these genes as part of a single glycerol-consumption unit in the transcriptome - the goal of our approach is to find all such units with unsupervised machine learning.
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="dashboard-container mt-2 p-5">
-                    <h5 class="text-center">Have a dataset you'd like us to work with? <a href="#contact">Contact us.</a></h5>
-                </div>
-                <div class="dashboard-container mt-2">
-                    <h5>Problems in Transcriptomics</h5>
-                    <ul>
-                        <li>There are an extremely large number of genes - it would be nice if they were grouped together into a smaller number of variables.</li>
-                        <li>We want to know the activity of the underlying genetic regulators, and which regulators are most important.</li>
-                        <li>Some genes are completely unstudied - can we guess their function and regulation?</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="dashboard-container mt-2">
-                    <h5>Applications of this Knowledge</h5>
-                    <p>Why study bacterial transcriptomics?</p>
-                    <ul>
-                        <li><b>Antibiotic development and resistance:</b> We can learn how bacteria respond to stress, which helps the field develop better antibiotics.</li>
-                        <li><b>Bacterial cell factories:</b> Bacteria are used to produce a ton of products for humans, such as pharmaceuticals and biofuels, and understanding how they regulate their genes improves the existing efficiency and opens doors to producing new products.</li>
-                        <li><b>Understand evolution:</b> Knowledge of how gene expression changes in small-scale evolution experiments and across the phylogenetic tree can tell us how organisms change in general, which might help us in fighting future pandemics.
-                        <li><b>Future applications to other organisms:</b> Technology developed for bacteria can eventually be useful in more complex organisms, like humans. This would be applicable to understanding any human disease with a genetic component.
-                    </ul>
-                </div>
-            </div>
+                Each of these plots represents a row from the dataset as a bar graph.  We show two related genes: <i>glpT</i>, which imports glycerol, and <i>glpA</i>, which helps break down glycerol. The x axis labels are names given to the various projects in which the samples were collected (for example, "Acid" refers to a project done in acidic media with deletion of various acid response regulators). Hovering over the tallest bars reveals which conditions cause each of the genes to be upregulated. You will notice that in both graphs, activity is highest when glycerol is the carbon source. It would be convenient to treat both of these genes as part of a single glycerol-consumption unit in the transcriptome - the goal of our approach is to find all such units with unsupervised machine learning.
         </div>
         
         <!-- What is an iModulon? -->
         <div class="row subheader">
             <div class="col-xs-6 title-container">
-                <div id="what_is">
-                    <h3 class="text-center">What is an iModulon?</h3>
+                <div id="iModulons">
+                    <h3 class="text-center">iModulons</h3>
                 </div>
             </div>
         </div>
@@ -314,7 +355,7 @@
             <p>
                 Data scientists have developed machine learning algorithms that can address the problems described above. Unsupervised machine learning algorithms can identify patterns and structures underlying big datasets by simply using the information in the dataset itself. Independent Component Analysis (ICA) is one such method, and it has outperformed many other algorithms in detecting co-regulated gene sets.
             </p><p>
-                By running the ICA algorithm on a transcriptomic dataset (see our <a href="https://github.com/SBRG/precise-db">github</a>), we generate a set of iModulons. <b>Each iModulon is a group of genes that represents an <u>i</u>ndependently <u>modul</u>ated signal</b>, which the cell is probably controlling using the same or related regulators. Mathematically, an iModulon has a weight for each gene and an activity for each condition. The highly weighted genes are iModulon members, and the highly active conditions are those that the iModulon is likely performing a function in. We characterize an iModulon by interpreting its gene members and activity levels. For example, the <a href="iModulon.html?organism=e_coli&dataset=precise1&k=1">glpR iModulon</a> contains all the genes that are associated with digesting glycerol, and it is active when glycerol is present in the media. We named it 'GlpR' because that is the name of the transcription factor that co-regulates all of its genes.
+                By running the ICA algorithm on a transcriptomic dataset (see our <a href="https://github.com/avsastry/modulome-workflow">github</a>), we generate a set of iModulons. <b>Each iModulon is a group of genes that represents an <u>i</u>ndependently <u>modul</u>ated signal</b>, which the cell is probably controlling using the same or related regulators. Mathematically, an iModulon has a weight for each gene and an activity for each condition. The highly weighted genes are iModulon members, and the highly active conditions are those that the iModulon is likely performing a function in. We characterize an iModulon by interpreting its gene members and activity levels. For example, the <a href="iModulon.html?organism=e_coli&dataset=precise1&k=1">glpR iModulon</a> contains all the genes that are associated with digesting glycerol, and it is active when glycerol is present in the media. We named it 'GlpR' because that is the name of the transcription factor that co-regulates all of its genes.
             </p>
         </div>
         <div class="row">
@@ -346,7 +387,9 @@
                 <li><b>iModulon Activity:</b> Analogous to gene expression, iModulon activity represents how much of the iModulon genes are present under a given condition. Input data is normalized so that the base condition always has activity of zero. The units are the same as the initial dataset, but they result from matrix multiplication which makes them dependent on the gene weight distribution.</li>
                 <li><b>Independence:</b> The underlying assumption behind ICA is that each transcription factor has an independent effect across the genome. This means that merely knowing the targets of one regulator does not provide any information on the targets of another regulator. Unlike other matrix decomposition algorithms like PCA, ICA uses statistical independence to define the iModulons it finds. This means that iModulons are not always orthogonal to one another.</li>
                 <li><b>Linear Additivity:</b> iModulons obey matrix multiplication rules. A gene can be in more than one iModulon; when this happens, the action of both iModulons add together to determine gene expression, in a manner proportional to the gene weights.</li>
-                <li><b>Reconstruction:</b> The iModulon matrices “decompose” the transcriptomic matrix. This means we can reconstruct the initial data using the iModulons, and compare them. In our original paper on this topic, the iModulons accounted for 76% of the variance in the original data. This means that the genes in iModulons are the most important ones for explaining what is happening in the original data, and everything else only counts for 24%.</li>
+                <li><b>Reconstruction:</b> The iModulon matrices “decompose” the transcriptomic matrix. This means we can reconstruct the initial data using the iModulons, and compare them. In our original paper on this topic, the iModulons accounted for 76% of the variance in the original data. The genes in iModulons are the most important ones for explaining what is happening in the original data, and everything else only counts for 24%.</li>
+                <li><b>PRECISE:</b> <u>P</u>recision <u>R</u>NA-seq <u>E</u>xpression <u>C</u>ompendium for <u>I</u>ndependent <u>S</u>ignal <u>E</u>xtraction, typically followed by the number of included samples. This is the name we use for datasets that were generated in full or part by our lab.
+                <li><b>Modulome:</b> The set of all computable iModulons from available data, and the name of our project to download publicly available data and analyze it with our pipeline. When a dataset is a combination of samples from other labs, we name it after this project (e.g. <i>M. tuberculosis</i> Modulome).
             </ul>
         </div>
         <div class="row">
@@ -383,6 +426,7 @@
                 <li><b>Grouping genes together:</b> Let’s say you’re a biologist interested in a specific gene. Check out the database (by using the <a href="search.html?organism=e_coli&dataset=precise1"> search functionality</a> for your organism of choice) to learn which other genes share an iModulon with it - now you know which other players are on its team, so to speak. This assists with characterizing unknown genes and better understanding biological responses. <a href="https://www.nature.com/articles/s41467-019-13483-w#figure-2">We have used our gene groupings to identify new gene-regulator relationships, and validated them using chip-exo.</a></li>
                 <li><b>Discovering new regulators:</b> Uncharacterized groups of genes that show up in iModulons together are likely co-regulated by some unknown mechanism. <a href="https://doi.org/10.1101/2020.05.03.074617">We have discovered new regulators this way.</a> <a href="https://doi.org/10.1101/2020.06.23.168344">We have also used iModulons to identify novel relationships among two-component regulators, impying cross-regulation.</a></li>
                 <li><b>Understanding cellular function and activity:</b> When faced with the activity profile of an iModulon, we can try to connect its function and activity. This was easy in the case of glycerol: any time glycerol is present, the glpR iModulon becomes activated. Other cases are not so self-explanatory, and may point to interesting hypotheses. <a href="https://doi.org/10.1101/2020.04.26.062638">Many of them were explored in <i>Bacillus subtilis.</i></a></li>
+                <li><b>Projecting new data:</b> If you have your own datasets for one of the organisms we have analyzed, you can <a hre="https://pymodulon.readthedocs.io/en/latest/tutorials/inferring_imodulon_activities_for_new_data.html">easily calculate the iModulon activities</a>. You can then perform <a href="https://pymodulon.readthedocs.io/en/latest/tutorials/plotting_functions.html#Differential-iModulon-activity">differential iModulon activity calculations between your conditions of interest</a> and visit our web pages to learn about your most significant iModulons. Instead of analyzing hundreds of differentially expressed genes, this will simplify your analysis to only a handful of iModulons.
             </ul>
         </div>
         <div class="dashboard-container m-3 p-2">
@@ -394,8 +438,8 @@
                         <li>The identification of binding sites is a costly and difficult experimental procedure, and it often doesn’t capture the full picture since promoter binding is complicated and condition-dependent.</li>
                         <li>By matching iModulons to regulons (we say the iModulon is <b>enriched</b> for the given regulon), we can easily learn what likely regulates the iModulon. We can also look at the differences between regulons and iModulons to identify gaps in the field’s current knowledge. <a href="https://www.nature.com/articles/s41467-019-13483-w#figure-2">MetJ is one example</a>, in which we showed that the extra iModulon genes were in fact regulated by MetJ and the genes the iModulon missed did not have MetJ binding sites.</li>
                         <li>The strength of an enrichment is quantified by precision and recall. If both precision and recall are high, then the iModulon has captured a regulon that is well understood by the existing literature.</li>
-                        <li>Precision is the fraction of iModulon genes that are known to be in the regulon. If precision is low, the iModulon may contain extra genes that are unexpectedly co-regulated with the regulon.</li>
-                        <li>Recall is the fraction of regulon genes that are in the iModulon. If recall is low, the iModulon contains a subset of the regulon, which may be because there are additional nuances to the regulation or that the iModulon genes respond the strongest to the given regulator.</li>
+                        <li>Precision (or iModulon Recall) is the fraction of iModulon genes that are known to be in the regulon. If precision is low, the iModulon may contain extra genes that are unexpectedly co-regulated with the regulon.</li>
+                        <li>Recall (or Regulon Recall) is the fraction of regulon genes that are in the iModulon. If recall is low, the iModulon contains a subset of the regulon, which may be because there are additional nuances to the regulation or that the iModulon genes respond the strongest to the given regulator.</li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -404,6 +448,49 @@
                     <p class="text-center">Precision = 11/17 = 64.7%</p>
                     <p class="text-center">Recall = 11/15 = 73.3%</p>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Datasets & Code-->
+        <div class="row subheader">
+            <div class="col-xs-6 title-container">
+                <div id="datasets">
+                    <h3 class="text-center">Datasets & Code</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    iModulon structures are computed from datasets, so the quality and breadth of the data is extremely important.For our original analysis, we developed PRECISE-278 (Formerly PRECISE 1), the <u>P</u>recision <u>R</u>NA-seq <u>E</u>xpression <u>C</u>ompendium for <u>I</u>ndependent <u>S</u>ignal <u>E</u>xtraction with 278 diverse samples from <i>E. coli</i> K-12. We have also developed PRECISE datasets in other organisms, such as <i>S. aureus</i>.
+                </p><p>
+                    One of the strengths of ICA is that it requires only transcriptomic data, which means we can also re-use existing, publicly available data. We analyzed a single-lab microarray dataset on <i>B. subtilis</i> and <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008647">showed that different datasets and transcriptomic technologies generally return similar iModulons.</a>
+                </p><p>
+                    Next, we sought to apply this approach across the evolutionary tree of prokaryotes. We scraped the Sequence Read Archive for datasets from its most popular prokaryotic strains, and combined all high quality data for analysis. Since this works towards the goal of finding the set of all computable iModulons, we named these projects “Modulome”. iModulonDB rapidly expanded in its first two years thanks to this project. See our home page for the list of all organisms we have analyzed so far.
+                </p>
+            </div>
+        </div>
+        
+        <div id="good_dataset" class="dashboard-container m-3 p-2">
+            <h5>What Makes a Good Dataset?</h5>
+            <ul>
+                <li><b>High quality:</b> We use rigorous quality control to ensure that the original sequencing reads are not degraded or contaminated, that they align well to the genome of the organism, and that samples collected from the same experimental conditions have highly correlated values.</li>
+                <li><b>Consistent underlying TRN:</b> Datasets are mostly strain-specific. Though we often include mutants from adaptive laboratory evolution studies or closely related strains, we don’t analyze distantly related organisms in the same iModulon decomposition. Doing so might include differences in the underlying TRN, which would muddy the gene-iModulon relationships. When small strain differences are present in the dataset, we typically observe an iModulon which captures the difference between the strains.</li>
+                <li><b>Large number of unique conditions:</b> We suggest that a dataset include at least 100 different conditions which should include various media compositions, stress conditions, and any experiments of particular interest. If there are too few conditions or they are all too similar, then ICA will recover a small number of iModulons which will mostly contain many genes each, representing combined effects of many regulators. As more samples are added, the large iModulons split and resolve into more biologically accurate individual signals. </li>
+                <li><b>Minimal batch effects:</b> Data generated from a single protocol can be normalized to one reference condition (for instance, <i>E. coli</i> PRECISE, which was all generated by our group). When we download data from multiple labs, we normalize each project’s data to its own reference condition. This will remove many batch effects such that ICA can capture the signals underlying all changes from reference, not the changes based on batch. However, if there are a few batch effects remaining in the data, ICA will also separate them into their own technical iModulons.</li>
+
+            </ul>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <ul class="list-group m-3 pt-2">
+                    <h3>Our Codebases</h3>
+                    <a href="https://github.com/avsastry/modulome-workflow" class="list-group-item list-group-item-action">
+                        <i class="fa-brands fa-github pr-2"></i><b>Modulome-Workflow:</b> contains the pipeline for scraping publicly available data for an organism, aligning reads, quality control, and computing iModulons</a>
+                    <a href="https://github.com/SBRG/pymodulon" class="list-group-item list-group-item-action">
+                        <i class="fa-brands fa-github pr-2"></i><b>Pymodulon:</b> saves iModulon-related data, performs computations such as threshold determination, TRN enrichment analysis, and explained variance, generates plots, and also generates the files needed to create iModulonDB web pages. See our ReadTheDocs for more information.</a>
+                </ul>
             </div>
         </div>
         
@@ -425,14 +512,6 @@
             </p>
         </div>
         
-        <!-- Dashboard Overview -->
-        <div class="row subheader">
-            <div class="col-xs-6 title-container">
-                <div id="dashboard">
-                    <h3 class="text-center">iModulon Dashboard Overview</h3>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <p>
                 For a description of each of the figures shown on the iModulon dashboards <b>hover over</b> the various components of <a href="iModulon.html?organism=e_coli&dataset=precise1&k=12">the example “MalT” iModulon</a> below:
@@ -447,7 +526,7 @@
                         <div class="desc-overlay" >
                             <h6>Name and Description</h6>
                             <p>
-                                Here, the iModulon name is given in large font. Below, several descriptors are given, including the biological function and category of iModulon. If the iModulon is found to map to a known regulator, then the "Regulated by" descriptor will be followed by the regulator name. If available, the regulator name will appear as a link to the appropriate database (e.g. RegulonDB).
+                                Here, the iModulon name is given in large font. Below, several descriptors are given, including the biological function and category of iModulon. If the iModulon is found to map to a known regulator, then the "Regulated by" descriptor will be followed by the regulator name. If available, the regulator name will appear as a link to the appropriate database (e.g. RegulonDB). Other statistics, such as the Precision, Recall, and Explained Variance are also shown.
                             </p>
                         </div>
                     </div>
@@ -457,17 +536,18 @@
                         <img src="images/mod_table.png" class="desc-image">
                         <div class="desc-overlay">
                             <h6>Gene Table</h6>
-                            <p  class="mb-0" style="font-size: 11px">
-                                The gene table lists the genes in an iModulon. Clicking a row will take you to a relevant database (e.g. Ecocyc) for that gene. This table is scrollable in both directions. Clicking the arrows in the header sorts the contents by the given feature, and right clicking on the header allows columns to be moved to the right end or hidden. This table is also downloadable from the "Download" dropdown menu in the site header.
+                            <p  class="mb-0" style="font-size: 12px">
+                                The gene table lists the genes in an iModulon. Clicking a row will take you to the gene page for that gene. This table is scrollable in both directions. Clicking the arrows in the header sorts the contents by the given feature, and right clicking on the header allows columns to be moved to the right end or hidden. This table is also downloadable from the "Download" dropdown menu in the site header.
                             </p>
                             <ul class="text-left mt-0">
-                                <li>Column 1: Gene locus tag</li>
-                                <li>Column 2 (M<sub>i</sub>): ICA-determined gene weight</li>
-                                <li>Column 3 (Name): Gene Name</li>
-                                <li>Column 4: Regulated by transcription factor (or other regulator)</li>
-                                <li>Column 5 (Product): Description of gene product</li>
-                                <li>Column 6 (Operon): Genes in the same operon</li>
-                                <li>Column 7 (Regulators): List of known regulators for this gene</li>
+                                <li>Gene locus tag</li>
+                                <li>(M<sub>i</sub>): ICA-determined gene weight</li>
+                                <li>Name: Gene Name</li>
+                                <li>Regulated by transcription factor (or other regulator): Green checks indicate that the relationship between the gene and the iModulon’s regulator is known in other databases or literature. </li>
+                                <li>Product: Description of gene product from other databases</li>
+                                <li>Operon: If available, genes in the same operon</li>
+                                <li>Regulators: List of known regulators for this gene</li>
+
                             </ul>
                         </div>
                     </div>
@@ -497,7 +577,7 @@
                         <div class="desc-overlay">
                             <h6>Gene Weight Scatter Plot</h6>
                             <p>
-                               Similar to the gene histogram, the gene weight scatter plot shows the weight of each gene towards the signal. In this figure, the gene weights are plotted against the gene expression in the control condition. They are colored by category. Again, genes outside the horizontal lines are in the iModulon – click on them to access their entries in a relevant database. Gene names, values, and categories can be displayed by hovering over each point.
+                               Similar to the gene histogram, the gene weight scatter plot shows the weight of each gene towards the signal. In this figure, the gene weights are plotted against the gene start site. They are colored by category. Again, genes outside the horizontal lines are in the iModulon – click on them to access their gene pages. Gene names, values, and categories can be displayed by hovering over each point.
                             </p>
                         </div>
                     </div>
@@ -516,7 +596,7 @@
                         <div class="desc-overlay">
                             <h6>Activity Bar Graph</h6>
                             <p>
-                                The activity bar graph shows the relative activity level of the iModulon across all the experimental samples included in the dataset. The plot is divided by the source study for the dataset, and clicking a bar will take you to the associated publication. The black points represent each biological replicate for the sample, and the blue bars represent the averaged activity from the biological replicates. Hovering over the data shows the sample name, the activity value, and some associated metadata. The menu in the top right of the figure includes additional options to download the figure or underlying data. 
+                                The activity bar graph shows the relative activity level of the iModulon across all the experimental samples included in the dataset. The plot is divided by the source study for the dataset, and clicking a bar will take you to the associated publication. The black points represent each biological replicate for the sample, and the blue bars represent the averaged activity from the biological replicates. Hovering over the data shows the sample name, the activity value, and some associated metadata. The menu in the top right of the figure includes additional options to download the figure or underlying data. The wrench icon allows you to see all the metadata we have for these samples; metadata with a checkmark will be displayed when you hover over a given bar. Click the ink button to color the samples in the bar by that metadata. For example, clicking the pH ink will color each sample by pH to easily reveal which samples are under acid or base stress.
                             </p>
                         </div>
                     </div>
@@ -557,17 +637,48 @@
         <!-- Citation -->
         <div class="row subheader">
             <div class="col-xs-6 title-container">
-                <div id="citation">
-                    <h3 class="text-center">Citations</h3>
+                <div id="publications">
+                    <h3 class="text-center">Publications</h3>
                 </div>
             </div>
         </div>
         <div class="row">
-            <p>
-                Please cite the iModulonDB paper as well as the paper(s) associated with the organism(s) of interest.
-                <br>
-            </p>
+            <div class="col-12">
+                <ul class="list-group m-3 pt-2">
+                    <h3>iModulonDB</h3>
+                    <a href="https://doi.org/10.1093/nar/gkaa810" class="list-group-item list-group-item-action">
+                        <i class="fa-solid fa-newspaper pr-2"></i>Rychel, K., Decker, K., Sastry, A.V. et al. iModulonDB: a knowledgebase of microbial transcriptional regulation derived from machine learning. Nucleic Acids Research 49, D112 (2021).</a>
+                </ul>
+                <ul class="list-group m-3 pt-2">
+                    <h3>Datasets on iModulonDB</h3>
+                    <a href="https://doi.org/10.1038/s41467-019-13483-w" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>E. coli</i> PRECISE-278:</b> Sastry, A.V., Gao, Y., Szubin, R. et al. The Escherichia coli transcriptome mostly consists of independently regulated modules. Nat Commun 10, 5536 (2019).</a>
+                    <a href="https://doi.org/10.1073/pnas.2008413117" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>S. aureus Staph</i>PRECISE:</b> Poudel, S., Tsunemoto, H., Seif, Y. et al. Revealing 29 sets of independently modulated genes in Staphylococcus aureus, their regulators and role in key physiological responses. PNAS 117 (29) 17228-17239 (2020).</a>
+                    <a href="https://doi.org/10.1038/s41467-020-20153-9" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>B. subtilis</i> Microarray:</b> Rychel, K., Sastry, A.V., Palsson, B.O. Machine learning uncovers independently regulated modules in the Bacillus subtilis transcriptome. Nat Commun 11, 6338 (2020).</a>
+                    <a href="https://doi.org/10.3389/fmicb.2021.753521" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>S. acidocaldarius</i> Modulome:</b> Chauhan, S.M., Poudel, S., Rychel, K. et al. Machine Learning Uncovers a Data-Driven Transcriptional Regulatory Network for the Crenarchaeal Thermoacidophile <i>Sulfolobus acidocaldarius</i>. Front. Microbiol. 12, 753521 (2021).</a>
+                    <a href="https://doi.org/10.1128/msphere.00033-22" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>M.tuberculosis</i> Modulome:</b> Yoo, R., Rychel, K., Sastry, A.V., et al. Machine Learning of All <i>Mycobacterium tuberculosis</i> H37Rv RNA-seq Data Reveals a Structured Interplay between Metabolism, Stress Response, and Infection. mSphere. 7(2):e0003322 (2022).</a>
+                    <a href="https://doi.org/10.1093/nar/gkac187" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>P. aeruginosa aeru</i>PRECISE-364:</b> Rajput, A., Tsunemoto, H., Sastry, A.V. et al. Machine Learning of <i>Pseudomonas aeruginosa</i> transcriptomes identifies independently modulated sets of genes associated with known transcriptional regulators. Nucleic Acids Research 50, 3658 (2022)</a>
+                    <a href="https://doi.org/10.1016/j.ymben.2022.04.004" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>P. putida putida</i>PRECISE-321:</b> Lim, H.G., Rychel, K., Sastry, A.V. et al. Machine-learning from <i>Pseudomonas putida</i> KT2440 transcriptomes reveals its transcriptional regulatory network. Metab Eng 27, 297 (2022)</a>
+                    <a href="https://doi.org/10.1101/2022.04.04.487074" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>P. aeruginosa aeru</i>PRECISE-411:</b> Rajput, A., Tsunemoto, H., Sastry, A.V. et al. Advanced transcriptomic analysis reveals the role of efflux pumps and media composition in antibiotic responses of <i>Pseudomonas aeruginosa</i>. Forthcoming.</a>
+                    <a href="https://doi.org/10.1101/2021.04.08.439047" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>E. coli</i> PRECISE-1k & Modulome:</b> Lamoureux, C.R., Decker, K.T., Sastry, A.V. et al. PRECISE 2.0 - an expanded high-quality RNA-seq compendium for Escherichia coli K-12 reveals high-resolution transcriptional regulatory structure. Forthcoming.</a>
+                    <a href="https://doi.org/10.1101/2022.01.11.475931" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>S. Enterica</i> Modulome:</b> Yuan, Y., Seif, Y., Rychel, K. et al. Pan-genomic analysis of transcriptional modules across Salmonella Typhimurium reveals the regulatory landscape of different strains. Forthcoming.</a>
+                    <a href="https://doi.org/10.1101/2021.07.01.450581" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i><b><i>B. subtilis</i> Modulome:</b> Sastry, A.V., Poudel, S., Rychel, K., et al. Mining all publicly available expression data to compute dynamic microbial transcriptional regulatory networks. Forthcoming.</a>
+                </ul>
+                <ul class="list-group m-3 pt-2">
+                    <h3>Additional iModulon-related Papers</h3>
+                    <a href="https://doi.org/10.1073/pnas.1909987116" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Anand, A. et al. Adaptive evolution reveals a tradeoff between growth rate and oxidative stress during naphthoquinone-based aerobic respiration. PNAS 116 (50) 25287-25292 (2019).</a>
+                    <a href="https://doi.org/10.1093/molbev/msz251" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Anand, A. et al. OxyR Is a Convergent Target for Mutations Acquired during Adaptation to Oxidative Stress-Prone Metabolic States. Mol Biol Evol 37 (3) 660-667 (2020).</a>
+                    <a href="https://doi.org/10.1016/j.ymben.2020.07.002" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Tan, J. et al. Independent component analysis of <i>E. coli</i>'s transcriptome reveals the cellular processes that respond to heterologous gene expression. Metab Eng 61 360-368 (2020).</a>
+                    <a href="https://doi.org/10.1128/mSystems.00980-20" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Choudhary, K.S. et al. Elucidation of Regulatory Modes for Five Two-Component Systems in <i>Escherichia coli</i> Reveals Novel Relationships. mSystems 5(6):e00980 (2020).</a>
+                    <a href="https://doi.org/10.1371/journal.pcbi.1008647" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Sastry, A.V. et al. Independent component analysis recovers consistent regulatory signals from disparate datasets. PLoS Comput Biol 17(2):e1008647 (2021).</a>
+                    <a href="https://doi.org/10.1016/j.celrep.2021.108961" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Anand, A. et al. Restoration of fitness lost due to dysregulation of the pyruvate dehydrogenase complex is triggered by ribosomal binding site modifications. Cell Rep 35(1) 108961 (2021).</a>
+                    <a href="https://doi.org/10.1038/s42003-021-02516-0" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Rodionova, I.A. et al. Identification of a transcription factor, PunR, that regulates the purine and purine nucleoside transporter <i>punC</i> in <i>E. coli</i>. Commun Biol. 4 (1) 991 (2021).</a>
+                    <a href="https://doi.org/10.1128/mSphere.00443-21" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Sastry, A.V. et al. Machine Learning of Bacterial Transcriptomes Reveals Responses Underlying Differential Antibiotic Susceptibility. mSphere 6(4):e0044321 (2021).</a>
+                    <a href="https://doi.org/10.1186/s12859-021-04497-7" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>McConn, J.L. et al. Optimal dimensionality selection for independent component analysis of transcriptomic data. BMC Bioinformatics 22 (1) 584 (2021).</a>
+                    <a href="https://doi.org/10.1038/s41598-022-11134-7" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Rodionova, A.I., Gao, Y. et al. A systems approach discovers the role and characteristics of seven LysR type transcription factors in <i>Escherichia coli</i>. Sci Rep 12 (1) 7274 (2022).</a>
+                    <a href="https://doi.org/10.1101/2020.05.19.104992" class="list-group-item list-group-item-action"><i class="fa-solid fa-newspaper pr-2"></i>Kavvas, E.S. et al. Laboratory evolution of multiple E. coli strains reveals unifying principles of adaptation but diversity in driving genotypes. Forthcoming.</a>
+            </div>
         </div>
+        <!--
         <div class="row">
             <h5>iModulonDB: Rychel, et al.</h5>
             <p>
@@ -621,7 +732,7 @@
                 <a href="https://doi.org/10.1101/2022.01.11.475931">Yuan, Y., Seif, Y., Rychel, K. et al. Pan-genomic analysis of transcriptional modules across Salmonella Typhimurium reveals the regulatory landscape of different strains. Forthcoming.</a>
             </p>
         </div>
-        
+        -->
         <!-- Contact -->
         <div class="row subheader">
             <div class="col-xs-6 title-container">
