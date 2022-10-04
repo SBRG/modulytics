@@ -300,9 +300,10 @@
                 $('#gene_head_text').append('<p class="im_head_meta_cat">REGULATOR</p>');
                 $('#gene_head_text').append('<p class="im_head_meta_val">' + regulator_name + '</p>');
             }
-            $('#gene_head_text').append('<p class="im_head_meta_cat">ADDITIONAL INFORMATION</p>');
-            $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[7][1] + '</p>');
-
+            if (gene_meta[7][1] != '<i>Not Available</i>') {
+                $('#gene_head_text').append('<p class="im_head_meta_cat">ADDITIONAL INFORMATION</p>');
+                $('#gene_head_text').append('<p class="im_head_meta_val">' + gene_meta[7][1] + '</p>');
+            }
             // change page title
             document.title = 'iModulonDB: ' + gene_meta[1][1];
         });
@@ -328,6 +329,12 @@
         for (i = 1; i < data.length - 1; i++) { //rows, excluding header
             var obj = {};
             for (j = 0; j < data[0].length; j++) { //cols
+                if (typeof data[i][j] === 'string') {
+                    if (data[i][j].includes('<a')) {
+                        data[i][j] = data[i][j].split('<a')[0]
+                    }
+                }
+
                 obj[data[0][j]] = data[i][j];
             }
 
