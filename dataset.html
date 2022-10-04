@@ -247,6 +247,12 @@
         for (i = 1; i < data.length - 1; i++) { //rows, excluding header
             var obj = {};
             for (j = 0; j < data[0].length; j++) { //cols
+                
+                if (typeof data[i][j] === 'string') {
+                    if (data[i][j].includes('<a')) {
+                        data[i][j] = data[i][j].split('<a')[0]
+                    }
+                }
                 obj[data[0][j]] = data[i][j];
             }
 
