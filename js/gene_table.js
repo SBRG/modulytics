@@ -62,6 +62,15 @@ function generateGeneTable(csvContent, container, organism) {
         tf_column_start = 8
     }
 
+    // adjust TF column start for missing data
+    var columns_to_check = ["cog", "operon", "regulator"]
+    for (i = 0; i < columns_to_check.length; i++) {
+        if (!data[0].includes(columns_to_check[i])) {
+            console.log(columns_to_check[i])
+            tf_column_start = tf_column_start - 1
+        }
+    }
+    
     // add TF columns
     for (j = tf_column_start; j < data[0].length - 1; j++) {
         columns.push({
