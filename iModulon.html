@@ -321,7 +321,14 @@
     // add links specific to this dataset
     document.getElementById("im_list").setAttribute('href', "dataset.html" + link_suffix);
     document.getElementById("gene_search_link").setAttribute('href', "search.html"+link_suffix);
-    document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
+
+    console.log(params.get('dataset'))
+
+    if (params.get('dataset') == 'precise1k') {
+        document.getElementById('data_download').setAttribute('href', 'https://www.dropbox.com/s/p9wfadei4heup1v/p1k_data_files.zip?dl=0');
+    } else {
+        document.getElementById('data_download').setAttribute('href', org_folder + 'data_files.zip');
+    }
     document.getElementById('gene_download').setAttribute('href', 'organisms/' + params.get('organism') + '/annotation/gene_files.zip');
     document.getElementById('meta_download').setAttribute('href', org_folder + 'data_files/sample_table.csv');
 
