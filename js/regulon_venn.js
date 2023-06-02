@@ -22,10 +22,6 @@
     var comp_list = data[3][2].slice(2, -2).replace(/(?:\r\n|\r|\n)/gi, "").replace(/' '/gi, ", ");
     var both_list = data[4][2].slice(2, -2).replace(/(?:\r\n|\r|\n)/gi, "").replace(/' '/gi, ", ");
     
-    if (reg_list.length > 1000) {
-        reg_list = reg_list.slice(0, 1000) + '...';
-    }
-    
     // set up plot
     var myChart = Highcharts.chart(container, {
        accessibility: {
